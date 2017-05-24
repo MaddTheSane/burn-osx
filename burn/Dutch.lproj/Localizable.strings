@@ -32,7 +32,7 @@
 "Creating DVD Theme" = "Maakt DVD Thema aan";
 "Copying disc" = "Kopieert schijf";
 "Choose a location to save the muxed file" = "Kies een locatie om het gemuxte bestand te bewaren";
-"Select to copy a disc or disk image" = "Selecteer om een schijf of schijfkopie te kopie\U00ebren";
+"Select to copy a disc or disk image" = "Selecteer om een schijf of schijfkopie te kopieëren";
 "This file can't be converted" = "Dit bestand kan niet worden geconverteerd";
 "Burn failed to encode some files" = "Brand kon sommige bestanden niet converteren";
 "Choose a location to save the re-muxed files" = "Kies een locatie om de her-gemuxte bestanden te bewaren";
@@ -60,7 +60,7 @@
 "Closing session" = "Sluit sessie";
 "Ready to burn" = "Klaar om te branden";
 "UDxx" = "Schijfkopie (UDIF-stub)";
-"Finished converting 1 file" = "E\U00e9n bestand succesvol geconverteerd";
+"Finished converting 1 file" = "Eén bestand succesvol geconverteerd";
 "%@ (No audio/video)" = "%@ (Geen audio/video)";
 "Failed to eject" = "Verwijderen schijf mislukt";
 "Authoring failed" = "Authorizeren mislukt";
@@ -100,7 +100,7 @@
 "Failed to copy '%@' to '%@'. %@" = "Kopieeren van '%@' naar '%@'. %@";
 "Choose a location to save the %@ files" = "Kies een locatie om de %@ bestanden te bewaren.";
 "Waiting for a disc to be inserted..." = "Wacht op een schijf";
-"There was a problem copying the disc" = "Er was een probleem bij het kopie\U00ebren van de schijf";
+"There was a problem copying the disc" = "Er was een probleem bij het kopieëren van de schijf";
 "Opening track" = "Opent track";
 "No CD" = "Geen CD";
 "\n(Note: there is a protected mp4 file which can't be converted)" = "\n(Opmerking: een bestand is een beveiligd mp4 bestand dat kan niet worden geconverteerd)";
@@ -129,7 +129,7 @@
 "Checking file..." = "Controlleert bestand...";
 "Generating DVD folder: (%.0f%@)" = "Maakt DVD map aan: (%.0f%@)";
 "%@ (No audio)" = "%@ (Geen audio)";
-"Ready to copy" = "Klaar om te kopie\U00ebren";
+"Ready to copy" = "Klaar om te kopieëren";
 "The Burn file is corrupt or a wrong filetype" = "Het Brand bestand is corrupt of een verkeerd bestandstype";
 "Can't overwrite '%@' in '%@'" = "Kan '%@' niet overschrijven in '%@'";
 "Continue" = "Ga door";
@@ -139,7 +139,7 @@
 "Mount Image" = "Activeer";
 "Waiting for the drive..." = "Wacht op de brander...";
 "Choose a location to save a copy of the disc" = "Kies een locatie om een kopie van de schijf te bewaren";
-"One protected mp4 file" = "E\U00e9n beveiligd mp4 bestand";
+"One protected mp4 file" = "Eén beveiligd mp4 bestand";
 "Yes" = "Ja";
 "Toc file" = "Toc bestand";
 "Processing: " = "Verwerkt: ";

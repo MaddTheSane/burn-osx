@@ -417,11 +417,13 @@
 		}
 		else
 		{
-			if ([inspectedItems count] == 1)
-				if ([KWCommonMethods isDRFolderIsLocalized:(DRFolder *)currentItem])
+			if ([inspectedItems count] == 1) {
+				if ([KWCommonMethods isDRFolderIsLocalized:(DRFolder *)currentItem]) {
 					[mangledName setStringValue:[[currentItem mangledNameForFilesystem:fileSystem] stringByDeletingPathExtension]];
-				else
+				} else {
 					[mangledName setStringValue:[currentItem mangledNameForFilesystem:fileSystem]];
+				}
+			}
 		
 			flags -= 0x0010;
 		}

@@ -910,7 +910,7 @@
 		FE055DE20DBB863700D879FD /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE055DE30DBB863700D879FD /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWEraser.nib; sourceTree = "<group>"; };
 		FE1396C80F88D82E0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ko; path = ko.lproj/Credits.html; sourceTree = "<group>"; };
-		FE1396C90F88D82F0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE1396C90F88D82F0056809A /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE1396CA0F88D82F0056809A /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE1397C30F88D86D0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/BurnHelp; sourceTree = "<group>"; };
 		FE1397FD0F88D8820056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ko; path = ko.lproj/KWBurner.nib; sourceTree = "<group>"; };
@@ -941,7 +941,7 @@
 		FE23C04B0EDDCDCB0048B85D /* KWTrackProducer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWTrackProducer.m; path = Source/KWTrackProducer.m; sourceTree = "<group>"; };
 		FE2491680ECEDB6F0028E955 /* KWDiscCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWDiscCreator.h; path = Source/KWDiscCreator.h; sourceTree = "<group>"; };
 		FE2491690ECEDB6F0028E955 /* KWDiscCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWDiscCreator.m; path = Source/KWDiscCreator.m; sourceTree = "<group>"; };
-		FE25B65811772BC5004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE25B65811772BC5004F3B3D /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE25B65911772BC6004F3B3D /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE25B65C11772BD9004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE25B65D11772BD9004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
@@ -1008,7 +1008,7 @@
 		FE5DD7E90DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FE5DD7EB0DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE5DD7EC0DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FE5DD7F80DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE5DD7F80DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE5DD7F90DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE5DD7FA0DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE5DD7FB0DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
@@ -1018,13 +1018,13 @@
 		FE5DD8010DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FE5DD8030DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE5DD8040DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FE5DD8100DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE5DD8100DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE5DD8110DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE5E5B4C0D2A7FE300D65049 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		FE60C63311862FBE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spanish; path = "Spanish.lproj/Copy document.icns"; sourceTree = "<group>"; };
 		FE60C63411862FBE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spanish; path = "Spanish.lproj/Theme document.icns"; sourceTree = "<group>"; };
 		FE60C63711862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Spanish; path = Spanish.lproj/Credits.html; sourceTree = "<group>"; };
-		FE60C63811862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE60C63811862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE60C63911862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE60C63C11863036006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE60C63D11863036006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };

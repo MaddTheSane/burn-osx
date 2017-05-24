@@ -1123,9 +1123,9 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	[subDict setObject:[NSNumber numberWithBool:([object effectiveFilesystemMask] & DRFilesystemInclusionMaskISO9660)] forKey:@"ISOEnabled"];
 	[subDict setObject:[NSNumber numberWithBool:([object effectiveFilesystemMask] & DRFilesystemInclusionMaskJoliet)] forKey:@"JolietEnabled"];	
 	
-	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 	NSString *fileSystem = DRJoliet;
 	
+	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 	if ([KWCommonMethods OSVersion] >= 0x1040)
 		fileSystem = @"DRUDF";
 	#else
