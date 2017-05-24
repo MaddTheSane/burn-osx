@@ -209,7 +209,7 @@
 	{
 		ffmpegFormat = [NSString stringWithFormat:@"%@-dvd", ffmpegFormat];
 	
-		if ((inputAspect <= (CGFloat)4 / (CGFloat)3 && dvdAspectMode != 2) | dvdAspectMode == 1)
+		if ((inputAspect <= (CGFloat)4 / (CGFloat)3 && dvdAspectMode != 2) || dvdAspectMode == 1)
 		{
 			aspectSize = NSMakeSize(4, 3);
 			calculateSize = 720;
@@ -233,15 +233,15 @@
 			outputSize = NSMakeSize(720, 480);
 	}
 		
-	if ((convertKind == 1 | convertKind == 2 | convertKind == 3) && ((inputAspect != (CGFloat)4 / (CGFloat)3 | (inputAspect == (CGFloat)4 / (CGFloat)3 && dvdAspectMode == 2 && convertKind == 3)) && (inputAspect != (CGFloat)16 / (CGFloat)9) | (inputAspect == (CGFloat)16 / (CGFloat)9 && convertKind == 1 | convertKind == 2 | dvdAspectMode == 1)))
+	if ((convertKind == 1 || convertKind == 2 || convertKind == 3) && (((inputAspect != (CGFloat)4 / (CGFloat)3 || (inputAspect == (CGFloat)4 / (CGFloat)3 && dvdAspectMode == 2 && convertKind == 3)) && (inputAspect != (CGFloat)16 / (CGFloat)9)) || ((inputAspect == (CGFloat)16 / (CGFloat)9 && convertKind == 1) || convertKind == 2 || dvdAspectMode == 1)))
 	{
 		NSInteger padSize = [self getPadSize:calculateSize withAspect:aspectSize withTopBars:topBars];
 		
 		if (topBars)
-			padOptions = [NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,pad=%i:%i:0:%i:black", (NSInteger)outputSize.width, (NSInteger)outputSize.height - (padSize * 2), (NSInteger)outputSize.width, (NSInteger)outputSize.height, padSize], nil];
+			padOptions = [NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,pad=%li:%li:0:%li:black", (long)outputSize.width, (long)outputSize.height - (padSize * 2), (long)outputSize.width, (long)outputSize.height, (long)padSize], nil];
 			//padOptions = [NSArray arrayWithObjects:@"-padtop", padSize, @"-padbottom", padSize, nil];
 		else
-			padOptions = [NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,pad=%i:%i:%i:0:black", (NSInteger)outputSize.width - (padSize * 2), (NSInteger)outputSize.height, (NSInteger)outputSize.width, (NSInteger)outputSize.height, padSize], nil];
+			padOptions = [NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,pad=%li:%li:%li:0:black", (long)outputSize.width - (padSize * 2), (long)outputSize.height, (long)outputSize.width, (long)outputSize.height, (long)padSize], nil];
 			//padOptions = [NSArray arrayWithObjects:@"-padleft", padSize, @"-padright", padSize, nil];
 			
 	}
@@ -261,7 +261,7 @@
 		pipe2 = [[NSPipe alloc] init];
 		NSFileHandle *handle2;
 		[movtoy4m setLaunchPath:[[NSBundle mainBundle] pathForResource:@"movtoy4m" ofType:@""]];
-		[movtoy4m setArguments:[NSArray arrayWithObjects:@"-w",[NSString stringWithFormat:@"%i", inputWidth],@"-h",[NSString stringWithFormat:@"%i", inputHeight],@"-F",[NSString stringWithFormat:@"%f:1", inputFps],@"-a",[NSString stringWithFormat:@"%i:%i", inputWidth, inputHeight],path, nil]];
+		[movtoy4m setArguments:[NSArray arrayWithObjects:@"-w",[NSString stringWithFormat:@"%li", (long)inputWidth],@"-h",[NSString stringWithFormat:@"%li", (long)inputHeight],@"-F",[NSString stringWithFormat:@"%f:1", inputFps],@"-a",[NSString stringWithFormat:@"%li:%li", (long)inputWidth, (long)inputHeight],path, nil]];
 		[movtoy4m setStandardOutput:pipe2];
 		
 		if ([defaults boolForKey:@"KWDebug"] == NO)
@@ -330,13 +330,13 @@
 		if ([defaults boolForKey:@"KWCustomDivXVideoBitrate"])
 		{
 			[args addObject:@"-b"];
-			[args addObject:[NSString stringWithFormat:@"%i", [[defaults objectForKey:@"KWDefaultDivXVideoBitrate"] integerValue] * 1000]];
+			[args addObject:[NSString stringWithFormat:@"%li", [[defaults objectForKey:@"KWDefaultDivXVideoBitrate"] integerValue] * 1000]];
 		}
 					
 		if ([defaults boolForKey:@"KWCustomDivXSoundBitrate"])
 		{
 			[args addObject:@"-ab"];
-			[args addObject:[NSString stringWithFormat:@"%i", [[defaults objectForKey:@"KWDefaultDivxSoundBitrate"] integerValue] * 1000]];
+			[args addObject:[NSString stringWithFormat:@"%li", [[defaults objectForKey:@"KWDefaultDivxSoundBitrate"] integerValue] * 1000]];
 		}
 					
 		if ([defaults boolForKey:@"KWCustomDivXSize"])
@@ -378,7 +378,7 @@
 			if ([defaults boolForKey:@"KWCustomDVDSoundBitrate"])
 			{
 				[args addObject:@"-ab"];
-				[args addObject:[NSString stringWithFormat:@"%i", [[defaults objectForKey:@"KWDefaultDVDSoundBitrate"] integerValue] * 1000]];
+				[args addObject:[NSString stringWithFormat:@"%li", [[defaults objectForKey:@"KWDefaultDVDSoundBitrate"] integerValue] * 1000]];
 			}
 			else if ([[defaults objectForKey:@"KWDefaultDVDSoundType"] integerValue] == 0)
 			{
@@ -394,7 +394,7 @@
 		if ([defaults boolForKey:@"KWCustomDVDVideoBitrate"])
 		{
 			[args addObject:@"-b"];
-			[args addObject:[NSString stringWithFormat:@"%i", [[defaults objectForKey:@"KWDefaultDVDVideoBitrate"] integerValue] * 1000]];
+			[args addObject:[NSString stringWithFormat:@"%li", [[defaults objectForKey:@"KWDefaultDVDVideoBitrate"] integerValue] * 1000]];
 		}
 					
 		
@@ -402,7 +402,7 @@
 	else if (convertKind == 5)
 	{
 		[args addObject:@"-ab"];
-		[args addObject:[NSString stringWithFormat:@"%i", [[defaults objectForKey:@"KWDefaultMP3Bitrate"] integerValue] * 1000]];
+		[args addObject:[NSString stringWithFormat:@"%li", [[defaults objectForKey:@"KWDefaultMP3Bitrate"] integerValue] * 1000]];
 		[args addObject:@"-ac"];
 		[args addObject:[[defaults objectForKey:@"KWDefaultMP3Mode"] stringValue]];
 		[args addObject:@"-ar"];
@@ -418,14 +418,14 @@
 		{
 			//SVCD
 			//[args addObjectsFromArray:[NSArray arrayWithObjects:@"-cropleft", @"22", @"-cropright", @"22", nil]];
-			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,crop=%i:%i:%i:%i", (NSInteger)outputSize.width + 12, (NSInteger)outputSize.height, (NSInteger)outputSize.width, (NSInteger)outputSize.height, 6, 0], nil]];
+			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,crop=%li:%li:%i:%i", (long)outputSize.width + 12, (long)outputSize.height, (long)outputSize.width, (long)outputSize.height, 6, 0], nil]];
 			
 		}
 		else if (convertKind == 3)
 		{
 			//DVD
 			//[args addObjectsFromArray:[NSArray arrayWithObjects:@"-cropleft", @"24", @"-cropright", @"24", nil]];
-			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,crop=%i:%i:%i:%i", (NSInteger)outputSize.width + 16, (NSInteger)outputSize.height, (NSInteger)outputSize.width, (NSInteger)outputSize.height, 8, 0], nil]];
+			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,crop=%li:%li:%i:%i", (long)outputSize.width + 16, (long)outputSize.height, (long)outputSize.width, (long)outputSize.height, 8, 0], nil]];
 		}
 	}
 		
@@ -440,15 +440,15 @@
 		if ([padOptions count] > 0 && [[padOptions objectAtIndex:0] isEqualTo:@"-padtop"])
 		{
 			//[args addObjectsFromArray:[NSArray arrayWithObjects:@"-padleft", widthBorder, @"-padright", widthBorder, nil]];
-			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,pad=%i:%i:%i:0:black", (NSInteger)outputSize.width - (widthBorder * 2), (NSInteger)outputSize.height, (NSInteger)outputSize.width, (NSInteger)outputSize.height, widthBorder], nil]];
+			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,pad=%li:%li:%li:0:black", (long)outputSize.width - (widthBorder * 2), (long)outputSize.height, (long)outputSize.width, (long)outputSize.height, (long)widthBorder], nil]];
 		}
 		else
 		{
 			//[args addObjectsFromArray:[NSArray arrayWithObjects:@"-padtop", heightBorder, @"-padbottom", heightBorder, nil]];
-			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,pad=%i:%i:0:%i:black", (NSInteger)outputSize.width, (NSInteger)outputSize.height - (heightBorder * 2), (NSInteger)outputSize.width, (NSInteger)outputSize.height, heightBorder], nil]];
+			[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,pad=%li:%li:0:%li:black", (long)outputSize.width, (long)outputSize.height - (heightBorder * 2), (long)outputSize.width, (long)outputSize.height, (long)heightBorder], nil]];
 			
 			if ([padOptions count] == 0)
-				[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%i:%i,pad=%i:%i:%i:0:black", (NSInteger)outputSize.width - (widthBorder * 2), (NSInteger)outputSize.height, (NSInteger)outputSize.width, (NSInteger)outputSize.height, widthBorder], nil]];
+				[args addObjectsFromArray:[NSArray arrayWithObjects:@"-vf", [NSString stringWithFormat:@"scale=%li:%li,pad=%li:%li:%li:0:black", (long)outputSize.width - (widthBorder * 2), (long)outputSize.height, (long)outputSize.width, (long)outputSize.height, (long)widthBorder], nil]];
 				//[args addObjectsFromArray:[NSArray arrayWithObjects:@"-padleft", widthBorder, @"-padright", widthBorder, nil]];
 				
 		}
@@ -609,7 +609,7 @@
 	pipe = nil;
 	
 	//Check if it all went OK if not remove the wave file and return NO
-    if (!taskStatus == 0)
+    if (taskStatus != 0)
 	{
 		[KWCommonMethods removeItemAtPath:[outputFile stringByAppendingString:@".wav"]];
 	
@@ -732,7 +732,7 @@
 		if ([self isReferenceMovie:string])
 			code = 2;
 			
-		if (code == 0 | !error)
+		if (code == 0 || !error)
 		{
 			if ([string rangeOfString:@"edit list not starting at 0, a/v desync might occur, patch welcome"].length > 0)
 				videoWorks = NO;
@@ -806,7 +806,7 @@
 		
 		if (!keepGoing)
 		{
-			if (code == 0 | !error)
+			if (code == 0 || !error)
 			{
 				if (videoWorks && !audioWorks)
 				{
@@ -947,9 +947,9 @@
 			}
 			else 
 			{
-				if ([inputString rangeOfString:@"[PAR 59:54 DAR 295:216]"].length > 0 | [inputString rangeOfString:@"[PAR 10:11 DAR 15:11]"].length)
+				if ([inputString rangeOfString:@"[PAR 59:54 DAR 295:216]"].length > 0 || [inputString rangeOfString:@"[PAR 10:11 DAR 15:11]"].length)
 					inputAspect = (CGFloat)4 / (CGFloat)3;
-				else if ([inputString rangeOfString:@"[PAR 118:81 DAR 295:162]"].length > 0 | [inputString rangeOfString:@"[PAR 40:33 DAR 20:11]"].length)
+				else if ([inputString rangeOfString:@"[PAR 118:81 DAR 295:162]"].length > 0 || [inputString rangeOfString:@"[PAR 40:33 DAR 20:11]"].length)
 					inputAspect = (CGFloat)16 / (CGFloat)9;
 			}
 		
@@ -986,7 +986,7 @@
 	{
 		inputTotalTime = 0;
 	
-		if (![inputString rangeOfString:@"Duration: N/A,"].length > 0)
+		if (!([inputString rangeOfString:@"Duration: N/A,"].length > 0))
 		{
 			NSString *time = [[[[inputString componentsSeparatedByString:@"Duration: "] objectAtIndex:1] componentsSeparatedByString:@","] objectAtIndex:0];
 			double hour = [[[time componentsSeparatedByString:@":"] objectAtIndex:0] doubleValue];
@@ -1027,7 +1027,7 @@
 	NSArray *arguments = [NSArray arrayWithObjects:@"-threads", [[defaults objectForKey:@"KWEncodingThreads"] stringValue], @"-i", path, nil];
 	[KWCommonMethods launchNSTaskAtPath:[KWCommonMethods ffmpegPath] withArguments:arguments outputError:YES outputString:YES output:&string];
 	
-	if (![string rangeOfString:@"Unknown format"].length > 0 && [string rangeOfString:@"Input #0"].length > 0)
+	if (!([string rangeOfString:@"Unknown format"].length > 0) && [string rangeOfString:@"Input #0"].length > 0)
 		return [[string componentsSeparatedByString:@"Input #0"] objectAtIndex:1];
 	else
 		return nil;
@@ -1083,7 +1083,7 @@
 	NSString *string = [KWConverter ffmpegOutputForPath:path];
 	
 	if (string)
-		return ([[[path pathExtension] lowercaseString] isEqualTo:@"avi"] && ([string rangeOfString:@"Video: mpeg4"].length > 0 | ([[NSUserDefaults standardUserDefaults] boolForKey:@"KWAllowMSMPEG4"] == YES && [string rangeOfString:@"Video: msmpeg4"].length > 0)));
+		return ([[[path pathExtension] lowercaseString] isEqualTo:@"avi"] && ([string rangeOfString:@"Video: mpeg4"].length > 0 || ([[NSUserDefaults standardUserDefaults] boolForKey:@"KWAllowMSMPEG4"] == YES && [string rangeOfString:@"Video: msmpeg4"].length > 0)));
 
 	return NO;
 }
@@ -1136,7 +1136,7 @@
 	unichar ch = [convertedNumber characterAtIndex:[convertedNumber length] -1];
 	NSString *lastCharacter = [NSString stringWithFormat:@"%C", ch];
 
-	if ([lastCharacter isEqualTo:@"1"] | [lastCharacter isEqualTo:@"3"] | [lastCharacter isEqualTo:@"5"] | [lastCharacter isEqualTo:@"7"] | [lastCharacter isEqualTo:@"9"])
+	if ([lastCharacter isEqualTo:@"1"] || [lastCharacter isEqualTo:@"3"] || [lastCharacter isEqualTo:@"5"] || [lastCharacter isEqualTo:@"7"] || [lastCharacter isEqualTo:@"9"])
 		return [[NSNumber numberWithInteger:[convertedNumber integerValue] + 1] integerValue];
 	else
 		return [convertedNumber integerValue];

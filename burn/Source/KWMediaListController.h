@@ -13,6 +13,8 @@
 #import "KWMediaListController.h"
 #import "KWTextField.h"
 
+@class KWTableView;
+
 @interface KWMediaListController : NSObject {
 
 	//Main Window
@@ -22,7 +24,7 @@
 	IBOutlet id discLabel;
 	IBOutlet id totalText;
 	IBOutlet id tableViewPopup;
-	IBOutlet id tableView;
+	IBOutlet KWTableView *tableView;
 	IBOutlet id accessOptions;
 	
 	//Disc creation

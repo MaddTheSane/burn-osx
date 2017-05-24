@@ -14,6 +14,7 @@
 #import "KWWindowController.h"
 #import "KWCommonMethods.h"
 #import "KWTrackProducer.h"
+#import "KWTableView.h"
 
 @implementation KWAudioController
 

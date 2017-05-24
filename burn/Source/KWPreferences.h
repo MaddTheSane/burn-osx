@@ -4,7 +4,7 @@
 #import <DiscRecording/DiscRecording.h>
 #import "KWCommonMethods.h"
 
-@interface KWPreferences : NSWindowController
+@interface KWPreferences : NSWindowController <NSToolbarDelegate>
 {
     //Preferences window outlets
 	IBOutlet id generalView;
@@ -18,7 +18,7 @@
 	NSTabViewItem *savedAudioItem;
 	
 	//General outlets
-    IBOutlet id temporaryFolderPopup;
+    IBOutlet NSPopUpButton *temporaryFolderPopup;
 	//Burner outlets
     IBOutlet id burnerPopup;
     IBOutlet id completionActionMatrix;

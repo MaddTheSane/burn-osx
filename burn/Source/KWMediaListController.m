@@ -9,6 +9,7 @@
 #import "KWMediaListController.h"
 #import "KWCommonMethods.h"
 #import "KWDiscCreator.h"
+#import "KWTableView.h"
 
 @implementation KWMediaListController
 
@@ -643,7 +644,7 @@
 		if ([KWCommonMethods writeDictionary:burnFile toFile:[sheet filename] errorString:&errorString])
 		{	
 			if ([sheet isExtensionHidden])
-				[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"NSFileExtensionHidden"] atPath:[sheet filename]];
+				[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:@YES forKey:@"NSFileExtensionHidden"] atPath:[sheet filename]];
 		}
 		else
 		{
