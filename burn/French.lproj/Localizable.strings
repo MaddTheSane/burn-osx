@@ -1,403 +1,193 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>UDSP</key>
-	<string>Image-disque non compressée extensible ( &gt; 10.5)</string>
-	<key>Eject Disc</key>
-	<string>Ejecter le disque</string>
-	<key>Unsuported Toc file</key>
-	<string>Fichier de table d&apos;allocation inconnu</string>
-	<key>Finishing...</key>
-	<string>Finalisation...</string>
-	<key>%@ (Unknown error)</key>
-	<string>%@ (Erreur inconnue)</string>
-	<key>Mount Image</key>
-	<string>Monter l&apos;image-disque</string>
-	<key>Can&apos;t determine disc format</key>
-	<string>Impossible de déterminer le format...</string>
-	<key>Finished converting</key>
-	<string>Conversion terminée</string>
-	<key>Failed to burn &apos;%@&apos;</key>
-	<string>Echec de la gravure &apos;%@&apos;</string>
-	<key>Copying disc</key>
-	<string>Copie du disque</string>
-	<key>Remuxing: </key>
-	<string>Multiplexage: </string>
-	<key>Closing session</key>
-	<string>Fermeture de session</string>
-	<key>Choose a location to save a temporary folder</key>
-	<string>Choisissez un emplacement pour le dossier temporaire</string>
-	<key>Finished burning</key>
-	<string>Gravure terminée</string>
-	<key>Some files specified in the %@ file are missing.</key>
-	<string>Certains fichiers spcifis dans le fichier %@ sont manquants</string>
-	<key>Writing track (%@)</key>
-	<string>Ecriture de la piste (%@)</string>
-	<key>UDSB</key>
-	<string>Image-disque non compressée extensible (10.5 et +)</string>
-	<key>Mounting: %@</key>
-	<string>Montage: %@</string>
-	<key>The PC (Joliet) or ISO9660 filesystem can only handle files smaller than 2GB</key>
-	<string>Le système de fichiers Joliet (ou ISO9660) ne gère pas les fichiers supérieurs à 2GB</string>
-	<key>%.0f KB</key>
-	<string>%.0f Ko</string>
-	<key>Burn failed to encode one file</key>
-	<string>L&apos;encodage du fichier a échoué</string>
-	<key>There was a problem authoring the DVD</key>
-	<string>Il y a eu un problème durant la création du DVD</string>
-	<key>Copy</key>
-	<string>Copie</string>
-	<key>%@ MB</key>
-	<string>%@ Mo</string>
-	<key>The Burn file is corrupt or a wrong filetype</key>
-	<string>Le fichier de gravure est corrompu/non reconnu</string>
-	<key>Burning &apos;%@&apos;</key>
-	<string>Gravure &apos;%@&apos;</string>
-	<key>Waiting for the drive...</key>
-	<string>En attente du graveur...</string>
-	<key>Creating image file</key>
-	<string>Création du fichier image</string>
-	<key>Failed to save Burn file</key>
-	<string>Impossible de sauvegarder le fichier de gravure</string>
-	<key>Finished converting %ld files</key>
-	<string>Conversion terminée %ld fichiers</string>
-	<key>Preview</key>
-	<string>Aperçu</string>
-	<key>One incompatible file</key>
-	<string>Un fichier doit être converti</string>
-	<key>Audio</key>
-	<string>Audio</string>
-	<key>Total size: %@</key>
-	<string>Taille totale: %@</string>
-	<key>One protected mp4 file</key>
-	<string>Un fichier mp4 protégé</string>
-	<key>%@ GB</key>
-	<string>%@ Go</string>
-	<key>%@ (Couldn&apos;t get attributes)</key>
-	<string>%@ (Impossible de déterminer les caractéristiques)</string>
-	<key>Opening track %ld</key>
-	<string>Ouverture de la piste %ld</string>
-	<key>File path: %@</key>
-	<string>Chemin d&apos;accs: %@</string>
-	<key>%ld files</key>
-	<string>%ld fichiers</string>
-	<key>Failed to create &apos;%@&apos;</key>
-	<string>Impossible de crer &apos;%@&apos;</string>
-	<key>Not enough space</key>
-	<string>Pas assez d&apos;espace disque</string>
-	<key>Choose a location to save a copy of the disc</key>
-	<string>Choisissez un emplacement pour sauver la copie du disque</string>
-	<key>Yes</key>
-	<string>Oui</string>
-	<key>Choose a location to save the re-muxed files</key>
-	<string>Choisissez un emplacement pour sauver les fichiers re-muxés</string>
-	<key>%@ (No video)</key>
-	<string>%@ (Pas de video)</string>
-	<key>Decoding sound: %@</key>
-	<string>Décodage du son: %@</string>
-	<key>UDIF</key>
-	<string>Image-disque en lecture/écriture</string>
-	<key>UDTO</key>
-	<string>Image-disque Maître DVD/CD</string>
-	<key>Would you like to convert those files to %@?%@</key>
-	<string>Voulez-vous convertir ces fichiers au format %@ avi?</string>
-	<key>Verifying...</key>
-	<string>Vérification...</string>
-	<key>Unmount</key>
-	<string>Ejecter</string>
-	<key>Video</key>
-	<string>Vidéo</string>
-	<key>Burn Temporary</key>
-	<string>Dossier Tampon Burn</string>
-	<key>Choose a location to save the muxed file</key>
-	<string>Choisissez un emplacement pour sauver les fichiers muxés</string>
-	<key>Maximum Possible</key>
-	<string>Maximum Possible</string>
-	<key>Failed converting</key>
-	<string>Echec lors de la conversion</string>
-	<key>Writing track %ld of %ld (%@)</key>
-	<string>Ecriture de la piste %ld de %ld (%@)</string>
-	<key>Creating: </key>
-	<string>Création: </string>
-	<key>Burn</key>
-	<string>Graver</string>
-	<key>Authoring DVD...</key>
-	<string>Création du DVD...</string>
-	<key>Can&apos;t overwrite &apos;%@&apos; in &apos;%@&apos;</key>
-	<string>Impossible d&apos;crire &apos;%@&apos; in &apos;%@&apos;</string>
-	<key>Burning failed</key>
-	<string>La gravure a échoué</string>
-	<key>Processing: </key>
-	<string>En cours: </string>
-	<key>Ready to copy</key>
-	<string>Prêt à copier</string>
-	<key>Some incompatible files</key>
-	<string>Certains fichiers doivent être convertis</string>
-	<key>Waiting for a disc to be inserted...</key>
-	<string>Veuillez insérer un disque...
-</string>
-	<key>Creating DVD Theme</key>
-	<string>Cération du thème DVD</string>
-	<key>There was a problem erasing the disc</key>
-	<string>Il y a eu un problème lors de l&apos;effacement du disque</string>
-	<key>Choose a location to save the %@ files</key>
-	<string>Choisissez un emplacement pour sauver les fichiers %@</string>
-	<key>Failed to create temporary folder</key>
-	<string>Impossible de crer un dossier temporaire</string>
-	<key>Rken</key>
-	<string>Image-disque compressée</string>
-	<key>UDRW</key>
-	<string>Image-disque en lecture/écriture</string>
-	<key>%@ (No audio/video)</key>
-	<string>%@ (Ni audio/Ni video)</string>
-	<key>Generating DVD folder</key>
-	<string>Création du répertoire DVD</string>
-	<key>The disc has been succesfully erased</key>
-	<string>Disque effacé avec succès</string>
-	<key>%@ (No audio)</key>
-	<string>%@ (Pas d&apos;audio)</string>
-	<key>Burner</key>
-	<string>Graveur</string>
-	<key>No disc</key>
-	<string>Aucun disque</string>
-	<key>Open...</key>
-	<string>Choisir une image-disque...</string>
-	<key>There was a problem copying the disc</key>
-	<string>Il y a eu un problème lors de la copie</string>
-	<key>UDCO</key>
-	<string>Image-disque compressée</string>
-	<key>No discs, try inserting a cd/dvd.</key>
-	<string>Pas de disques, insérez un cd/dvd.</string>
-	<key>Scanning for disks...</key>
-	<string>Recherche des disques...</string>
-	<key>Choose</key>
-	<string>Choisir</string>
-	<key>Writing track</key>
-	<string>Ecriture de la piste</string>
-	<key>Encoding: </key>
-	<string>Encodage: </string>
-	<key>Track %ld %@</key>
-	<string>Piste %ld %@</string>
-	<key>These files can&apos;t be converted</key>
-	<string>Ces fichiers ne peuvent pas être convertis</string>
-	<key>Finished converting 1 file</key>
-	<string>Conversion terminée 1 fichier</string>
-	<key>Total time: %@</key>
-	<string>Durée totale: %@</string>
-	<key>A cue/bin file needs to be burned on a CD</key>
-	<string>Un fichier cue/bin doit être gravé sur un CD</string>
-	<key>Format</key>
-	<string>Format</string>
-	<key>Mounting image failed</key>
-	<string>Le montage de l&apos;image a échoué</string>
-	<key>Failed to eject</key>
-	<string>Impossible d&apos;jecter</string>
-	<key>UDxx</key>
-	<string>Image-disque &apos;UDIF stub&apos;</string>
-	<key>Some protected mp4 files</key>
-	<string>Quelques fichiers mp4 protégés</string>
-	<key>Erasing disc</key>
-	<string>Effacement du disque</string>
-	<key>Rdxx</key>
-	<string>Image-disque en lecture seule</string>
-	<key>There was a problem mounting the image</key>
-	<string>Il y a eu un problème en montant l&apos;image-disque</string>
-	<key>Size</key>
-	<string>Taille</string>
-	<key>Convert</key>
-	<string>Convertir</string>
-	<key>Maximum Possible (%.0fx)</key>
-	<string>Maximum Possible (%.0fx)</string>
-	<key>UFBI</key>
-	<string>Dispositif complet</string>
-	<key>%@ free</key>
-	<string>%@ disponibles</string>
-	<key>Save...</key>
-	<string>Sauvegarder l&apos;image-disque...</string>
-	<key>SPARSEBUNDLE</key>
-	<string>Image-disque non compressée extensible (10.5 et +)</string>
-	<key>Erasing failed</key>
-	<string>L&apos;effacement à échoué</string>
-	<key>Mounting disk image</key>
-	<string>Montage de l&apos;image-disque</string>
-	<key>OK</key>
-	<string>OK</string>
-	<key>Eject</key>
-	<string>Ejecter</string>
-	<key>UDZO</key>
-	<string>Image-disque compressée</string>
-	<key>Authoring failed</key>
-	<string>L&apos;édition a échoué</string>
-	<key>Close</key>
-	<string>Fermer</string>
-	<key>Ready to erase</key>
-	<string>Prêt à effacer</string>
-	<key>Checking files...</key>
-	<string>Vérification des fichiers...</string>
-	<key>SPARSE</key>
-	<string>Image-disque non compressée extensible ( &gt; 10.5)</string>
-	<key>Opening track</key>
-	<string>Ouverture de la piste</string>
-	<key>Burn failed to encode some files</key>
-	<string>L&apos;encodage de certains fichiers a échoué</string>
-	<key>DVD-Video</key>
-	<string>DVD-Vidéo</string>
-	<key>General</key>
-	<string>Général</string>
-	<key>Cue file</key>
-	<string>Fichier Cue</string>
-	<key>Checking file...</key>
-	<string>Vérification du fichier...</string>
-	<key>Image not supported on Panther.
-
-To still use it:
-Mount the image and drop the mounted image in the window.</key>
-	<string>Image-disque non gérée sur Panther.
-
-Pour continuer quand même:
-Montez l&apos;image-disque et déposez là dans la fenêtre.</string>
-	<key>
-(Note: there is a protected mp4 file which can&apos;t be converted)</key>
-	<string>
-Note: il y a un fichier mp4 protégé qui ne sera pas converti)</string>
-	<key>&apos;%@&apos; was burned succesfully</key>
-	<string>&apos;%@&apos; a été créé avec succès</string>
-	<key>This file can&apos;t be converted</key>
-	<string>Ce fichier ne peut pas être converti</string>
-	<key>No Recorder</key>
-	<string>Pas de graveur</string>
-	<key>Ready to burn</key>
-	<string>Prêt à graver</string>
-	<key>Mount</key>
-	<string>Monter</string>
-	<key>UDRO</key>
-	<string>Image-disque en lecture seule</string>
-	<key>Can&apos;t create &apos;%@&apos; in &apos;%@&apos;</key>
-	<string>Impossible de crer &apos;%@&apos; dans &apos;%@&apos;</string>
-	<key>Cancel</key>
-	<string>Arrêt</string>
-	<key>Closing track %ld of %ld (%@)</key>
-	<string>Fermeture de la piste %ld de %ld (%@)</string>
-	<key>Advanced</key>
-	<string>Avancé</string>
-	<key>Could not eject media from the drive</key>
-	<string>Impossible d&apos;jecter le mdia</string>
-	<key>Data</key>
-	<string>Données</string>
-	<key>Choose an image file</key>
-	<string>Sélectionnez une image-disque</string>
-	<key>Title Menu</key>
-	<string>Menu Titre</string>
-	<key>Creating image file &apos;%@&apos;</key>
-	<string>Création du fichier image &apos;%@&apos;</string>
-	<key>Scanning for files and folders</key>
-	<string>Recherche de fichiers et de dossiers</string>
-	<key>Invalid Burn file</key>
-	<string>Fichier de gravure non valide</string>
-	<key>Image created</key>
-	<string>Image-disque créée</string>
-	<key>Unmount Image</key>
-	<string>Dmonter l&apos;image-disque</string>
-	<key>Missing files</key>
-	<string>Fichiers manquants</string>
-	<key>DC42</key>
-	<string>Image-disque 4.2</string>
-	<key>%@ (Unknown format)</key>
-	<string>%@ (Format inconnu)</string>
-	<key>Failed to copy &apos;%@&apos; to &apos;%@&apos;. %@</key>
-	<string>Impossible de copier &apos;%@&apos; vers &apos;%@&apos;. %@</string>
-	<key>UNIV</key>
-	<string>Image-disque &apos;Hybride&apos;</string>
-	<key>Failed to delete &apos;%@&apos;.</key>
-	<string>Impossible de supprimer &apos;%@&apos;</string>
-	<key>Open</key>
-	<string>Ouvrir</string>
-	<key>Failed to write &apos;%@&apos; to &apos;%@&apos;</key>
-	<string>Impossible d&apos;crire &apos;%@&apos; vers &apos;%@&apos;</string>
-	<key>Time</key>
-	<string>Durée</string>
-	<key>Closing track (%@)</key>
-	<string>Fermeture de la piste (%@)</string>
-	<key>Audio CD</key>
-	<string>CD audio</string>
-	<key>%@ (Unsupported audio)</key>
-	<string>%@ (Audio non géré)</string>
-	<key>To burn a Audio-CD the media should be a CD</key>
-	<string>Pour graver un CD audio, le média doit être un CD</string>
-	<key>%@ Help</key>
-	<string>Aide %@</string>
-	<key>RdWr</key>
-	<string>Image-disque en lecture/écriture</string>
-	<key>Untitled Folder</key>
-	<string>Dossier sans titre</string>
-	<key>Are you sure you want to cancel?</key>
-	<string>tes-vous sûr de vouloir annuler ?</string>
-	<key>Would you like to convert that file to %@?%@</key>
-	<string>Voulez-vous convertir ce fichier au format %@ avi?%@</string>
-	<key>Finished erasing</key>
-	<string>Effacement terminé</string>
-	<key>Only Mode1 and Audio tracks are supported</key>
-	<string>Support du Mode1 et des pistes Audio seulement</string>
-	<key>Chapter Menu</key>
-	<string>Menu Chapitre</string>
-	<key>Succesfully created a disk image</key>
-	<string>Image-disque créée avec succès</string>
-	<key>Choose a location to save the image file</key>
-	<string>Choisissez un emplacement pour sauver le fichier image</string>
-	<key>Preparing to encode</key>
-	<string>Preparing to encode</string>
-	<key>No CD</key>
-	<string>Pas de CD</string>
-	<key>Toc file</key>
-	<string>Fichier Toc</string>
-	<key>Image failed</key>
-	<string>La création de l&apos;image-disque a échoué</string>
-	<key>ROCo</key>
-	<string>Image-disque compressée</string>
-	<key>Untitled</key>
-	<string>Sans titre</string>
-	<key>Some files are to large</key>
-	<string>Certains fichiers sont trop lourds</string>
-	<key>There was a problem creating the image</key>
-	<string>Il y a eu un problème durant la création de l&apos;image</string>
-	<key>No</key>
-	<string>Non</string>
-	<key>
-(Note: there are a few protected mp4 files which can&apos;t be converted)</key>
-	<string>
-(Note: certains fichiers mp4 protégés ne pourront pas être convertis)</string>
-	<key>Processing: %@ (%i of %i)</key>
-	<string>En cours: %@ (%i de %i)</string>
-	<key>Unsupported Image</key>
-	<string>Image-disque non gérée</string>
-	<key>Unknown disk image</key>
-	<string>Image-disque inconnue</string>
-	<key>Continue</key>
-	<string>Continuer</string>
-	<key>Writing tracks</key>
-	<string>Ecriture des pistes</string>
-	<key>UDBZ</key>
-	<string>Image-disque compressée</string>
-	<key>Generating DVD folder: (%.0f%@)</key>
-	<string>Création du répertoire DVD: (%.0f%@)</string>
-	<key>%@ TB</key>
-	<string>%@ To</string>
-	<key>UDF / ISO9660 (only)</key>
-	<string>UDF / ISO9660 (uniquement)</string>
-	<key>IPOD</key>
-	<string>Image iPod</string>
-	<key>Still try to burn the disc?</key>
-	<string>Graver quand même le disque?</string>
-	<key>Encoding file %i of %i to %@</key>
-	<string>Encodage du fichier %i de %i vers %@</string>
-	<key>Preparing...</key>
-	<string>En préparation...</string>
-	<key>After canceling the disc can&apos;t be used anymore</key>
-	<string>Aprs l&apos;annulation, le disque ne pourra plus tre utilis</string>
-	<key>Choose a location to save the burn file</key>
-	<string>Choisissez un emplacement pour sauver le fichier à graver</string>
-	<key>Failed to install theme in the &apos;Application Support&apos; folder</key>
-	<string>Impossible d&apos;installer le thme dans le dossier &apos;Application Support&apos;</string>
-</dict>
-</plist>
+"Would you like to convert that file to %@?%@" = "Voulez-vous convertir ce fichier au format %@ avi?%@";
+"Preparing to encode" = "Preparing to encode";
+"Unmount" = "Ejecter";
+"Some files are to large" = "Certains fichiers sont trop lourds";
+"There was a problem creating the image" = "Il y a eu un probl\U00e8me durant la cr\U00e9ation de l'image";
+"Processing: %@ (%i of %i)" = "En cours: %@ (%i de %i)";
+"Unsupported Image" = "Image-disque non g\U00e9r\U00e9e";
+"Failed to install theme in the 'Application Support' folder" = "Impossible d'installer le th\U008fme dans le dossier 'Application Support'";
+"\n(Note: there are a few protected mp4 files which can't be converted)" = "\n(Note: certains fichiers mp4 prot\U00e9g\U00e9s ne pourront pas \U00eatre convertis)";
+"UDBZ" = "Image-disque compress\U00e9e";
+"Save..." = "Sauvegarder l'image-disque...";
+"Failed to delete '%@'." = "Impossible de supprimer '%@'";
+"Scanning for disks..." = "Recherche des disques...";
+"Mounting image failed" = "Le montage de l'image a \U00e9chou\U00e9";
+"Missing files" = "Fichiers manquants";
+"Burn Temporary" = "Dossier Tampon Burn";
+"%@ (Couldn't get attributes)" = "%@ (Impossible de d\U00e9terminer les caract\U00e9ristiques)";
+"Image not supported on Panther.\n\nTo still use it:\nMount the image and drop the mounted image in the window." = "Image-disque non g\U00e9r\U00e9e sur Panther.\n\nPour continuer quand m\U00eame:\nMontez l'image-disque et d\U00e9posez l\U00e0 dans la fen\U00eatre.";
+"Some incompatible files" = "Certains fichiers doivent \U00eatre convertis";
+"UDRO" = "Image-disque en lecture seule";
+"Mounting disk image" = "Montage de l'image-disque";
+"Some protected mp4 files" = "Quelques fichiers mp4 prot\U00e9g\U00e9s";
+"%@ GB" = "%@ Go";
+"Open..." = "Choisir une image-disque...";
+"UDF / ISO9660 (only)" = "UDF / ISO9660 (uniquement)";
+"Would you like to convert those files to %@?%@" = "Voulez-vous convertir ces fichiers au format %@ avi?";
+"Finished converting" = "Conversion termin\U00e9e";
+"Burner" = "Graveur";
+"%@ Help" = "Aide %@";
+"These files can't be converted" = "Ces fichiers ne peuvent pas \U00eatre convertis";
+"Title Menu" = "Menu Titre";
+"Creating DVD Theme" = "C\U00e9ration du th\U00e8me DVD";
+"Copying disc" = "Copie du disque";
+"Choose a location to save the muxed file" = "Choisissez un emplacement pour sauver les fichiers mux\U00e9s";
+"This file can't be converted" = "Ce fichier ne peut pas \U00eatre converti";
+"Burn failed to encode some files" = "L'encodage de certains fichiers a \U00e9chou\U00e9";
+"Choose a location to save the re-muxed files" = "Choisissez un emplacement pour sauver les fichiers re-mux\U00e9s";
+"Mount" = "Monter";
+"Generating DVD folder" = "Cr\U00e9ation du r\U00e9pertoire DVD";
+"Format" = "Format";
+"SPARSEBUNDLE" = "Image-disque non compress\U00e9e extensible (10.5 et +)";
+"The PC (Joliet) or ISO9660 filesystem can only handle files smaller than 2GB" = "Le syst\U00e8me de fichiers Joliet (ou ISO9660) ne g\U00e8re pas les fichiers sup\U00e9rieurs \U00e0 2GB";
+"Writing tracks" = "Ecriture des pistes";
+"Failed converting" = "Echec lors de la conversion";
+"Open" = "Ouvrir";
+"Close" = "Fermer";
+"Rken" = "Image-disque compress\U00e9e";
+"Cue file" = "Fichier Cue";
+"Finished burning" = "Gravure termin\U00e9e";
+"No Recorder" = "Pas de graveur";
+"Decoding sound: %@" = "D\U00e9codage du son: %@";
+"Track %ld %@" = "Piste %ld %@";
+"Audio CD" = "CD audio";
+"Checking files..." = "V\U00e9rification des fichiers...";
+"UDZO" = "Image-disque compress\U00e9e";
+"Remuxing: " = "Multiplexage: ";
+"Writing track" = "Ecriture de la piste";
+"Closing session" = "Fermeture de session";
+"Ready to burn" = "Pr\U00eat \U00e0 graver";
+"UDxx" = "Image-disque 'UDIF stub'";
+"Finished converting 1 file" = "Conversion termin\U00e9e 1 fichier";
+"%@ (No audio/video)" = "%@ (Ni audio/Ni video)";
+"Failed to eject" = "Impossible d'\U008ejecter";
+"Authoring failed" = "L'\U00e9dition a \U00e9chou\U00e9";
+"Choose a location to save the burn file" = "Choisissez un emplacement pour sauver le fichier \U00e0 graver";
+"After canceling the disc can't be used anymore" = "Apr\U008fs l'annulation, le disque ne pourra plus \U0090tre utilis\U008e";
+"There was a problem erasing the disc" = "Il y a eu un probl\U00e8me lors de l'effacement du disque";
+"Failed to save Burn file" = "Impossible de sauvegarder le fichier de gravure";
+"UDRW" = "Image-disque en lecture/\U00e9criture";
+"Untitled" = "Sans titre";
+"Invalid Burn file" = "Fichier de gravure non valide";
+"Failed to create temporary folder" = "Impossible de cr\U008eer un dossier temporaire";
+"ROCo" = "Image-disque compress\U00e9e";
+"%@ free" = "%@ disponibles";
+"Encoding file %i of %i to %@" = "Encodage du fichier %i de %i vers %@";
+"Verifying..." = "V\U00e9rification...";
+"Choose a location to save the image file" = "Choisissez un emplacement pour sauver le fichier image";
+"Maximum Possible" = "Maximum Possible";
+"Encoding: " = "Encodage: ";
+"Image failed" = "La cr\U00e9ation de l'image-disque a \U00e9chou\U00e9";
+"'%@' was burned succesfully" = "'%@' a \U00e9t\U00e9 cr\U00e9\U00e9 avec succ\U00e8s";
+"Untitled Folder" = "Dossier sans titre";
+"Data" = "Donn\U00e9es";
+"UNIV" = "Image-disque 'Hybride'";
+"Chapter Menu" = "Menu Chapitre";
+"UDSP" = "Image-disque non compress\U00e9e extensible ( > 10.5)";
+"Burning '%@'" = "Gravure '%@'";
+"Size" = "Taille";
+"Still try to burn the disc?" = "Graver quand m\U00eame le disque?";
+"No disc" = "Aucun disque";
+"Total size: %@" = "Taille totale: %@";
+"Closing track %ld of %ld (%@)" = "Fermeture de la piste %ld de %ld (%@)";
+"OK" = "OK";
+"There was a problem authoring the DVD" = "Il y a eu un probl\U00e8me durant la cr\U00e9ation du DVD";
+"Creating image file '%@'" = "Cr\U00e9ation du fichier image '%@'";
+"Erasing disc" = "Effacement du disque";
+"Writing track (%@)" = "Ecriture de la piste (%@)";
+"Failed to copy '%@' to '%@'. %@" = "Impossible de copier '%@' vers '%@'. %@";
+"Choose a location to save the %@ files" = "Choisissez un emplacement pour sauver les fichiers %@";
+"Waiting for a disc to be inserted..." = "Veuillez ins\U00e9rer un disque...\n";
+"There was a problem copying the disc" = "Il y a eu un probl\U00e8me lors de la copie";
+"Opening track" = "Ouverture de la piste";
+"No CD" = "Pas de CD";
+"\n(Note: there is a protected mp4 file which can't be converted)" = "\nNote: il y a un fichier mp4 prot\U00e9g\U00e9 qui ne sera pas converti)";
+"One incompatible file" = "Un fichier doit \U00eatre converti";
+"Some files specified in the %@ file are missing." = "Certains fichiers sp\U008ecifi\U008es dans le fichier %@ sont manquants";
+"Only Mode1 and Audio tracks are supported" = "Support du Mode1 et des pistes Audio seulement";
+"UFBI" = "Dispositif complet";
+"General" = "G\U00e9n\U00e9ral";
+"Video" = "Vid\U00e9o";
+"Choose" = "Choisir";
+"SPARSE" = "Image-disque non compress\U00e9e extensible ( > 10.5)";
+"%.0f KB" = "%.0f Ko";
+"Creating image file" = "Cr\U00e9ation du fichier image";
+"Can't create '%@' in '%@'" = "Impossible de cr\U008eer '%@' dans '%@'";
+"No" = "Non";
+"Unknown disk image" = "Image-disque inconnue";
+"Can't determine disc format" = "Impossible de d\U00e9terminer le format...";
+"Choose a location to save a temporary folder" = "Choisissez un emplacement pour le dossier temporaire";
+"Rdxx" = "Image-disque en lecture seule";
+"Time" = "Dur\U00e9e";
+"Erasing failed" = "L'effacement \U00e0 \U00e9chou\U00e9";
+"%@ (Unknown format)" = "%@ (Format inconnu)";
+"Finished converting %ld files" = "Conversion termin\U00e9e %ld fichiers";
+"Not enough space" = "Pas assez d'espace disque";
+"Maximum Possible (%.0fx)" = "Maximum Possible (%.0fx)";
+"Checking file..." = "V\U00e9rification du fichier...";
+"Generating DVD folder: (%.0f%@)" = "Cr\U00e9ation du r\U00e9pertoire DVD: (%.0f%@)";
+"%@ (No audio)" = "%@ (Pas d'audio)";
+"Ready to copy" = "Pr\U00eat \U00e0 copier";
+"The Burn file is corrupt or a wrong filetype" = "Le fichier de gravure est corrompu/non reconnu";
+"Can't overwrite '%@' in '%@'" = "Impossible d'\U008ecrire '%@' in '%@'";
+"Continue" = "Continuer";
+"Total time: %@" = "Dur\U00e9e totale: %@";
+"Creating: " = "Cr\U00e9ation: ";
+"Advanced" = "Avanc\U00e9";
+"Mount Image" = "Monter l'image-disque";
+"Waiting for the drive..." = "En attente du graveur...";
+"Choose a location to save a copy of the disc" = "Choisissez un emplacement pour sauver la copie du disque";
+"One protected mp4 file" = "Un fichier mp4 prot\U00e9g\U00e9";
+"Yes" = "Oui";
+"Toc file" = "Fichier Toc";
+"Processing: " = "En cours: ";
+"There was a problem mounting the image" = "Il y a eu un probl\U00e8me en montant l'image-disque";
+"No discs, try inserting a cd/dvd." = "Pas de disques, ins\U00e9rez un cd/dvd.";
+"Audio" = "Audio";
+"Mounting: %@" = "Montage: %@";
+"Could not eject media from the drive" = "Impossible d'\U008ejecter le m\U008edia";
+"A cue/bin file needs to be burned on a CD" = "Un fichier cue/bin doit \U00eatre grav\U00e9 sur un CD";
+"Burn failed to encode one file" = "L'encodage du fichier a \U00e9chou\U00e9";
+"%@ (Unsupported audio)" = "%@ (Audio non g\U00e9r\U00e9)";
+"Authoring DVD..." = "Cr\U00e9ation du DVD...";
+"Eject Disc" = "Ejecter le disque";
+"Unmount Image" = "D\U008emonter l'image-disque";
+"Succesfully created a disk image" = "Image-disque cr\U00e9\U00e9e avec succ\U00e8s";
+"%@ (No video)" = "%@ (Pas de video)";
+"Preparing..." = "En pr\U00e9paration...";
+"Failed to burn '%@'" = "Echec de la gravure '%@'";
+"UDTO" = "Image-disque Ma\U00eetre DVD/CD";
+"Finishing..." = "Finalisation...";
+"UDSB" = "Image-disque non compress\U00e9e extensible (10.5 et +)";
+"Preview" = "Aper\U00e7u";
+"Scanning for files and folders" = "Recherche de fichiers et de dossiers";
+"Burn" = "Graver";
+"Unsuported Toc file" = "Fichier de table d'allocation inconnu";
+"Convert" = "Convertir";
+"To burn a Audio-CD the media should be a CD" = "Pour graver un CD audio, le m\U00e9dia doit \U00eatre un CD";
+"Finished erasing" = "Effacement termin\U00e9";
+"IPOD" = "Image iPod";
+"Burning failed" = "La gravure a \U00e9chou\U00e9";
+"Opening track %ld" = "Ouverture de la piste %ld";
+"%@ MB" = "%@ Mo";
+"Failed to create '%@'" = "Impossible de cr\U008eer '%@'";
+"%@ TB" = "%@ To";
+"Failed to write '%@' to '%@'" = "Impossible d'\U008ecrire '%@' vers '%@'";
+"UDCO" = "Image-disque compress\U00e9e";
+"Choose an image file" = "S\U00e9lectionnez une image-disque";
+"Cancel" = "Arr\U00eat";
+"The disc has been succesfully erased" = "Disque effac\U00e9 avec succ\U00e8s";
+"Copy" = "Copie";
+"Closing track (%@)" = "Fermeture de la piste (%@)";
+"DVD-Video" = "DVD-Vid\U00e9o";
+"%ld files" = "%ld fichiers";
+"DC42" = "Image-disque 4.2";
+"Eject" = "Ejecter";
+"%@ (Unknown error)" = "%@ (Erreur inconnue)";
+"Image created" = "Image-disque cr\U00e9\U00e9e";
+"Ready to erase" = "Pr\U00eat \U00e0 effacer";
+"File path: %@" = "Chemin d'acc\U008fs: %@";
+"UDIF" = "Image-disque en lecture/\U00e9criture";
+"RdWr" = "Image-disque en lecture/\U00e9criture";
+"Writing track %ld of %ld (%@)" = "Ecriture de la piste %ld de %ld (%@)";
+"Are you sure you want to cancel?" = "tes-vous s\U00fbr de vouloir annuler ?";

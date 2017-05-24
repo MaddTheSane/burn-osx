@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -179,32 +179,32 @@
 		FE6DBFD10BDCED47006F5F53 /* KWInspector.nib in Resources */ = {isa = PBXBuildFile; fileRef = FE6DBFCF0BDCED47006F5F53 /* KWInspector.nib */; };
 		FE7C160412DBCAF900CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160212DBCAF900CFDA59 /* Growl.framework */; };
 		FE7C160512DBCAF900CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160312DBCAF900CFDA59 /* MultiTag.framework */; };
-		FE7C160A12DBCB0200CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160212DBCAF900CFDA59 /* Growl.framework */; };
-		FE7C160B12DBCB0200CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160312DBCAF900CFDA59 /* MultiTag.framework */; };
+		FE7C160A12DBCB0200CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160212DBCAF900CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C160B12DBCB0200CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C160312DBCAF900CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE7C161A12DBCB1B00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161812DBCB1B00CFDA59 /* Growl.framework */; };
 		FE7C161B12DBCB1B00CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161912DBCB1B00CFDA59 /* MultiTag.framework */; };
-		FE7C162712DBCB2B00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161812DBCB1B00CFDA59 /* Growl.framework */; };
-		FE7C162812DBCB2B00CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161912DBCB1B00CFDA59 /* MultiTag.framework */; };
+		FE7C162712DBCB2B00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161812DBCB1B00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C162812DBCB2B00CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C161912DBCB1B00CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE7C162E12DBCB4100CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; };
 		FE7C162F12DBCB4100CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; };
 		FE7C163012DBCB4100CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; };
 		FE7C163112DBCB4100CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; };
-		FE7C163612DBCB5000CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; };
-		FE7C163712DBCB5000CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; };
-		FE7C163F12DBCB5800CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; };
-		FE7C164012DBCB5800CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; };
+		FE7C163612DBCB5000CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C163712DBCB5000CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C163F12DBCB5800CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162C12DBCB4100CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C164012DBCB5800CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE7C164612DBCB7800CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164412DBCB7800CFDA59 /* Growl.framework */; };
 		FE7C164712DBCB7800CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164512DBCB7800CFDA59 /* MultiTag.framework */; };
-		FE7C164C12DBCB8900CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164412DBCB7800CFDA59 /* Growl.framework */; };
-		FE7C164D12DBCB8900CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164512DBCB7800CFDA59 /* MultiTag.framework */; };
+		FE7C164C12DBCB8900CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164412DBCB7800CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C164D12DBCB8900CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C164512DBCB7800CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE7C165A12DBCBBC00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165812DBCBBC00CFDA59 /* Growl.framework */; };
 		FE7C165B12DBCBBC00CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165912DBCBBC00CFDA59 /* MultiTag.framework */; };
-		FE7C166012DBCBC500CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165812DBCBBC00CFDA59 /* Growl.framework */; };
-		FE7C166112DBCBC500CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165912DBCBBC00CFDA59 /* MultiTag.framework */; };
+		FE7C166012DBCBC500CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165812DBCBBC00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C166112DBCBC500CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C165912DBCBBC00CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
 		FE7C166F12DBCBDD00CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; };
-		FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
-		FE7C167C12DBCBFE00CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; };
+		FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FE7C167C12DBCBFE00CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE8088EC0DBC85C100F2644D /* -1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8088EB0DBC85C100F2644D /* -1.png */; };
 		FE8088ED0DBC85C100F2644D /* -1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8088EB0DBC85C100F2644D /* -1.png */; };
 		FE8088EE0DBC85C100F2644D /* -1.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8088EB0DBC85C100F2644D /* -1.png */; };
@@ -911,7 +911,7 @@
 		FE055DE30DBB863700D879FD /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWEraser.nib; sourceTree = "<group>"; };
 		FE1396C80F88D82E0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ko; path = ko.lproj/Credits.html; sourceTree = "<group>"; };
 		FE1396C90F88D82F0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE1396CA0F88D82F0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE1396CA0F88D82F0056809A /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE1397C30F88D86D0056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/BurnHelp; sourceTree = "<group>"; };
 		FE1397FD0F88D8820056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ko; path = ko.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE1397FE0F88D8820056809A /* ko */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ko; path = ko.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
@@ -942,7 +942,7 @@
 		FE2491680ECEDB6F0028E955 /* KWDiscCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWDiscCreator.h; path = Source/KWDiscCreator.h; sourceTree = "<group>"; };
 		FE2491690ECEDB6F0028E955 /* KWDiscCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWDiscCreator.m; path = Source/KWDiscCreator.m; sourceTree = "<group>"; };
 		FE25B65811772BC5004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE25B65911772BC6004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE25B65911772BC6004F3B3D /* Italian */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE25B65C11772BD9004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE25B65D11772BD9004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
 		FE25B65E11772BD9004F3B3D /* Italian */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Italian; path = Italian.lproj/KWDiscScanner.nib; sourceTree = "<group>"; };
@@ -975,7 +975,7 @@
 		FE3EFEEF0DBBD523003DD5AD /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE3EFEF00DBBD523003DD5AD /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE3EFEF10DBBD535003DD5AD /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE3EFEF20DBBD535003DD5AD /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE3EFEF20DBBD535003DD5AD /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE3F2C890F88DCBF001364D1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ko; path = "ko.lproj/Copy document.icns"; sourceTree = "<group>"; };
 		FE3F2C8A0F88DCBF001364D1 /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ko; path = "ko.lproj/Theme document.icns"; sourceTree = "<group>"; };
 		FE4514050D15720F0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = French; path = "French.lproj/Copy document.icns"; sourceTree = "<group>"; };
@@ -987,7 +987,7 @@
 		FE4514220D15722E0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWInspector.nib; sourceTree = "<group>"; };
 		FE4514230D15722E0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FE4514240D15722E0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
-		FE4514250D15722E0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE4514250D15722E0051D717 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE4514260D15722E0051D717 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE5461DD12DA2E2E00461081 /* Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Burn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5DD7C60DBD15FA00FC2A37 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = zh_TW; path = zh_TW.lproj/KWBurner.nib; sourceTree = "<group>"; };
@@ -999,7 +999,7 @@
 		FE5DD7CF0DBD15FA00FC2A37 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = zh_TW; path = zh_TW.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE5DD7D00DBD15FA00FC2A37 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = zh_TW; path = zh_TW.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE5DD7D10DBD160900FC2A37 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE5DD7D20DBD160900FC2A37 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE5DD7D20DBD160900FC2A37 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE5DD7E20DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE5DD7E30DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
 		FE5DD7E60DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWEjecter.nib; sourceTree = "<group>"; };
@@ -1009,7 +1009,7 @@
 		FE5DD7EB0DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE5DD7EC0DBD20B000FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE5DD7F80DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE5DD7F90DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE5DD7F90DBD27DE00FC2A37 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE5DD7FA0DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE5DD7FB0DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
 		FE5DD7FE0DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWEjecter.nib; sourceTree = "<group>"; };
@@ -1019,13 +1019,13 @@
 		FE5DD8030DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
 		FE5DD8040DBD2BA600FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE5DD8100DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE5DD8110DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE5DD8110DBD30FF00FC2A37 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE5E5B4C0D2A7FE300D65049 /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		FE60C63311862FBE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spanish; path = "Spanish.lproj/Copy document.icns"; sourceTree = "<group>"; };
 		FE60C63411862FBE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Spanish; path = "Spanish.lproj/Theme document.icns"; sourceTree = "<group>"; };
 		FE60C63711862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Spanish; path = Spanish.lproj/Credits.html; sourceTree = "<group>"; };
 		FE60C63811862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE60C63911862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE60C63911862FDE006922C3 /* Spanish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE60C63C11863036006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FE60C63D11863036006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
 		FE60C63E11863036006922C3 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Spanish; path = Spanish.lproj/KWDiscScanner.nib; sourceTree = "<group>"; };
@@ -1068,7 +1068,7 @@
 		FE888CBC0CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/KWInspector.nib; sourceTree = "<group>"; };
 		FE888CBD0CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FE888CBE0CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
-		FE888CBF0CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE888CBF0CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE888CC00CF9B4BA003620F1 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FE8AFAA312DA1BDC004A83B9 /* Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Burn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9DB850110338EB0086F62C /* iso8859-1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iso8859-1"; path = "Binaries/Support Files/iso8859-1"; sourceTree = "<group>"; };
@@ -1078,7 +1078,7 @@
 		FE9F92120D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/KWInspector.nib; sourceTree = "<group>"; };
 		FE9F92130D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FE9F92140D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
-		FE9F92150D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FE9F92150D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE9F92160D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		FEA4679A0D97BDC60083527F /* Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Burn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA468120D97BDCD0083527F /* Burn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Burn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1118,7 +1118,7 @@
 		FEAC31350D2A75C000555250 /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/KWInspector.nib; sourceTree = "<group>"; };
 		FEAC31360D2A75C000555250 /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/KWPreferences.nib; sourceTree = "<group>"; };
 		FEAC31370D2A75C000555250 /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/KWRecorderInfo.nib; sourceTree = "<group>"; };
-		FEAC3B560EFBFF0300D6F2B5 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FEAC3B560EFBFF0300D6F2B5 /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FEB279080F87E10C0027F2B1 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ffmpeg; sourceTree = "<group>"; };
 		FEC3D5240EE32502008DBECA /* vcdimager */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = vcdimager; path = Binaries/Universal/vcdimager; sourceTree = "<group>"; };
 		FEC3D5260EE3251E008DBECA /* vcdimager */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = vcdimager; path = Binaries/PowerPC/vcdimager; sourceTree = "<group>"; };
@@ -1127,7 +1127,7 @@
 		FEC66B530F2CCD9200086E2C /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/BurnHelp; sourceTree = "<group>"; };
 		FEC66B8B0F2CCD9B00086E2C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Japanese; path = Japanese.lproj/BurnHelp; sourceTree = "<group>"; };
 		FEC66BC30F2CCDA300086E2C /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = folder; name = zh_TW; path = zh_TW.lproj/BurnHelp; sourceTree = "<group>"; };
-		FED901170F2E248900947B06 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FED901170F2E248900947B06 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FED901180F2E249B00947B06 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FED901190F2E24C400947B06 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Japanese; path = Japanese.lproj/Credits.html; sourceTree = "<group>"; };
 		FED9011A0F2E24D700947B06 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ru; path = ru.lproj/Credits.html; sourceTree = "<group>"; };
@@ -1152,7 +1152,7 @@
 		FEE05103130126EA00072366 /* LOXI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOXI.h; path = Source/LOXI.h; sourceTree = "<group>"; };
 		FEE05104130126EA00072366 /* LOXI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOXI.m; path = Source/LOXI.m; sourceTree = "<group>"; };
 		FEE0FF090F6D35BE009BC562 /* Greek */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Greek; path = Greek.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FEE0FF0A0F6D35BE009BC562 /* Greek */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Greek; path = Greek.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FEE0FF0A0F6D35BE009BC562 /* Greek */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Greek; path = Greek.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FEE0FF0D0F6D35DB009BC562 /* Greek */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Greek; path = Greek.lproj/KWBurner.nib; sourceTree = "<group>"; };
 		FEE0FF0E0F6D35DB009BC562 /* Greek */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Greek; path = Greek.lproj/KWDiscInfo.nib; sourceTree = "<group>"; };
 		FEE0FF110F6D35DB009BC562 /* Greek */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Greek; path = Greek.lproj/KWEjecter.nib; sourceTree = "<group>"; };
@@ -2163,8 +2163,12 @@
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Burn" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -3348,13 +3352,13 @@
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/Universal\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
@@ -3362,6 +3366,7 @@
 					"-weak_framework",
 					QTKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -3371,18 +3376,19 @@
 		C05733C908A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/Universal\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G4;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					QTKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3391,47 +3397,46 @@
 		C05733CC08A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = USE_QTKIT;
 				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					QTKit,
 				);
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		C05733CD08A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = USE_QTKIT;
 				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					QTKit,
 				);
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		FE5461DB12DA2E2E00461081 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/Universal 64-bit\"";
@@ -3443,10 +3448,11 @@
 				INFOPLIST_FILE = "Info copy.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -3455,10 +3461,6 @@
 		FE5461DC12DA2E2E00461081 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc64,
-					x86_64,
-				);
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/Universal 64-bit\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3470,14 +3472,15 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[sdk=macosx10.5][arch=x86_64]" = (
 					"-framework",
 					QTKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3485,7 +3488,6 @@
 		FE8AFAA112DA1BDC004A83B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/PowerPC 64-bit\"";
@@ -3497,10 +3499,11 @@
 				INFOPLIST_FILE = "Info copy 2.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -3509,7 +3512,6 @@
 		FE8AFAA212DA1BDC004A83B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = ppc64;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/PowerPC 64-bit\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3519,10 +3521,11 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3530,16 +3533,17 @@
 		FEA467980D97BDC60083527F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/PowerPC\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -3549,14 +3553,15 @@
 		FEA467990D97BDC60083527F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = ppc;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/PowerPC\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G4;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3565,16 +3570,17 @@
 		FEA468100D97BDCD0083527F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/Intel\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -3584,14 +3590,15 @@
 		FEA468110D97BDCD0083527F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/Intel\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3600,16 +3607,17 @@
 		FEDBF5A30F80782A00DABA72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/PowerPC\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G3;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -3619,14 +3627,15 @@
 		FEDBF5A40F80782A00DABA72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = ppc;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks/PowerPC\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G3;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3635,7 +3644,6 @@
 		FEF8A88112D9D2BF00FE302C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/Intel 64-bit\"";
@@ -3647,10 +3655,11 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -3659,7 +3668,6 @@
 		FEF8A88212D9D2BF00FE302C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks/Intel 64-bit\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3668,10 +3676,11 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
 				PRODUCT_NAME = Burn;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

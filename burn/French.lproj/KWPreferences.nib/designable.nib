@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="KWPreferences">
+            <connections>
+                <outlet property="advancedView" destination="1154" id="1821"/>
+                <outlet property="audioTab" destination="951" id="1844"/>
+                <outlet property="audioTabGeneral" destination="1050" id="1845"/>
+                <outlet property="audioView" destination="763" id="1819"/>
+                <outlet property="burnerPopup" destination="1541" id="1750"/>
+                <outlet property="burnerView" destination="1406" id="1822"/>
+                <outlet property="cdPopup" destination="1865" id="1887"/>
+                <outlet property="cdTextCheckbox" destination="1600" id="1889"/>
+                <outlet property="completionActionMatrix" destination="1547" id="1753"/>
+                <outlet property="dataView" destination="747" id="1818"/>
+                <outlet property="dvdPopup" destination="1857" id="1888"/>
+                <outlet property="generalView" destination="739" id="1817"/>
+                <outlet property="previewImagePopup" destination="1659" id="1815"/>
+                <outlet property="previewImageView" destination="1649" id="1816"/>
+                <outlet property="previewWindow" destination="1647" id="1813"/>
+                <outlet property="temporaryFolderPopup" destination="1476" id="1747"/>
+                <outlet property="themePopup" destination="1621" id="1806"/>
+                <outlet property="videoTab" destination="849" id="1855"/>
+                <outlet property="videoView" destination="768" id="1820"/>
+                <outlet property="window" destination="735" id="1748"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Général" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" frameAutosaveName="Preferences" animationBehavior="default" id="735" userLabel="prefWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="133" y="564" width="360" height="59"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
+            <view key="contentView" id="736">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+        </window>
+        <customView id="739" userLabel="generalView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1733">
+                    <rect key="frame" x="17" y="22" width="237" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Supprimer les éléments temporaires:" id="1903">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" tag="5" imageHugsTitle="YES" id="1728">
+                    <rect key="frame" x="256" y="16" width="138" height="26"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <popUpButtonCell key="cell" type="push" title="Manuellement" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1730" id="1902">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="1729">
+                            <items>
+                                <menuItem title="Manuellement" state="on" id="1730"/>
+                                <menuItem title="En quittant" id="1731"/>
+                                <menuItem title="Après utilisation pour la gravure" id="1732"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1745"/>
+                    </connections>
+                </popUpButton>
+                <button tag="1" imageHugsTitle="YES" id="1688">
+                    <rect key="frame" x="18" y="116" width="324" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Activer les sons système" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="1" inset="2" id="1901">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1741"/>
+                        <outlet property="nextKeyView" destination="1068" id="1716"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1480">
+                    <rect key="frame" x="17" y="53" width="129" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Dossier temporaire:" id="1900">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" tag="4" imageHugsTitle="YES" id="1476">
+                    <rect key="frame" x="148" y="46" width="223" height="26"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1825" id="1899">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="1477">
+                            <items>
+                                <menuItem isSeparatorItem="YES" state="on" id="1825">
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                </menuItem>
+                                <menuItem title="Demander à chaque fois" id="1826"/>
+                                <menuItem isSeparatorItem="YES" title=" " id="1478">
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                </menuItem>
+                                <menuItem title="Choisir..." id="1479"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1843"/>
+                    </connections>
+                </popUpButton>
+                <button tag="3" imageHugsTitle="YES" id="1241">
+                    <rect key="frame" x="18" y="76" width="302" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Se souvenir des derniers réglages et options" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="3" inset="2" id="1898">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1743"/>
+                    </connections>
+                </button>
+                <button tag="2" imageHugsTitle="YES" id="1068">
+                    <rect key="frame" x="18" y="96" width="324" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Se souvenir du dernier onglet utilisé" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="2" inset="2" id="1897">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1742"/>
+                    </connections>
+                </button>
+            </subviews>
+        </customView>
+        <customView id="747" userLabel="dataView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button tag="12" imageHugsTitle="YES" id="1719">
+                    <rect key="frame" x="18" y="97" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Afficher les 'Packages' sous forme de dossiers" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="12" inset="2" id="1910">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1759"/>
+                        <outlet property="nextKeyView" destination="1718" id="1720"/>
+                    </connections>
+                </button>
+                <button tag="13" imageHugsTitle="YES" id="1718">
+                    <rect key="frame" x="18" y="77" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Calculer la taille des 'Packages'" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="13" inset="2" id="1909">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1760"/>
+                    </connections>
+                </button>
+                <button tag="14" imageHugsTitle="YES" id="1498">
+                    <rect key="frame" x="18" y="57" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Calculer la taille de l'arborescence du disque" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="14" inset="2" id="1908">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1761"/>
+                        <outlet property="nextKeyView" destination="759" id="1715"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="760">
+                    <rect key="frame" x="17" y="0.0" width="386" height="31"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Décocher cette option accélérera certains ordinateurs" id="1907">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button tag="15" imageHugsTitle="YES" id="759">
+                    <rect key="frame" x="18" y="37" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Calcul de la taille totale" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="15" inset="2" id="1906">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1762"/>
+                    </connections>
+                </button>
+                <popUpButton verticalHuggingPriority="750" tag="11" imageHugsTitle="YES" id="753">
+                    <rect key="frame" x="204" y="115" width="139" height="26"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <popUpButtonCell key="cell" type="push" title="Mac (HFS+)" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="756" id="1905">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="754">
+                            <items>
+                                <menuItem title="Mac (HFS+)" state="on" id="756"/>
+                                <menuItem title="PC (Joliet)" id="755"/>
+                                <menuItem title="DVD (UDF)" id="757"/>
+                                <menuItem title="Mac + PC" id="761"/>
+                                <menuItem title="Avancé..." id="1204"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1758"/>
+                    </connections>
+                </popUpButton>
+                <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="752">
+                    <rect key="frame" x="17" y="121" width="185" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Type de données par défaut:" id="1904">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="763" userLabel="audioView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="189"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <tabView id="951">
+                    <rect key="frame" x="13" y="10" width="394" height="173"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Général" identifier="" id="1050">
+                            <view key="view" id="1051">
+                                <rect key="frame" x="10" y="33" width="374" height="127"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1059">
+                                        <rect key="frame" x="62" y="89" width="122" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Format par défaut:" id="1922">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" tag="16" imageHugsTitle="YES" id="1060">
+                                        <rect key="frame" x="188" y="83" width="124" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="CD audio" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1063" id="1923">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1061">
+                                                <items>
+                                                    <menuItem title="CD audio" state="on" id="1063"/>
+                                                    <menuItem title="CD MP3" id="1062"/>
+                                                    <menuItem title="DVD-Audio" id="1668"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1763"/>
+                                        </connections>
+                                    </popUpButton>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="CD audio" identifier="1" id="954">
+                            <view key="view" id="955">
+                                <rect key="frame" x="10" y="33" width="374" height="127"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="959">
+                                        <rect key="frame" x="79" y="87" width="76" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Inter-piste:" id="1918">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" tag="17" allowsCharacterPickerTouchBarItem="NO" id="960">
+                                        <rect key="frame" x="160" y="85" width="55" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" tag="17" title="0" drawsBackground="YES" id="1919">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="" hasThousandSeparators="NO" thousandSeparator="," id="1829">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="NaN"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1764"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="961">
+                                        <rect key="frame" x="220" y="87" width="65" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Secondes" id="1920">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button tag="18" imageHugsTitle="YES" id="1600">
+                                        <rect key="frame" x="92" y="61" width="181" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Inclure les infos CD-Text" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="18" inset="2" id="1921">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1765"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="CD MP3" identifier="2" id="952">
+                            <view key="view" id="953">
+                                <rect key="frame" x="10" y="33" width="374" height="127"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="962">
+                                        <rect key="frame" x="17" y="92" width="195" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Taux d'échantillonnage audio:" id="1911">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" tag="19" allowsCharacterPickerTouchBarItem="NO" id="963">
+                                        <rect key="frame" x="217" y="89" width="56" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="19" title="128" drawsBackground="YES" id="1912">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1707">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="32"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1766"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="964">
+                                        <rect key="frame" x="17" y="64" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Mode:" id="1913">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" tag="20" imageHugsTitle="YES" id="966">
+                                        <rect key="frame" x="62" y="58" width="101" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="Stereo" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="969" id="1914">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="967">
+                                                <items>
+                                                    <menuItem title="Mono" id="970"/>
+                                                    <menuItem title="Stereo" state="on" id="969"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1767"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="971">
+                                        <rect key="frame" x="278" y="91" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1915">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button tag="21" imageHugsTitle="YES" id="1594">
+                                        <rect key="frame" x="18" y="38" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Créer un dossier -artistes-" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="21" inset="2" id="1916">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1768"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="22" imageHugsTitle="YES" id="1595">
+                                        <rect key="frame" x="18" y="18" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Créer un dossier -albums-" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="22" inset="2" id="1917">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1769"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+        </customView>
+        <customView id="768" userLabel="videoView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="423"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <tabView id="849">
+                    <rect key="frame" x="13" y="10" width="394" height="407"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Général" identifier="1" id="850">
+                            <view key="view" id="851">
+                                <rect key="frame" x="10" y="33" width="374" height="361"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="858">
+                                        <rect key="frame" x="17" y="295" width="122" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Format par défaut:" id="1924">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" tag="24" imageHugsTitle="YES" id="859">
+                                        <rect key="frame" x="141" y="289" width="124" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="VCD" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="864" id="1925">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="860">
+                                                <items>
+                                                    <menuItem title="VCD" state="on" id="864"/>
+                                                    <menuItem title="SVCD" id="861"/>
+                                                    <menuItem title="DVD-Vidéo" id="862"/>
+                                                    <menuItem title="DivX" id="863"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1771"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <popUpButton verticalHuggingPriority="750" tag="23" imageHugsTitle="YES" id="1691">
+                                        <rect key="frame" x="71" y="317" width="105" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="PAL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1694" id="1926">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1692">
+                                                <items>
+                                                    <menuItem title="PAL" state="on" id="1694"/>
+                                                    <menuItem title="NTSC" id="1693"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1770"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1695">
+                                        <rect key="frame" x="17" y="323" width="52" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Région:" id="1927">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="DVD" identifier="2" id="852">
+                            <view key="view" id="853">
+                                <rect key="frame" x="10" y="33" width="374" height="361"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <popUpButton verticalHuggingPriority="750" tag="25" imageHugsTitle="YES" id="867">
+                                        <rect key="frame" x="108" y="318" width="130" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="MP2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="870" id="1928">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="868">
+                                                <items>
+                                                    <menuItem title="MP2" state="on" id="870"/>
+                                                    <menuItem title="AC3" id="1208"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1772"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="872">
+                                        <rect key="frame" x="17" y="324" width="89" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Codec Audio:" id="1929">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button tag="26" imageHugsTitle="YES" id="873">
+                                        <rect key="frame" x="18" y="288" width="211" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Taux d'échantillonnage vidéo:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="26" inset="2" id="1930">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1773"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="27" allowsCharacterPickerTouchBarItem="NO" id="875">
+                                        <rect key="frame" x="237" y="287" width="84" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="27" title="6000" drawsBackground="YES" id="1931">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1708">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="NaN"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1774"/>
+                                        </connections>
+                                    </textField>
+                                    <button tag="28" imageHugsTitle="YES" id="876">
+                                        <rect key="frame" x="18" y="256" width="212" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Taux d'échantillonnage audio:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="28" inset="2" id="1932">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1775"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="29" allowsCharacterPickerTouchBarItem="NO" id="877">
+                                        <rect key="frame" x="237" y="255" width="84" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="29" title="448" drawsBackground="YES" id="1933">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1709">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="8"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1776"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="878">
+                                        <rect key="frame" x="326" y="289" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1934">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="879">
+                                        <rect key="frame" x="326" y="257" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1935">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <box verticalHuggingPriority="750" boxType="separator" id="1225">
+                                        <rect key="frame" x="12" y="219" width="350" height="5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </box>
+                                    <button tag="33" imageHugsTitle="YES" id="1230">
+                                        <rect key="frame" x="18" y="157" width="324" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Forcer le multiplexage des flux MPEG2 externes" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="33" inset="2" id="1936">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1780"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="32" imageHugsTitle="YES" id="1236">
+                                        <rect key="frame" x="18" y="177" width="316" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Multiplexer des fichiers audio et vidéo séparés" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="32" inset="2" id="1937">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1779"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="31" imageHugsTitle="YES" id="1266">
+                                        <rect key="frame" x="18" y="197" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Forcer l'encodage en MPEG2" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="31" inset="2" id="1938">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1778"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="30" imageHugsTitle="YES" id="1491">
+                                        <rect key="frame" x="18" y="228" width="326" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Forcer le ratio 4:3" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="30" inset="2" id="1939">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1777"/>
+                                        </connections>
+                                    </button>
+                                    <box verticalHuggingPriority="750" boxType="separator" id="1618">
+                                        <rect key="frame" x="12" y="128" width="350" height="5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </box>
+                                    <button tag="35" imageHugsTitle="YES" id="1620">
+                                        <rect key="frame" x="18" y="106" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Activer les Thèmes DVD:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="35" inset="2" id="1940">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1782"/>
+                                        </connections>
+                                    </button>
+                                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="1621">
+                                        <rect key="frame" x="80" y="76" width="163" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1624" id="1941">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1622">
+                                                <items>
+                                                    <menuItem title="Default" state="on" id="1624"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setTheme:" target="-2" id="1805"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <button tag="101" imageHugsTitle="YES" id="1626">
+                                        <rect key="frame" x="267" y="80" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="101" inset="2" id="1942">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="label"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addTheme:" target="-2" id="1809"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="100" imageHugsTitle="YES" id="1627">
+                                        <rect key="frame" x="248" y="80" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="100" inset="2" id="1943">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="label"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deleteTheme:" target="-2" id="1808"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1628">
+                                        <rect key="frame" x="18" y="82" width="52" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Thème:" id="1944">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1629">
+                                        <rect key="frame" x="18" y="52" width="53" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Format:" id="1945">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" tag="36" imageHugsTitle="YES" id="1630">
+                                        <rect key="frame" x="80" y="46" width="163" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="Normal" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1632" id="1946">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1631">
+                                                <items>
+                                                    <menuItem title="Normal" state="on" id="1632"/>
+                                                    <menuItem title="Large" id="1633"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1783"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <button verticalHuggingPriority="750" tag="102" imageHugsTitle="YES" id="1644">
+                                        <rect key="frame" x="92" y="12" width="130" height="32"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="push" title="Aperçu" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" tag="102" inset="2" id="1947">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showPreview:" target="-2" id="1804"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="34" imageHugsTitle="YES" id="1725">
+                                        <rect key="frame" x="18" y="137" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Lire les DVD-Vidéo en boucle" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="34" inset="2" id="1948">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1781"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="DivX" identifier="" id="854">
+                            <view key="view" id="855">
+                                <rect key="frame" x="10" y="33" width="374" height="361"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <popUpButton verticalHuggingPriority="750" tag="37" imageHugsTitle="YES" id="880">
+                                        <rect key="frame" x="110" y="318" width="130" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="MP3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="882" id="1949">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="881">
+                                                <items>
+                                                    <menuItem title="MP3" state="on" id="882"/>
+                                                    <menuItem title="AC3" id="891"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1784"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="884">
+                                        <rect key="frame" x="17" y="324" width="89" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Codec Audio:" id="1950">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button tag="38" imageHugsTitle="YES" id="885">
+                                        <rect key="frame" x="18" y="288" width="211" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Taux d'échantillonnage vidéo:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="38" inset="2" id="1951">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1785"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="39" allowsCharacterPickerTouchBarItem="NO" id="886">
+                                        <rect key="frame" x="236" y="287" width="84" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="39" title="768" drawsBackground="YES" id="1952">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1710">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="NaN"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1786"/>
+                                        </connections>
+                                    </textField>
+                                    <button tag="40" imageHugsTitle="YES" id="887">
+                                        <rect key="frame" x="18" y="256" width="212" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Taux d'échantillonnage audio:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="40" inset="2" id="1953">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1787"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="41" allowsCharacterPickerTouchBarItem="NO" id="888">
+                                        <rect key="frame" x="236" y="255" width="84" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="41" title="128" drawsBackground="YES" id="1954">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1711">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="32"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1788"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="889">
+                                        <rect key="frame" x="325" y="289" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1955">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="890">
+                                        <rect key="frame" x="325" y="257" width="43" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1956">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button tag="42" imageHugsTitle="YES" id="892">
+                                        <rect key="frame" x="18" y="224" width="56" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Taille" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="42" inset="2" id="1957">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1789"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="43" allowsCharacterPickerTouchBarItem="NO" id="893">
+                                        <rect key="frame" x="80" y="223" width="52" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="43" title="320" drawsBackground="YES" id="1958">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1712">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="1"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1790"/>
+                                        </connections>
+                                    </textField>
+                                    <button tag="45" imageHugsTitle="YES" id="895">
+                                        <rect key="frame" x="18" y="193" width="159" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Nombre d'images / s:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="45" inset="2" id="1959">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1792"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" tag="44" allowsCharacterPickerTouchBarItem="NO" id="896">
+                                        <rect key="frame" x="149" y="223" width="52" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="44" title="240" drawsBackground="YES" id="1960">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1713">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="1"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1791"/>
+                                        </connections>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="898">
+                                        <rect key="frame" x="206" y="225" width="42" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="pixels" id="1961">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="899">
+                                        <rect key="frame" x="135" y="225" width="12" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="x" id="1962">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" tag="46" allowsCharacterPickerTouchBarItem="NO" id="938">
+                                        <rect key="frame" x="185" y="191" width="47" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="46" title="25" drawsBackground="YES" id="1963">
+                                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1714">
+                                                <attributedString key="attributedStringForZero">
+                                                    <fragment content="0"/>
+                                                </attributedString>
+                                                <decimal key="minimum" value="1"/>
+                                                <decimal key="maximum" value="NaN"/>
+                                            </numberFormatter>
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1793"/>
+                                        </connections>
+                                    </textField>
+                                    <button tag="47" imageHugsTitle="YES" id="1237">
+                                        <rect key="frame" x="18" y="143" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Permettre le MSMPEG4 sur les disques DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="47" inset="2" id="1964">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1794"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="48" imageHugsTitle="YES" id="1238">
+                                        <rect key="frame" x="18" y="123" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Forcer l'encodage en DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="48" inset="2" id="1965">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1795"/>
+                                        </connections>
+                                    </button>
+                                    <box verticalHuggingPriority="750" boxType="separator" id="1239">
+                                        <rect key="frame" x="12" y="165" width="350" height="5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </box>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+        </customView>
+        <customView id="1154" userLabel="advancedView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button tag="54" imageHugsTitle="YES" id="1739">
+                    <rect key="frame" x="18" y="110" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Autoriser l'overburning (à utiliser avec précaution)" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="54" inset="2" id="1974">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1802"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1702">
+                    <rect key="frame" x="369" y="130" width="42" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="pixels" id="1973">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" tag="50" allowsCharacterPickerTouchBarItem="NO" id="1700">
+                    <rect key="frame" x="329" y="128" width="35" height="22"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="50" title="0" drawsBackground="YES" id="1972">
+                        <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#" negativeFormat="-#" hasThousandSeparators="NO" thousandSeparator="," id="1701">
+                            <attributedString key="attributedStringForZero">
+                                <fragment content="0"/>
+                            </attributedString>
+                            <decimal key="minimum" value="NaN"/>
+                            <decimal key="maximum" value="NaN"/>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1797"/>
+                    </connections>
+                </textField>
+                <button tag="49" imageHugsTitle="YES" id="1699">
+                    <rect key="frame" x="18" y="130" width="307" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Forcer les bords noirs sur les disques vidéos:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="49" inset="2" id="1971">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1796"/>
+                    </connections>
+                </button>
+                <button tag="51" imageHugsTitle="YES" id="1683">
+                    <rect key="frame" x="18" y="90" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Autoriser les fichiers log" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="51" inset="2" id="1970">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1798"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" imageHugsTitle="YES" id="1164">
+                    <rect key="frame" x="259" y="13" width="96" height="32"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="push" title="Choisir..." bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="1969">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="chooseFFMPEG:" target="-2" id="1824"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" tag="53" allowsCharacterPickerTouchBarItem="NO" id="1163">
+                    <rect key="frame" x="20" y="20" width="237" height="20"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="53" drawsBackground="YES" id="1968">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1800"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1160">
+                    <rect key="frame" x="17" y="38" width="414" height="32"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1967">
+                        <font key="font" metaFont="smallSystem"/>
+                        <string key="title">Il est possible que cela ne fonctionne pas à cause des différences de
+ syntaxe</string>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button tag="52" imageHugsTitle="YES" id="1159">
+                    <rect key="frame" x="18" y="69" width="384" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Utiliser son propre ffmpeg" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="52" inset="2" id="1966">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setPreferenceOption:" target="-2" id="1799"/>
+                    </connections>
+                </button>
+            </subviews>
+        </customView>
+        <customView id="1406" userLabel="burnerView">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="227"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <tabView id="1522">
+                    <rect key="frame" x="13" y="10" width="394" height="211"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Général" identifier="1" id="1525">
+                            <view key="view" id="1526">
+                                <rect key="frame" x="10" y="33" width="374" height="165"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1539">
+                                        <rect key="frame" x="17" y="131" width="58" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Graveur:" id="1982">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1540">
+                                        <rect key="frame" x="17" y="109" width="340" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Utiliser comme graveur par défaut si possible" id="1983">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="1541">
+                                        <rect key="frame" x="77" y="125" width="260" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="Elément 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1544" id="1984">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1542">
+                                                <items>
+                                                    <menuItem title="Elément 1" state="on" id="1544"/>
+                                                    <menuItem title="Elément 2" state="on" id="1545"/>
+                                                    <menuItem title="Item3" state="on" id="1543"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setBurner:" target="-2" id="1749"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <button tag="6" imageHugsTitle="YES" id="1546">
+                                        <rect key="frame" x="18" y="60" width="338" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Vérifier le disque" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="6" inset="2" id="1985">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1751"/>
+                                        </connections>
+                                    </button>
+                                    <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="1547">
+                                        <rect key="frame" x="18" y="17" width="216" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        <size key="cellSize" width="216" height="18"/>
+                                        <size key="intercellSpacing" width="4" height="2"/>
+                                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="1989">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <cells>
+                                            <column>
+                                                <buttonCell type="radio" title="Ejecter le disque" imagePosition="leading" alignment="left" state="on" inset="2" id="1894">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <buttonCell type="radio" title="Monter le disque sur le bureau" imagePosition="leading" alignment="left" inset="2" id="1895">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </column>
+                                        </cells>
+                                        <connections>
+                                            <action selector="setCompletionAction:" target="-2" id="1752"/>
+                                        </connections>
+                                    </matrix>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1850">
+                                        <rect key="frame" x="17" y="84" width="340" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Après la gravure:" id="1986">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="Disques" identifier="2" id="1523">
+                            <view key="view" id="1524">
+                                <rect key="frame" x="10" y="33" width="374" height="165"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <button tag="7" imageHugsTitle="YES" id="1551">
+                                        <rect key="frame" x="18" y="134" width="317" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <buttonCell key="cell" type="check" title="Afficher l'espace disponible pour l'overburning" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="7" inset="2" id="1975">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1754"/>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1552">
+                                        <rect key="frame" x="17" y="80" width="146" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="DVD par défaut:" id="1976">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1558">
+                                        <rect key="frame" x="17" y="110" width="137" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="CD par défaut:" id="1977">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1568">
+                                        <rect key="frame" x="17" y="50" width="132" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Média sans disque:" id="1978">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" tag="10" imageHugsTitle="YES" id="1569">
+                                        <rect key="frame" x="150" y="44" width="187" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="Aucun disque" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1571" id="1979">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1570">
+                                                <items>
+                                                    <menuItem title="Aucun disque" state="on" id="1571"/>
+                                                    <menuItem title="CD" id="1572"/>
+                                                    <menuItem title="DVD" id="1575"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1757"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <popUpButton verticalHuggingPriority="750" tag="9" imageHugsTitle="YES" id="1857">
+                                        <rect key="frame" x="150" y="74" width="187" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="DVD R(W) (1,4 GB)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1864" id="1980">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1858">
+                                                <items>
+                                                    <menuItem title="Petit (8 cm):" id="1863"/>
+                                                    <menuItem title="DVD R(W) (1,4 GB)" state="on" id="1864"/>
+                                                    <menuItem title="DVD R(W) (4,8 GB)" id="1859"/>
+                                                    <menuItem title="Normal (12 cm):" id="1861"/>
+                                                    <menuItem title="DVD R(W) (4,8 GB)" id="1860"/>
+                                                    <menuItem title="DVD R(W) DL (9,4 GB)" id="1862"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1886"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <popUpButton verticalHuggingPriority="750" tag="8" imageHugsTitle="YES" id="1865">
+                                        <rect key="frame" x="150" y="104" width="187" height="26"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <popUpButtonCell key="cell" type="push" title="700 MB (80 minutes)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1867" id="1981">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" title="OtherViews" id="1866">
+                                                <items>
+                                                    <menuItem title="Petit (8 cm):" id="1876"/>
+                                                    <menuItem title="158 MB (18 minutes)" id="1868"/>
+                                                    <menuItem title="185 MB (21 minutes)" id="1871"/>
+                                                    <menuItem title="Normal (12 cm):" id="1870"/>
+                                                    <menuItem title="540 MB (63 minutes)" id="1873"/>
+                                                    <menuItem title="640 MB (74 minutes)" id="1872"/>
+                                                    <menuItem title="700 MB (80 minutes)" state="on" id="1867"/>
+                                                    <menuItem title="800 MB (90 minutes)" id="1875"/>
+                                                    <menuItem title="900 MB (99 minutes)" id="1869"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="setPreferenceOption:" target="-2" id="1885"/>
+                                        </connections>
+                                    </popUpButton>
+                                </subviews>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+        </customView>
+        <window title="Aperçu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Preview" animationBehavior="default" id="1647" userLabel="themePreview" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="15" y="289" width="360" height="320"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
+            <view key="contentView" id="1648">
+                <rect key="frame" x="1" y="1" width="360" height="320"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box title="Box" titlePosition="noTitle" id="1655">
+                        <rect key="frame" x="17" y="22" width="326" height="246"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <view key="contentView" id="vAa-bd-5XX">
+                            <rect key="frame" x="2" y="2" width="322" height="242"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                    </box>
+                    <imageView id="1649">
+                        <rect key="frame" x="20" y="26" width="320" height="240"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="1987"/>
+                    </imageView>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="1659">
+                        <rect key="frame" x="17" y="276" width="326" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Menu Titre" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1851" id="1988">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="1660">
+                                <items>
+                                    <menuItem title="Menu Titre" state="on" id="1851"/>
+                                    <menuItem title="Menu Chapitre" id="1852"/>
+                                    <menuItem title="Menu Sélection de titre" id="1853"/>
+                                    <menuItem title="Menu Sélection de chapitre" id="1854"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="setPreviewImage:" target="-2" id="1814"/>
+                        </connections>
+                    </popUpButton>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+</document>

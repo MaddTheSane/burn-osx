@@ -1,394 +1,189 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>UDSP</key>
-	<string>分散映像檔</string>
-	<key>Failed to install theme in the &apos;Application Support&apos; folder</key>
-	<string>安裝在&apos;Application Support&apos; 資料夾的主題失敗</string>
-	<key>Unsuported Toc file</key>
-	<string>未支援的 Toc 檔案</string>
-	<key>Finishing...</key>
-	<string>完成中</string>
-	<key>%@ (Unknown error)</key>
-	<string>%@ (未知的錯誤)</string>
-	<key>Mount Image</key>
-	<string>裝載映像檔</string>
-	<key>Can&apos;t determine disc format</key>
-	<string>無法判斷磁碟格式</string>
-	<key>Finished converting</key>
-	<string>完成轉換</string>
-	<key>Failed to burn &apos;%@&apos;</key>
-	<string>燒錄失敗 &apos;%@&apos;</string>
-	<key>Copying disc</key>
-	<string>拷貝光碟</string>
-	<key>Remuxing: </key>
-	<string>Remuxing:</string>
-	<key>Closing session</key>
-	<string>關閉區段中</string>
-	<key>Choose a location to save a temporary folder</key>
-	<string>選擇一個位置以儲存一個暫存資料夾</string>
-	<key>Finished burning</key>
-	<string>完成燒錄</string>
-	<key>Some files specified in the %@ file are missing.</key>
-	<string>一些檔案指定在%@檔案已經遺失。</string>
-	<key>Writing track (%@)</key>
-	<string>寫入軌道中 (%@)</string>
-	<key>UDSB</key>
-	<string>分散映像檔套件</string>
-	<key>Mounting: %@</key>
-	<string>載入中: %@</string>
-	<key>The PC (Joliet) or ISO9660 filesystem can only handle files smaller than 2GB</key>
-	<string>PC (Joliet) 或 ISO9660 檔案系統只能處理小於 2GB</string>
-	<key>Burn failed to encode one file</key>
-	<string>燒錄一個檔案編碼失敗</string>
-	<key>There was a problem authoring the DVD</key>
-	<string>有一個問題在建立 DVD</string>
-	<key>Copy</key>
-	<string>拷貝</string>
-	<key>The Burn file is corrupt or a wrong filetype</key>
-	<string>燒錄檔案是損毀的或是一個錯誤檔案類型</string>
-	<key>Burning &apos;%@&apos;</key>
-	<string>燒錄中 &apos;%@&apos;</string>
-	<key>Waiting for the drive...</key>
-	<string>等待設備中...</string>
-	<key>Creating image file</key>
-	<string>建立映像檔中</string>
-	<key>Failed to save Burn file</key>
-	<string>儲存 Burn 檔案失敗</string>
-	<key>Finished converting %ld files</key>
-	<string>完成轉換 %ld 檔案</string>
-	<key>Preview</key>
-	<string>檢視</string>
-	<key>One incompatible file</key>
-	<string>一個不相容檔案</string>
-	<key>Audio</key>
-	<string>音樂</string>
-	<key>Total size: %@</key>
-	<string>全部大小: %@</string>
-	<key>One protected mp4 file</key>
-	<string>一個保護模式的mp4檔案</string>
-	<key>Opening track %ld</key>
-	<string>開啟軌道中 %ld</string>
-	<key>%@ (Couldn&apos;t get attributes)</key>
-	<string>%@ (無法取得屬性)</string>
-	<key>File path: %@</key>
-	<string>檔案路徑: %@</string>
-	<key>%ld files</key>
-	<string>%ld 檔案</string>
-	<key>Failed to create &apos;%@&apos;</key>
-	<string>建立 &apos;%@&apos; 失敗</string>
-	<key>Not enough space</key>
-	<string>沒有足夠的空間</string>
-	<key>Choose a location to save a copy of the disc</key>
-	<string>選擇一個位置以儲存拷貝的光碟</string>
-	<key>Yes</key>
-	<string>是</string>
-	<key>Choose a location to save the re-muxed files</key>
-	<string>選擇一個位置以儲存re-muxed檔案</string>
-	<key>%@ (No video)</key>
-	<string>%@ (沒有影片)</string>
-	<key>Decoding sound: %@</key>
-	<string>解碼音效：%@</string>
-	<key>Would you like to convert those files to %@?%@</key>
-	<string>您要轉換這些檔案到 %@嗎?%@</string>
-	<key>UDIF</key>
-	<string>讀/寫映像檔</string>
-	<key>UDTO</key>
-	<string>DVD/CD master</string>
-	<key>Verifying...</key>
-	<string>驗證中</string>
-	<key>Unmount</key>
-	<string>卸除</string>
-	<key>Video</key>
-	<string>影片</string>
-	<key>Burn Temporary</key>
-	<string>Burn 暫存</string>
-	<key>Choose a location to save the muxed file</key>
-	<string>選擇一個位置以儲存muxed檔案</string>
-	<key>Maximum Possible</key>
-	<string>儘可能最大</string>
-	<key>Failed converting</key>
-	<string>轉換失敗</string>
-	<key>Writing track %ld of %ld (%@)</key>
-	<string>寫入軌道中 %ld 的 %ld (%@)</string>
-	<key>Creating: </key>
-	<string>建立中: </string>
-	<key>Burn</key>
-	<string>燒錄</string>
-	<key>Authoring DVD...</key>
-	<string>編寫DVD...</string>
-	<key>Can&apos;t overwrite &apos;%@&apos; in &apos;%@&apos;</key>
-	<string>無法覆寫 &apos;%1$@&apos; 在 &apos;%2$@&apos;</string>
-	<key>Burning failed</key>
-	<string>燒錄失敗</string>
-	<key>Processing: </key>
-	<string>處理中: </string>
-	<key>Ready to copy</key>
-	<string>準備拷貝</string>
-	<key>Some incompatible files</key>
-	<string>一些不相容檔案</string>
-	<key>Waiting for a disc to be inserted...</key>
-	<string>等待一片光碟插入...</string>
-	<key>Creating DVD Theme</key>
-	<string>建立DVD主題</string>
-	<key>There was a problem erasing the disc</key>
-	<string>抹除光碟發生問題</string>
-	<key>Choose a location to save the %@ files</key>
-	<string>選擇一個位置以儲存 %@ 檔案</string>
-	<key>Failed to create temporary folder</key>
-	<string>建立暫存資料夾失敗</string>
-	<key>Rken</key>
-	<string>壓縮映像檔</string>
-	<key>UDRW</key>
-	<string>讀/寫映像檔</string>
-	<key>%@ (No audio/video)</key>
-	<string>%@ (沒有音樂/影片)</string>
-	<key>Generating DVD folder</key>
-	<string>產生 DVD 資料夾中</string>
-	<key>The disc has been succesfully erased</key>
-	<string>這個光碟已經成功抹除</string>
-	<key>%@ (No audio)</key>
-	<string>%@ (沒有音樂)</string>
-	<key>Burner</key>
-	<string>燒錄機</string>
-	<key>No disc</key>
-	<string>沒有磁碟</string>
-	<key>Open...</key>
-	<string>開啟</string>
-	<key>There was a problem copying the disc</key>
-	<string>拷貝這個DVD發生問題</string>
-	<key>UDCO</key>
-	<string>壓縮映像檔</string>
-	<key>No discs, try inserting a cd/dvd.</key>
-	<string>沒有光碟，嘗試插入一個 cd/dvd。</string>
-	<key>Scanning for disks...</key>
-	<string>掃描磁碟中...</string>
-	<key>Choose</key>
-	<string>選擇</string>
-	<key>Writing track</key>
-	<string>寫入軌道中</string>
-	<key>Encoding: </key>
-	<string>編碼中: </string>
-	<key>Track %ld %@</key>
-	<string>軌道 %ld %@</string>
-	<key>These files can&apos;t be converted</key>
-	<string>這些檔案無法被轉換</string>
-	<key>Finished converting 1 file</key>
-	<string>完成轉換 1 檔案</string>
-	<key>Total time: %@</key>
-	<string>全部時間: %@</string>
-	<key>A cue/bin file needs to be burned on a CD</key>
-	<string>一個 cue/bin 檔案需要燒錄在一片 CD</string>
-	<key>Format</key>
-	<string>格式:</string>
-	<key>Mounting image failed</key>
-	<string>載入映像檔失敗</string>
-	<key>Failed to eject</key>
-	<string>退出失敗</string>
-	<key>UDxx</key>
-	<string>UDIF stub</string>
-	<key>Some protected mp4 files</key>
-	<string>一些保護模式的mp4檔案</string>
-	<key>Erasing disc</key>
-	<string>抹除光碟中</string>
-	<key>Rdxx</key>
-	<string>唯讀映像檔</string>
-	<key>There was a problem mounting the image</key>
-	<string>載入影像檔發生問題</string>
-	<key>Size</key>
-	<string>大小</string>
-	<key>Convert</key>
-	<string>轉換</string>
-	<key>Maximum Possible (%.0fx)</key>
-	<string>儘可能最大 (%.0fx)</string>
-	<key>UFBI</key>
-	<string>整個設備</string>
-	<key>%@ free</key>
-	<string>%@ 剩餘空間</string>
-	<key>Save...</key>
-	<string>儲存</string>
-	<key>SPARSEBUNDLE</key>
-	<string>分散套件映像檔</string>
-	<key>Erasing failed</key>
-	<string>抹除失敗</string>
-	<key>Mounting disk image</key>
-	<string>載入磁碟映像檔中</string>
-	<key>OK</key>
-	<string>確定</string>
-	<key>Eject</key>
-	<string>退出</string>
-	<key>UDZO</key>
-	<string>壓縮映像檔</string>
-	<key>Authoring failed</key>
-	<string>編寫失敗</string>
-	<key>Close</key>
-	<string>關閉</string>
-	<key>Ready to erase</key>
-	<string>準備抹除</string>
-	<key>Checking files...</key>
-	<string>檢查檔案中...</string>
-	<key>SPARSE</key>
-	<string>分散映像檔</string>
-	<key>Opening track</key>
-	<string>開啟軌道中</string>
-	<key>Burn failed to encode some files</key>
-	<string>燒錄一些檔案編碼失敗</string>
-	<key>DVD-Video</key>
-	<string>DVD影片</string>
-	<key>General</key>
-	<string>一般</string>
-	<key>Cue file</key>
-	<string>Cue 檔案</string>
-	<key>Checking file...</key>
-	<string>檢查檔案中...</string>
-	<key>Image not supported on Panther.
-
-To still use it:
-Mount the image and drop the mounted image in the window.</key>
-	<string>影像檔在 Panther不支援。
-
-如果要繼續使用他:
-載入影像檔並拖曳載入的影像到視窗。</string>
-	<key>
-(Note: there is a protected mp4 file which can&apos;t be converted)</key>
-	<string>
-註解: 有一個受保護的 mp4 檔案無法被轉換</string>
-	<key>&apos;%@&apos; was burned succesfully</key>
-	<string>&apos;%@&apos; 已被燒錄成功</string>
-	<key>This file can&apos;t be converted</key>
-	<string>這個檔案無法被轉換</string>
-	<key>No Recorder</key>
-	<string>沒有燒錄機</string>
-	<key>Ready to burn</key>
-	<string>準備燒錄</string>
-	<key>Mount</key>
-	<string>掛載</string>
-	<key>UDRO</key>
-	<string>唯讀映像檔</string>
-	<key>Can&apos;t create &apos;%@&apos; in &apos;%@&apos;</key>
-	<string>無法建立 &apos;%1$@&apos; 在 &apos;%2$@&apos;</string>
-	<key>Cancel</key>
-	<string>取消</string>
-	<key>Closing track %ld of %ld (%@)</key>
-	<string>關閉軌道中 %ld 的 %ld (%@)</string>
-	<key>Advanced</key>
-	<string>進階</string>
-	<key>Could not eject media from the drive</key>
-	<string>無法從設備中退出媒體</string>
-	<key>Data</key>
-	<string>資料</string>
-	<key>Choose an image file</key>
-	<string>選則一個映像檔</string>
-	<key>Title Menu</key>
-	<string>標題清單</string>
-	<key>Creating image file &apos;%@&apos;</key>
-	<string>建立映像檔中 &apos;%@&apos;</string>
-	<key>Scanning for files and folders</key>
-	<string>掃描給檔案與資料夾</string>
-	<key>Invalid Burn file</key>
-	<string>無效的 Burn 檔案</string>
-	<key>Image created</key>
-	<string>映像檔已建立</string>
-	<key>Unmount Image</key>
-	<string>為載入映像檔</string>
-	<key>Missing files</key>
-	<string>檔案遺失</string>
-	<key>DC42</key>
-	<string>Disk Copy 4.2 映像檔</string>
-	<key>%@ (Unknown format)</key>
-	<string>%@ (未知的格式)</string>
-	<key>Failed to copy &apos;%@&apos; to &apos;%@&apos;. %@</key>
-	<string>拷貝 &apos;%1$@&apos; 到 &apos;%2$@&apos; 失敗. %3$@</string>
-	<key>UNIV</key>
-	<string>混合映像檔</string>
-	<key>Failed to delete &apos;%@&apos;.</key>
-	<string>刪除 &apos;%@&apos;失敗.</string>
-	<key>Open</key>
-	<string>開啟</string>
-	<key>Failed to write &apos;%@&apos; to &apos;%@&apos;</key>
-	<string>寫入 &apos;%1$@&apos; 到 &apos;%2$@&apos; 失敗</string>
-	<key>Time</key>
-	<string>時間</string>
-	<key>Closing track (%@)</key>
-	<string>關閉軌道中 (%@)</string>
-	<key>Audio CD</key>
-	<string>音樂 CD</string>
-	<key>%@ (Unsupported audio)</key>
-	<string>%@ (未支援的音樂)</string>
-	<key>To burn a Audio-CD the media should be a CD</key>
-	<string>要燒錄一片音樂光碟媒體必須是一片 CD</string>
-	<key>%@ Help</key>
-	<string>%@輔助說明</string>
-	<key>RdWr</key>
-	<string>讀/寫映像檔</string>
-	<key>Untitled Folder</key>
-	<string>未命名資料夾</string>
-	<key>Are you sure you want to cancel?</key>
-	<string>您確定要取消嗎?</string>
-	<key>Would you like to convert that file to %@?%@</key>
-	<string>您要轉換檔案到 %@嗎?%@</string>
-	<key>Finished erasing</key>
-	<string>抹除完成</string>
-	<key>Only Mode1 and Audio tracks are supported</key>
-	<string>只有 Mode1 與聲音軌道被支援</string>
-	<key>Chapter Menu</key>
-	<string>章節清單</string>
-	<key>Succesfully created a disk image</key>
-	<string>成功的建立一個磁碟映像檔</string>
-	<key>Choose a location to save the image file</key>
-	<string>選擇一個位置以儲存映像檔案</string>
-	<key>Preparing to encode</key>
-	<string>準備編碼中</string>
-	<key>No CD</key>
-	<string>沒有 CD</string>
-	<key>Toc file</key>
-	<string>Toc 檔案</string>
-	<key>Image failed</key>
-	<string>映像檔已失敗</string>
-	<key>ROCo</key>
-	<string>壓縮映像檔</string>
-	<key>Untitled</key>
-	<string>未命名</string>
-	<key>Some files are to large</key>
-	<string>一些檔案太大</string>
-	<key>There was a problem creating the image</key>
-	<string>有一個問題在建立映像檔</string>
-	<key>No</key>
-	<string>否</string>
-	<key>
-(Note: there are a few protected mp4 files which can&apos;t be converted)</key>
-	<string>
-(註解: 有一些受保護的 mp4 檔案無法被轉換)</string>
-	<key>Processing: %@ (%i of %i)</key>
-	<string>處理中: %@ (%i 的 %i)</string>
-	<key>Unsupported Image</key>
-	<string>未支援的影像檔</string>
-	<key>Unknown disk image</key>
-	<string>未知的磁碟映像檔</string>
-	<key>Continue</key>
-	<string>繼續</string>
-	<key>Writing tracks</key>
-	<string>燒錄軌道</string>
-	<key>UDBZ</key>
-	<string>壓縮映像檔</string>
-	<key>Generating DVD folder: (%.0f%@)</key>
-	<string>產生 DVD 資料夾中: (%.0f%@)</string>
-	<key>UDF / ISO9660 (only)</key>
-	<string>UDF / ISO9660</string>
-	<key>IPOD</key>
-	<string>iPod 影像</string>
-	<key>Still try to burn the disc?</key>
-	<string>依然嘗試燒錄光碟?</string>
-	<key>Encoding file %i of %i to %@</key>
-	<string>檔案編碼中 %i 的 %i 到 %@</string>
-	<key>Preparing...</key>
-	<string>準備中...</string>
-	<key>After canceling the disc can&apos;t be used anymore</key>
-	<string>取消後光碟無法再次使用</string>
-	<key>Choose a location to save the burn file</key>
-	<string>選擇一個位置以儲存燒錄檔案</string>
-	<key>Eject Disc</key>
-	<string>退出磁碟</string>
-</dict>
-</plist>
+"Are you sure you want to cancel?" = "\U60a8\U78ba\U5b9a\U8981\U53d6\U6d88\U55ce?";
+"Would you like to convert that file to %@?%@" = "\U60a8\U8981\U8f49\U63db\U6a94\U6848\U5230 %@\U55ce?%@";
+"Unmount" = "\U5378\U9664";
+"Preparing to encode" = "\U6e96\U5099\U7de8\U78bc\U4e2d";
+"Some files are to large" = "\U4e00\U4e9b\U6a94\U6848\U592a\U5927";
+"There was a problem creating the image" = "\U6709\U4e00\U500b\U554f\U984c\U5728\U5efa\U7acb\U6620\U50cf\U6a94";
+"Processing: %@ (%i of %i)" = "\U8655\U7406\U4e2d: %@ (%i \U7684 %i)";
+"Unsupported Image" = "\U672a\U652f\U63f4\U7684\U5f71\U50cf\U6a94";
+"\n(Note: there are a few protected mp4 files which can't be converted)" = "\n(\U8a3b\U89e3: \U6709\U4e00\U4e9b\U53d7\U4fdd\U8b77\U7684 mp4 \U6a94\U6848\U7121\U6cd5\U88ab\U8f49\U63db)";
+"UDBZ" = "\U58d3\U7e2e\U6620\U50cf\U6a94";
+"Save..." = "\U5132\U5b58";
+"Failed to delete '%@'." = "\U522a\U9664 '%@'\U5931\U6557.";
+"Scanning for disks..." = "\U6383\U63cf\U78c1\U789f\U4e2d...";
+"Mounting image failed" = "\U8f09\U5165\U6620\U50cf\U6a94\U5931\U6557";
+"Missing files" = "\U6a94\U6848\U907a\U5931";
+"Burn Temporary" = "Burn \U66ab\U5b58";
+"%@ (Couldn't get attributes)" = "%@ (\U7121\U6cd5\U53d6\U5f97\U5c6c\U6027)";
+"Image not supported on Panther.\n\nTo still use it:\nMount the image and drop the mounted image in the window." = "\U5f71\U50cf\U6a94\U5728 Panther\U4e0d\U652f\U63f4\U3002\n\n\U5982\U679c\U8981\U7e7c\U7e8c\U4f7f\U7528\U4ed6:\n\U8f09\U5165\U5f71\U50cf\U6a94\U4e26\U62d6\U66f3\U8f09\U5165\U7684\U5f71\U50cf\U5230\U8996\U7a97\U3002";
+"Some incompatible files" = "\U4e00\U4e9b\U4e0d\U76f8\U5bb9\U6a94\U6848";
+"UDRO" = "\U552f\U8b80\U6620\U50cf\U6a94";
+"Mounting disk image" = "\U8f09\U5165\U78c1\U789f\U6620\U50cf\U6a94\U4e2d";
+"Some protected mp4 files" = "\U4e00\U4e9b\U4fdd\U8b77\U6a21\U5f0f\U7684mp4\U6a94\U6848";
+"Open..." = "\U958b\U555f";
+"UDF / ISO9660 (only)" = "UDF / ISO9660";
+"Would you like to convert those files to %@?%@" = "\U60a8\U8981\U8f49\U63db\U9019\U4e9b\U6a94\U6848\U5230 %@\U55ce?%@";
+"Finished converting" = "\U5b8c\U6210\U8f49\U63db";
+"Burner" = "\U71d2\U9304\U6a5f";
+"%@ Help" = "%@\U8f14\U52a9\U8aaa\U660e";
+"These files can't be converted" = "\U9019\U4e9b\U6a94\U6848\U7121\U6cd5\U88ab\U8f49\U63db";
+"Title Menu" = "\U6a19\U984c\U6e05\U55ae";
+"Creating DVD Theme" = "\U5efa\U7acbDVD\U4e3b\U984c";
+"Copying disc" = "\U62f7\U8c9d\U5149\U789f";
+"Choose a location to save the muxed file" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58muxed\U6a94\U6848";
+"This file can't be converted" = "\U9019\U500b\U6a94\U6848\U7121\U6cd5\U88ab\U8f49\U63db";
+"Burn failed to encode some files" = "\U71d2\U9304\U4e00\U4e9b\U6a94\U6848\U7de8\U78bc\U5931\U6557";
+"Choose a location to save the re-muxed files" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58re-muxed\U6a94\U6848";
+"Mount" = "\U639b\U8f09";
+"Generating DVD folder" = "\U7522\U751f DVD \U8cc7\U6599\U593e\U4e2d";
+"Format" = "\U683c\U5f0f:";
+"SPARSEBUNDLE" = "\U5206\U6563\U5957\U4ef6\U6620\U50cf\U6a94";
+"The PC (Joliet) or ISO9660 filesystem can only handle files smaller than 2GB" = "PC (Joliet) \U6216 ISO9660 \U6a94\U6848\U7cfb\U7d71\U53ea\U80fd\U8655\U7406\U5c0f\U65bc 2GB";
+"Writing tracks" = "\U71d2\U9304\U8ecc\U9053";
+"Failed converting" = "\U8f49\U63db\U5931\U6557";
+"Open" = "\U958b\U555f";
+"Close" = "\U95dc\U9589";
+"Rken" = "\U58d3\U7e2e\U6620\U50cf\U6a94";
+"Cue file" = "Cue \U6a94\U6848";
+"Finished burning" = "\U5b8c\U6210\U71d2\U9304";
+"No Recorder" = "\U6c92\U6709\U71d2\U9304\U6a5f";
+"Decoding sound: %@" = "\U89e3\U78bc\U97f3\U6548\Uff1a%@";
+"Track %ld %@" = "\U8ecc\U9053 %ld %@";
+"Audio CD" = "\U97f3\U6a02 CD";
+"Checking files..." = "\U6aa2\U67e5\U6a94\U6848\U4e2d...";
+"UDZO" = "\U58d3\U7e2e\U6620\U50cf\U6a94";
+"Remuxing: " = "Remuxing:";
+"Writing track" = "\U5beb\U5165\U8ecc\U9053\U4e2d";
+"Closing session" = "\U95dc\U9589\U5340\U6bb5\U4e2d";
+"Ready to burn" = "\U6e96\U5099\U71d2\U9304";
+"UDxx" = "UDIF stub";
+"Finished converting 1 file" = "\U5b8c\U6210\U8f49\U63db 1 \U6a94\U6848";
+"%@ (No audio/video)" = "%@ (\U6c92\U6709\U97f3\U6a02/\U5f71\U7247)";
+"Failed to eject" = "\U9000\U51fa\U5931\U6557";
+"Authoring failed" = "\U7de8\U5beb\U5931\U6557";
+"Choose a location to save the burn file" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58\U71d2\U9304\U6a94\U6848";
+"After canceling the disc can't be used anymore" = "\U53d6\U6d88\U5f8c\U5149\U789f\U7121\U6cd5\U518d\U6b21\U4f7f\U7528";
+"There was a problem erasing the disc" = "\U62b9\U9664\U5149\U789f\U767c\U751f\U554f\U984c";
+"Failed to save Burn file" = "\U5132\U5b58 Burn \U6a94\U6848\U5931\U6557";
+"UDRW" = "\U8b80/\U5beb\U6620\U50cf\U6a94";
+"Untitled" = "\U672a\U547d\U540d";
+"Invalid Burn file" = "\U7121\U6548\U7684 Burn \U6a94\U6848";
+"Failed to create temporary folder" = "\U5efa\U7acb\U66ab\U5b58\U8cc7\U6599\U593e\U5931\U6557";
+"ROCo" = "\U58d3\U7e2e\U6620\U50cf\U6a94";
+"%@ free" = "%@ \U5269\U9918\U7a7a\U9593";
+"Encoding file %i of %i to %@" = "\U6a94\U6848\U7de8\U78bc\U4e2d %i \U7684 %i \U5230 %@";
+"Verifying..." = "\U9a57\U8b49\U4e2d";
+"Choose a location to save the image file" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58\U6620\U50cf\U6a94\U6848";
+"Maximum Possible" = "\U5118\U53ef\U80fd\U6700\U5927";
+"Encoding: " = "\U7de8\U78bc\U4e2d: ";
+"Image failed" = "\U6620\U50cf\U6a94\U5df2\U5931\U6557";
+"'%@' was burned succesfully" = "'%@' \U5df2\U88ab\U71d2\U9304\U6210\U529f";
+"Untitled Folder" = "\U672a\U547d\U540d\U8cc7\U6599\U593e";
+"Data" = "\U8cc7\U6599";
+"UNIV" = "\U6df7\U5408\U6620\U50cf\U6a94";
+"Chapter Menu" = "\U7ae0\U7bc0\U6e05\U55ae";
+"UDSP" = "\U5206\U6563\U6620\U50cf\U6a94";
+"Burning '%@'" = "\U71d2\U9304\U4e2d '%@'";
+"Size" = "\U5927\U5c0f";
+"Still try to burn the disc?" = "\U4f9d\U7136\U5617\U8a66\U71d2\U9304\U5149\U789f?";
+"No disc" = "\U6c92\U6709\U78c1\U789f";
+"Total size: %@" = "\U5168\U90e8\U5927\U5c0f: %@";
+"Closing track %ld of %ld (%@)" = "\U95dc\U9589\U8ecc\U9053\U4e2d %ld \U7684 %ld (%@)";
+"OK" = "\U78ba\U5b9a";
+"There was a problem authoring the DVD" = "\U6709\U4e00\U500b\U554f\U984c\U5728\U5efa\U7acb DVD";
+"Creating image file '%@'" = "\U5efa\U7acb\U6620\U50cf\U6a94\U4e2d '%@'";
+"Erasing disc" = "\U62b9\U9664\U5149\U789f\U4e2d";
+"Writing track (%@)" = "\U5beb\U5165\U8ecc\U9053\U4e2d (%@)";
+"Failed to copy '%@' to '%@'. %@" = "\U62f7\U8c9d '%1$@' \U5230 '%2$@' \U5931\U6557. %3$@";
+"Choose a location to save the %@ files" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58 %@ \U6a94\U6848";
+"Waiting for a disc to be inserted..." = "\U7b49\U5f85\U4e00\U7247\U5149\U789f\U63d2\U5165...";
+"There was a problem copying the disc" = "\U62f7\U8c9d\U9019\U500bDVD\U767c\U751f\U554f\U984c";
+"Opening track" = "\U958b\U555f\U8ecc\U9053\U4e2d";
+"No CD" = "\U6c92\U6709 CD";
+"\n(Note: there is a protected mp4 file which can't be converted)" = "\n\U8a3b\U89e3: \U6709\U4e00\U500b\U53d7\U4fdd\U8b77\U7684 mp4 \U6a94\U6848\U7121\U6cd5\U88ab\U8f49\U63db";
+"One incompatible file" = "\U4e00\U500b\U4e0d\U76f8\U5bb9\U6a94\U6848";
+"Some files specified in the %@ file are missing." = "\U4e00\U4e9b\U6a94\U6848\U6307\U5b9a\U5728%@\U6a94\U6848\U5df2\U7d93\U907a\U5931\U3002";
+"Only Mode1 and Audio tracks are supported" = "\U53ea\U6709 Mode1 \U8207\U8072\U97f3\U8ecc\U9053\U88ab\U652f\U63f4";
+"UFBI" = "\U6574\U500b\U8a2d\U5099";
+"General" = "\U4e00\U822c";
+"Video" = "\U5f71\U7247";
+"Choose" = "\U9078\U64c7";
+"SPARSE" = "\U5206\U6563\U6620\U50cf\U6a94";
+"Creating image file" = "\U5efa\U7acb\U6620\U50cf\U6a94\U4e2d";
+"Can't create '%@' in '%@'" = "\U7121\U6cd5\U5efa\U7acb '%1$@' \U5728 '%2$@'";
+"No" = "\U5426";
+"Unknown disk image" = "\U672a\U77e5\U7684\U78c1\U789f\U6620\U50cf\U6a94";
+"Can't determine disc format" = "\U7121\U6cd5\U5224\U65b7\U78c1\U789f\U683c\U5f0f";
+"Choose a location to save a temporary folder" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58\U4e00\U500b\U66ab\U5b58\U8cc7\U6599\U593e";
+"Rdxx" = "\U552f\U8b80\U6620\U50cf\U6a94";
+"Time" = "\U6642\U9593";
+"Erasing failed" = "\U62b9\U9664\U5931\U6557";
+"%@ (Unknown format)" = "%@ (\U672a\U77e5\U7684\U683c\U5f0f)";
+"Finished converting %ld files" = "\U5b8c\U6210\U8f49\U63db %ld \U6a94\U6848";
+"Not enough space" = "\U6c92\U6709\U8db3\U5920\U7684\U7a7a\U9593";
+"Maximum Possible (%.0fx)" = "\U5118\U53ef\U80fd\U6700\U5927 (%.0fx)";
+"Checking file..." = "\U6aa2\U67e5\U6a94\U6848\U4e2d...";
+"Generating DVD folder: (%.0f%@)" = "\U7522\U751f DVD \U8cc7\U6599\U593e\U4e2d: (%.0f%@)";
+"%@ (No audio)" = "%@ (\U6c92\U6709\U97f3\U6a02)";
+"Ready to copy" = "\U6e96\U5099\U62f7\U8c9d";
+"The Burn file is corrupt or a wrong filetype" = "\U71d2\U9304\U6a94\U6848\U662f\U640d\U6bc0\U7684\U6216\U662f\U4e00\U500b\U932f\U8aa4\U6a94\U6848\U985e\U578b";
+"Can't overwrite '%@' in '%@'" = "\U7121\U6cd5\U8986\U5beb '%1$@' \U5728 '%2$@'";
+"Continue" = "\U7e7c\U7e8c";
+"Total time: %@" = "\U5168\U90e8\U6642\U9593: %@";
+"Creating: " = "\U5efa\U7acb\U4e2d: ";
+"Advanced" = "\U9032\U968e";
+"Mount Image" = "\U88dd\U8f09\U6620\U50cf\U6a94";
+"Waiting for the drive..." = "\U7b49\U5f85\U8a2d\U5099\U4e2d...";
+"Choose a location to save a copy of the disc" = "\U9078\U64c7\U4e00\U500b\U4f4d\U7f6e\U4ee5\U5132\U5b58\U62f7\U8c9d\U7684\U5149\U789f";
+"One protected mp4 file" = "\U4e00\U500b\U4fdd\U8b77\U6a21\U5f0f\U7684mp4\U6a94\U6848";
+"Yes" = "\U662f";
+"Toc file" = "Toc \U6a94\U6848";
+"Processing: " = "\U8655\U7406\U4e2d: ";
+"There was a problem mounting the image" = "\U8f09\U5165\U5f71\U50cf\U6a94\U767c\U751f\U554f\U984c";
+"No discs, try inserting a cd/dvd." = "\U6c92\U6709\U5149\U789f\Uff0c\U5617\U8a66\U63d2\U5165\U4e00\U500b cd/dvd\U3002";
+"Audio" = "\U97f3\U6a02";
+"Mounting: %@" = "\U8f09\U5165\U4e2d: %@";
+"Could not eject media from the drive" = "\U7121\U6cd5\U5f9e\U8a2d\U5099\U4e2d\U9000\U51fa\U5a92\U9ad4";
+"A cue/bin file needs to be burned on a CD" = "\U4e00\U500b cue/bin \U6a94\U6848\U9700\U8981\U71d2\U9304\U5728\U4e00\U7247 CD";
+"Burn failed to encode one file" = "\U71d2\U9304\U4e00\U500b\U6a94\U6848\U7de8\U78bc\U5931\U6557";
+"%@ (Unsupported audio)" = "%@ (\U672a\U652f\U63f4\U7684\U97f3\U6a02)";
+"Authoring DVD..." = "\U7de8\U5bebDVD...";
+"Unmount Image" = "\U70ba\U8f09\U5165\U6620\U50cf\U6a94";
+"Succesfully created a disk image" = "\U6210\U529f\U7684\U5efa\U7acb\U4e00\U500b\U78c1\U789f\U6620\U50cf\U6a94";
+"Eject Disc" = "\U9000\U51fa\U78c1\U789f";
+"%@ (No video)" = "%@ (\U6c92\U6709\U5f71\U7247)";
+"Preparing..." = "\U6e96\U5099\U4e2d...";
+"Failed to burn '%@'" = "\U71d2\U9304\U5931\U6557 '%@'";
+"UDTO" = "DVD/CD master";
+"Finishing..." = "\U5b8c\U6210\U4e2d";
+"UDSB" = "\U5206\U6563\U6620\U50cf\U6a94\U5957\U4ef6";
+"Preview" = "\U6aa2\U8996";
+"Scanning for files and folders" = "\U6383\U63cf\U7d66\U6a94\U6848\U8207\U8cc7\U6599\U593e";
+"Burn" = "\U71d2\U9304";
+"Unsuported Toc file" = "\U672a\U652f\U63f4\U7684 Toc \U6a94\U6848";
+"Convert" = "\U8f49\U63db";
+"To burn a Audio-CD the media should be a CD" = "\U8981\U71d2\U9304\U4e00\U7247\U97f3\U6a02\U5149\U789f\U5a92\U9ad4\U5fc5\U9808\U662f\U4e00\U7247 CD";
+"Finished erasing" = "\U62b9\U9664\U5b8c\U6210";
+"IPOD" = "iPod \U5f71\U50cf";
+"Burning failed" = "\U71d2\U9304\U5931\U6557";
+"Opening track %ld" = "\U958b\U555f\U8ecc\U9053\U4e2d %ld";
+"Failed to create '%@'" = "\U5efa\U7acb '%@' \U5931\U6557";
+"Failed to write '%@' to '%@'" = "\U5beb\U5165 '%1$@' \U5230 '%2$@' \U5931\U6557";
+"UDCO" = "\U58d3\U7e2e\U6620\U50cf\U6a94";
+"Choose an image file" = "\U9078\U5247\U4e00\U500b\U6620\U50cf\U6a94";
+"Cancel" = "\U53d6\U6d88";
+"The disc has been succesfully erased" = "\U9019\U500b\U5149\U789f\U5df2\U7d93\U6210\U529f\U62b9\U9664";
+"Copy" = "\U62f7\U8c9d";
+"Closing track (%@)" = "\U95dc\U9589\U8ecc\U9053\U4e2d (%@)";
+"DVD-Video" = "DVD\U5f71\U7247";
+"%ld files" = "%ld \U6a94\U6848";
+"DC42" = "Disk Copy 4.2 \U6620\U50cf\U6a94";
+"Eject" = "\U9000\U51fa";
+"%@ (Unknown error)" = "%@ (\U672a\U77e5\U7684\U932f\U8aa4)";
+"Failed to install theme in the 'Application Support' folder" = "\U5b89\U88dd\U5728'Application Support' \U8cc7\U6599\U593e\U7684\U4e3b\U984c\U5931\U6557";
+"Image created" = "\U6620\U50cf\U6a94\U5df2\U5efa\U7acb";
+"Ready to erase" = "\U6e96\U5099\U62b9\U9664";
+"UDIF" = "\U8b80/\U5beb\U6620\U50cf\U6a94";
+"File path: %@" = "\U6a94\U6848\U8def\U5f91: %@";
+"Writing track %ld of %ld (%@)" = "\U5beb\U5165\U8ecc\U9053\U4e2d %ld \U7684 %ld (%@)";
+"RdWr" = "\U8b80/\U5beb\U6620\U50cf\U6a94";

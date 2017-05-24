@@ -30,10 +30,9 @@
 	[popupButton removeAllItems];
 	
 	NSArray *devices = [DRDevice devices];
-	NSInteger i;
-	for (i = 0; i < [devices count]; i ++)
+	for (DRDevice *device in devices)
 	{
-		[popupButton addItemWithTitle:[[devices objectAtIndex:i] displayName]];
+		[popupButton addItemWithTitle:[device displayName]];
 	}
 	
 	[popupButton selectItemWithTitle:[device displayName]];
