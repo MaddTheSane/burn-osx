@@ -719,7 +719,7 @@
 			[tableData removeObjectAtIndex:currentRow];
 		}
 		
-		BOOL shouldSelectRow = ([draggedRows count] > 1 | [tableView isRowSelected:[[draggedRows objectAtIndex:0] integerValue]]);
+		BOOL shouldSelectRow = ([draggedRows count] > 1 || [tableView isRowSelected:[[draggedRows objectAtIndex:0] integerValue]]);
 		
 		[tableView deselectAll:nil];
 		
@@ -862,7 +862,7 @@
 			[discRoot addChild:fsObj];
 		}
 				
-		if ([KWCommonMethods OSVersion] < 0x1040 | !isDVD)
+		if ([KWCommonMethods OSVersion] < 0x1040 || !isDVD)
 		{
 			//Just a filesystem since UDF isn't supported in Panther (not it will ever come here :-)
 			[discRoot setExplicitFilesystemMask:(DRFilesystemInclusionMaskJoliet)];

@@ -1148,6 +1148,7 @@
 	if (cdtext)
 	#elif MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	if (cdtext && [KWCommonMethods OSVersion] >= 0x1040)
+#endif
 	{
 		NSInteger selrow = [tableViewPopup indexOfSelectedItem];
 
@@ -1198,7 +1199,6 @@
 			}
 		}
 	}
-	#endif
 	
 	return [super tableView:tv acceptDrop:info row:row dropOperation:op];
 }

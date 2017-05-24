@@ -35,11 +35,7 @@
 
 + (NSNumber *)numberWithCGFloat:(CGFloat)value
 {
-	#if __LP64__ || NS_BUILD_32_LIKE_64
-	return [NSNumber numberWithDouble:value];
-	#else
-	return [NSNumber numberWithFloat:value];
-	#endif
+	return @(value);
 }
 
 - (CGFloat)cgfloatValue

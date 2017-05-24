@@ -678,7 +678,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 {
 	KWDRFolder *rootFolder = (KWDRFolder*)[(FSNodeData*)[treeData nodeData] fsObject];
 
-	if ([rootFolder explicitFilesystemMask] == 1<<4 | ([rootFolder explicitFilesystemMask] == 1<<2 && [KWCommonMethods OSVersion] < 0x1040) | [rootFolder explicitFilesystemMask] == 1<<5)
+	if ([rootFolder explicitFilesystemMask] == 1<<4 || ([rootFolder explicitFilesystemMask] == 1<<2 && [KWCommonMethods OSVersion] < 0x1040) || [rootFolder explicitFilesystemMask] == 1<<5)
 	{
 		NSString *outputFolder = [KWCommonMethods temporaryLocation:[discName stringValue] saveDescription:NSLocalizedString(@"Choose a location to save a temporary folder",nil)];
 		
@@ -1009,30 +1009,27 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	[sheet setCanSelectHiddenExtension:YES];
 	[sheet setMessage:NSLocalizedString(@"Choose a location to save the burn file",nil)];
 
-	[sheet beginSheetForDirectory:nil file:[[discName stringValue] stringByAppendingString:@".burn"] modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(savePanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
-}
-
-- (void)savePanelDidEnd:(NSSavePanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-	[sheet orderOut:self];
-
-	if (returnCode == NSOKButton) 
-	{
-		NSDictionary *burnFile = [self getSaveDictionary];
-		NSString *errorString;
-		NSString *filename = [sheet filename];
-		
-		if ([KWCommonMethods writeDictionary:burnFile toFile:filename errorString:&errorString])
-		{	
-			if ([sheet isExtensionHidden])
-				[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"NSFileExtensionHidden"] atPath:filename];
-		}
-		else
+	[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger returnCode) {
+		if (returnCode == NSOKButton)
 		{
-			[KWCommonMethods standardAlertWithMessageText:NSLocalizedString(@"Failed to save Burn file", nil) withInformationText:errorString withParentWindow:mainWindow];
+			NSDictionary *burnFile = [self getSaveDictionary];
+			NSString *errorString;
+			NSURL *fileURL = [sheet URL];
+			NSString *filename = [fileURL path];
+			
+			if ([KWCommonMethods writeDictionary:burnFile toFile:filename errorString:&errorString])
+			{
+				if ([sheet isExtensionHidden])
+					[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:@YES forKey:@"NSFileExtensionHidden"] atPath:filename];
+			}
+			else
+			{
+				[KWCommonMethods standardAlertWithMessageText:NSLocalizedString(@"Failed to save Burn file", nil) withInformationText:errorString withParentWindow:mainWindow];
+			}
 		}
-	}
+	}];
 }
+
 
 //Make a dictionary to save
 - (NSDictionary *)getSaveDictionary

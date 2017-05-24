@@ -210,7 +210,7 @@
 	else
 	{
 		[imageView setImage:nil];
-		NSString *countString = [NSString stringWithFormat:@"%ld of %ld",0,0];
+		NSString *countString = [NSString stringWithFormat:@"%d of %d",0,0];
 		[imageString setStringValue:countString];
 	}
 }
@@ -223,54 +223,47 @@
 	[openPanel setCanChooseFiles:YES];
 	[openPanel setAllowsMultipleSelection:NO];
 	[openPanel setResolvesAliases:YES];
+	openPanel.allowedFileTypes = NSImage.imageTypes;
 
-	[openPanel beginSheetForDirectory:nil file:nil types:[NSImage imageFileTypes] modalForWindow:[myView window] modalDelegate:self didEndSelector:@selector(openFileEnded:returnCode:contextInfo:) contextInfo:nil];
-}
-
-- (void)openFileEnded:(NSOpenPanel*)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-	[panel orderOut:self];
-
-	if (returnCode == NSOKButton)
-	{
-		KWAudioController *controller = [currentTableView delegate];
-		NSArray *tableData = [controller myDataSource];
-		NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
-	
-		NSMutableArray *pictures = [self getObjectWithSelector:@selector(getTagImage) fromObjects:currentObjects];
-	
-		if ([pictures count] == 0)
-			pictures = [[NSMutableArray alloc] init];
-
-		NSArray *files = [panel filenames];
-		
-		NSInteger i;
-		for (i = 0; i < [files count]; i ++)
+	[openPanel beginSheetModalForWindow:[myView window] completionHandler:^(NSInteger returnCode) {
+		if (returnCode == NSOKButton)
 		{
-			NSMutableDictionary *image = [NSMutableDictionary dictionaryWithCapacity:4];
-	    
-			[image setObject:[[NSBitmapImageRep imageRepsWithData:[NSData dataWithContentsOfFile:[files objectAtIndex:i]]] objectAtIndex:0] forKey:@"Image"];
-			[image setObject:@"Other" forKey:@"Picture Type"];
-			[image setObject:[NSString stringWithFormat:@"image/%@", [[files objectAtIndex:i] pathExtension]] forKey:@"Mime Type"];
-			[image setObject:@"" forKey:@"Description"];
+			KWAudioController *controller = [currentTableView delegate];
+			NSArray *tableData = [controller myDataSource];
+			NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 			
-			if ([currentObjects count] == 1)
+			NSMutableArray *pictures = [self getObjectWithSelector:@selector(getTagImage) fromObjects:currentObjects];
+			
+			if ([pictures count] == 0)
+				pictures = [[NSMutableArray alloc] init];
+			
+			for (NSURL *url in [openPanel URLs])
 			{
-				[pictures insertObject:image atIndex:currentIndex + 1];
-				currentIndex = currentIndex + 1;
+				NSMutableDictionary *image = [NSMutableDictionary dictionaryWithCapacity:4];
+				
+				[image setObject:[[NSBitmapImageRep imageRepsWithData:[NSData dataWithContentsOfURL:url]] objectAtIndex:0] forKey:@"Image"];
+				[image setObject:@"Other" forKey:@"Picture Type"];
+				[image setObject:[NSString stringWithFormat:@"image/%@", [url pathExtension]] forKey:@"Mime Type"];
+				[image setObject:@"" forKey:@"Description"];
+				
+				if ([currentObjects count] == 1)
+				{
+					[pictures insertObject:image atIndex:currentIndex + 1];
+					currentIndex = currentIndex + 1;
+				}
+				else
+				{
+					[pictures addObject:image];
+				}
 			}
-			else
-			{
-				[pictures addObject:image];
-			}
+			
+			[self setObjectWithSelector:@selector(setTagImages:) forObjects:currentObjects withObject:pictures];
+			[self updateArtWork];
+			
+			[pictures release];
+			pictures = nil;
 		}
-	
-		[self setObjectWithSelector:@selector(setTagImages:) forObjects:currentObjects withObject:pictures];
-		[self updateArtWork];
-		
-		[pictures release];
-		pictures = nil;
-	}
+	}];
 }
 
 - (IBAction)nextImage:(id)sender

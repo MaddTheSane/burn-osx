@@ -268,7 +268,7 @@
 		{
 			//Check if there is a mode2, if so it's not supported by
 			//Apple's Disc burning framework, so show a alert
-			if (![[KWCommonMethods stringWithContentsOfFile:workingPath] rangeOfString:@"MODE2"].length > 0)
+			if (!([[KWCommonMethods stringWithContentsOfFile:workingPath] rangeOfString:@"MODE2"].length > 0))
 			{
 				NSDictionary *attrib;
 				NSArray *paths = [[KWCommonMethods stringWithContentsOfFile:workingPath] componentsSeparatedByString:@"FILE \""];
@@ -585,7 +585,7 @@
 		NSString *outputFile;
 		NSDictionary *tocFile = nil;
 	
-		if (![disc isEqualTo:deviceMediaPath] | shouldBurn == NO)
+		if (![disc isEqualTo:deviceMediaPath] || shouldBurn == NO)
 		{
 			outputFile = workingPath;
 			[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
@@ -652,14 +652,14 @@
 			[cp release];
 			cp = nil;
 		
-			if (!status == 0 && userCanceled == NO)
+			if (status != 0 && userCanceled == NO)
 			{
 				[KWCommonMethods removeItemAtPath:outputFile];
 				[self remount:disc];
 				
 				return [NSNumber numberWithInteger:1];
 			}
-			else if (!status == 0 && userCanceled == YES)
+			else if (status != 0 && userCanceled == YES)
 			{
 				[KWCommonMethods removeItemAtPath:outputFile];
 				[self remount:disc];
@@ -673,7 +673,7 @@
 		
 		if (tocFile)
 		{
-			if (![workingPath isEqualTo:deviceMediaPath] | shouldBurn == NO)
+			if (![workingPath isEqualTo:deviceMediaPath] || shouldBurn == NO)
 			{
 				[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remount:) name:@"KWDoneBurning" object:nil];
 			

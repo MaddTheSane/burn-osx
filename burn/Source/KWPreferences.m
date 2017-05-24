@@ -456,19 +456,14 @@ return self;
 	[sheet setCanChooseFiles:YES];
 	[sheet setCanChooseDirectories:NO];
 	[sheet setAllowsMultipleSelection:NO];
-	[sheet beginSheetForDirectory:nil file:nil types:nil modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
-}
-
-- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-	[sheet orderOut:self];
-
-	if (returnCode == NSOKButton)
-	{
-		NSString *path = [sheet filename];
-		[[advancedView viewWithTag:53] setStringValue:path];
-		[[NSUserDefaults standardUserDefaults] setObject:path forKey:@"KWCustomFFMPEG"];
-	}
+	[sheet beginSheetModalForWindow:[self window] completionHandler:^(NSInteger returnCode) {
+		if (returnCode == NSOKButton)
+		{
+			NSString *path = [sheet URL].path;
+			[[advancedView viewWithTag:53] setStringValue:path];
+			[[NSUserDefaults standardUserDefaults] setObject:path forKey:@"KWCustomFFMPEG"];
+		}
+	}];
 }
 
 /////////////////////

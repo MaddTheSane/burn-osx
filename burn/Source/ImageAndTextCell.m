@@ -154,7 +154,6 @@
 		NSRect imageFrame;
 	
 		NSSize originalSize = [image size];
-		[image setScalesWhenResized:YES];
 		[image setSize:NSMakeSize(16,16)];
 
 		imageSize = [image size];
@@ -174,9 +173,8 @@
         else
 			imageFrame.origin.y += ceil((cellFrame.size.height - imageFrame.size.height) / 2);
 	
-		[image compositeToPoint:imageFrame.origin operation:NSCompositeSourceOver];
+		[image drawAtPoint:imageFrame.origin fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 	
-		[image setScalesWhenResized:YES];
 		[image setSize:originalSize];
     }
 	

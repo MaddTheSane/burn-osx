@@ -121,7 +121,7 @@
 			newPath = [path stringByDeletingPathExtension];
 			
 			i = i + 1;
-			newPath = [NSString stringWithFormat:@"%@ %i", newPath, i];
+			newPath = [NSString stringWithFormat:@"%@ %li", newPath, (long)i];
 		}
 
 		return [newPath stringByAppendingString:pathExtension];
@@ -140,11 +140,12 @@
 	{
 		NSSavePanel *sheet = [NSSavePanel savePanel];
 		[sheet setMessage:description];
-		[sheet setRequiredFileType:[file pathExtension]];
+		sheet.allowedFileTypes = @[[file pathExtension]];
+		sheet.directoryURL = [NSURL fileURLWithPath:[file stringByDeletingLastPathComponent]];
 		[sheet setCanSelectHiddenExtension:NO];
 		
-		if ([sheet runModalForDirectory:nil file:file] == NSFileHandlingPanelOKButton)
-			return [sheet filename];
+		if ([sheet runModal] == NSFileHandlingPanelOKButton)
+			return [sheet URL].path;
 		else
 			return nil;
 	}
@@ -290,11 +291,10 @@
 		NSImage *dragImage = [[[NSImage alloc] initWithSize:[img size]] autorelease];
 			
 		[dragImage lockFocus];
-		[img dissolveToPoint: NSZeroPoint fraction: .5];
+		[img drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:0.5];
 		[dragImage unlockFocus];
 			
-		[dragImage setScalesWhenResized:YES];
-			
+		
 		return dragImage;
 	}
 
@@ -367,9 +367,9 @@
 
 + (BOOL)fsObjectContainsHFS:(DRFSObject *)object
 {
-	if ([[object parent] effectiveFilesystemMask] & DRFilesystemInclusionMaskHFSPlus | [[object parent] effectiveFilesystemMask] & (1<<4))
+	if ([[object parent] effectiveFilesystemMask] & DRFilesystemInclusionMaskHFSPlus || [[object parent] effectiveFilesystemMask] & (1<<4))
 		return YES;
-	else if ([object effectiveFilesystemMask] & DRFilesystemInclusionMaskHFSPlus | [object effectiveFilesystemMask] & (1<<4))
+	else if ([object effectiveFilesystemMask] & DRFilesystemInclusionMaskHFSPlus || [object effectiveFilesystemMask] & (1<<4))
 		return YES;
 	
 	return NO;
@@ -502,7 +502,7 @@
 		return 32;
 	else if ([folder explicitFilesystemMask] == DRFilesystemInclusionMaskISO9660)
 		return 30;
-	else if (([folder explicitFilesystemMask] == DRFilesystemInclusionMaskJoliet) | [folder explicitFilesystemMask] == 1<<5)
+	else if (([folder explicitFilesystemMask] == DRFilesystemInclusionMaskJoliet) || [folder explicitFilesystemMask] == 1<<5)
 		return 16;
 		
 	return 32;

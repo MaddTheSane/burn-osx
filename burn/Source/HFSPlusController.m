@@ -175,7 +175,7 @@
 	{
 		BOOL isDirToo = [self isFolder:[inspectedItems objectAtIndex:x]];
 		
-		if (!isDirToo == isDir)
+		if (isDirToo != isDir)
 		multiEqual = NO;
 	}
 	

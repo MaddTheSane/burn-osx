@@ -134,7 +134,7 @@
 		}
 		else if (selrow == 2)
 		{
-			checkFile = (([KWConverter isDVD:path isWideAspect:&isWide] && [standardDefaults boolForKey:@"KWForceMPEG2"] == NO) | selfEncoded == YES);
+			checkFile = (([KWConverter isDVD:path isWideAspect:&isWide] && [standardDefaults boolForKey:@"KWForceMPEG2"] == NO) || selfEncoded == YES);
 			
 			if ([[path pathExtension] isEqualTo:@"m2v"] && [standardDefaults boolForKey:@"KWMuxSeperateStreams"] == YES)
 				checkFile = YES;

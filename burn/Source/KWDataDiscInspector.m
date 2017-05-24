@@ -531,12 +531,12 @@ static NSArray* filesystemNameTagMappings = nil;
 	if (returnCode == NSOKButton)
 	{
 		[self deleteIcon:self];
-		DRFile *icon = [DRFile fileWithPath:[panel filename]];
+		DRFile *icon = [DRFile fileWithPath:[[panel URL] path]];
 		[icon setBaseName:@".VolumeIcon.icns"];
 		[icon setExplicitFilesystemMask:DRFilesystemInclusionMaskHFSPlus];
 		[filesystemRoot addChild:icon];
-		[filesystemRoot setProperty:[NSNumber numberWithUnsignedShort:1024] forKey:DRMacFinderFlags inFilesystem:DRHFSPlus];
-		[iconView setImage:[[[NSImage alloc] initWithContentsOfFile:[panel filename]] autorelease]];
+		[filesystemRoot setProperty:@(1024) forKey:DRMacFinderFlags inFilesystem:DRHFSPlus];
+		[iconView setImage:[[[NSImage alloc] initWithContentsOfURL:[panel URL]] autorelease]];
 	}
 }
 
