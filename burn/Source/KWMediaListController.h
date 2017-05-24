@@ -15,7 +15,7 @@
 
 @class KWTableView;
 
-@interface KWMediaListController : NSObject {
+@interface KWMediaListController : NSObject <NSTableViewDataSource> {
 
 	//Main Window
 	IBOutlet id mainWindow;
@@ -32,7 +32,7 @@
 	
 	//Save View
 	IBOutlet id saveView;
-	IBOutlet id regionPopup;
+	IBOutlet NSPopUpButton *regionPopup;
 	
 	//Variables
 	NSMutableArray *tableData;

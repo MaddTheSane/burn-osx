@@ -1,15 +1,16 @@
 /* KWAudioInspector */
 
 #import <Cocoa/Cocoa.h>
+#import "KWInspector.h"
 
-@interface KWAudioInspector : NSObject
+@interface KWAudioInspector : NSObject <KWInspector>
 {
 	//Interface outlets
-	IBOutlet id invalid;
-	IBOutlet id myView;
-	IBOutlet id iconView;
-	IBOutlet id nameField;
-    IBOutlet id timeField;
+	IBOutlet NSTextField	*invalid;
+	IBOutlet NSView			*myView;
+	IBOutlet NSImageView	*iconView;
+	IBOutlet NSTextField	*nameField;
+    IBOutlet NSTextField	*timeField;
 	
 	//Variables
 	NSTableView *currentTableView;

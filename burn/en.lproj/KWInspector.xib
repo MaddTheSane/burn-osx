@@ -20,7 +20,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Inspector" animationBehavior="default" id="7" userLabel="KWInspectorWindow" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -58,14 +58,14 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="2289"/>
                 </imageView>
-                <tabView controlSize="small" id="43">
+                <tabView controlSize="small" initialItem="44" id="43">
                     <rect key="frame" x="-14" y="-17" width="437" height="440"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <tabViewItems>
                         <tabViewItem label="HFS+" identifier="HFS+" id="44">
                             <view key="view" id="45">
                                 <rect key="frame" x="10" y="25" width="417" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button imageHugsTitle="YES" id="172">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
@@ -113,7 +113,7 @@
                                                     <outlet property="nextKeyView" destination="61" id="394"/>
                                                 </connections>
                                             </popUpButton>
-                                            <tabView drawsBackground="NO" type="noTabsNoBorder" id="53">
+                                            <tabView drawsBackground="NO" type="noTabsNoBorder" initialItem="54" id="53">
                                                 <rect key="frame" x="0.0" y="142" width="403" height="321"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <font key="font" metaFont="system"/>
@@ -121,7 +121,7 @@
                                                     <tabViewItem label="Name Options" identifier="1" id="54">
                                                         <view key="view" id="55">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="59">
                                                                     <rect key="frame" x="91" y="247" width="295" height="14"/>
@@ -180,7 +180,7 @@
                                                     <tabViewItem label="Date Options" identifier="2" id="62">
                                                         <view key="view" id="63">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="69">
                                                                     <rect key="frame" x="17" y="257" width="110" height="14"/>
@@ -303,7 +303,7 @@
                                                     <tabViewItem label="Permission Options" identifier="3" id="79">
                                                         <view key="view" id="80">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="100">
                                                                     <rect key="frame" x="101" y="286" width="27" height="14"/>
@@ -483,7 +483,7 @@
                                                     <tabViewItem label="Folder Options" identifier="4" id="414">
                                                         <view key="view" id="415">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="418">
                                                                     <rect key="frame" x="102" y="262" width="15" height="14"/>
@@ -748,7 +748,7 @@
                                                     <tabViewItem label="File Options" identifier="5" id="468">
                                                         <view key="view" id="469">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="470">
                                                                     <rect key="frame" x="9" y="262" width="82" height="14"/>
@@ -954,7 +954,7 @@
                                                     <tabViewItem label="Finder Flags" identifier="6" id="416">
                                                         <view key="view" id="417">
                                                             <rect key="frame" x="0.0" y="0.0" width="403" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <matrix verticalHuggingPriority="750" tag="16" mode="highlight" allowsEmptySelection="NO" autosizesCells="NO" id="448">
                                                                     <rect key="frame" x="115" y="185" width="229" height="118"/>
@@ -1089,7 +1089,7 @@
                         <tabViewItem label="ISO" identifier="ISO" id="173">
                             <view key="view" id="174">
                                 <rect key="frame" x="10" y="25" width="417" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button imageHugsTitle="YES" id="175">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
@@ -1135,7 +1135,7 @@
                                                     <outlet property="nextKeyView" destination="251" id="372"/>
                                                 </connections>
                                             </popUpButton>
-                                            <tabView drawsBackground="NO" type="noTabsNoBorder" id="187">
+                                            <tabView drawsBackground="NO" type="noTabsNoBorder" initialItem="249" id="187">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <font key="font" metaFont="system"/>
@@ -1143,7 +1143,7 @@
                                                     <tabViewItem label="Names" identifier="1" id="249">
                                                         <view key="view" id="250">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="263">
                                                                     <rect key="frame" x="71" y="385" width="315" height="14"/>
@@ -1253,7 +1253,7 @@
                                                     <tabViewItem label="Dates" identifier="2" id="188">
                                                         <view key="view" id="189">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="194">
                                                                     <rect key="frame" x="17" y="399" width="110" height="14"/>
@@ -1445,7 +1445,7 @@
                                                     <tabViewItem label="Permissions" identifier="3" id="214">
                                                         <view key="view" id="215">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="216">
                                                                     <rect key="frame" x="105" y="427" width="27" height="14"/>
@@ -1624,7 +1624,7 @@
                                                     <tabViewItem label="Item" identifier="4" id="241">
                                                         <view key="view" id="242">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="246">
                                                                     <rect key="frame" x="17" y="426" width="89" height="14"/>
@@ -2231,7 +2231,7 @@
                         <tabViewItem label="UDF" identifier="UDF" id="722">
                             <view key="view" id="723">
                                 <rect key="frame" x="10" y="25" width="417" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button imageHugsTitle="YES" id="805">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
@@ -2277,7 +2277,7 @@
                                                     <outlet property="nextKeyView" destination="790" id="807"/>
                                                 </connections>
                                             </popUpButton>
-                                            <tabView drawsBackground="NO" type="noTabsNoBorder" id="731">
+                                            <tabView drawsBackground="NO" type="noTabsNoBorder" initialItem="785" id="731">
                                                 <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <font key="font" metaFont="system"/>
@@ -2285,7 +2285,7 @@
                                                     <tabViewItem label="Names" identifier="1" id="785">
                                                         <view key="view" id="786">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="788">
                                                                     <rect key="frame" x="75" y="402" width="313" height="14"/>
@@ -2332,7 +2332,7 @@
                                                     <tabViewItem label="Dates" identifier="2" id="759">
                                                         <view key="view" id="760">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="767">
                                                                     <rect key="frame" x="17" y="399" width="110" height="14"/>
@@ -2523,7 +2523,7 @@
                                                     <tabViewItem label="Permissions" identifier="3" id="732">
                                                         <view key="view" id="733">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="749">
                                                                     <rect key="frame" x="103" y="427" width="27" height="14"/>
@@ -2702,7 +2702,7 @@
                                                     <tabViewItem label="Item" identifier="4" id="793">
                                                         <view key="view" id="794">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button tag="11" imageHugsTitle="YES" id="797">
                                                                     <rect key="frame" x="17" y="429" width="125" height="16"/>
@@ -2866,7 +2866,7 @@
             <rect key="contentRect" x="104" y="233" width="360" height="202"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
             <view key="contentView" id="1196">
-                <rect key="frame" x="1" y="1" width="360" height="202"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="1199">
@@ -2874,7 +2874,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="qyw-BR-x4v">
                             <rect key="frame" x="1" y="1" width="318" height="130"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" id="1200">
                                     <rect key="frame" x="0.0" y="0.0" width="318" height="130"/>
@@ -3005,14 +3005,14 @@ Gw
                     <autoresizingMask key="autoresizingMask"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="2299"/>
                 </imageView>
-                <tabView controlSize="small" id="1217">
+                <tabView controlSize="small" initialItem="1218" id="1217">
                     <rect key="frame" x="-18" y="-10" width="438" height="433"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <tabViewItems>
                         <tabViewItem label="HFS+" identifier="HFS+" id="1218">
                             <view key="view" id="1219">
                                 <rect key="frame" x="10" y="25" width="418" height="395"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <box boxType="oldStyle" borderType="none" title="hfsOptions" titlePosition="noTitle" id="1220">
                                         <rect key="frame" x="20" y="20" width="359" height="355"/>
@@ -3064,14 +3064,14 @@ Gw
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <tabView controlSize="small" id="1879">
+                                                <tabView controlSize="small" initialItem="1880" id="1879">
                                                     <rect key="frame" x="-5" y="-10" width="371" height="317"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tabViewItems>
                                                         <tabViewItem label="Icon" identifier="2" id="1880">
                                                             <view key="view" id="1881">
                                                                 <rect key="frame" x="10" y="25" width="351" height="279"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <button verticalHuggingPriority="750" imageHugsTitle="YES" id="1884">
                                                                         <rect key="frame" x="107" y="235" width="73" height="28"/>
@@ -3115,7 +3115,7 @@ Gw
                                                         <tabViewItem label="Classic" identifier="1" id="1882">
                                                             <view key="view" id="1883">
                                                                 <rect key="frame" x="10" y="25" width="351" height="279"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1888">
                                                                         <rect key="frame" x="102" y="242" width="15" height="14"/>
@@ -3380,7 +3380,7 @@ Gw
                         <tabViewItem label="ISO" identifier="ISO" id="1246">
                             <view key="view" id="1247">
                                 <rect key="frame" x="10" y="25" width="418" height="395"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <box boxType="oldStyle" borderType="none" title="isoOptions" titlePosition="noTitle" id="1248">
                                         <rect key="frame" x="20" y="20" width="359" height="355"/>
@@ -3709,7 +3709,7 @@ Gw
                         <tabViewItem label="Joliet" identifier="Joliet" id="1227">
                             <view key="view" id="1228">
                                 <rect key="frame" x="10" y="25" width="418" height="395"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <box boxType="oldStyle" borderType="none" title="Title" titlePosition="noTitle" id="1229">
                                         <rect key="frame" x="20" y="20" width="359" height="355"/>
@@ -3749,7 +3749,7 @@ Gw
                         <tabViewItem label="UDF" identifier="UDF" id="1341">
                             <view key="view" id="1342">
                                 <rect key="frame" x="10" y="25" width="418" height="395"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <box boxType="oldStyle" borderType="none" title="isoOptions" titlePosition="noTitle" id="1343">
                                         <rect key="frame" x="20" y="20" width="359" height="355"/>
@@ -4061,7 +4061,7 @@ Gw
                         <tabViewItem label="All" identifier="" id="1233">
                             <view key="view" id="1234">
                                 <rect key="frame" x="10" y="25" width="418" height="395"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <form verticalHuggingPriority="750" mode="track" allowsEmptySelection="NO" autosizesCells="NO" id="1239">
                                         <rect key="frame" x="55" y="476" width="343" height="19"/>
@@ -4977,7 +4977,7 @@ Gw
                         <tabViewItem label="General" identifier="1" id="1743">
                             <view key="view" id="1744">
                                 <rect key="frame" x="10" y="25" width="417" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1745">
                                         <rect key="frame" x="17" y="364" width="97" height="14"/>
@@ -5256,7 +5256,7 @@ Gw
                         <tabViewItem label="Artwork" identifier="2" id="1741">
                             <view key="view" id="1742">
                                 <rect key="frame" x="10" y="25" width="417" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView id="1772">
                                         <rect key="frame" x="17" y="110" width="371" height="275"/>
@@ -5266,7 +5266,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1773">
                                         <rect key="frame" x="44" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2360">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2360">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5277,7 +5277,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1774">
                                         <rect key="frame" x="20" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2361">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2361">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5288,7 +5288,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1775">
                                         <rect key="frame" x="360" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2362">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoRightTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2362">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5299,7 +5299,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1776">
                                         <rect key="frame" x="336" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2363">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoLeftTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2363">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5370,7 +5370,7 @@ Gw
                 <button imageHugsTitle="YES" id="1837">
                     <rect key="frame" x="20" y="20" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2392">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2392">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="label"/>
                         <string key="keyEquivalent"></string>
@@ -5382,7 +5382,7 @@ Gw
                 <button imageHugsTitle="YES" id="1836">
                     <rect key="frame" x="44" y="20" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2391">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2391">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="label"/>
                     </buttonCell>
@@ -5403,8 +5403,8 @@ Gw
                     <rect key="frame" x="20" y="53" width="360" height="345"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <clipView key="contentView" id="fNa-zA-Dz8">
-                        <rect key="frame" x="1" y="23" width="358" height="321"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="1" y="0.0" width="358" height="344"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" headerView="2505" id="1832">
                                 <rect key="frame" x="0.0" y="0.0" width="358" height="321"/>
@@ -5494,7 +5494,7 @@ Gw
             <rect key="contentRect" x="180" y="293" width="354" height="387"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
             <view key="contentView" id="1839">
-                <rect key="frame" x="1" y="1" width="354" height="387"/>
+                <rect key="frame" x="0.0" y="0.0" width="354" height="387"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView id="1844">
@@ -5596,5 +5596,9 @@ Gw
     </objects>
     <resources>
         <image name="Audio CD" width="32" height="32"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSGoLeftTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

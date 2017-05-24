@@ -1,19 +1,20 @@
 /* KWDVDInspector */
 
 #import <Cocoa/Cocoa.h>
+#import "KWInspector.h"
 
-@interface KWDVDInspector : NSObject
+@interface KWDVDInspector : NSObject <KWInspector, NSTableViewDataSource, NSTableViewDelegate>
 {
-    IBOutlet id chapterSheet;
-    IBOutlet id currentTimeField;
-    IBOutlet id iconView;
-    IBOutlet id myView;
-    IBOutlet id nameField;
-    IBOutlet id previewView;
-    IBOutlet id tableView;
-    IBOutlet id timeField;
-    IBOutlet id timeSlider;
-	IBOutlet id titleField;
+    IBOutlet NSPanel		*chapterSheet;
+    IBOutlet NSTextField	*currentTimeField;
+    IBOutlet NSImageView	*iconView;
+    IBOutlet NSView			*myView;
+    IBOutlet NSTextField	*nameField;
+    IBOutlet NSImageView	*previewView;
+    IBOutlet NSTableView	*tableView;
+    IBOutlet NSTextField	*timeField;
+    IBOutlet NSSlider		*timeSlider;
+	IBOutlet NSTextField	*titleField;
 	
 	NSMutableArray *tableData;
 	id currentTableView;

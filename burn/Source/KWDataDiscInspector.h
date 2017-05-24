@@ -51,49 +51,50 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 #import <DiscRecording/DiscRecording.h>
+#import "KWInspector.h"
 #import "FSTreeNode.h"
 #import "KWDRFolder.h"
 
-@interface KWDataDiscInspector : NSObject
+@interface KWDataDiscInspector : NSObject <KWInspector, NSTableViewDelegate, NSTableViewDataSource>
 {
 	//Interface outlets
-	IBOutlet id	myView;
-	IBOutlet id	nameField;
-	IBOutlet id	sizeField;
-	IBOutlet id	tabView;
-	IBOutlet id	mainIconView;
+	IBOutlet NSView			*myView;
+	IBOutlet NSTextField	*nameField;
+	IBOutlet NSTextField	*sizeField;
+	IBOutlet NSTabView		*tabView;
+	IBOutlet NSImageView	*mainIconView;
 	
-	IBOutlet id	hfsName;
-	IBOutlet id	isoName;
-	IBOutlet id	jolietName;
-	IBOutlet id	udfName;
+	IBOutlet NSTextField	*hfsName;
+	IBOutlet NSTextField	*isoName;
+	IBOutlet NSTextField	*jolietName;
+	IBOutlet NSTextField	*udfName;
 	
-	IBOutlet id	isoOptions;
-	IBOutlet id	hfsOptions;
-	IBOutlet id	jolietOptions;
-	IBOutlet id	udfOptions;
-	IBOutlet id	allOptions;
+	IBOutlet NSBox	*isoOptions;
+	IBOutlet NSBox	*hfsOptions;
+	IBOutlet NSBox	*jolietOptions;
+	IBOutlet NSBox	*udfOptions;
+	IBOutlet NSBox	*allOptions;
 	
-	IBOutlet id	uid;
-	IBOutlet id	gid;
-	IBOutlet id	perms;
+	IBOutlet NSTextField	*uid;
+	IBOutlet NSTextField	*gid;
+	IBOutlet NSMatrix		*perms;
 	
-	IBOutlet id	hfsBoundsT;
-	IBOutlet id	hfsBoundsB;
-	IBOutlet id	hfsBoundsL;
-	IBOutlet id	hfsBoundsR;
-	IBOutlet id	hfsScrollX;
-	IBOutlet id	hfsScrollY;
-	IBOutlet id	hfsViewType;
+	IBOutlet NSTextField	*hfsBoundsT;
+	IBOutlet NSTextField	*hfsBoundsB;
+	IBOutlet NSTextField	*hfsBoundsL;
+	IBOutlet NSTextField	*hfsBoundsR;
+	IBOutlet NSTextField	*hfsScrollX;
+	IBOutlet NSTextField	*hfsScrollY;
+	IBOutlet NSTextField	*hfsViewType;
 	
-	IBOutlet id	isoLevel;
-	IBOutlet id	udfVersion;
+	IBOutlet NSPopUpButton	*isoLevel;
+	IBOutlet NSPopUpButton	*udfVersion;
 	
-	IBOutlet id	iconView;
+	IBOutlet NSImageView	*iconView;
 
-	IBOutlet id	fileChooser;
-	IBOutlet id	okButton;
-	IBOutlet id	fileList;
+	IBOutlet NSPanel		*fileChooser;
+	IBOutlet NSButton		*okButton;
+	IBOutlet NSTableView	*fileList;
 
 	//Variables
 	DRFolder*				filesystemRoot;

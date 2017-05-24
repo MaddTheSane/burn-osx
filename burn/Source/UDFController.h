@@ -4,9 +4,9 @@
 
 @interface UDFController : FSPropertiesController
 {
-    IBOutlet id effectiveDate;
-    IBOutlet id expirationDate;
-    IBOutlet id invisible;
-    IBOutlet id recordingDate;
+    IBOutlet NSTextField	*effectiveDate;
+    IBOutlet NSTextField	*expirationDate;
+    IBOutlet NSButton		*invisible;
+    IBOutlet NSTextField	*recordingDate;
 }
 @end

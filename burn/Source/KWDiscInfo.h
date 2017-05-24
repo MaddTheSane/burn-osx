@@ -5,11 +5,11 @@
 
 @interface KWDiscInfo : NSWindowController
 {
-    IBOutlet id freeSpaceDisk;
-    IBOutlet id kindDisk;
-    IBOutlet id recorderPopup;
-    IBOutlet id usedSpaceDisk;
-    IBOutlet id writableDisk;
+    IBOutlet NSTextField *freeSpaceDisk;
+    IBOutlet NSTextField *kindDisk;
+    IBOutlet NSPopUpButton *recorderPopup;
+    IBOutlet NSTextField *usedSpaceDisk;
+    IBOutlet NSTextField *writableDisk;
 	
 	NSDictionary *discTypes;
 }

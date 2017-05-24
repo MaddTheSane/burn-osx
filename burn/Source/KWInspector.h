@@ -2,18 +2,32 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class KWDataDiscInspector;
+@class KWAudioInspector;
+@class KWAudioDiscInspector;
+@class KWAudioMP3Inspector;
+@class KWDVDInspector;
+@class KWDataInspector;
+
+@protocol KWInspector <NSObject>
+
+- (void)updateView:(NSArray *)objects;
+- (id)myView;
+
+@end
+
 @interface KWInspector : NSWindowController
 {
 	//Interface Outlets
     //Controllers
-	IBOutlet id dataController;
-	IBOutlet id dataDiscController;
-	IBOutlet id audioController;
-	IBOutlet id audioDiscController;
-	IBOutlet id audioMP3Controller;
-	IBOutlet id dvdController;
+	IBOutlet KWDataInspector *dataController;
+	IBOutlet KWDataDiscInspector *dataDiscController;
+	IBOutlet KWAudioInspector *audioController;
+	IBOutlet KWAudioDiscInspector *audioDiscController;
+	IBOutlet KWAudioMP3Inspector *audioMP3Controller;
+	IBOutlet KWDVDInspector *dvdController;
 	//Empty
-	IBOutlet id emptyView;
+	IBOutlet NSView *emptyView;
 	
 	BOOL firstRun;
 }

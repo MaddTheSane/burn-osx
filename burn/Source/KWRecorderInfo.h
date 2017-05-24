@@ -5,13 +5,13 @@
 
 @interface KWRecorderInfo : NSWindowController
 {
-    IBOutlet id recorderBuffer;
-    IBOutlet id recorderCache;
-    IBOutlet id recorderConnection;
-    IBOutlet id recorderPopup;
-    IBOutlet id recorderProduct;
-    IBOutlet id recorderVendor;
-    IBOutlet id recorderWrites;
+    IBOutlet NSTextField *recorderBuffer;
+    IBOutlet NSTextField *recorderCache;
+    IBOutlet NSTextField *recorderConnection;
+    IBOutlet NSPopUpButton *recorderPopup;
+    IBOutlet NSTextField *recorderProduct;
+    IBOutlet NSTextField *recorderVendor;
+    IBOutlet NSTextField *recorderWrites;
 	
 	NSDictionary *discTypes;
 }

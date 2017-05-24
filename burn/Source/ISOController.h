@@ -52,12 +52,12 @@
 
 @interface ISOController : FSPropertiesController 
 {
-	IBOutlet id	effectiveDate;
-	IBOutlet id	expirationDate;
-	IBOutlet id	recordingDate;
+	IBOutlet NSTextField	*effectiveDate;
+	IBOutlet NSTextField	*expirationDate;
+	IBOutlet NSTextField	*recordingDate;
 
-	IBOutlet id	versionNumber;
-	IBOutlet id invisible;
+	IBOutlet NSTextField	*versionNumber;
+	IBOutlet NSButton		*invisible;
 }
 
 @end

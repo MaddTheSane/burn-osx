@@ -10,6 +10,7 @@
 #import "KWCommonMethods.h"
 #import "KWToolbarKiller.h"
 #import "KWTabViewItem.h"
+#import <Carbon/Carbon.h>
 
 @implementation KWWindowController
 
@@ -171,15 +172,11 @@
 	[fileTypes addObject:@"burn"];
 	[fileTypes addObjectsFromArray:[KWCommonMethods diskImageTypes]];
 
-	[openPanel beginSheetForDirectory:nil file:nil types:fileTypes modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(burnOpenPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
-}
-
-- (void)burnOpenPanelDidEnd:(NSOpenPanel *)openPanel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-	[openPanel orderOut:self];
-
-	if (returnCode == NSOKButton)
-		[self open:[openPanel filename]];
+	[openPanel beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger returnCode) {
+		if (returnCode == NSOKButton) {
+			[self open:[openPanel URL].path];
+		}
+	}];
 }
 
 //Recorder menu
@@ -397,7 +394,7 @@
 	
 		if ([mediaState isEqualTo:DRDeviceMediaStateMediaPresent])
 		{
-			if ([[mediaInfo objectForKey:DRDeviceMediaIsBlankKey] boolValue] | [standardDefaults boolForKey:@"KWShowOverwritableSpace"] == NO)
+			if ([[mediaInfo objectForKey:DRDeviceMediaIsBlankKey] boolValue] || [standardDefaults boolForKey:@"KWShowOverwritableSpace"] == NO)
 				space = [[mediaInfo objectForKey:DRDeviceMediaFreeSpaceKey] cgfloatValue] * 2048 / 1024 / 2;
 			else if ([[mediaInfo objectForKey:DRDeviceMediaClassKey] isEqualTo:DRDeviceMediaClassDVD])
 				space = [[mediaInfo objectForKey:DRDeviceMediaOverwritableSpaceKey] cgfloatValue] * 2048 / 1024 / 2;
@@ -417,7 +414,7 @@
 		}
 		
 		NSString *displayName = [device displayName];
-		if ([mediaState isEqualTo:DRDeviceMediaStateInTransition] | space == -1)
+		if ([mediaState isEqualTo:DRDeviceMediaStateInTransition] || space == -1)
 		{
 			return [NSString stringWithFormat:@"%@\n%@", displayName, NSLocalizedString(@"No disc",nil)];
 		}

@@ -56,22 +56,22 @@
 {
 	NSArray *inspectedItems;
 
-	IBOutlet id	included;
-	IBOutlet id	contentView;
+	IBOutlet NSButton		*included;
+	IBOutlet NSView			*contentView;
 	
-	IBOutlet id	baseName;
-	IBOutlet id	specificName;
-	IBOutlet id	mangledName;
+	IBOutlet NSTextField	*baseName;
+	IBOutlet NSTextField	*specificName;
+	IBOutlet NSTextField	*mangledName;
 
-	IBOutlet id	creationDate;
-	IBOutlet id	contentModDate;
-	IBOutlet id	attributeModDate;
-	IBOutlet id	lastAccessedDate;
-	IBOutlet id	backupDate;
+	IBOutlet NSTextField	*creationDate;
+	IBOutlet NSTextField	*contentModDate;
+	IBOutlet NSTextField	*attributeModDate;
+	IBOutlet NSTextField	*lastAccessedDate;
+	IBOutlet NSTextField	*backupDate;
 
-	IBOutlet id	uid;
-	IBOutlet id	gid;
-	IBOutlet id	perms;
+	IBOutlet NSTextField	*uid;
+	IBOutlet NSTextField	*gid;
+	IBOutlet NSMatrix		*perms;
 	
 	NSArray *propertyMappings;
 }

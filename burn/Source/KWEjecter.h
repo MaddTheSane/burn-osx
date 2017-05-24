@@ -5,7 +5,7 @@
 
 @interface KWEjecter : NSWindowController
 {
-    IBOutlet id popupButton;
+    IBOutlet NSPopUpButton *popupButton;
 }
 
 //Main actions

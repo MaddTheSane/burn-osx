@@ -6,8 +6,8 @@
 //  Copyright 2009 Kiwi Fruitware. All rights reserved.
 //
 
-#import <DiscRecording/DiscRecording.h>
 #import <Cocoa/Cocoa.h>
+#import <DiscRecording/DiscRecording.h>
 #import "KWCommonMethods.h"
 
 @interface KWDRFolder : DRFolder
@@ -25,21 +25,13 @@
 	BOOL calculating;
 }
 
-- (void)setFolderIcon:(NSImage *)image;
-- (NSImage *)folderIcon;
-- (void)setFolderSize:(NSString *)string;
-- (NSString *)folderSize;
-- (void)setDiscProperties:(NSDictionary *)dict;
-- (NSDictionary *)discProperties;
-- (void)setExpanded:(BOOL)exp;
-- (BOOL)isExpanded;
-- (void)setIsFilePackage:(BOOL)package;
-- (BOOL)isFilePackage;
-- (void)setDisplayName:(NSString *)string;
-- (NSString *)displayName;
-- (void)setOriginalName:(NSString *)string;
-- (NSString *)originalName;
-- (void)setHfsStandard:(BOOL)standard;
-- (BOOL)hfsStandard;
+@property (copy) NSImage *folderIcon;
+@property (copy) NSString *folderSize;
+@property (copy) NSDictionary *discProperties;
+@property (getter=isExpanded) BOOL expanded;
+@property BOOL isFilePackage;
+@property (copy) NSString *displayName;
+@property (copy) NSString *originalName;
+@property BOOL hfsStandard;
 
 @end

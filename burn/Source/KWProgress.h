@@ -3,14 +3,14 @@
 #import <Cocoa/Cocoa.h>
 #import "NSNumber_Extensions.h"
 
-@interface KWProgress : NSWindowController
+@interface KWProgress : NSWindowController <NSWindowDelegate>
 {
     //Main outlets
-    IBOutlet id progressBar;
-    IBOutlet id progressIcon;
-    IBOutlet id statusText;
-    IBOutlet id taskText;
-	IBOutlet id cancelProgress;
+    IBOutlet NSProgressIndicator *progressBar;
+    IBOutlet NSImageView *progressIcon;
+    IBOutlet NSTextField *statusText;
+    IBOutlet NSTextField *taskText;
+	IBOutlet NSButton *cancelProgress;
 	
 	//Variables
 	NSArray *notificationNames;

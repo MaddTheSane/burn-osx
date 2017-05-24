@@ -50,11 +50,11 @@
 #import <Foundation/Foundation.h>
 #import "KWCommonMethods.h"
 
-@interface NSArray (MyExtensions)
-- (BOOL)containsObjectIdenticalTo: (id)object;
+@interface NSArray<ObjectType> (MyExtensions)
+- (BOOL)containsObjectIdenticalTo: (ObjectType)object;
 @end
 
-@interface NSMutableArray (MyExtensions)
-- (void)insertObjectsFromArray:(NSArray *)array atIndex:(NSInteger)index;
-- (void)insertObject:(NSObject *)array sortedBySelector:(SEL)selector;
+@interface NSMutableArray<ObjectType> (MyExtensions)
+- (void)insertObjectsFromArray:(NSArray<ObjectType> *)array atIndex:(NSInteger)index;
+- (void)insertObject:(ObjectType)array sortedBySelector:(SEL)selector;
 @end

@@ -1,19 +1,20 @@
 /* KWAudioMP3Inspector */
 
 #import <Cocoa/Cocoa.h>
+#import "KWInspector.h"
 #import "KWCommonMethods.h"
 
-@interface KWAudioMP3Inspector : NSObject
+@interface KWAudioMP3Inspector : NSObject <KWInspector>
 {
-	IBOutlet id nameField;
-	IBOutlet id sizeField;
-	IBOutlet id iconView;
-	IBOutlet id tabView;
+	IBOutlet NSTextField	*nameField;
+	IBOutlet NSTextField	*sizeField;
+	IBOutlet NSImageView	*iconView;
+	IBOutlet NSTabView		*tabView;
 	
-    IBOutlet id imageString;
-    IBOutlet id imageView;
+    IBOutlet NSTextField	*imageString;
+    IBOutlet NSImageView	*imageView;
     
-	IBOutlet id myView;
+	IBOutlet NSView			*myView;
 
 	//Variables
 	NSTableView *currentTableView;

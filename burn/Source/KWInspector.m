@@ -1,6 +1,11 @@
 #import "KWInspector.h"
 #import <DiscRecording/DiscRecording.h>
 #import "KWDataInspector.h"
+#import "KWDataDiscInspector.h"
+#import "KWAudioInspector.h"
+#import "KWAudioDiscInspector.h"
+#import "KWAudioMP3Inspector.h"
+#import "KWDVDInspector.h"
 #import "KWCommonMethods.h"
 
 @implementation KWInspector
@@ -59,7 +64,7 @@
 {
 	NSWindow *window = [self window];
 
-	id currentController = nil;
+	id<KWInspector> currentController = nil;
 
 	if ([type isEqualTo:@"KWData"])
 		currentController = dataController;

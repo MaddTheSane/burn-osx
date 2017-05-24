@@ -1,12 +1,13 @@
 /* KWAudioDiscInspector */
 
 #import <Cocoa/Cocoa.h>
+#import "KWInspector.h"
 
-@interface KWAudioDiscInspector : NSObject
+@interface KWAudioDiscInspector : NSObject <KWInspector>
 {
-    IBOutlet id genreCode;
-	IBOutlet id	myView;
-	IBOutlet id	timeField;
+    IBOutlet NSPopUpButton	*genreCode;
+	IBOutlet NSView			*myView;
+	IBOutlet NSTextField	*timeField;
 	
 	//Variables
 	NSTableView *currentTableView;

@@ -7,12 +7,12 @@
 @interface KWPreferences : NSWindowController <NSToolbarDelegate>
 {
     //Preferences window outlets
-	IBOutlet id generalView;
-	IBOutlet id burnerView;
-	IBOutlet id dataView;
-	IBOutlet id audioView;
-	IBOutlet id videoView;
-	IBOutlet id advancedView;
+	IBOutlet NSView *generalView;
+	IBOutlet NSView *burnerView;
+	IBOutlet NSView *dataView;
+	IBOutlet NSView *audioView;
+	IBOutlet NSView *videoView;
+	IBOutlet NSView *advancedView;
 	
 	//Save tabviewitems
 	NSTabViewItem *savedAudioItem;
@@ -20,20 +20,20 @@
 	//General outlets
     IBOutlet NSPopUpButton *temporaryFolderPopup;
 	//Burner outlets
-    IBOutlet id burnerPopup;
+    IBOutlet NSPopUpButton *burnerPopup;
     IBOutlet id completionActionMatrix;
-	IBOutlet id cdPopup;
-	IBOutlet id dvdPopup;
+	IBOutlet NSPopUpButton *cdPopup;
+	IBOutlet NSPopUpButton *dvdPopup;
 	//Audio outlets
-	IBOutlet id audioTab;
-	IBOutlet id audioTabGeneral;
-	IBOutlet id cdTextCheckbox;
+	IBOutlet NSTabView *audioTab;
+	IBOutlet NSTabViewItem *audioTabGeneral;
+	IBOutlet NSButton *cdTextCheckbox;
 	//Video outlets
-	IBOutlet id videoTab;
-	IBOutlet id themePopup;
-    IBOutlet id previewImagePopup;
-    IBOutlet id previewImageView;
-    IBOutlet id previewWindow;
+	IBOutlet NSTabView *videoTab;
+	IBOutlet NSPopUpButton *themePopup;
+    IBOutlet NSPopUpButton *previewImagePopup;
+    IBOutlet NSImageView *previewImageView;
+    IBOutlet NSPanel *previewWindow;
 	
 	//Toolbar outlets
 	NSToolbar *toolbar;
@@ -41,7 +41,7 @@
 	
 	NSArray *preferenceMappings;
 	NSInteger dataViewHeight;
-	NSMutableArray *themePaths;
+	NSMutableArray<NSString*> *themePaths;
 }
 //PrefPane actions
 - (void)showPreferences;

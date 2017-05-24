@@ -4,6 +4,6 @@
 
 @interface KWWindow : NSWindow
 {
-	IBOutlet id mainTabView;
+	IBOutlet NSTabView *mainTabView;
 }
 @end
