@@ -61,13 +61,12 @@
 + (FSNodeData*) nodeDataWithPath:(NSString*)path;
 + (FSNodeData*) nodeDataWithName:(NSString*)name;
 + (FSNodeData*) nodeDataWithFSObject:(DRFSObject*)obj;
-- (id) initWithFSObject:(DRFSObject*)obj;
+- (instancetype) initWithFSObject:(DRFSObject*)obj;
 
-- (void)setName:(NSString*)name;
-- (NSString*)name;
+@property (copy) NSString *name;
 - (NSImage*)icon;
 - (NSString*)kind;
-- (BOOL)isExpandable;
+@property (readonly, getter=isExpandable) BOOL expandable;
 - (DRFSObject *)fsObject;
 
 @end
@@ -88,11 +87,11 @@ NSInteger myNumber;
 
 - (void)addChild:(TreeNode*)child;
 - (NSInteger) numberOfChildren;
-- (NSArray*) children;
+- (NSArray<FSTreeNode*>*) children;
 
 - (id)initWithCoder:(NSCoder *)pCoder;
 - (void)encodeWithCoder:(NSCoder *)pCoder;
 
-- (NSInteger) myNumber;
+@property (readonly) NSInteger myNumber;
 
 @end

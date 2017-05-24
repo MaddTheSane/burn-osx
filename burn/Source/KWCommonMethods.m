@@ -9,6 +9,7 @@
 #import "KWCommonMethods.h"
 #import "KWDRFolder.h"
 #import "KWWindowController.h"
+#include <Carbon/Carbon.h>
 #if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 #import <QuickTime/QuickTime.h>
 #endif
@@ -94,66 +95,7 @@
 
 + (NSString *)makeSizeFromFloat:(CGFloat)size
 {
-	CGFloat blockSize;
-	
-	if ([KWCommonMethods OSVersion] >= 4192)
-		blockSize = 1000;
-	else
-		blockSize = 1024;
-
-	if (size < blockSize)
-	{
-		if (size > 0)
-			return [NSString localizedStringWithFormat:NSLocalizedString(@"%.0f KB", nil), 4.0];
-		else
-			return [NSString localizedStringWithFormat:NSLocalizedString(@"%.0f KB", nil), size];
-	}
-		
-	BOOL isKB = (size < blockSize * blockSize);
-	BOOL isMB = (size < blockSize * blockSize * blockSize);
-	BOOL isGB = (size < blockSize * blockSize * blockSize * blockSize);
-	BOOL isTB = (size < blockSize * blockSize * blockSize * blockSize * blockSize);
-	
-	if (isKB)
-		return [NSString localizedStringWithFormat:NSLocalizedString(@"%.0f KB", nil), size / blockSize];
-	
-	if (isMB)
-	{
-		NSString *sizeString = [NSString localizedStringWithFormat: @"%.1f", size  / blockSize / blockSize];
-		
-		if ([[sizeString substringFromIndex:[sizeString length] - 1] isEqualTo:@"0"])
-			sizeString = [sizeString substringWithRange:NSMakeRange(0, [sizeString length] - 2)];
-	
-		return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ MB", nil), sizeString];
-	}
-	
-	if (isGB)
-	{
-		NSString *sizeString = [NSString localizedStringWithFormat: @"%.2f", size  / blockSize / blockSize / blockSize];
-		
-			if ([[sizeString substringFromIndex:[sizeString length] - 1] isEqualTo:@"0"])
-			sizeString = [sizeString substringWithRange:NSMakeRange(0, [sizeString length] - 1)];
-			
-			if ([[sizeString substringFromIndex:[sizeString length] - 1] isEqualTo:@"0"])
-			sizeString = [sizeString substringWithRange:NSMakeRange(0, [sizeString length] - 2)];
-	
-		return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ GB", nil), sizeString];
-	}
-	
-	if (isTB)
-	{
-		NSString *sizeString = [NSString localizedStringWithFormat: @"%.2f", size  / blockSize / blockSize / blockSize / blockSize];
-		
-			if ([[sizeString substringFromIndex:[sizeString length] - 1] isEqualTo:@"0"])
-			sizeString = [sizeString substringWithRange:NSMakeRange(0, [sizeString length] - 1)];
-			
-			if ([[sizeString substringFromIndex:[sizeString length] - 1] isEqualTo:@"0"])
-			sizeString = [sizeString substringWithRange:NSMakeRange(0, [sizeString length] - 2)];
-	
-		return [NSString localizedStringWithFormat:NSLocalizedString(@"%@ TB", nil), sizeString];
-	}	
-
-	return [NSString localizedStringWithFormat:NSLocalizedString(@"%.0f KB", nil), 0];
+	return [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 //////////////////
@@ -1107,7 +1049,11 @@
 
 + (NSImage *)getImageForName:(NSString *)name
 {
-	NSDictionary *customImageDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSImage imageNamed:@"General"], [NSImage imageNamed:@"Burn"], [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)], [NSImage imageNamed:@"Audio CD"], [NSImage imageNamed:@"DVD"], [NSImage imageNamed:@"Advanced"], nil] forKeys:[NSArray arrayWithObjects:@"General", @"Burner",@"Data",@"Audio",@"Video",@"Advanced",nil]];
+	//NSImage *cd = [[NSWorkspace sharedWorkspace] iconForFileType:@"public.cd-audio"];
+	//NSImage *dvd = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericDVD)];
+	//NSImage *blu = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)];
+
+	NSDictionary *customImageDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSImage imageNamed:NSImageNamePreferencesGeneral], [NSImage imageNamed:@"Burn"], [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)], [NSImage imageNamed:@"Audio CD"], [NSImage imageNamed:@"DVD"], [NSImage imageNamed:NSImageNameAdvanced], nil] forKeys:[NSArray arrayWithObjects:@"General", @"Burner",@"Data",@"Audio",@"Video",@"Advanced",nil]];
 
 	return [customImageDictionary objectForKey:name];
 }
@@ -1116,11 +1062,10 @@
 {
 	[popup removeAllItems];
 		
-	NSInteger i;
 	NSArray *devices = [DRDevice devices];
-	for (i = 0; i < [devices count]; i ++)
+	for (DRDevice *device in devices)
 	{
-		[popup addItemWithTitle:[[devices objectAtIndex:i] displayName]];
+		[popup addItemWithTitle:[device displayName]];
 	}
 		
 	if ([devices count] > 0)

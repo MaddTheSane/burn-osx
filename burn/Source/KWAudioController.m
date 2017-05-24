@@ -1328,6 +1328,7 @@
 	if ([standardDefaults objectForKey:@"KWUseCDText"])
 	#elif MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	if ([KWCommonMethods OSVersion] >= 0x1040 && [standardDefaults objectForKey:@"KWUseCDText"])
+#endif
 	{
 		NSArray *keys = [cueMappings allKeys];
 	
@@ -1338,7 +1339,7 @@
 			NSString *cueString = [cueMappings objectForKey:key];
 			id object = [cdtext objectForKey:key ofTrack:0];
 		
-			if (object && ![[NSString stringWithFormat:@"%@", object] isEqualTo:@""] && (![cueString isEqualTo:@"MESSAGE"] | [(NSString *)object length] > 1))
+			if (object && ![[NSString stringWithFormat:@"%@", object] isEqualTo:@""] && (![cueString isEqualTo:@"MESSAGE"] || [(NSString *)object length] > 1))
 			{
 				if (i > 7)
 					cueFile = [NSString stringWithFormat:@"%@\n%@ %@", cueFile, cueString, object];
@@ -1357,8 +1358,7 @@
 		if (mcn)
 			cueFile = [NSString stringWithFormat:@"%@\nUPC_EAN %@", cueFile, mcn];
 	}
-	#endif
-		
+	
 	NSInteger x;
 	NSInteger size = 0;
 	for (x=0;x<[tracks count];x++)
@@ -1378,7 +1378,7 @@
 				NSString *cueString = [cueMappings objectForKey:key];
 				id object = [cdtext objectForKey:key ofTrack:trackNumber];
 		
-				if (object && ![[NSString stringWithFormat:@"%@", object] isEqualTo:@""] && (![cueString isEqualTo:@"MESSAGE"] | [(NSString *)object length] > 1))
+				if (object && ![[NSString stringWithFormat:@"%@", object] isEqualTo:@""] && (![cueString isEqualTo:@"MESSAGE"] || [(NSString *)object length] > 1))
 				{
 					if (i > 7)
 						cueFile = [NSString stringWithFormat:@"%@\n    %@ %@", cueFile, cueString, object];

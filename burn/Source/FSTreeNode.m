@@ -272,7 +272,7 @@
 
 - (BOOL)isExpandable 
 {
-	if (![(KWDRFolder *)fsObj isFilePackage] | [[NSUserDefaults standardUserDefaults] boolForKey:@"KWShowFilePackagesAsFolder"] == YES | ([[[self name] pathExtension] isEqualTo:@""] && ![[[fsObj baseName] stringByDeletingPathExtension] isEqualTo:[self name]] && ![[self name] isEqualTo:[(KWDRFolder *)fsObj displayName]]))
+	if (![(KWDRFolder *)fsObj isFilePackage] || [[NSUserDefaults standardUserDefaults] boolForKey:@"KWShowFilePackagesAsFolder"] == YES || ([[[self name] pathExtension] isEqualTo:@""] && ![[[fsObj baseName] stringByDeletingPathExtension] isEqualTo:[self name]] && ![[self name] isEqualTo:[(KWDRFolder *)fsObj displayName]]))
 		return YES;
 
 	return NO;
@@ -281,6 +281,7 @@
 @end
 
 @implementation FSTreeNode
+@synthesize myNumber;
 
 - (void)addChild:(TreeNode*)child
 {
@@ -390,8 +391,7 @@
 
 		NSInteger i;
 		for (i = 0; i < [objects count]; i ++)
-		{
-			NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
+		@autoreleasepool {
 			
 			id object = [objects objectAtIndex:i];
 			NSString *sourcePath = [object sourcePath];
@@ -410,9 +410,6 @@
 				FSTreeNode*	child = [FSTreeNode treeNodeWithData:[FSNodeData nodeDataWithFSObject:(DRFSObject *)object]];
 				[super addChild:child];
 			}
-			
-			[subPool release];
-			subPool = nil;
 		}
 	}
 
@@ -463,11 +460,6 @@
 - (void)encodeWithCoder:(NSCoder *)pCoder;
 {
 	[pCoder encodeValueOfObjCType:@encode(NSInteger) at:&myNumber];
-}
-
-- (NSInteger) myNumber
-{
-	return myNumber;
 }
 
 @end
