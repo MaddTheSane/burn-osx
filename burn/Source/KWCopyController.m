@@ -6,6 +6,7 @@
 #import "KWTrackProducer.h"
 #import "KWAlert.h"
 #import "LOXI.h"
+#import "BurnDefines.h"
 
 @implementation KWCopyController
 
@@ -394,7 +395,7 @@
 		
 		[self changeMountState:YES forDevicePath:workingPath];
 					
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeBurnStatus" object:[NSNumber numberWithBool:YES]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeBurnStatusNotification object:[NSNumber numberWithBool:YES]];
 
 		return YES;
 	}
@@ -484,7 +485,7 @@
 	[mountMenu setTitle:NSLocalizedString(@"Mount Image", nil)];
 	[browseButton setTitle:NSLocalizedString(@"Open...",nil)];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeBurnStatus" object:[NSNumber numberWithBool:NO]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeBurnStatusNotification object:@NO];
 }
 
 ///////////////////////////

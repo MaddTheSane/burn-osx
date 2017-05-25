@@ -1,12 +1,13 @@
 #import "KWOutlineView.h"
 #import "KWCommonMethods.h"
+#import "BurnDefines.h"
 
 @implementation KWOutlineView
 
 - (void)reloadData
 {
 	[super reloadData];		
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeBurnStatus" object:[NSNumber numberWithBool:([self numberOfRows] > 0)]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeBurnStatusNotification object:[NSNumber numberWithBool:([self numberOfRows] > 0)]];
 }
 
 - (BOOL)becomeFirstResponder 

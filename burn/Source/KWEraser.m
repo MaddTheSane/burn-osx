@@ -180,7 +180,7 @@
 	{
 		DRDevice *device = [devices objectAtIndex:i];
 		
-		if ([[[device info] objectForKey:DRDeviceLoadingMechanismCanOpenKey] boolValue] && [[[device status] objectForKey:DRDeviceIsTrayOpenKey] boolValue] && !i == [burnerPopup indexOfSelectedItem])
+		if ([[[device info] objectForKey:DRDeviceLoadingMechanismCanOpenKey] boolValue] && [[[device status] objectForKey:DRDeviceIsTrayOpenKey] boolValue] && i != [burnerPopup indexOfSelectedItem])
 			[device closeTray];
 	}
 

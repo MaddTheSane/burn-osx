@@ -14,12 +14,13 @@
 #import "KWTextField.h"
 
 @class KWTableView;
+@class KWWindow;
 
 @interface KWMediaListController : NSObject <NSTableViewDataSource> {
 
 	//Main Window
-	IBOutlet id mainWindow;
-	IBOutlet id popupIcon;
+	IBOutlet KWWindow		*mainWindow;
+	IBOutlet NSPopUpButton	*popupIcon;
 	IBOutlet id discName;
 	IBOutlet id discLabel;
 	IBOutlet id totalText;

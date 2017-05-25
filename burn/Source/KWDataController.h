@@ -6,34 +6,36 @@
 #import "KWTrackProducer.h"
 
 @class TreeNode;
+@class KWWindow;
+@class KWDiscCreator;
 
-@interface KWDataController : NSObject 
+@interface KWDataController : NSObject <NSOutlineViewDelegate, NSOutlineViewDataSource>
 {	
     //Main Window
-	IBOutlet id	mainWindow;
+	IBOutlet KWWindow		*mainWindow;
 	IBOutlet NSOutlineView	*outlineView;
-	IBOutlet id	fileSystemPopup;
-	IBOutlet id	discName;
-	IBOutlet id	totalSizeText;
-	IBOutlet id	iconView;
-	IBOutlet id progressIndicator;
+	IBOutlet NSPopUpButton	*fileSystemPopup;
+	IBOutlet NSTextField	*discName;
+	IBOutlet NSTextField	*totalSizeText;
+	IBOutlet NSImageView	*iconView;
+	IBOutlet NSProgressIndicator *progressIndicator;
 	
 	//Options menu
-	IBOutlet id optionsPopup;
+	IBOutlet NSPopUpButton	*optionsPopup;
 	
 	//New folder sheet
-	IBOutlet id	newFolderSheet;
-	IBOutlet id	folderName;
+	IBOutlet NSPanel		*newFolderSheet;
+	IBOutlet NSTextField	*folderName;
 	//Add to local
-	IBOutlet id folderIcon;
+	IBOutlet NSImageView	*folderIcon;
 	
 	//Advanced Sheet
-	IBOutlet id	advancedSheet;
-	IBOutlet NSMatrix *advancedCheckboxes;
-	IBOutlet id	okSheet;
+	IBOutlet NSPanel		*advancedSheet;
+	IBOutlet NSMatrix		*advancedCheckboxes;
+	IBOutlet NSButton		*okSheet;
 	
 	//Disc creation
-	IBOutlet id myDiscCreationController;
+	IBOutlet KWDiscCreator *myDiscCreationController;
 	
 	//Variables
 	TreeNode *treeData;
@@ -73,10 +75,12 @@
 - (void)setupAdvancedSheet;
 
 //Disc creation actions
-- (void)burn:(id)sender;
-- (void)saveImage:(id)sender;
+- (IBAction)burn:(id)sender;
+- (IBAction)saveImage:(id)sender;
 - (id)myTrackWithErrorString:(NSString **)error;
 - (BOOL)createVirtualFolder:(NSArray *)items atPath:(NSString *)path errorString:(NSString **)error;
+
+- (NSArray*)draggedNodes;
 
 //Save actions
 - (void)saveDocument:(id)sender;

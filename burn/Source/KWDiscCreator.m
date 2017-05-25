@@ -15,6 +15,7 @@
 #import "KWTrackProducer.h"
 #import "KWSVCDImager.h"
 #import "KWAlert.h"
+#import "KWWindow.h"
 
 @implementation KWDiscCreator
 

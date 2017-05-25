@@ -145,7 +145,7 @@
 		xmlFile = [NSString stringWithFormat:@"%@/>", xmlFile];
 		
 		if (x < [fileArray count] - 1)
-			xmlFile = [NSString stringWithFormat:@"%@\n<post>jump title %i;</post>\n</pgc>", xmlFile, x + 2];
+			xmlFile = [NSString stringWithFormat:@"%@\n<post>jump title %li;</post>\n</pgc>", xmlFile, (long)x + 2];
 	}
 	
 	NSString *loopString;
@@ -377,15 +377,14 @@
 
 	if (chapters)
 	{
-		NSInteger i;
-		for (i = 0; i < [fileArray count]; i ++)
+		for (NSInteger i = 0; i < [fileArray count]; i ++)
 		{
 			NSArray *chapters = [[fileArray objectAtIndex:i] objectForKey:@"Chapters"];
 			
 			if ([chapters count] > 0)
 			{
 				[titlesWithChapters addObject:chapters];
-				[indexes addObject:[NSNumber numberWithInteger:i]];
+				[indexes addObject:@(i)];
 			}
 		}
 
@@ -393,18 +392,14 @@
 		menuSeries = [titlesWithChapters count];
 	}
 
-	NSInteger x;
-	for (x = 0; x < menuSeries; x ++)
-	{
-		NSAutoreleasePool *innerPool = [[NSAutoreleasePool alloc] init];
-
+	for (NSInteger x = 0; x < menuSeries; x ++)
+	@autoreleasepool {
 		if (chapters)
 			objects = [titlesWithChapters objectAtIndex:x];
 
 		NSMutableArray *images = [[NSMutableArray alloc] init];
 
-		NSInteger i;
-		for (i = 0; i < [objects count]; i ++)
+		for (NSInteger i = 0; i < [objects count]; i ++)
 		{
 			NSDictionary *currentObject = [objects objectAtIndex:i];
 			NSString *currentPath = [currentObject objectForKey:@"Path"];
@@ -454,8 +449,7 @@
 			//Create first page range
 			firstRange = NSMakeRange(0,number);
 
-			NSInteger i;
-			for (i = 1; i < pages - 1; i ++)
+			for (NSInteger i = 1; i < pages - 1; i ++)
 			{
 				if (succes)
 				{
@@ -507,9 +501,6 @@
 		
 		[images release];
 		images = nil;
-	
-		[innerPool release];
-		innerPool = nil;
 	}
 	
 	[titlesWithChapters release];
@@ -718,11 +709,10 @@
 		chapterMenu = 1;
 	}
 
-	NSInteger i;
-	for (i = 0; i < numberOfMenus; i ++)
+	for (NSInteger i = 0; i < numberOfMenus; i ++)
 	{
 		menuItem = menuItem + 1;
-		xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Title Selection %i.mpg\"></vob>\n", xmlContent, i + 1];
+		xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Title Selection %li.mpg\"></vob>\n", xmlContent, (long)i + 1];
 		
 		NSInteger o;
 		for (o = 0; o < number; o ++)
@@ -750,22 +740,22 @@
 					jumpKind = @"title";
 				}
 				
-				xmlContent = [NSString stringWithFormat:@"%@<button>jump %@ %i;</button>\n", xmlContent, jumpKind, jumpNumber];
+				xmlContent = [NSString stringWithFormat:@"%@<button>jump %@ %li;</button>\n", xmlContent, jumpKind, (long)jumpNumber];
 			}
 		}
 		
 		if (i > 0)
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %i;</button>\n", xmlContent, i];
+			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)i];
 
 		if (i < numberOfMenus - 1)
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %i;</button>\n", xmlContent, i + 2];
+			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)i + 2];
 
 		xmlContent = [NSString stringWithFormat:@"%@</pgc>\n", xmlContent];
 	}
 
 	NSMutableArray *titlesWithChapters = [[NSMutableArray alloc] init];
 	NSMutableArray *titlesWithChaptersNames = [[NSMutableArray alloc] init];
-	for (i = 0; i < [fileArray count]; i ++)
+	for (NSInteger i = 0; i < [fileArray count]; i ++)
 	{
 		NSDictionary *fileDictionary = [fileArray objectAtIndex:i];
 		NSArray *chapters = [fileDictionary objectForKey:@"Chapters"];
@@ -778,7 +768,7 @@
 	}
 
 	NSInteger chapterSelection = 1;
-	for (i = 0; i < [titlesWithChapters count]; i ++)
+	for (NSInteger i = 0; i < [titlesWithChapters count]; i ++)
 	{
 		NSArray *chapters = [[fileArray objectAtIndex:[[titlesWithChapters objectAtIndex:i] integerValue]] objectForKey:@"Chapters"];
 		NSInteger numberOfChapters = [chapters count];
@@ -787,17 +777,15 @@
 		if (numberOfChapters - numberOfMenus * number > 0)
 			numberOfMenus = numberOfMenus + 1;
 
-		NSInteger y;
-		for (y = 0; y < numberOfMenus; y ++)
+		for (NSInteger y = 0; y < numberOfMenus; y ++)
 		{
 			menuItem = menuItem + 1;
 			
-			xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Chapter Selection %i.mpg\"></vob>\n", xmlContent, chapterSelection];
+			xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Chapter Selection %li.mpg\"></vob>\n", xmlContent, (long)chapterSelection];
 			
 			chapterSelection = chapterSelection + 1;
 		
-			NSInteger o;
-			for (o = 0; o < number; o ++)
+			for (NSInteger o = 0; o < number; o ++)
 			{
 				NSInteger addNumber;
 				if ([[[chapters objectAtIndex:0] objectForKey:@"RealTime"] integerValue] == 0)
@@ -806,17 +794,17 @@
 					addNumber = 2;
 			
 				if (numberOfChapters > y * number + o)
-					xmlContent = [NSString stringWithFormat:@"%@<button>jump title %i chapter %i;</button>\n", xmlContent, [[titlesWithChapters objectAtIndex:i] integerValue] + 1, y * number + o + addNumber];
+					xmlContent = [NSString stringWithFormat:@"%@<button>jump title %li chapter %li;</button>\n", xmlContent, (long)[[titlesWithChapters objectAtIndex:i] integerValue] + 1, y * number + o + addNumber];
 			}
 		
 		if (y > 0)
 		{
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %i;</button>\n", xmlContent, menuItem - 1];
+			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem - 1];
 		}
 		
 		if (y < numberOfMenus - 1)
 		{
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %i;</button>\n", xmlContent, menuItem + 1];
+			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem + 1];
 		}
 		
 			xmlContent = [NSString stringWithFormat:@"%@</pgc>\n", xmlContent];
@@ -825,7 +813,7 @@
 		
 		xmlContent = [NSString stringWithFormat:@"%@</menus>\n<titles>\n", xmlContent];
 	
-	for (i = 0; i < [fileArray count]; i ++)
+	for (NSInteger i = 0; i < [fileArray count]; i ++)
 	{
 		NSDictionary *fileDictionary = [fileArray objectAtIndex:i];
 		NSArray *chapters = [[fileArray objectAtIndex:i] objectForKey:@"Chapters"];
@@ -836,8 +824,7 @@
 		{
 			xmlContent = [NSString stringWithFormat:@"%@ chapters=\"00:00:00,", xmlContent];
 			
-			NSInteger x;
-			for (x = 0; x < [chapters count]; x ++)
+			for (NSInteger x = 0; x < [chapters count]; x ++)
 			{
 				NSDictionary *currentChapter = [chapters objectAtIndex:x];
 				CGFloat time = [[currentChapter objectForKey:@"RealTime"] cgfloatValue];
@@ -865,7 +852,7 @@
 			else
 				title = 1;
 				
-			xmlContent = [NSString stringWithFormat:@"%@<post>jump title %i;</post>", xmlContent, title];
+			xmlContent = [NSString stringWithFormat:@"%@<post>jump title %li;</post>", xmlContent, (long)title];
 		}
 		else
 		{
@@ -916,11 +903,10 @@
 		totalSize = totalSize + [KWCommonMethods calculateRealFolderSize:[path stringByAppendingPathComponent:@"THEME_TS"]];
 	}
 
-	NSInteger i;
-	for (i = 0; i < [fileArray count]; i ++)
+	for (NSDictionary *path in fileArray)
 	{
-		NSDictionary *attrib = [defaultManager fileAttributesAtPath:[[fileArray objectAtIndex:i] objectForKey:@"Path"] traverseLink:YES];
-		totalSize = totalSize + ([[attrib objectForKey:NSFileSize] cgfloatValue]);
+		NSDictionary *attrib = [defaultManager fileAttributesAtPath:[path objectForKey:@"Path"] traverseLink:YES];
+		totalSize += ([[attrib objectForKey:NSFileSize] cgfloatValue]);
 	}
 
 	NSInteger currentFile = 1;
@@ -935,9 +921,7 @@
 	NSString *string = [[NSString alloc] init];
 
 	while([data = [handle availableData] length])
-	{
-		NSAutoreleasePool *subpool = [[NSAutoreleasePool alloc] init];
-
+	@autoreleasepool {
 		if (string)
 		{
 			[string release];
@@ -988,8 +972,6 @@
 		}
 		
 		data = nil;
-		[subpool release];
-		subpool = nil;
 	}
 
 	[dvdauthor waitUntilExit];

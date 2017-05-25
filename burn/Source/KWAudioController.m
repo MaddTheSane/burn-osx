@@ -1365,7 +1365,7 @@
 	for (x=0;x<[tracks count];x++)
 	{
 		NSInteger trackNumber = x + 1;
-		cueFile = [NSString stringWithFormat:@"%@\n  TRACK %2i AUDIO", cueFile, trackNumber];
+		cueFile = [NSString stringWithFormat:@"%@\n  TRACK %2li AUDIO", cueFile, (long)trackNumber];
 		
 		#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 		if ([KWCommonMethods OSVersion] >= 0x1040 && [standardDefaults objectForKey:@"KWUseCDText"])

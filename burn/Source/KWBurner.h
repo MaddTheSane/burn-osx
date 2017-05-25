@@ -7,23 +7,23 @@
 @interface KWBurner : NSWindowController
 {
 	//Main Sheet outlets
-    IBOutlet id burnButton;
-    IBOutlet id burnerPopup;
-    IBOutlet id closeButton;
-    IBOutlet id eraseCheckBox;
-    IBOutlet id sessionsCheckBox;
-    IBOutlet id speedPopup;
-    IBOutlet id statusText;
-	IBOutlet id combineCheckBox;
+    IBOutlet NSButton		*burnButton;
+    IBOutlet NSPopUpButton	*burnerPopup;
+    IBOutlet NSButton		*closeButton;
+    IBOutlet NSButton		*eraseCheckBox;
+    IBOutlet NSButton		*sessionsCheckBox;
+    IBOutlet NSPopUpButton	*speedPopup;
+    IBOutlet NSTextField	*statusText;
+	IBOutlet NSButton		*combineCheckBox;
 	IBOutlet id numberOfCopiesText;
 	IBOutlet id numberOfCopiesBox;
 	
 	//Session Panel Outlets
-	IBOutlet id sessionsPanel;
-	IBOutlet id sessions;
-	IBOutlet id dataSession;
-	IBOutlet id audioSession;
-	IBOutlet id videoSession;
+	IBOutlet NSPanel		*sessionsPanel;
+	IBOutlet NSMatrix		*sessions;
+	IBOutlet NSButtonCell	*dataSession;
+	IBOutlet NSButtonCell	*audioSession;
+	IBOutlet NSButtonCell	*videoSession;
 	
 	//Variables
 	BOOL shouldClose;

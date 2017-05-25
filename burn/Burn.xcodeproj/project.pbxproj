@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55A3C9CB1ED4E7D900675D13 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */; };
+		55C6D4041ED683A3005A99FD /* BurnDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6D4031ED683A3005A99FD /* BurnDefines.m */; };
 		FE2FF27212F2DA5E0010AD5D /* NSNumber_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2FF26B12F2DA5E0010AD5D /* NSNumber_Extensions.m */; };
 		FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
 		FE7C166F12DBCBDD00CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; };
@@ -124,6 +125,8 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* Burn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Burn_Prefix.pch; sourceTree = "<group>"; };
 		55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = Images/Icons.xcassets; sourceTree = "<group>"; };
+		55C6D4021ED68394005A99FD /* BurnDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BurnDefines.h; path = Source/BurnDefines.h; sourceTree = "<group>"; };
+		55C6D4031ED683A3005A99FD /* BurnDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BurnDefines.m; path = Source/BurnDefines.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE033FFF0BA7FB6100622112 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FE0340010BA7FB6E00622112 /* KWRecorderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWRecorderInfo.h; path = Source/KWRecorderInfo.h; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 			children = (
 				32DBCF750370BD2300C91783 /* Burn_Prefix.pch */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				55C6D4021ED68394005A99FD /* BurnDefines.h */,
+				55C6D4031ED683A3005A99FD /* BurnDefines.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -1196,6 +1201,7 @@
 				FEF8A85412D9D2BF00FE302C /* HFSPlusController.m in Sources */,
 				FEF8A85512D9D2BF00FE302C /* ISO9660Controller.m in Sources */,
 				FEF8A85612D9D2BF00FE302C /* ISOController.m in Sources */,
+				55C6D4041ED683A3005A99FD /* BurnDefines.m in Sources */,
 				FEF8A85712D9D2BF00FE302C /* JolietController.m in Sources */,
 				FEF8A85812D9D2BF00FE302C /* FSPropertiesController.m in Sources */,
 				FEF8A85912D9D2BF00FE302C /* KWDataInspector.m in Sources */,

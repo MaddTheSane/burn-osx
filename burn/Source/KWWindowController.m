@@ -11,6 +11,7 @@
 #import "KWToolbarKiller.h"
 #import "KWTabViewItem.h"
 #import <Carbon/Carbon.h>
+#import "BurnDefines.h"
 
 @implementation KWWindowController
 
@@ -50,7 +51,7 @@
 	
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	[defaultCenter addObserver:self selector:@selector(mediaChanged:) name:@"KWMediaChanged" object:nil];
-	[defaultCenter addObserver:self selector:@selector(changeBurnStatus:) name:@"KWChangeBurnStatus" object:nil];
+	[defaultCenter addObserver:self selector:@selector(changeBurnStatus:) name:KWChangeBurnStatusNotification object:nil];
 	[defaultCenter addObserver:self selector:@selector(closeWindow:) name:NSWindowWillCloseNotification object:nil];
 
 	[defaultBurner setStringValue:[self getRecorderDisplayNameForDevice:currentDevice]];
@@ -505,7 +506,7 @@
 	
 	[itemHelp setTitle:[NSString stringWithFormat:NSLocalizedString(@"%@ Help", nil), [newTabView labelForSegment:segment]]];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeBurnStatus" object:[NSNumber numberWithBool:([controller numberOfRows] > 0)]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeBurnStatusNotification object:[NSNumber numberWithBool:([controller numberOfRows] > 0)]];
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector

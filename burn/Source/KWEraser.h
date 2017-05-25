@@ -7,12 +7,12 @@
 @interface KWEraser : NSWindowController
 {
     //Interface outlets
-	IBOutlet id burnerPopup;
-    IBOutlet id closeButton;
-    IBOutlet id completelyErase;
-    IBOutlet id eraseButton;
-    IBOutlet id quicklyErase;
-    IBOutlet id statusText;
+	IBOutlet NSPopUpButton	*burnerPopup;
+    IBOutlet NSButton		*closeButton;
+    IBOutlet NSButtonCell	*completelyErase;
+    IBOutlet NSButton		*eraseButton;
+    IBOutlet NSButtonCell	*quicklyErase;
+    IBOutlet NSTextField	*statusText;
 	
 	//Variables
 	BOOL shouldClose;

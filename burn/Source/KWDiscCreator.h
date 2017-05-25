@@ -12,22 +12,27 @@
 #import <KWProgress.h>
 #import "KWDRFolder.h"
 
+@class KWWindow;
+@class KWAudioController;
+@class KWCopyController;
+@class KWDataController;
+@class KWVideoController;
 
 @interface KWDiscCreator : NSObject 
 {
 //Main outlets
-	IBOutlet id mainWindow;
-	IBOutlet id mainTabView;
+	IBOutlet KWWindow	*mainWindow;
+	IBOutlet NSTabView	*mainTabView;
 	
 	//Controllers
-	IBOutlet id dataControllerOutlet;
-	IBOutlet id audioControllerOutlet;
-	IBOutlet id videoControllerOutlet;
-	IBOutlet id copyControllerOutlet;
+	IBOutlet KWDataController	*dataControllerOutlet;
+	IBOutlet KWAudioController	*audioControllerOutlet;
+	IBOutlet KWVideoController	*videoControllerOutlet;
+	IBOutlet KWCopyController	*copyControllerOutlet;
 	
 	//Sessions outlets
-	IBOutlet id saveCombineSessions;
-	IBOutlet id saveImageView;
+	IBOutlet NSButton		*saveCombineSessions;
+	IBOutlet NSImageView	*saveImageView;
 	
 	//Variables
 	KWBurner *burner;
