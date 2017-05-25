@@ -10,13 +10,13 @@
 #import "KWCommonMethods.h"
 #import "KWDiscCreator.h"
 #import "KWTableView.h"
+#import "KWWindow.h"
 
 @implementation KWMediaListController
 
 - (id)init
 {
-	self = [super init];
-	
+	if (self = [super init]) {
 	//Known protected files can't be converted
 	knownProtectedFiles = [[NSArray alloc] initWithObjects:@"m4p", @"m4b", NSFileTypeForHFSTypeCode('M4P '), NSFileTypeForHFSTypeCode('M4B '), nil];
 	
@@ -24,6 +24,7 @@
 	
 	//Set a starting row for dropping files in the list
 	currentDropRow = -1;
+	}
 	
 	return self;
 }

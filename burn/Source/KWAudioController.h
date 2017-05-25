@@ -16,14 +16,14 @@
 @interface KWAudioController : KWMediaListController {
 
 	//Main Window
-	IBOutlet id previousButton;
-	IBOutlet id playButton;
-	IBOutlet id nextButton;
-	IBOutlet id stopButton;
+	IBOutlet NSButton	*previousButton;
+	IBOutlet NSButton	*playButton;
+	IBOutlet NSButton	*nextButton;
+	IBOutlet NSButton	*stopButton;
 	
 	//Options menu
-	IBOutlet id audioOptionsPopup;
-	IBOutlet id mp3OptionsPopup;
+	IBOutlet NSPopUpButton	*audioOptionsPopup;
+	IBOutlet NSPopUpButton	*mp3OptionsPopup;
 	
 	//Variables
 	NSMutableArray *audioTableData;

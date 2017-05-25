@@ -13,8 +13,8 @@
 @interface KWVideoController : KWMediaListController {
 	
 	//Options menu
-	IBOutlet id dvdOptionsPopup;
-	IBOutlet id divxOptionsPopup;
+	IBOutlet NSPopUpButton *dvdOptionsPopup;
+	IBOutlet NSPopUpButton *divxOptionsPopup;
 	
 	//Variables
 	NSMutableArray *VCDTableData;

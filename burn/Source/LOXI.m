@@ -122,27 +122,13 @@ error:;
 	}
 	else if ([layout isKindOfClass:[NSArray class]])
 	{
-		#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 		for(id object in (NSArray*)layout){
-		#else
-		NSInteger i;
-		for (i = 0; i < [(NSArray*)layout count]; i ++)
-		{
-			id object = [(NSArray*)layout objectAtIndex:i];
-		#endif
 			
 			if ([object isKindOfClass:[NSArray class]])
 			{
 				NSXMLElement *session = [NSXMLElement elementWithName:@"session"];
 				
-				#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 				for(id otrack in (NSArray*)object){
-				#else
-				NSInteger x;
-				for (x = 0; x < [(NSArray*)object count]; x ++)
-				{
-					id otrack = [(NSArray*)object objectAtIndex:x];
-				#endif
 					DRTrack	*track = [otrack isKindOfClass:[DRTrack class]] ? otrack : [(NSObject*)otrack track];
 					if (!track)
 						return nil;
@@ -236,14 +222,7 @@ error:
 	NSXMLElement			*root=[NSXMLElement elementWithName:@"cdtext"];
 	require(root, error);
 	
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	for(DRCDTextBlock *block in a){
-	#else
-	NSInteger i;
-	for (i = 0; i < [a count]; i ++)
-	{
-		DRCDTextBlock *block = [a objectAtIndex:i];
-	#endif
 		
 		NSStringEncoding	encoding=[block encoding];
 		NSString			*lang=[block language];
@@ -263,14 +242,7 @@ error:
 		[xmlBlock addAttribute:[NSXMLNode attributeWithName:@"language" stringValue:lang]];
 		
 		NSArray				*trackInfo=[block trackDictionaries];
-		#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 		for(NSDictionary *info in trackInfo){
-		#else
-		NSInteger x;
-		for (x = 0; x < [trackInfo count]; x ++)
-		{
-			NSDictionary *info = [trackInfo objectAtIndex:x];
-		#endif
 			NSXMLElement	*track=[NSXMLElement elementWithName:@"cdtexttrack"];
 			
 			NSString		*autor=[info objectForKey:DRCDTextSongwriterKey];
@@ -305,27 +277,13 @@ error:;
 	
 	NSMutableArray		*ma=[NSMutableArray arrayWithCapacity:1];
 	NSArray				*blocks=[e nodesForXPath:@"cdtextblock" error:NULL];
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	for(NSXMLElement *bloc in blocks){
-	#else
-	NSInteger i;
-	for (i = 0; i < [blocks count]; i ++)
-	{
-		NSXMLElement *bloc = [blocks objectAtIndex:i];
-	#endif
 		NSXMLNode		*xmlEnc=[bloc attributeForName:@"encoding"];
 		NSXMLNode		*xmlLang=[bloc attributeForName:@"language"];
 		
 		NSArray			*tracks=[bloc nodesForXPath:@"cdtexttrack" error:NULL];
 		NSMutableArray	*tracksInfo=[NSMutableArray arrayWithCapacity:1];
-		#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 		for(NSXMLElement *track in tracks){
-		#else
-		NSInteger x;
-		for (x = 0; x < [tracks count]; x ++)
-		{
-			NSXMLElement *track = [tracks objectAtIndex:x];
-		#endif
 			NSMutableDictionary *md=[NSMutableDictionary dictionaryWithCapacity:1];
 			
 			NSXMLNode	*xsongwriter=[track attributeForName:@"songwriter"];

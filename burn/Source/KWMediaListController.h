@@ -39,7 +39,7 @@
 	NSMutableArray *tableData;
 	NSMutableArray *incompatibleFiles;
 	NSMutableArray *protectedFiles;
-	NSMutableArray *knownProtectedFiles;
+	NSArray *knownProtectedFiles;
 	NSMutableArray *temporaryFiles;
 	NSArray *allowedFileTypes;
 	NSArray *optionsMappings;

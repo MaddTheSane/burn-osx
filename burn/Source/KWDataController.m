@@ -8,6 +8,7 @@
 #import "KWCommonMethods.h"
 #import "KWDiscCreator.h"
 #import "KWTextField.h"
+#import "KWWindow.h"
 
 @interface KWDataController (Private)
 - (void)_addNewDataToSelection:(TreeNode *)newChild shouldSelect:(BOOL)boolean;
@@ -1450,7 +1451,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	if ([info draggingSource] == outlineView && 
 		[[info draggingPasteboard] availableTypeFromArray:[NSArray arrayWithObject:EDBFileTreeDragPboardType]] != nil) 
 	{
-	    NSArray *_draggedNodes = [[[info draggingSource] dataSource] draggedNodes];
+	    NSArray *_draggedNodes = [(KWDataController*)[[info draggingSource] dataSource] draggedNodes];
 	    targetIsValid = ![target isDescendantOfNodeInArray: _draggedNodes];
 	}
 
@@ -1481,7 +1482,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
     // Do the appropriate thing depending on whether the data is EDBFileTreeDragPboardType or NSStringPboardType.
     if ([pboard availableTypeFromArray:[NSArray arrayWithObjects:EDBFileTreeDragPboardType, nil]] != nil) 
 	{
-        KWDataController *dragDataSource = [[info draggingSource] dataSource];
+        KWDataController *dragDataSource = (KWDataController*)[[info draggingSource] dataSource];
         NSArray *_draggedNodes = [TreeNode minimumNodeCoverFromNodesInArray:[dragDataSource draggedNodes]];
         NSEnumerator *iter = [_draggedNodes objectEnumerator];
         TreeNode *_draggedNode = nil;
