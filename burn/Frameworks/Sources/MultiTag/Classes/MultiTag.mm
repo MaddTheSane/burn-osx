@@ -38,14 +38,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	if (tagObject)
-		[tagObject release];
-	
-	[super dealloc];
-}
-
 - (NSString *)getTagTitle
 {
 	return [tagObject getTagTitle];

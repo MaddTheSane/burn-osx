@@ -32,7 +32,7 @@
     framesEndAt = frameOffset;
     padding = 0;
 	iTunesFlag = NO;
-	validChars = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"] retain];
+	validChars = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"];
     
     if (([Frames length] < 10)||(Frames == NULL)) return self;
 	
@@ -214,10 +214,10 @@
             }
             return NULL;
         }
-        return [[[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:temp length: (int) newLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4]autorelease];
+        return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:temp length: (int) newLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
      }
 
-    return [[[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 10 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4] autorelease];
+    return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 10 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
 }
 
 -(BOOL)atValidFrame
@@ -277,14 +277,7 @@
 -(NSString *)getFrameID
 {
 	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:4];
-	return [[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] autorelease];
-}
-
--(void)dealloc
-{
-    [errorDescription release];
-	[validChars release];
-    [super dealloc];
+	return [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
 }
 
 @end

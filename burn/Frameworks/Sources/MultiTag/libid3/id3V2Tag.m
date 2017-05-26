@@ -77,9 +77,7 @@
 
 -(BOOL)openPath:(NSString *)Path
 {
-    id old = path;
     path = [Path copy];
-    if (old != NULL) [old release];
     //ID3 tag header variables
     present = NO;
     majorVersion = 0;
@@ -102,15 +100,12 @@
     
     //error variables
     errorNo = 0;
-    if (errorDescription != NULL) [errorDescription release];
-       errorDescription = NULL;
-       
-	if (extendedHeader != NULL) [extendedHeader release];
-        extendedHeader = NULL;
-        
-    if (frameSet != NULL) [frameSet release];
-        frameSet = NULL;
-    
+	errorDescription = NULL;
+
+	extendedHeader = NULL;
+
+	frameSet = NULL;
+	
     [self getTag];
     return YES;
 }
@@ -121,48 +116,48 @@
     int position = 0; // current postion in file
     int start = 0;
     int offset = 0;
-    
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    NSMutableData * v2Tag;
-    
-    NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:path];
+	BOOL headerFound = NO;
 
-    if (file == NULL)
-    {
-        NSLog(@"Can not open file :%@", path);
-        return NO;
-    }
+    @autoreleasepool {
+    
+        NSMutableData * v2Tag;
+        
+        NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:path];
 
-    BOOL headerFound = NO;
-    fileSize = [file seekToEndOfFile];
-    
-    
-    if (exhastiveSearch) bufferSize = 8192; // make storage buffer large if exhastively searching the file.
-    
-    if (fileSize < bufferSize) bufferSize = fileSize;
-    
-    for (position = 0; position < fileSize; position += bufferSize - 9 - 6) // header size = 9 , eHeader =6
-    { // try to find a id3 v2 tag grabs file data and scans for header.
-        
-        [file seekToFileOffset:position];
-        v2Tag = (NSMutableData *) [file readDataOfLength: bufferSize];
-        
-        if ((start = [self scanForHeader:v2Tag]) >= 0)
+        if (file == NULL)
         {
-            if (tagLength + start + position > fileSize) {
+            NSLog(@"Can not open file :%@", path);
+            return NO;
+        }
+
+        fileSize = [file seekToEndOfFile];
+        
+        
+        if (exhastiveSearch) bufferSize = 8192; // make storage buffer large if exhastively searching the file.
+        
+        if (fileSize < bufferSize) bufferSize = fileSize;
+        
+        for (position = 0; position < fileSize; position += bufferSize - 9 - 6) // header size = 9 , eHeader =6
+        { // try to find a id3 v2 tag grabs file data and scans for header.
+            
+            [file seekToFileOffset:position];
+            v2Tag = (NSMutableData *) [file readDataOfLength: bufferSize];
+            
+            if ((start = [self scanForHeader:v2Tag]) >= 0)
+            {
+                if (tagLength + start + position > fileSize) {
 				NSLog(@"Problem detected when parsing v2 tag: tag length indicates that tag extends beyond end of file, guessing tag length");
 				tagLength = fileSize - start - position;  // if tag is longer that file trunckate tag length to  fileSize - start - position
 			}
 			
 			positionInFile = start + position;
-            headerFound = YES;
-            present = YES;
-            int frameStartAt = 10; // 10 = tag header length
-            int extendedHeaderLength = 0;
-            if ([self extendedHeader])  // check for an extended header
-            {
-                extendedHeaderPresent = YES;
+                headerFound = YES;
+                present = YES;
+                int frameStartAt = 10; // 10 = tag header length
+                int extendedHeaderLength = 0;
+                if ([self extendedHeader])  // check for an extended header
+                {
+                    extendedHeaderPresent = YES;
 				extendedHeaderLength = [self readPackedLengthFrom:((char *)[v2Tag bytes] + start + 10)]; // 10 = tag header length
 				if (extendedHeaderLength > tagLength - 14) { // test to see that extended header length is a sensible value,  14 = 10 tag header + 4 extended header length bytes
 					NSLog(@"Problem detected when parsing v2 tag: extendedHeaderLength > tag length, guessing extended header length");
@@ -171,74 +166,68 @@
 				extendedHeaderLength += 4;  // add 4 byte for the 4 header length bytes
 				frameStartAt += extendedHeaderLength;
 				[file seekToFileOffset:position+start+14];
-				extendedHeader = (NSMutableData *) [[file readDataOfLength: extendedHeaderLength-4] retain];
+				extendedHeader = (NSMutableData *) [file readDataOfLength: extendedHeaderLength-4];
 				[self parseExtendedHeader:extendedHeader];
-            }    
-            // get the frameSet
-            if (start + 10 + tagLength > bufferSize) {
+                }    
+                // get the frameSet
+                if (start + 10 + tagLength > bufferSize) {
 				[file seekToFileOffset:position+start+extendedHeaderLength+10]; 
-                v2Tag = (NSMutableData *) [file readDataOfLength: tagLength - extendedHeaderLength];
-                offset = extendedHeaderLength;
-            } else {
-                offset = start + 10 + extendedHeaderLength;
+                    v2Tag = (NSMutableData *) [file readDataOfLength: tagLength - extendedHeaderLength];
+                    offset = extendedHeaderLength;
+                } else {
+                    offset = start + 10 + extendedHeaderLength;
+                }
+                if ([self tagUnsynch]) 
+                {
+                    v2Tag = [self desynchData:v2Tag offset:offset];
+                    offset = 0;
+                }
+                // create a processing object for the tag version
+               
+                 switch (majorVersion)
+                {
+                    case 0	: {
+                                    frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
+                                    V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
+                                    frameSetLength = [tempFrameSet getFrameSetLength];
+                                    break;
+                              }
+                    case 1	: {
+                                    frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
+                                    V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
+                                    frameSetLength = [tempFrameSet getFrameSetLength];
+                                    break;
+                              }
+                    case 2	: {
+                                    frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
+                                    V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
+                                    frameSetLength = [tempFrameSet getFrameSetLength];
+                                    break;
+                              }
+                    case 3	: {
+                                    frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
+                                    V23FrameSet *tempFrameSet = [[V23FrameSet alloc] init:v2Tag version:minorVersion  validFrameSet:NULL frameSet:frameSet offset:offset];
+                                    frameSetLength = [tempFrameSet getFrameSetLength];
+                                    break;
+                              }
+                    case 4	: {
+                                    frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
+                                    V24FrameSet *tempFrameSet = [[V24FrameSet alloc] init:v2Tag version:minorVersion  validFrameSet:NULL frameSet:frameSet offset:offset iTunes:iTunesV24CompatabilityMode];
+                                    frameSetLength = [tempFrameSet getFrameSetLength];
+                                    break;
+                              }
+                    default	: 
+                                {
+                                    [file closeFile];
+                                    return NO;
+                                }
+                }
             }
-            if ([self tagUnsynch]) 
-            {
-                v2Tag = [self desynchData:v2Tag offset:offset];
-                offset = 0;
-            }
-            // create a processing object for the tag version
-           
-             switch (majorVersion)
-            {
-                case 0	: {
-                                frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
-                                V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
-                                frameSetLength = [tempFrameSet getFrameSetLength];
-                                [tempFrameSet release];
-                                break;
-                          }
-                case 1	: {
-                                frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
-                                V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
-                                frameSetLength = [tempFrameSet getFrameSetLength];
-                                [tempFrameSet release];
-                                break;
-                          }
-                case 2	: {
-                                frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
-                                V20FrameSet* tempFrameSet = [[V20FrameSet alloc] init:v2Tag version:minorVersion validFrameSet:NULL frameSet:frameSet offset:offset];
-                                frameSetLength = [tempFrameSet getFrameSetLength];
-                                [tempFrameSet release];
-                                break;
-                          }
-                case 3	: {
-                                frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
-                                V23FrameSet *tempFrameSet = [[V23FrameSet alloc] init:v2Tag version:minorVersion  validFrameSet:NULL frameSet:frameSet offset:offset];
-                                frameSetLength = [tempFrameSet getFrameSetLength];
-                                [tempFrameSet release];
-                                break;
-                          }
-                case 4	: {
-                                frameSet = [[NSMutableDictionary alloc] initWithCapacity:10];
-                                V24FrameSet *tempFrameSet = [[V24FrameSet alloc] init:v2Tag version:minorVersion  validFrameSet:NULL frameSet:frameSet offset:offset iTunes:iTunesV24CompatabilityMode];
-                                frameSetLength = [tempFrameSet getFrameSetLength];
-                                [tempFrameSet release];
-                                break;
-                          }
-                default	: 
-                            {
-                                [file closeFile];
-                                [pool release];
-                                return NO;
-                            }
-            }
+            if (!exhastiveSearch) break;
         }
-        if (!exhastiveSearch) break;
+        paddingLength = tagLength - frameSetLength;
+        [file closeFile];
     }
-    paddingLength = tagLength - frameSetLength;
-    [file closeFile];
-    [pool release];
     if (headerFound) return YES;
     return NO;
 }
@@ -247,7 +236,7 @@
 { // desynches a NSData object  the returned object have been retained and the receive needs to release the object once done with the object.
     NSInteger oldLength = [Data length];
     char * Buffer = (char *)[Data bytes] + Offset;
-    NSMutableData * newBuffer = [[NSMutableData dataWithLength: oldLength] retain];
+    NSMutableData * newBuffer = [NSMutableData dataWithLength: oldLength];
     unsigned char * tempPointer = (unsigned char*) [newBuffer bytes];
     int count = 0;
     int i;
@@ -381,7 +370,6 @@
     }
     [file closeFile];
     [sourceFile closeFile];
-    [file release];
     [fileManager removeFileAtPath:path handler:NULL];
     [fileManager movePath:writePath toPath:path handler:NULL];
     [fileManager removeFileAtPath:writePath handler:NULL];
@@ -393,9 +381,7 @@
     minorVersion = MinorVersion;
     flag = 0;    
     
-    if (extendedHeader != NULL) [extendedHeader release];
     extendedHeader = NULL;
-    if (frameSet != NULL) [frameSet release];
     frameSet = NULL;
     frameSetLength = 0;
     paddingLength = 2048; 
@@ -404,7 +390,6 @@
 }
 
 -(BOOL)setPath:(NSString *)Path {
-	[path release];
 	path = [Path copy];
 	return YES;
 }
@@ -422,7 +407,7 @@
     }
     
     // gets the files attributes and checks that it is writeable
-    NSMutableString * writePath = [[[NSMutableString alloc] initWithString:path] autorelease];
+    NSMutableString * writePath = [[NSMutableString alloc] initWithString:path];
     NSDictionary *fileAttributes;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     fileAttributes = [fileManager fileSystemAttributesAtPath:writePath];
@@ -507,7 +492,7 @@
 
     if (repad) 
     {
-        NSFileHandle *sourceFile = [[NSFileHandle fileHandleForReadingAtPath: path] retain];
+        NSFileHandle *sourceFile = [NSFileHandle fileHandleForReadingAtPath: path];
         // jump over the old tag and start appending the file data to the new file.
         if (present) [sourceFile seekToFileOffset:tagLength+10+positionInFile];
         
@@ -692,7 +677,6 @@
         else
         {
             flag = flag & (255 ^ 64);
-            [extendedHeader release];
             extendedHeader = NULL;
         }
         return YES;
@@ -760,16 +744,6 @@
     return (int)((extendedHeaderPresent ? [extendedHeader length] + 4 : 0) + frameSetLength + paddingLength + ([self footer]?10:0));
 }
 
--(void)dealloc
-{
-    if (frameSet != NULL) [frameSet release]; 
-	if (frameSetDictionary != NULL) [frameSetDictionary release]; 
-    if (path != NULL) [path release];
-    if (extendedHeader != NULL) [extendedHeader release];
-    if (errorDescription != NULL) [errorDescription release];
-	[super dealloc];
-}
-
 // set standard tag properties
 -(BOOL)setContent:(NSArray *)Content  forFrame:(NSString *)IDAlias replace:(BOOL)Replace {
 	NSString * IDName = NULL;
@@ -798,7 +772,6 @@
 		if ([[frameRecord objectForKey:@"text"] boolValue] == NO) [temp appendDataToFrame:[Content objectAtIndex:i] newFrame:YES];
 		else [temp writeTextFrame:[Content objectAtIndex:i] coding:YES];
 		[frames addObject:temp];
-		[temp release];
 	}
 	
 	if (Replace) {
@@ -849,7 +822,7 @@
                         break;
         default	: return NO;
 	}
-	return [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Artist withEncoding:([Artist canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion]autorelease] replace:YES frame:0];
+	return [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Artist withEncoding:([Artist canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion] replace:YES frame:0];
 }
 
 -(BOOL)setAlbum:(NSString *)Album {
@@ -868,7 +841,7 @@
                         break;
         default	: return NO;
 	}
-	return [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Album withEncoding:([Album canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion] autorelease] replace:YES frame:0];
+	return [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Album withEncoding:([Album canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion] replace:YES frame:0];
 }
 
 -(BOOL)setYear:(int)Year {
@@ -886,7 +859,7 @@
                         break;
         default	: return NO;
 	}
-	return [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[[NSNumber numberWithInt:Year] stringValue] withEncoding:0 version:majorVersion] autorelease] replace:YES frame:0];
+	return [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[[NSNumber numberWithInt:Year] stringValue] withEncoding:0 version:majorVersion] replace:YES frame:0];
 }
 
 -(BOOL)setTrack:(int)Track totalTracks:(int)Total
@@ -905,7 +878,7 @@
                         break;
         default	: return NO;
 	}
-	return [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[NSString stringWithFormat:@"%i/%i",Track,Total] withEncoding:0 version:majorVersion] autorelease] replace:YES frame:0];
+	return [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[NSString stringWithFormat:@"%i/%i",Track,Total] withEncoding:0 version:majorVersion] replace:YES frame:0];
 }
 
 -(BOOL)setDisk:(int)Disk totalDisks:(int)Total
@@ -924,7 +897,7 @@
                         break;
         default	:return NO;
 	}
-	return [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[NSString stringWithFormat:@"%i/%i",Disk,Total] withEncoding:0 version:majorVersion] autorelease] replace:YES frame:0];
+	return [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:[NSString stringWithFormat:@"%i/%i",Disk,Total] withEncoding:0 version:majorVersion] replace:YES frame:0];
 }
 
 -(BOOL)setGenreName:(NSArray *)GenreName {
@@ -946,7 +919,6 @@
 	id3V2Frame * frame = [[id3V2Frame alloc] init:tempString firstflag:0 secondFlag:0 version:majorVersion];
 	[frame writeTextFrame:[frame genreStringFromArray:GenreName] coding:1];
 	result = [self addUpdateFrame:frame replace:YES frame:0];
-	[frame release];
 	return result;
 }
 
@@ -1031,7 +1003,6 @@
 			id3V2Frame * frame = [[id3V2Frame alloc] init:tempString firstflag:0 secondFlag:0 version:majorVersion];
 			[frame writeImage:[Images objectAtIndex:i]];
 			[tempArray addObject:frame];
-			[frame release];
 	    }
 	    if ([tempArray count] > 0) return [self setFrames:tempArray];
 	    return NO;
@@ -1055,7 +1026,7 @@
                         break;
         default	:       return NO;
 	}
-	results = [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Text withEncoding:([Text canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion]autorelease] replace:YES frame:0];
+	results = [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Text withEncoding:([Text canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion] replace:YES frame:0];
     return results;
 }
 
@@ -1076,7 +1047,7 @@
                         break;
         default	:       return NO;
 	}
-	results = [self addUpdateFrame:[[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Text withEncoding:([Text canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion]autorelease] replace:YES frame:0];
+	results = [self addUpdateFrame:[[id3V2Frame alloc] initTextFrame:tempString firstflag:0 secondFlag:0 text:Text withEncoding:([Text canBeConvertedToEncoding:NSASCIIStringEncoding]?0:1) version:majorVersion] replace:YES frame:0];
     return results;
 }
 
@@ -1424,19 +1395,16 @@
 				
 				if (!Flag) {
 					if ((comments == NULL) || [comments isEqualToString:@""]) {
-						id temp = [[[tempArray objectAtIndex:i] getCommentFromFrame] retain];
+						id temp = [[tempArray objectAtIndex:i] getCommentFromFrame];
 						if ((temp != NULL) && (![temp isEqualToString:@""])) {
-							[noShort release];
 							noShort = temp;
 							last = TRUE;
 						}
 					}
 					else {
-						id temp = [[[tempArray objectAtIndex:i] getCommentFromFrame] retain];
+						id temp = [[tempArray objectAtIndex:i] getCommentFromFrame];
 						if ((temp != NULL) && (![temp isEqualToString:@""])) {
-							[shortComment release];
-							shortComment = [comments retain];
-							[withShort release];
+							shortComment = comments;
 							withShort = temp;
 							last = FALSE;
 						}
@@ -1445,13 +1413,8 @@
 			}
 			
 			if (last) {
-				[withShort release];
-				[shortComment release];
-				return [noShort autorelease];
+				return noShort;
 			} else {
-				[shortComment autorelease];
-				[withShort autorelease];
-				[noShort release];
 				return [NSString stringWithFormat:@"%@ %@", shortComment, withShort];
 			}
 		}
@@ -1560,7 +1523,7 @@
     char textCoding = *charPtr;  // the first byte is the text coding for the description
     int i;
     
-    pictureType = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 3)] encoding:NSASCIIStringEncoding] autorelease];
+    pictureType = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 3)] encoding:NSASCIIStringEncoding];
             
     // get the picture type byte and convert into a information string;
     Type = [self decodeImageType:charPtr[4]];
@@ -1575,12 +1538,12 @@
     i++;
     if (textCoding == 0)
     {
-        Description =  [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(5, i-5)] encoding:NSASCIIStringEncoding] autorelease];
+        Description =  [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(5, i-5)] encoding:NSASCIIStringEncoding];
     }
     else 
     {
         i++;
-        Description = [[[NSString alloc] initWithData:[NSData dataWithBytesNoCopy:(void *)charPtr+5 length: i-5 freeWhenDone:NO] encoding:NSUTF8StringEncoding] autorelease];  //this is not the right encoding I will fix later
+        Description = [[NSString alloc] initWithData:[NSData dataWithBytesNoCopy:(void *)charPtr+5 length: i-5 freeWhenDone:NO] encoding:NSUTF8StringEncoding];  //this is not the right encoding I will fix later
     }
         // get the image 
     if (charPtr[i]=='\0') i++;
@@ -1616,7 +1579,7 @@
         if (charPtr[i] == '\0') break;
     }
     
-	Type = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, i)] encoding:NSASCIIStringEncoding] autorelease];
+	Type = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, i)] encoding:NSASCIIStringEncoding];
     
     i++;
     // get the picture type byte and convert into a information string;
@@ -1633,12 +1596,12 @@
     i++;
     if (textCoding == 0)
     {
-		Description = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSASCIIStringEncoding] autorelease];//[NSString stringWithCString:(void *)charPtr length:i-y];
+		Description = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSASCIIStringEncoding];//[NSString stringWithCString:(void *)charPtr length:i-y];
     }
     else 
     {
         i++;
-        Description = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSUTF8StringEncoding] autorelease];  //this is not the right encoding I will fix later
+        Description = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSUTF8StringEncoding];  //this is not the right encoding I will fix later
     // get the image 
     }
     

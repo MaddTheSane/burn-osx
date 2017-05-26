@@ -30,7 +30,7 @@
     currentFrameLength = 0;
     framesEndAt = frameOffset;
     padding = 0;
-	validChars = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"] retain];
+	validChars = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890"];
     
     if (([Frames length] < 6)||(Frames == NULL)) return self;
     
@@ -93,7 +93,7 @@
     int frameLength = [self frameLength];
     
     unsigned char * tempPointer = Buffer + currentFramePosition;
-    return [[[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 6 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:0 secondFlag:0 version:2] autorelease];
+    return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 6 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:0 secondFlag:0 version:2];
 }
 
 
@@ -137,7 +137,7 @@
 {
     if (Buffer == NULL) return NULL;
 	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:3];
-	return [[[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding] autorelease];
+	return [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
 }
 
 //  ?? need to clean up this section I don't have a good calculator handy
@@ -145,13 +145,6 @@
 -(int)getFrameSetLength
 {
     return framesEndAt - frameOffset;
-}
-
--(void)dealloc
-{
-    [errorDescription release];
-	[validChars release];
-    [super dealloc];
 }
 
 @end

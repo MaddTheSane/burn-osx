@@ -56,7 +56,6 @@
     if (dataDictionary == NULL) 
     {
         NSLog(@"Failed to open resource dictionary, can not find file:%@", dataPath);
-        [self autorelease];
         return NULL;
     }
 	    
@@ -66,7 +65,6 @@
         genreDictionary = [dataDictionary objectForKey:@"genres"];
         if (genreDictionary == NULL) 
         {
-            [self autorelease];
             NSLog(@"Failed to find internal genres list");
             return NULL;
         }
@@ -82,7 +80,6 @@
     preferences = [dataDictionary objectForKey:@"preferences"];
     if (genreDictionary == NULL) 
     {
-        [self autorelease];
         NSLog(@"Failed to load ID3 preferences");
         return NULL;
     }
@@ -93,18 +90,12 @@
 - (void)dealloc
 {
     [self releaseAttributes];
-    if (externalDictionary != YES) 
-        if (dataDictionary != NULL) [dataDictionary release];
-    [super dealloc];
 }
 
 - (void)releaseAttributes
 {
-    if (v2Tag != NULL) [v2Tag release];
     v2Tag = NULL;
-    if (v1Tag != NULL) [v1Tag release];
     v1Tag = NULL;
-    if (path != NULL) [path release];
     path = NULL;
     //if (frameList != NULL) [frameList release];
     //frameList = NULL;
@@ -115,56 +106,54 @@
 - (BOOL)examineFile:(NSString *)Path
 {
     [self releaseAttributes];
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    path = [Path copy];
-    int position = 0;
+    @autoreleasepool {
+        path = [Path copy];
+        int position = 0;
 	parse = 0;
-    
-    parsedV1 = NO;
-      
-    // looks for a v2 tag and saves it memory if found
+        
+        parsedV1 = NO;
+          
+        // looks for a v2 tag and saves it memory if found
 
-    v2Tag = [[id3V2Tag alloc] initWithFrameDictionary:[dataDictionary objectForKey:@"frames"]];
-    if (v2Tag == NULL)
-    {
-        NSLog(@"Failed to create V2 tag object");
-        [pool release];
-        return NO;
-    }
+        v2Tag = [[id3V2Tag alloc] initWithFrameDictionary:[dataDictionary objectForKey:@"frames"]];
+        if (v2Tag == NULL)
+        {
+            NSLog(@"Failed to create V2 tag object");
+            return NO;
+        }
 	if ([[preferences objectForKey:@"iTunes v2.4 compatability mode"] boolValue]) [v2Tag setITunesCompatability:YES];
 	
-    [v2Tag openPath:path];
+        [v2Tag openPath:path];
 	// position indicate
-    position = [v2Tag tagPositionInFile] + [v2Tag tagLength];
+        position = [v2Tag tagPositionInFile] + [v2Tag tagLength];
   
-    // looks for a v1.1 tag and saves it to memory if found
-    v1Tag = [[id3V1Tag alloc] init];
-    if (v1Tag == NULL)
-    {
-        NSLog(@"Failed to create V1.1 tag object");
-        [pool release];
-        return NO;
-    } 
-    
-    BOOL test = [[preferences objectForKey:@"Parse V1 only if V2 does not exist"] boolValue];
-    if ([[preferences objectForKey:@"Parse V1"] boolValue]||(test&&![v2Tag tagPresent]))
-    {
-        parsedV1 = YES;
-        [v1Tag openPath:path];   
-        if (![v1Tag tagPresent]&&[[preferences objectForKey:@"Write V1 Always"] boolValue])
+        // looks for a v1.1 tag and saves it to memory if found
+        v1Tag = [[id3V1Tag alloc] init];
+        if (v1Tag == NULL)
         {
-            // if v2 tag exists copy data into v1 tag
-            if ([v2Tag tagPresent]) [self copyV2TagToV1Tag];
-            else [v1Tag newTag];
+            NSLog(@"Failed to create V1.1 tag object");
+            return NO;
+        } 
+        
+        BOOL test = [[preferences objectForKey:@"Parse V1 only if V2 does not exist"] boolValue];
+        if ([[preferences objectForKey:@"Parse V1"] boolValue]||(test&&![v2Tag tagPresent]))
+        {
+            parsedV1 = YES;
+            [v1Tag openPath:path];   
+            if (![v1Tag tagPresent]&&[[preferences objectForKey:@"Write V1 Always"] boolValue])
+            {
+                // if v2 tag exists copy data into v1 tag
+                if ([v2Tag tagPresent]) [self copyV2TagToV1Tag];
+                else [v1Tag newTag];
+            }
         }
-    }
   
-    // if there is no storage for a V2 tag create a v2 tag
-    if (![v2Tag tagPresent])
-    {
-        if ([v1Tag tagPresent]) [self copyV1TagToV2Tag];
-        else [v2Tag newTag:[[preferences objectForKey:@"Default V2 tag - Major number"] intValue] minor:[[preferences objectForKey:@"Default V2 tag - Minor number"] intValue]];
-    }
+        // if there is no storage for a V2 tag create a v2 tag
+        if (![v2Tag tagPresent])
+        {
+            if ([v1Tag tagPresent]) [self copyV1TagToV2Tag];
+            else [v2Tag newTag:[[preferences objectForKey:@"Default V2 tag - Major number"] intValue] minor:[[preferences objectForKey:@"Default V2 tag - Minor number"] intValue]];
+        }
   
     // get mpeg header information
     //mp3Header = [[MP3Header alloc] init];
@@ -178,7 +167,7 @@
     //[mp3Header openFile:path withTag:position];
     //fileSize = [mp3Header fileSize];
 //	[self convertTagToV2:0];
-    [pool release];
+    }
     return YES;
 }
 

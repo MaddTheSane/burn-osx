@@ -32,8 +32,8 @@
     frame = [Frame copyWithZone:NULL];
     length = [frame length];
     majorVersion = Version;
-    if (majorVersion < 3) frameID = [[FrameID substringToIndex:3] retain];
-    else frameID = [[FrameID substringToIndex:4] retain];
+    if (majorVersion < 3) frameID = [FrameID substringToIndex:3];
+    else frameID = [FrameID substringToIndex:4];
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
     return self;
@@ -44,14 +44,14 @@
     if (!(self = [super init])) return self;
     unsigned char nullChar[] = { 0, 0};
 	if (Text == NULL) Text = @"";
-    frame = [[NSMutableData dataWithCapacity:1] retain];
+    frame = [[NSMutableData alloc] initWithCapacity:1];
     [frame appendData:[self getTextCodingByte: (char)Encoding]];
     [frame appendData:[Text dataUsingEncoding:[self convertTextCodingByte:(char)Encoding] allowLossyConversion:YES]];
     [frame appendData:[NSData dataWithBytes:nullChar length:(Encoding == 1?2:1)]];
     length = [frame length];
     majorVersion = Version;
-    if (majorVersion < 3) frameID = [[FrameID substringToIndex:3] retain];
-    else frameID = [[FrameID substringToIndex:4] retain];
+    if (majorVersion < 3) frameID = [FrameID substringToIndex:3];
+    else frameID = [FrameID substringToIndex:4];
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
 	iTunesV24Compat = NO;
@@ -85,7 +85,7 @@
 		if (i > length -1) return NULL; // if first null at end of string return null
 	}
 	
-	return [self cleanString:[[[NSString alloc] initWithData:[NSMutableData  dataWithBytes:pointer + 4 length: i - 4] encoding:[self convertTextCodingByte:*pointer]] autorelease]];
+	return [self cleanString:[[NSString alloc] initWithData:[NSMutableData  dataWithBytes:pointer + 4 length: i - 4] encoding:[self convertTextCodingByte:*pointer]]];
 }
 
 -(NSString *)getCommentFromFrame
@@ -102,7 +102,7 @@
 		for (i = 4; i <= length; i ++) if (pointer[i] == 0) break;
 		if (i > length -1) return NULL; // if first null at end of string return null
 	}
-    return [self cleanString:[[[NSString alloc] initWithData:[NSMutableData  dataWithBytes:pointer + i + 1 length: length-i -1] encoding:[self convertTextCodingByte:*pointer]] autorelease]];
+    return [self cleanString:[[NSString alloc] initWithData:[NSMutableData  dataWithBytes:pointer + i + 1 length: length-i -1] encoding:[self convertTextCodingByte:*pointer]]];
 }
 
 -(NSString *)getTextFromFrame
@@ -112,16 +112,16 @@
     
     NSString *tempString = [[NSString alloc] initWithData:[NSMutableData  dataWithBytes:pointer + 1 length: length-1] encoding:[self convertTextCodingByte:*pointer]];
     
-    if ((pointer[1] > 0)&&[tempString length] == 1) return [tempString autorelease];
+    if ((pointer[1] > 0)&&[tempString length] == 1) return tempString;
     
     
-    return [[tempString autorelease] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
+    return [tempString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
 }
 
 -(NSData *)getTextCodingByte:(char)encoding
 {
     if((majorVersion < 2) && (encoding > 1)) encoding = 1;
-    return [[[NSData alloc] initWithBytes:&encoding length:1] autorelease];
+    return [[NSData alloc] initWithBytes:&encoding length:1];
 }
     
 
@@ -185,7 +185,7 @@
         if ([self compress])
         {   //compressed the frame using zlib 
             unsigned char * frameBytes = (unsigned char *)[frame bytes];
-            processedFrame = [[NSMutableData dataWithLength: length + 10] retain];
+            processedFrame = [[NSMutableData alloc] initWithLength: length + 10];
             unsigned char *temp = (unsigned char *)[processedFrame bytes];
             int x = 0;
             x = compress(temp+4,&tempLength,frameBytes,length);
@@ -221,7 +221,6 @@
             }
             tempLength += count;
                 
-            if (processedFrame != frame) [processedFrame release];
             processedFrame = tempUnsynchBuffer;
         }
         
@@ -234,7 +233,6 @@
         if (processedFrame != frame) 
         {
             [completeFrame appendBytes:[processedFrame bytes] length:tempLength];
-            [processedFrame release];
         }
         else
             [completeFrame appendData:processedFrame];
@@ -296,8 +294,7 @@
 
 -(BOOL)writeCommentToFrame:(NSString *)Comments language:(NSString *)Language coding:(BOOL)UTF16
 {
-    if (frame !=NULL) [frame release];
-    frame = [[NSMutableData dataWithCapacity:1] retain];
+    frame = [[NSMutableData alloc] initWithCapacity:1];
     length = 0;
     if (frame == NULL) return NO;
     
@@ -321,8 +318,7 @@
 
 -(BOOL)writeImage:(NSDictionary *)Image
 {
-    if (frame !=NULL) [frame release];
-    frame = [[NSMutableData dataWithCapacity:1] retain];
+    frame = [[NSMutableData alloc] initWithCapacity:1];
     length = 0;
     char nullChar = 0;
     if (frame == NULL) return NO;
@@ -356,41 +352,40 @@
     NSString *MIMEString;
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"jpeg"]) {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
-		else MIMEString = [@"JPG" retain];
+		if (majorVersion >= 3) MIMEString = @"image/jpeg";
+		else MIMEString = @"JPG";
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"jpg"]) {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
-		else MIMEString = [@"JPG" retain];
+		if (majorVersion >= 3) MIMEString = @"image/jpeg";
+		else MIMEString = @"JPG";
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"BMP"]) {
-		if (majorVersion >= 3) MIMEString = [@"image/bmp" retain];
-		else MIMEString = [@"BMP" retain];
+		if (majorVersion >= 3) MIMEString = @"image/bmp";
+		else MIMEString = @"BMP";
 		imageEncoding = NSBMPFileType;
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"GIF"]) {
 		imageEncoding = NSGIFFileType;
-		if (majorVersion >= 3) MIMEString = [@"image/gif" retain];
-		else MIMEString = [@"GIF" retain];
+		if (majorVersion >= 3) MIMEString = @"image/gif";
+		else MIMEString = @"GIF";
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"TIFF"]) {
 		imageEncoding = NSTIFFFileType;
-    	if (majorVersion >= 3) MIMEString = [@"image/tiff" retain];
-		else MIMEString = [@"tiff" retain];
+    	if (majorVersion >= 3) MIMEString = @"image/tiff";
+		else MIMEString = @"tiff";
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"PNG"]) {
 		imageEncoding = NSPNGFileType;
-		if (majorVersion >= 3) MIMEString = [@"image/png" retain];
-		else MIMEString = [@"PNG" retain];
+		if (majorVersion >= 3) MIMEString = @"image/png";
+		else MIMEString = @"PNG";
     } else  {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
-		else MIMEString = [@"JPG" retain];
+		if (majorVersion >= 3) MIMEString = @"image/jpeg";
+		else MIMEString = @"JPG";
     }
 
     [frame appendData:[MIMEString dataUsingEncoding:NSASCIIStringEncoding]];
-    [MIMEString release];
     id tempPtr = [Image objectForKey:@"Picture Type"];
     unsigned int pictureType;
     
@@ -462,8 +457,7 @@
 
 -(BOOL)writeTextFrame:(NSString *)Text coding:(BOOL)UTF16
 {
-    if (frame !=NULL) [frame release];
-    frame = [[NSMutableData dataWithCapacity:1] retain];
+    frame = [[NSMutableData alloc] initWithCapacity:1];
     length = 0;
     unsigned char nullChar[] = { 0, 0};
     if (frame == NULL) return NO;
@@ -486,8 +480,7 @@
 {
     if ((Wipe)||(frame == NULL))
     {
-        if (frame !=NULL) [frame release];
-        frame = [[NSMutableData dataWithData:frameData] retain];
+        frame = [[NSMutableData alloc] initWithData:frameData];
     }
     else [frame appendData:frameData];
     if (frame == NULL) return NO;
@@ -653,7 +646,7 @@
 -(NSMutableArray *)genreArrayFromFrame
 {  //Splits the genre string into an array of string. Number are converted to strings base on the dictionary. if the dictionary is NULL the system used the inbuilt dictionary.
     //check that user passed valid variables
-    NSString * String = [[self getTextFromFrame] retain];
+    NSString * String = [self getTextFromFrame];
        
     //obtain a cstring representation of the genre string
 	NSData *Data = [String dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -691,7 +684,6 @@
 				NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
 				NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
 				[Array addObject:tmpStr];
-				[tmpStr release];
 			}
             start = end + 1;
         }        
@@ -710,7 +702,6 @@
 				NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
 				NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
 				[Array addObject:tmpStr];
-				[tmpStr release];
             }
         }
         
@@ -720,10 +711,8 @@
 		NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
 		NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
 		[Array addObject:tmpStr];
-		[tmpStr release];
 	}
-    [String release];
-    return Array;
+    return [Array copy];
 }
 
 -(int)getFrameLength
@@ -747,10 +736,4 @@
 	return cleanString;
 }
 
--(void)dealloc
-{
-    if (frameID != NULL) [frameID release];
-    if (frame != NULL) [frame release];
-	[super dealloc];
-}
 @end

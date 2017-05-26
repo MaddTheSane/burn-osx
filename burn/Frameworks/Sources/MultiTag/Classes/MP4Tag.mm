@@ -28,7 +28,6 @@
 	}
 	else
 	{
-		[self release];
 		return nil;
 	}
 	
@@ -39,8 +38,6 @@
 {
 	MP4TagsFree(_tags);
 	MP4Close(_file);
-	
-	[super dealloc];
 }
 
 - (NSString *)getTagTitle

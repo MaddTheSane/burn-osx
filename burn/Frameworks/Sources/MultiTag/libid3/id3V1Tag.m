@@ -71,8 +71,6 @@
 {
     id old = path;
     path = [Path copy];
-    if (old != NULL) [old release];
-    if (tag != NULL) [tag release];
     return [self getTag];
 }
 
@@ -102,7 +100,7 @@
     
     if ((present == NO)||(tag==NULL)) return 0;
 	NSData *tmpData = [NSData dataWithBytes:pointer + 93 length:4];
-	return [[[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] autorelease] intValue];
+	return [[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] intValue];
 }
 
 -(NSString *)getComment;
@@ -134,7 +132,7 @@
         } else j=i;
     }
 	NSData *tmpData = [NSData dataWithBytes:pointer + Position length:j+1];
-	NSString *tmpStr = [[[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding] autorelease];
+	NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
     return [tmpStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
 }
 
@@ -178,7 +176,6 @@
         present = YES;
     } else
     {
-        [tag release];
         tag = NULL;
         [self newTag];
         present = NO;
@@ -200,7 +197,6 @@
 
 -(void)clearError
 {
-    if (errorDescription != NULL) [errorDescription release];
     errorDescription = NULL;
     errorNo = 0;
 }
@@ -209,7 +205,7 @@
 {
     [self clearError];
     errorNo = No;
-    errorDescription = [[NSString stringWithString:Description] retain];
+    errorDescription = [Description copy];
     return NO;
 }
 
@@ -223,8 +219,7 @@
 -(BOOL)newTag
 { // deletes old tag array and creates a blank tag
     [self clearError];
-    if (tag != NULL) [tag release];
-    tag = [[NSMutableData dataWithLength:128] retain];
+    tag = [NSMutableData dataWithLength:128];
     unsigned char * Buffer = (unsigned char *)[tag bytes];
     Buffer[0] = 'T';
     Buffer[1] = 'A';
@@ -367,14 +362,4 @@
     return [self setFieldWithNumber:Genre offset:GenreOffset length:GenreLength];
 }
 
-- (void)dealloc
-{
-    if (tag != NULL) 
-        if ([tag retainCount]) [tag release];
-    if (path != NULL) 
-        if ([path retainCount]) [path release];
-    if (errorDescription != NULL) 
-        if ([errorDescription retainCount]) [errorDescription release];
-    [super dealloc];
-}
 @end
