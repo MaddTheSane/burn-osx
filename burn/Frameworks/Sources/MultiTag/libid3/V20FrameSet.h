@@ -55,6 +55,4 @@
 -(BOOL)nextFrame:(BOOL)atStart;
 -(BOOL)atValidFrame;
 
--(void)dealloc;
-
 @end

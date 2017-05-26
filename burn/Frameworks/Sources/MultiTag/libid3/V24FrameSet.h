@@ -61,6 +61,4 @@
 -(BOOL)atValidFrame;
 -(BOOL)validFrameAt:(int)Offset;
 
--(void)dealloc;
-
 @end
