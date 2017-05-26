@@ -1,11 +1,12 @@
 #import "KWDataView.h"
 #import "KWDataController.h"
+#import "BurnDefines.h"
 
 @implementation KWDataView
 
 - (void)awakeFromNib
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setViewState:) name:@"KWSetDropState" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setViewState:) name:KWSetDropStateNotification object:nil];
 }
 
 - (id)initWithFrame:(NSRect)frameRect

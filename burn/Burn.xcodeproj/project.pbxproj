@@ -82,7 +82,7 @@
 		FEF8A86212D9D2BF00FE302C /* KWAudioMP3Inspector.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEFF5700BEB67920056C1DB /* KWAudioMP3Inspector.m */; };
 		FEF8A86312D9D2BF00FE302C /* KWDVDInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEA90430BECB9A9006397D0 /* KWDVDInspector.m */; };
 		FEF8A86412D9D2BF00FE302C /* KWBurner.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF987770D97A83400BF78E3 /* KWBurner.m */; };
-		FEF8A86512D9D2BF00FE302C /* NSScanner-Extra.mm in Sources */ = {isa = PBXBuildFile; fileRef = FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.mm */; };
+		FEF8A86512D9D2BF00FE302C /* NSScanner-Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.m */; };
 		FEF8A86612D9D2BF00FE302C /* KWEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF987850D97A86300BF78E3 /* KWEraser.m */; };
 		FEF8A86712D9D2BF00FE302C /* KWConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF9887D0D97AA9100BF78E3 /* KWConverter.m */; };
 		FEF8A86812D9D2BF00FE302C /* KWDiscScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF988AA0D97ADD700BF78E3 /* KWDiscScanner.m */; };
@@ -433,7 +433,7 @@
 		FEF987760D97A83400BF78E3 /* KWBurner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWBurner.h; path = Source/KWBurner.h; sourceTree = "<group>"; };
 		FEF987770D97A83400BF78E3 /* KWBurner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWBurner.m; path = Source/KWBurner.m; sourceTree = "<group>"; };
 		FEF9877A0D97A83400BF78E3 /* NSScanner-Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScanner-Extra.h"; path = "Source/NSScanner-Extra.h"; sourceTree = "<group>"; };
-		FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSScanner-Extra.mm"; path = "Source/NSScanner-Extra.mm"; sourceTree = "<group>"; };
+		FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSScanner-Extra.m"; path = "Source/NSScanner-Extra.m"; sourceTree = "<group>"; };
 		FEF987840D97A86300BF78E3 /* KWEraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWEraser.h; path = Source/KWEraser.h; sourceTree = "<group>"; };
 		FEF987850D97A86300BF78E3 /* KWEraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWEraser.m; path = Source/KWEraser.m; sourceTree = "<group>"; };
 		FEF987890D97A88500BF78E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KWBurner.xib; sourceTree = "<group>"; };
@@ -864,7 +864,7 @@
 				FE23C04A0EDDCDCB0048B85D /* KWTrackProducer.h */,
 				FE23C04B0EDDCDCB0048B85D /* KWTrackProducer.m */,
 				FEF9877A0D97A83400BF78E3 /* NSScanner-Extra.h */,
-				FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.mm */,
+				FEF9877B0D97A83400BF78E3 /* NSScanner-Extra.m */,
 			);
 			name = KWBurner;
 			sourceTree = "<group>";
@@ -1184,7 +1184,7 @@
 				FEF8A86212D9D2BF00FE302C /* KWAudioMP3Inspector.m in Sources */,
 				FEF8A86312D9D2BF00FE302C /* KWDVDInspector.m in Sources */,
 				FEF8A86412D9D2BF00FE302C /* KWBurner.m in Sources */,
-				FEF8A86512D9D2BF00FE302C /* NSScanner-Extra.mm in Sources */,
+				FEF8A86512D9D2BF00FE302C /* NSScanner-Extra.m in Sources */,
 				FEF8A86612D9D2BF00FE302C /* KWEraser.m in Sources */,
 				FEF8A86712D9D2BF00FE302C /* KWConverter.m in Sources */,
 				FEF8A86812D9D2BF00FE302C /* KWDiscScanner.m in Sources */,

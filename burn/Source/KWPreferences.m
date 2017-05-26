@@ -278,7 +278,7 @@ return self;
 	else if (tag == 15) //Calculate total size
 	{
 		[standardDefaults synchronize];
-		[defaultCenter postNotificationName:@"KWTogglePopups" object:nil];
+		[defaultCenter postNotificationName:KWTogglePopupsNotification object:nil];
 	}
 	
 	if (tag == 36)
@@ -745,7 +745,7 @@ return self;
 		if (state == NSOnState)
 		{
 			[[NSUserDefaults standardUserDefaults] synchronize];
-			[defaultCenter postNotificationName:@"KWTogglePopups" object:nil];
+			[defaultCenter postNotificationName:KWTogglePopupsNotification object:nil];
 		}
 		else
 		{

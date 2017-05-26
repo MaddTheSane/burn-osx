@@ -1,11 +1,12 @@
 #import "KWCopyView.h"
 #import "KWCopyController.h"
+#import "BurnDefines.h"
 
 @implementation KWCopyView
 
 - (void)awakeFromNib
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setViewState:) name:@"KWSetDropState" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setViewState:) name:KWSetDropStateNotification object:nil];
 }
 
 - (id)initWithFrame:(NSRect)frameRect

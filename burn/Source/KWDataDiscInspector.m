@@ -50,6 +50,7 @@
 
 #import "KWDataDiscInspector.h"
 #import "KWCommonMethods.h"
+#import "BurnDefines.h"
 
 static NSArray*	propertyTagMappings = nil;
 static NSArray* filesystemNameTagMappings = nil;
@@ -169,7 +170,7 @@ static NSArray* filesystemNameTagMappings = nil;
 		if ([NSNumber numberWithInteger:[sender indexOfSelectedItem] + 1])
 		{
 			[fsProperties setObject:[NSNumber numberWithInteger:[sender indexOfSelectedItem] + 1] forKey:DRISOLevel];
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"KWDiscPropertiesChanged" object:[fsProperties retain]];
+			[[NSNotificationCenter defaultCenter] postNotificationName:KWDiscPropertiesChangedNotification object:[fsProperties retain]];
 		}
 	}
 	else
@@ -184,7 +185,7 @@ static NSArray* filesystemNameTagMappings = nil;
 			else
 				[fsProperties setObject:objectValue forKey:propertyTag];
 		
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"KWDiscPropertiesChanged" object:[fsProperties retain]];
+			[[NSNotificationCenter defaultCenter] postNotificationName:KWDiscPropertiesChangedNotification object:[fsProperties retain]];
 		}
 	}
 }
@@ -243,7 +244,7 @@ static NSArray* filesystemNameTagMappings = nil;
 		
 		[propertyView setObjectValue:[selectedItem valueForKey:@"name"]];
 		[fsProperties setObject:[selectedItem valueForKey:@"drfsobject"] forKey:[propertyTagMappings objectAtIndex:[propertyView tag] - 1]];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWDiscPropertiesChanged" object:[fsProperties retain]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWDiscPropertiesChangedNotification object:[fsProperties retain]];
 	}
 
 	// we don't need to hold onto this anymore. We'll grab it again next time.

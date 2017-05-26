@@ -135,15 +135,15 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	//Reload the outlineview if need, like when a change has been made in the preferences
 	[defaultCenter addObserver:outlineView selector:@selector(reloadData) name:KWReloadRequestedNotification object:nil];
 	//Used to save the popups when the user selects this option in the preferences
-	[defaultCenter addObserver:self selector:@selector(saveDataPopup:) name:@"KWTogglePopups" object:nil];
+	[defaultCenter addObserver:self selector:@selector(saveDataPopup:) name:KWTogglePopupsNotification object:nil];
 	//Prevent files to be dropped when for example a sheet is open
-	[defaultCenter addObserver:self selector:@selector(setOutlineViewState:) name:@"KWSetDropState" object:nil];
+	[defaultCenter addObserver:self selector:@selector(setOutlineViewState:) name:KWSetDropStateNotification object:nil];
 	//Updates the Inspector window with the new item selected in the list
-	[defaultCenter addObserver:self selector:@selector(outlineViewSelectionDidChange:) name:@"KWDataListSelected" object:outlineView];
+	[defaultCenter addObserver:self selector:@selector(outlineViewSelectionDidChange:) name:KWDataListSelectedNotification object:outlineView];
 	//Updates the Inspector window to show the information about the disc
-	[defaultCenter addObserver:self selector:@selector(volumeLabelSelected:) name:@"KWDiscNameSelected" object:discName];
+	[defaultCenter addObserver:self selector:@selector(volumeLabelSelected:) name:KWDiscNameSelectedNotification object:discName];
 	//Change properties variable when disc properties are changed
-	[defaultCenter addObserver:self selector:@selector(discPropertiesChanged:) name:@"KWDiscPropertiesChanged" object:nil];
+	[defaultCenter addObserver:self selector:@selector(discPropertiesChanged:) name:KWDiscPropertiesChangedNotification object:nil];
 
 	//Set advanced sheet file systems
 	[self setupAdvancedSheet];
@@ -461,9 +461,9 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		else
 		{
 			if ([self isCompatible])
-				[defaultCenter postNotificationName:@"KWChangeInspector" object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWDataDisc", @"Type", nil]];
+				[defaultCenter postNotificationName:KWChangeInspectorNotification object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeDataDisc, @"Type", nil]];
 			else
-				[defaultCenter postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty", @"Type", nil]];
+				[defaultCenter postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty, @"Type", nil]];
 		}
 	
 		lastSelectedItem = [[fileSystemPopup title] retain];
@@ -522,9 +522,9 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	}
 
 	if ([self isCompatible])
-		[defaultCenter postNotificationName:@"KWChangeInspector" object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWDataDisc",@"Type",nil]];
+		[defaultCenter postNotificationName:KWChangeInspectorNotification object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeDataDisc,@"Type",nil]];
 	else
-		[defaultCenter postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty",@"Type",nil]];
+		[defaultCenter postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty,@"Type",nil]];
 }
 
 /////////////////////////
@@ -1285,9 +1285,9 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	[self updateFileSystem];
 	
 	if ([self isCompatible])
-		[defaultCenter postNotificationName:@"KWChangeInspector" object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWDataDisc",@"Type",nil]];
+		[defaultCenter postNotificationName:KWChangeInspectorNotification object:[(FSNodeData*)[treeData nodeData] fsObject] userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeDataDisc,@"Type",nil]];
 	else
-		[defaultCenter postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty",@"Type",nil]];
+		[defaultCenter postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty,@"Type",nil]];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification
@@ -1297,14 +1297,14 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	NSArray* selectedNodes = [outlineView allSelectedItems];
 	TreeNode* selectedNode = ([selectedNodes count] ? [selectedNodes objectAtIndex:0] : treeData);
 	
-	NSString *kind = @"KWEmpty";
+	NSString *kind = KWDiscTypeEmpty;
 	id object = nil;
 
 	if ([self isCompatible])
 	{
 		if (selectedNode == treeData)
 		{
-			kind = @"KWDataDisc";
+			kind = KWDiscTypeDataDisc;
 			object = [(FSNodeData*)[treeData nodeData] fsObject];
 		}
 		else
@@ -1317,12 +1317,12 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 			
 			selectedItems = [[self selectedDRFSObjects] retain];
 		
-			kind = @"KWData";
+			kind = KWDiscTypeData;
 			object = selectedItems;
 		}
 	}
 
-	[defaultCenter postNotificationName:@"KWChangeInspector" object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
+	[defaultCenter postNotificationName:KWChangeInspectorNotification object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
 }
 
 - (NSArray *)selectedDRFSObjects

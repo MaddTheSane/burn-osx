@@ -7,25 +7,27 @@
 #import "KWBurner.h"
 
 @class KWWindow;
+@class KWCopyView;
+@class KWDiscCreator;
 
 @interface KWCopyController : NSObject
 {
     //Main Window
 	IBOutlet KWWindow *mainWindow;
-	IBOutlet id nameField;
-	IBOutlet id iconView;
-	IBOutlet id sizeField;
-	IBOutlet id fileSystemField;
-	IBOutlet id mountButton;
-	IBOutlet id dropView;
-	IBOutlet id dropText;
-	IBOutlet id clearDisk;
-	IBOutlet id dropIcon;
-	IBOutlet id browseButton;
-	IBOutlet id mountMenu;
+	IBOutlet NSTextField	*nameField;
+	IBOutlet NSImageView	*iconView;
+	IBOutlet NSTextField	*sizeField;
+	IBOutlet NSTextField	*fileSystemField;
+	IBOutlet NSButton		*mountButton;
+	IBOutlet KWCopyView		*dropView;
+	IBOutlet NSTextField	*dropText;
+	IBOutlet NSButton		*clearDisk;
+	IBOutlet NSImageView	*dropIcon;
+	IBOutlet NSButton		*browseButton;
+	IBOutlet NSMenuItem		*mountMenu;
 	
 	//Disc creation
-	IBOutlet id myDiscCreationController;
+	IBOutlet KWDiscCreator	*myDiscCreationController;
 	
 	//Variables
 	NSTask *hdiutil;

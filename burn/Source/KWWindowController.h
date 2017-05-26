@@ -12,13 +12,15 @@
 #import "KWEjecter.h"
 #import "KWProgress.h"
 
+@class KWWindow;
+
 @interface KWWindowController : NSObject <NSToolbarDelegate>
 {
 	//Main outlets
 	IBOutlet NSButton				*burnButton;
 	IBOutlet NSTextField			*defaultBurner;
 	IBOutlet NSTabView				*mainTabView;
-	IBOutlet NSWindow				*mainWindow;
+	IBOutlet KWWindow				*mainWindow;
 	IBOutlet NSSegmentedControl		*newTabView;
 	IBOutlet NSMenuItem				*itemHelp;
 	

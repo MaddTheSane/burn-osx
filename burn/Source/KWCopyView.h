@@ -5,7 +5,7 @@
 
 @interface KWCopyView : NSView
 {
-	IBOutlet id imageControl;
+	IBOutlet KWCopyController *imageControl;
 }
 - (void)setViewState:(NSNotification *)notif;
 @end

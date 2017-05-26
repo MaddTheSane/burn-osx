@@ -729,7 +729,7 @@ CA
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="GOz-Mt-B6F">
                                                 <rect key="frame" x="1" y="0.0" width="431" height="237"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="Audio TableView" headerView="979" id="450" customClass="KWTableView">
                                                         <rect key="frame" x="0.0" y="0.0" width="432" height="214"/>
@@ -1020,7 +1020,7 @@ CA
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="vid-dA-Eha">
                                                 <rect key="frame" x="1" y="0.0" width="431" height="237"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="Video TableView" headerView="976" id="428" customClass="KWTableView">
                                                         <rect key="frame" x="0.0" y="0.0" width="431" height="214"/>

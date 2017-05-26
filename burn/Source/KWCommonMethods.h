@@ -108,6 +108,6 @@
 //Standard informative alert
 + (void)standardAlertWithMessageText:(NSString *)message withInformationText:(NSString *)information withParentWindow:(NSWindow *)parent;
 //Get chapters using QTKit
-+ (NSMutableArray *)quicktimeChaptersFromFile:(NSString *)path;
++ (NSArray *)quicktimeChaptersFromFile:(NSString *)path;
 
 @end

@@ -10,6 +10,7 @@
 #import "KWWindowController.h"
 #import "KWCommonMethods.h"
 #import "KWTrackProducer.h"
+#import "BurnDefines.h"
 
 @implementation KWVideoController
 
@@ -404,7 +405,7 @@
 	NSInteger selrow = [tableViewPopup indexOfSelectedItem];
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	
-	NSString *kind = @"KWEmpty";
+	NSString *kind = KWDiscTypeEmpty;
 	id object = nil;
 	
 	if (selrow == 2 && [tableView selectedRow] > -1)
@@ -412,11 +413,11 @@
 		if (![[[[tableData objectAtIndex:0] objectForKey:@"Name"] lowercaseString] isEqualTo:@"video_ts"])
 		{
 			object = tableView;
-			kind = @"KWDVD";
+			kind = KWDiscTypeDVD;
 		}
 	}
 
-	[defaultCenter postNotificationName:@"KWChangeInspector" object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
+	[defaultCenter postNotificationName:KWChangeInspectorNotification object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
 }
 
 //Set the current tableview and tabledata to the selected popup item
@@ -531,7 +532,7 @@
 
 - (void)volumeLabelSelected:(NSNotification *)notif
 {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty", @"Type", nil]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty, @"Type", nil]];
 }
 
 - (CGFloat)totalSVCDSize

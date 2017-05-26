@@ -15,25 +15,28 @@
 
 @class KWTableView;
 @class KWWindow;
+@class KWTextField;
+@class KWDiscCreator;
+@class KWPantherCompatibleButton;
 
 @interface KWMediaListController : NSObject <NSTableViewDataSource> {
 
 	//Main Window
 	IBOutlet KWWindow		*mainWindow;
 	IBOutlet NSPopUpButton	*popupIcon;
-	IBOutlet id discName;
-	IBOutlet id discLabel;
-	IBOutlet id totalText;
-	IBOutlet id tableViewPopup;
-	IBOutlet KWTableView *tableView;
-	IBOutlet id accessOptions;
+	IBOutlet KWTextField	*discName;
+	IBOutlet NSTextField	*discLabel;
+	IBOutlet NSTextField	*totalText;
+	IBOutlet NSPopUpButton	*tableViewPopup;
+	IBOutlet KWTableView	*tableView;
+	IBOutlet KWPantherCompatibleButton *accessOptions;
 	
 	//Disc creation
-	IBOutlet id myDiscCreationController;
+	IBOutlet KWDiscCreator	*myDiscCreationController;
 	
 	//Save View
-	IBOutlet id saveView;
-	IBOutlet NSPopUpButton *regionPopup;
+	IBOutlet NSView			*saveView;
+	IBOutlet NSPopUpButton	*regionPopup;
 	
 	//Variables
 	NSMutableArray *tableData;
@@ -41,7 +44,7 @@
 	NSMutableArray *protectedFiles;
 	NSArray *knownProtectedFiles;
 	NSMutableArray *temporaryFiles;
-	NSArray *allowedFileTypes;
+	NSArray<NSString*> *allowedFileTypes;
 	NSArray *optionsMappings;
 	NSString *dvdFolderName;
 	NSString *convertExtension;
@@ -55,7 +58,7 @@
 	NSInteger currentType;
 	KWProgress *progressPanel;
 	KWConverter *converter;
-	id optionsPopup;
+	NSPopUpButton	*optionsPopup;
 }
 
 //Main actions

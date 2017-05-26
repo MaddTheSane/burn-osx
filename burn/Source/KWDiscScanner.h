@@ -2,14 +2,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface KWDiscScanner : NSWindowController
+@interface KWDiscScanner : NSWindowController <NSTableViewDelegate, NSTableViewDataSource>
 {
     //Sheet outlets
-	IBOutlet id tableView;
-	IBOutlet id chooseScan;
-	IBOutlet id cancelScan;
-	IBOutlet id progressScan;
-	IBOutlet id progressTextScan;
+	IBOutlet NSTableView			*tableView;
+	IBOutlet NSButton				*chooseScan;
+	IBOutlet NSButton				*cancelScan;
+	IBOutlet NSProgressIndicator	*progressScan;
+	IBOutlet NSTextField			*progressTextScan;
 	
 	//Variables
 	NSMutableArray *tableData;

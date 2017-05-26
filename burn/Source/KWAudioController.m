@@ -15,6 +15,7 @@
 #import "KWCommonMethods.h"
 #import "KWTrackProducer.h"
 #import "KWTableView.h"
+#import "BurnDefines.h"
 
 @implementation KWAudioController
 
@@ -189,7 +190,7 @@
 	[self tableViewPopup:self];
 
 	//Set the Inspector window to empty
-	[defaultCenter postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty",@"Type",nil]];
+	[defaultCenter postNotificationName:KWChangeInspectorNotification object:nil userInfo:@{@"Type": KWDiscTypeEmpty}];
 }
 
 //////////////////
@@ -672,7 +673,7 @@
 {
 	NSInteger selrow = [tableViewPopup indexOfSelectedItem];
 	
-	NSString *kind = @"KWEmpty";
+	NSString *kind = KWDiscTypeEmpty;
 	id object = nil;
 	
 	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
@@ -681,9 +682,9 @@
 		object = tableView;
 	
 		if ([tableView selectedRow] == -1)
-			kind = @"KWAudioDisc";
+			kind = KWDiscTypeAudioDisc;
 		else
-			kind = @"KWAudio";
+			kind = KWDiscTypeAudio;
 	}
 	#else
 	if (selrow == 0)
@@ -691,9 +692,9 @@
 		object = tableView;
 	
 		if ([tableView selectedRow] == -1)
-			kind = @"KWAudioDisc";
+			kind = KWDiscTypeAudioDisc;
 		else
-			kind = @"KWAudio";
+			kind = KWDiscTypeAudio;
 	}
 	#endif
 	else if (selrow == 1)
@@ -701,10 +702,10 @@
 		object = tableView;
 	
 		if ([tableView selectedRow] != -1)
-			kind = @"KWAudioMP3";
+			kind = KWDiscTypeAudioMP3;
 	}
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeInspector" object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeInspectorNotification object:object userInfo:@{@"Type": kind}];
 }
 
 //Set the current tableview and tabledata to the selected popup item
@@ -806,21 +807,21 @@
 	}
 	else
 	{
-		NSString *kind = @"KWEmpty";
+		NSString *kind = KWDiscTypeEmpty;
 		
 		#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 		if (selrow == 0 && [KWCommonMethods OSVersion] >= 0x1040)
-			kind = @"KWAudioDisc";
+			kind = KWDiscTypeAudioDisc;
 		else if (selrow == 1)
 			kind = @"KWAudioMP3Disc";
 		#else
 		if (selrow == 0)
-			kind = @"KWAudioDisc";
+			kind = KWDiscTypeAudioDisc;
 		else if (selrow == 1)
 			kind = @"KWAudioMP3Disc";
 		#endif
 		
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeInspectorNotification object:nil userInfo:@{@"Type": kind}];
 	}
 }
 
@@ -1296,23 +1297,23 @@
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	
 	id object = nil;
-	NSString *kind = @"KWEmpty";
+	NSString *kind = KWDiscTypeEmpty;
 	
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	if ([tableViewPopup indexOfSelectedItem] == 0)
 	{
 		object = tableView;
-		kind = @"KWAudioDisc";
+		kind = KWDiscTypeAudioDisc;
 	}
 	#else
 	if ([tableViewPopup indexOfSelectedItem] == 0 && [KWCommonMethods OSVersion] >= 0x1040)
 	{
-		kind = @"KWAudioDisc";
+		kind = KWDiscTypeAudioDisc;
 		object = tableView;
 	}
 	#endif
 
-	[defaultCenter postNotificationName:@"KWChangeInspector" object:object userInfo:[NSDictionary dictionaryWithObjectsAndKeys:kind, @"Type", nil]];
+	[defaultCenter postNotificationName:KWChangeInspectorNotification object:object userInfo:@{@"Type": kind}];
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector

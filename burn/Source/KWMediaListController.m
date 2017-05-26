@@ -11,6 +11,7 @@
 #import "KWDiscCreator.h"
 #import "KWTableView.h"
 #import "KWWindow.h"
+#import "BurnDefines.h"
 
 @implementation KWMediaListController
 
@@ -48,13 +49,13 @@
 	//Notifications
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	//Used to save the popups when the user selects this option in the preferences
-	[defaultCenter addObserver:self selector:@selector(saveTableViewPopup:) name:@"KWTogglePopups" object:nil];
+	[defaultCenter addObserver:self selector:@selector(saveTableViewPopup:) name:KWTogglePopupsNotification object:nil];
 	//Prevent files to be dropped when for example a sheet is open
-	[defaultCenter addObserver:self selector:@selector(setTableViewState:) name:@"KWSetDropState" object:nil];
+	[defaultCenter addObserver:self selector:@selector(setTableViewState:) name:KWSetDropStateNotification object:nil];
 	//Updates the Inspector window with the new item selected in the list
 	[defaultCenter addObserver:self selector:@selector(tableViewSelectionDidChange:) name:@"KWListSelected" object:tableView];
 	//Updates the Inspector window to show the information about the disc
-	[defaultCenter addObserver:self selector:@selector(volumeLabelSelected:) name:@"KWDiscNameSelected" object:discName];
+	[defaultCenter addObserver:self selector:@selector(volumeLabelSelected:) name:KWDiscNameSelectedNotification object:discName];
 
 	//How should our tableview update its sizes when adding and modifying files
 	[tableView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
@@ -76,9 +77,18 @@
 	NSOpenPanel *sheet = [NSOpenPanel openPanel];
 	[sheet setCanChooseFiles:YES];
 	[sheet setCanChooseDirectories:YES];
+	sheet.allowedFileTypes = allowedFileTypes;
 	[sheet setAllowsMultipleSelection:YES];
 	
-	[sheet beginSheetForDirectory:nil file:nil types:allowedFileTypes modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+	[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger returnCode) {
+		if (returnCode == NSOKButton) {
+			NSMutableArray *tmpArr = [NSMutableArray arrayWithCapacity:sheet.URLs.count];
+			for (NSURL *url in sheet.URLs) {
+				[tmpArr addObject:url.path];
+			}
+			[self checkFiles:tmpArr];
+		}
+	}];
 }
 
 //Check all files
@@ -149,7 +159,7 @@
 //Check if it is QuickTime protected file
 - (BOOL)isProtected:(NSString *)path
 {
-	return ([knownProtectedFiles containsObject:[[path pathExtension] lowercaseString]] | [knownProtectedFiles containsObject:NSFileTypeForHFSTypeCode([[[[NSFileManager defaultManager] fileAttributesAtPath:path traverseLink:YES] objectForKey:NSFileHFSTypeCode] longValue])]);
+	return ([knownProtectedFiles containsObject:[[path pathExtension] lowercaseString]] | [knownProtectedFiles containsObject:NSFileTypeForHFSTypeCode([[[[NSFileManager defaultManager] fileAttributesAtPath:path traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue])]);
 }
 
 //Check if the file is folder or file, if it is folder scan it, when a file
@@ -209,7 +219,7 @@
 			
 					if (![self isProtected:realPathName])
 					{
-						NSString *hfsType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:realPathName traverseLink:YES] objectForKey:NSFileHFSTypeCode] longValue]);
+						NSString *hfsType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:realPathName traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue]);
 							
 						if ([allowedFileTypes containsObject:[[realPathName pathExtension] lowercaseString]] | [allowedFileTypes containsObject:hfsType])
 							[files addObject:realPathName];
@@ -231,7 +241,7 @@
 						
 				if (![self isProtected:realPath])
 				{
-					NSString *hfsType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:realPath traverseLink:YES] objectForKey:NSFileHFSTypeCode] longValue]);
+					NSString *hfsType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:realPath traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue]);
 							
 					if ([allowedFileTypes containsObject:[[realPath pathExtension] lowercaseString]] | [allowedFileTypes containsObject:hfsType])
 						[files addObject:realPath];
@@ -494,7 +504,7 @@
 		[progressPanel setMaximumValue:[NSNumber numberWithInteger:100 * [incompatibleFiles count]]];
 		[progressPanel beginSheetForWindow:mainWindow];
 	
-		[NSThread detachNewThreadSelector:@selector(convertFiles:) toTarget:self withObject:[sheet filename]];
+		[NSThread detachNewThreadSelector:@selector(convertFiles:) toTarget:self withObject:[sheet URL].path];
 	}
 	else
 	{
@@ -642,10 +652,10 @@
 		
 		NSString *errorString;
 		
-		if ([KWCommonMethods writeDictionary:burnFile toFile:[sheet filename] errorString:&errorString])
+		if ([KWCommonMethods writeDictionary:burnFile toFile:[sheet URL].path errorString:&errorString])
 		{	
 			if ([sheet isExtensionHidden])
-				[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:@YES forKey:@"NSFileExtensionHidden"] atPath:[sheet filename]];
+				[[NSFileManager defaultManager] changeFileAttributes:[NSDictionary dictionaryWithObject:@YES forKey:@"NSFileExtensionHidden"] atPath:[sheet URL].path];
 		}
 		else
 		{

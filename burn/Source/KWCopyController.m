@@ -94,7 +94,7 @@
 	[sheet orderOut:self];
 
 	if (returnCode == NSOKButton) 
-		[self checkImage:[sheet filename]];
+		[self checkImage:[sheet URL].path];
 }
 
 //Mount a image using hdiutil

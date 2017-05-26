@@ -15,8 +15,8 @@
     IBOutlet NSPopUpButton	*speedPopup;
     IBOutlet NSTextField	*statusText;
 	IBOutlet NSButton		*combineCheckBox;
-	IBOutlet id numberOfCopiesText;
-	IBOutlet id numberOfCopiesBox;
+	IBOutlet NSTextField	*numberOfCopiesText;
+	IBOutlet NSButton		*numberOfCopiesBox;
 	
 	//Session Panel Outlets
 	IBOutlet NSPanel		*sessionsPanel;

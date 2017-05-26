@@ -78,74 +78,74 @@
 														@"KWTemporaryFiles",
 	nil];
 
-	NSArray *defaultValues = [NSArray arrayWithObjects:	[NSNumber numberWithBool:YES],		// KWUseSoundEffects
-														[NSNumber numberWithBool:YES],		// KWRememberLastTab
-														[NSNumber numberWithBool:YES],		// KWRememberPopups
-														[NSNumber numberWithInteger:0],			// KWCleanTemporaryFolderAction
-														[NSNumber numberWithBool:NO],		// KWBurnOptionsVerifyBurn
-														[NSNumber numberWithBool:NO],		// KWShowOverwritableSpace
+	NSArray *defaultValues = [NSArray arrayWithObjects:	@YES,		// KWUseSoundEffects
+														@YES,		// KWRememberLastTab
+														@YES,		// KWRememberPopups
+														@0,			// KWCleanTemporaryFolderAction
+														@NO,		// KWBurnOptionsVerifyBurn
+														@NO,		// KWShowOverwritableSpace
 														[NSNumber numberWithInteger:6],			// KWDefaultCDMedia
 														[NSNumber numberWithInteger:4],			// KWDefaultDVDMedia
-														[NSNumber numberWithInteger:0],			// KWDefaultMedia
-														[NSNumber numberWithInteger:0],			// KWDefaultDataType
-														[NSNumber numberWithBool:NO],		// KWShowFilePackagesAsFolder
-														[NSNumber numberWithBool:YES],		// KWCalculateFilePackageSizes
-														[NSNumber numberWithBool:YES],		// KWCalculateFolderSizes
-														[NSNumber numberWithBool:YES],		// KWCalculateTotalSize
-														[NSNumber numberWithInteger:0],			// KWDefaultAudioType
+														@0,			// KWDefaultMedia
+														@0,			// KWDefaultDataType
+														@NO,		// KWShowFilePackagesAsFolder
+														@YES,		// KWCalculateFilePackageSizes
+														@YES,		// KWCalculateFolderSizes
+														@YES,		// KWCalculateTotalSize
+														@0,			// KWDefaultAudioType
 														[NSNumber numberWithInteger:2],			// KWDefaultPregap
-														[NSNumber numberWithBool:NO],		// KWUseCDText
+														@NO,		// KWUseCDText
 														[NSNumber numberWithInteger:128],		// KWDefaultMP3Bitrate
 														[NSNumber numberWithInteger:1],			// KWDefaultMP3Mode
-														[NSNumber numberWithBool:YES],		// KWCreateArtistFolders
-														[NSNumber numberWithBool:YES],		// KWCreateAlbumFolders
-														[NSNumber numberWithInteger:0],			// KWDefaultRegion
-														[NSNumber numberWithInteger:0],			// KWDefaultVideoType
-														[NSNumber numberWithInteger:0],			// KWDefaultDVDSoundType
-														[NSNumber numberWithBool:NO],		// KWCustomDVDVideoBitrate
+														@YES,		// KWCreateArtistFolders
+														@YES,		// KWCreateAlbumFolders
+														@0,			// KWDefaultRegion
+														@0,			// KWDefaultVideoType
+														@0,			// KWDefaultDVDSoundType
+														@NO,		// KWCustomDVDVideoBitrate
 														[NSNumber numberWithInteger:6000],		// KWDefaultDVDVideoBitrate
-														[NSNumber numberWithBool:NO],		// KWCustomDVDSoundBitrate
+														@NO,		// KWCustomDVDSoundBitrate
 														[NSNumber numberWithInteger:448],		// KWDefaultDVDSoundBitrate
-														[NSNumber numberWithInteger:0],			// KWDVDForceAspect
-														[NSNumber numberWithBool:NO],		// KWForceMPEG2
-														[NSNumber numberWithBool:NO],		// KWMuxSeperateStreams
-														[NSNumber numberWithBool:NO],		// KWRemuxMPEG2Streams
-														[NSNumber numberWithBool:NO],		// KWLoopDVD
-														[NSNumber numberWithBool:YES],		// KWUseTheme
+														@0,			// KWDVDForceAspect
+														@NO,		// KWForceMPEG2
+														@NO,		// KWMuxSeperateStreams
+														@NO,		// KWRemuxMPEG2Streams
+														@NO,		// KWLoopDVD
+														@YES,		// KWUseTheme
 														[[[NSBundle mainBundle] pathForResource:@"Themes" ofType:@""] stringByAppendingPathComponent:@"Default.burnTheme"], //KWDVDThemePath
-														[NSNumber numberWithInteger:0],			// KWThemeFormat
-														[NSNumber numberWithInteger:0],			// KWDefaultDivXSoundType
-														[NSNumber numberWithBool:NO],		// KWCustomDivXVideoBitrate
+														@0,			// KWThemeFormat
+														@0,			// KWDefaultDivXSoundType
+														@NO,		// KWCustomDivXVideoBitrate
 														[NSNumber numberWithInteger:768],		// KWDefaultDivXVideoBitrate
-														[NSNumber numberWithBool:NO],		// KWCustomDivXSoundBitrate
+														@NO,		// KWCustomDivXSoundBitrate
 														[NSNumber numberWithInteger:128],		// KWDefaultDivxSoundBitrate
-														[NSNumber numberWithBool:NO],		// KWCustomDivXSize
+														@NO,		// KWCustomDivXSize
 														[NSNumber numberWithInteger:320],		// KWDefaultDivXWidth
 														[NSNumber numberWithInteger:240],		// KWDefaultDivXHeight
-														[NSNumber numberWithBool:NO],		// KWCustomFPS
+														@NO,		// KWCustomFPS
 														[NSNumber numberWithInteger:25],		// KWDefaultFPS
-														[NSNumber numberWithBool:NO],		// KWAllowMSMPEG4
-														[NSNumber numberWithBool:NO],		// KWForceDivX
-														[NSNumber numberWithBool:NO],		// KWSaveBorders
-														[NSNumber numberWithInteger:0],			// KWSaveBorderSize
-														[NSNumber numberWithBool:NO],		// KWDebug
-														[NSNumber numberWithBool:NO],		// KWUseCustomFFMPEG
+														@NO,		// KWAllowMSMPEG4
+														@NO,		// KWForceDivX
+														@NO,		// KWSaveBorders
+														@0,			// KWSaveBorderSize
+														@NO,		// KWDebug
+														@NO,		// KWUseCustomFFMPEG
 														@"",								// KWCustomFFMPEG
-														[NSNumber numberWithBool:NO],		// KWAllowOverBurning
+														@NO,		// KWAllowOverBurning
 														[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"Burn Temporary.localized"], // KWTemporaryLocation
-														[NSNumber numberWithInteger:0],			// KWTemporaryLocationPopup
+														@0,			// KWTemporaryLocationPopup
 														@"",								// KWDefaultDeviceIdentifier
 														@"DRBurnCompletionActionMount",		// KWBurnOptionsCompletionAction
 														@"General",							// KWSavedPrefView
 														@"Data",							// KWLastTab
 														[NSArray arrayWithObject:@"HFS+"],	// KWAdvancedFilesystems
-														[NSNumber numberWithInteger:0],			//KWDVDTheme
+														@0,			//KWDVDTheme
 														[NSNumber numberWithInteger:430],		//KWDefaultWindowWidth
 														[NSNumber numberWithInteger:436],		//KWDefaultWindowHeight
-														[NSNumber numberWithBool:YES],		//KWFirstRun
-														[NSNumber numberWithInteger:8],			//KWEncodingThreads
-														[NSNumber numberWithBool:NO],		//KWSimulateBurn
-														[NSNumber numberWithInteger:0],			//KWDVDAspectMode
+														@YES,		//KWFirstRun
+														@8,			//KWEncodingThreads
+														@NO,		//KWSimulateBurn
+														@0,			//KWDVDAspectMode
 														[NSArray array],					//KWTemporaryFiles
 	nil];
 
@@ -204,8 +204,8 @@
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 
-	[defaultCenter addObserver:self selector:@selector(openPreferencesAndAddTheme:) name:@"KWDVDThemeOpened" object:nil];
-	[defaultCenter addObserver:self selector:@selector(changeInspector:) name:@"KWChangeInspector" object:nil];
+	[defaultCenter addObserver:self selector:@selector(openPreferencesAndAddTheme:) name:KWDVDThemeOpenedNotification object:nil];
+	[defaultCenter addObserver:self selector:@selector(changeInspector:) name:KWChangeInspectorNotification object:nil];
 	
 	NSString *defaultPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"Burn Temporary.localized"];
 	

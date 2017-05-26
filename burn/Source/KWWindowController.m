@@ -10,6 +10,7 @@
 #import "KWCommonMethods.h"
 #import "KWToolbarKiller.h"
 #import "KWTabViewItem.h"
+#import "KWWindow.h"
 #import <Carbon/Carbon.h>
 #import "BurnDefines.h"
 
@@ -147,7 +148,7 @@
 
 - (IBAction)newTabViewAction:(id)sender
 {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWChangeInspector" object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"KWEmpty",@"Type",nil]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty,@"Type",nil]];
 	[mainTabView selectTabViewItemAtIndex:[newTabView selectedSegment]];
 }
 
@@ -478,7 +479,7 @@
 	}
 	else if ([extension isEqualTo:@"burntheme"])
 	{
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWDVDThemeOpened" object:[NSArray arrayWithObjects:pathname,nil]];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWDVDThemeOpenedNotification object:@[pathname]];
 	}
 	else
 	{
