@@ -7,16 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MultiTag-private.h"
 
-#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_5
-typedef int NSInteger;
-typedef unsigned int NSUInteger;
-#endif
-
-
-@interface MP4Tag : NSObject
-{
-}
+@interface MP4Tag : NSObject <MultiTagAPI>
 
 - (id)initWithFile:(NSString *)file;
 

@@ -7,6 +7,7 @@
 //
 
 #import "MultiTag.h"
+#import "MultiTag-private.h"
 #import "MP4Tag.h"
 #import "TagAPI.h"
 
@@ -15,6 +16,9 @@
 @end
 
 @implementation MultiTag
+{
+	id<MultiTagAPI> tagObject;
+}
 
 - (id)initWithFile:(NSString *)file
 {
@@ -26,8 +30,9 @@
 	}
 	else if ([[[file pathExtension] lowercaseString] isEqualTo:@"mp3"])
 	{
-		tagObject = [[TagAPI alloc] initWithGenreList:nil];
-		[tagObject examineFile:file];
+		TagAPI *tmpTags = [[TagAPI alloc] initWithGenreList:nil];
+		tagObject = tmpTags;
+		[tmpTags examineFile:file];
 	}
 	
 	return self;

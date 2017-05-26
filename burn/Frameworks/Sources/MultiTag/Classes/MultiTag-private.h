@@ -1,18 +1,17 @@
 //
-//  MultiTag.h
+//  MultiTag-private.h
 //  MultiTag
 //
-//  Created by Maarten Foukhar on 28-10-10.
-//  Copyright 2010 Kiwi Fruitware. All rights reserved.
+//  Created by C.W. Betts on 5/26/17.
+//
 //
 
-#import <Cocoa/Cocoa.h>
+#ifndef MultiTag_private_h
+#define MultiTag_private_h
 
+#import <Foundation/Foundation.h>
 
-@interface MultiTag : NSObject
-
-- (id)initWithFile:(NSString *)file;
-
+@protocol MultiTagAPI <NSObject>
 - (NSString *)getTagTitle;
 - (NSString *)getTagArtist;
 - (NSString *)getTagComposer;
@@ -25,7 +24,10 @@
 - (NSInteger)getTagDisk;
 - (NSInteger)getTagTotalNumberDisks;
 
-- (NSArray *)getTagGenreNames;
+- (NSArray<NSString*> *)getTagGenreNames;
+
+@optional
+
 - (NSMutableArray *)getTagImage;
 
 - (BOOL)setTagTitle:(NSString *)Title;
@@ -45,6 +47,8 @@
 
 - (int)updateFile;
 
-//- (BOOL)setTagImages:(NSMutableArray *)Images;
-
 @end
+
+
+
+#endif /* MultiTag_private_h */

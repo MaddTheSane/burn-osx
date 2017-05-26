@@ -9,16 +9,17 @@
 #import "MP4Tag.h"
 #include <mp4v2/mp4v2.h>
 
-MP4FileHandle _file;
-const MP4Tags* _tags;
-
 @implementation MP4Tag
+{
+	MP4FileHandle _file;
+	const MP4Tags* _tags;
+}
 
 - (id)initWithFile:(NSString *)file
 {
 	self = [super init];
 
-	_file = MP4Read([file cStringUsingEncoding:NSUTF8StringEncoding]);
+	_file = MP4Read([file fileSystemRepresentation]);
 	
 	if ( _file != MP4_INVALID_FILE_HANDLE )
 	{
@@ -27,6 +28,7 @@ const MP4Tags* _tags;
 	}
 	else
 	{
+		[self release];
 		return nil;
 	}
 	
@@ -84,12 +86,8 @@ const MP4Tags* _tags;
 - (NSInteger)getTagYear
 {
 	if (_tags->releaseDate)
-		#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_5
-		return [[NSString stringWithCString:_tags->releaseDate encoding:NSUTF8StringEncoding] intValue];
-		#else
 		return [[NSString stringWithCString:_tags->releaseDate encoding:NSUTF8StringEncoding] integerValue];
-		#endif
-		
+	
 	return 0;
 }
 
@@ -139,7 +137,7 @@ const MP4Tags* _tags;
 
 /*- (NSImage *)getTagArtwork
 {
-	MP4FileHandle mp4file = MP4Read([_file cStringUsingEncoding:NSUTF8StringEncoding]);
+	MP4FileHandle mp4file = MP4Read([_file fileSystemRepresentation]);
 	
 	if ( mp4file != MP4_INVALID_FILE_HANDLE )
 	{

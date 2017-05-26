@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55E74C801ED8BC010092E9F2 /* MultiTag-private.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E74C7F1ED8BC010092E9F2 /* MultiTag-private.h */; };
 		FE32500712DBC0490001350D /* MultiTag.h in Headers */ = {isa = PBXBuildFile; fileRef = FE0DA34D12796E09008FBA17 /* MultiTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE32500812DBC0490001350D /* MP4Tag.h in Headers */ = {isa = PBXBuildFile; fileRef = FE32462B12DB7AC90001350D /* MP4Tag.h */; };
 		FE32500912DBC0490001350D /* id3V1Tag.h in Headers */ = {isa = PBXBuildFile; fileRef = FE3248D112DB813B0001350D /* id3V1Tag.h */; };
@@ -317,6 +318,7 @@
 		3253614C1062E91300A38041 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
 		3253614D1062E91300A38041 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* MultiTag_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiTag_Prefix.pch; sourceTree = "<group>"; };
+		55E74C7F1ED8BC010092E9F2 /* MultiTag-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MultiTag-private.h"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FE0DA34D12796E09008FBA17 /* MultiTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiTag.h; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0DA34D12796E09008FBA17 /* MultiTag.h */,
+				55E74C7F1ED8BC010092E9F2 /* MultiTag-private.h */,
 				FE0DA34E12796E09008FBA17 /* MultiTag.mm */,
 				FE32462B12DB7AC90001350D /* MP4Tag.h */,
 				FE32462C12DB7AC90001350D /* MP4Tag.mm */,
@@ -787,6 +790,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE32500712DBC0490001350D /* MultiTag.h in Headers */,
+				55E74C801ED8BC010092E9F2 /* MultiTag-private.h in Headers */,
 				FE32500812DBC0490001350D /* MP4Tag.h in Headers */,
 				FE32500912DBC0490001350D /* id3V1Tag.h in Headers */,
 				FE32500A12DBC0490001350D /* id3V2Frame.h in Headers */,

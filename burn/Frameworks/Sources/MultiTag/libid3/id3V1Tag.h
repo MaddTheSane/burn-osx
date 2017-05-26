@@ -39,15 +39,14 @@
 }
 
 // initilize
--(id)init;
+-(instancetype)init;
 -(BOOL)openPath:(NSString *)Path;
--(void)dealloc;
-// information 
+// information
 -(int)getErrorCode;
 -(NSString *)getErrorDescription;
 -(BOOL)setError:(int)No reason:(NSString *)Description;
 -(void)clearError;
--(BOOL)tagPresent;
+@property (readonly) BOOL tagPresent;
 
 
 // id3 tag processing

@@ -20,9 +20,9 @@
 #include "id3V2Frame.h"
 #endif
 #endif
+#import "MultiTag-private.h"
 
-
-@interface TagAPI : NSObject {
+@interface TagAPI : NSObject <MultiTagAPI> {
 //data dictionary used to store frame and genres information
     NSDictionary *dataDictionary;
 
@@ -44,7 +44,6 @@
 
 // ********** Initialise and examine files *********************
 - (id)initWithGenreList:(NSMutableDictionary *)Dictionary;
-- (void)dealloc;
 - (void)releaseAttributes;
 - (BOOL)examineFile:(NSString *)Path;
 - (int)updateFile;
