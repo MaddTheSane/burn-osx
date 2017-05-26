@@ -49,6 +49,7 @@
 
 #import "HFSPlusController.h"
 #import "KWCommonMethods.h"
+#import "BurnDefines.h"
 
 #import <Carbon/Carbon.h>
 
@@ -337,7 +338,7 @@
 	
 	[self setHiddenExtension:self];
 
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWReloadRequested" object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWReloadRequestedNotification object:nil];
 }
 
 - (IBAction)setFolderBoundsProperty:(id)sender
@@ -432,8 +433,8 @@
 	}
 	
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-	[defaultCenter postNotificationName:@"KWLeaveTab" object:nil];
-	[defaultCenter postNotificationName:@"KWReloadRequested" object:nil];
+	[defaultCenter postNotificationName:KWLeaveTabNotification object:nil];
+	[defaultCenter postNotificationName:KWReloadRequestedNotification object:nil];
 }
 
 @end

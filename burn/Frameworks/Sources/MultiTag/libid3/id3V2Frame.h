@@ -51,9 +51,9 @@
 
 -(NSData *)getRawFrameData;
 -(NSData *)getCompleteRawFrame;
--(NSData *)write2FrameLength:(int)Length;
--(NSData *)write3FrameLength:(int)Length;
--(NSData *)write4FrameLength:(int)Length;
+-(NSData *)write2FrameLength:(NSInteger)Length;
+-(NSData *)write3FrameLength:(NSInteger)Length;
+-(NSData *)write4FrameLength:(NSInteger)Length;
 
 -(BOOL)compress;
 -(BOOL)unsynch;

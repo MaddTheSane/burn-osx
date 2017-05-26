@@ -103,7 +103,7 @@
 
 	if (returnCode == NSOKButton)
 	{
-		imagePath = [[NSString alloc] initWithString:[sheet filename]];
+		imagePath = [[NSString alloc] initWithString:[sheet URL].path];
 		
 		if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath])
 			[KWCommonMethods removeItemAtPath:imagePath];

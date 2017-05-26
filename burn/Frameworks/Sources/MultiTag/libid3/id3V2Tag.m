@@ -130,7 +130,7 @@
 
     if (file == NULL)
     {
-        NSLog(@"Can not open file :%s",[path cString]);
+        NSLog(@"Can not open file :%@", path);
         return NO;
     }
 
@@ -245,7 +245,7 @@
 
 - (NSMutableData *)desynchData:(NSData *)Data offset:(int)Offset
 { // desynches a NSData object  the returned object have been retained and the receive needs to release the object once done with the object.
-    int oldLength = [Data length];
+    NSInteger oldLength = [Data length];
     char * Buffer = (char *)[Data bytes] + Offset;
     NSMutableData * newBuffer = [[NSMutableData dataWithLength: oldLength] retain];
     unsigned char * tempPointer = (unsigned char*) [newBuffer bytes];
@@ -428,7 +428,7 @@
     fileAttributes = [fileManager fileSystemAttributesAtPath:writePath];
     if (![fileManager isWritableFileAtPath:writePath])
     {
-        NSLog(@"File : %s is not writable",[path lossyCString]);
+        NSLog(@"File : %@ is not writable", path);
         return NO;
     }
     
@@ -442,7 +442,7 @@
     {
         if (![fileManager isDeletableFileAtPath:writePath])
         {
-            NSLog(@"Can't repad: File %s is not deleteable", [path lossyCString]);
+            NSLog(@"Can't repad: File %@ is not deleteable", path);
             return NO;
         }
         //open unique file based on file name with .temp extention added
@@ -478,9 +478,9 @@
         
     while ((value = [enumerator nextObject])) 
     {
-		int maxCount = [value count];
-		int count;
-		int divider = 0;
+		NSInteger maxCount = [value count];
+		NSInteger count;
+		NSInteger divider = 0;
 	
 		if ([[[value objectAtIndex:0] getFrameID] isEqualTo:tempString]) {
 			for (count = maxCount - 1; count >= 0; count --) {
@@ -498,9 +498,8 @@
 		}
 	}
 	
-	int i;
-	for (i = 0; i < [sortArray count]; i++)
-		[file writeData:[sortArray objectAtIndex:i]];
+	for (NSData *data in sortArray)
+		[file writeData:data];
         
 	//clear the padding space
 	NSData *paddingData = [NSMutableData dataWithLength:paddingLength];
@@ -542,8 +541,8 @@
         id anObject = [frameSet objectForKey:Name];
 		if (anObject != NULL){
 			// first remove the frameSetLength by the size of the frames that you will be deleting
-			int count = [anObject count];
-			int i;
+			NSInteger count = [anObject count];
+			NSInteger i;
 			for (i=0; i < count;i ++) {
 				frameSetLength -= [[anObject objectAtIndex:i] length];
 			}
@@ -555,7 +554,7 @@
     
     id anObject = [frameSet objectForKey:Name];
     if (anObject == NULL) return YES;    
-    int count = [anObject count];
+    NSInteger count = [anObject count];
     if (count < index) index = count;
     frameSetLength -= [[anObject objectAtIndex:index] length];
     [anObject removeObjectAtIndex:index];
@@ -569,7 +568,7 @@
 	
     id anObject = [frameSet objectForKey:[Frame getFrameID]];
     if (anObject == NULL) return YES;
-	int index = [anObject indexOfObject:Frame];
+	NSInteger index = [anObject indexOfObject:Frame];
     frameSetLength -= [[anObject objectAtIndex:index] length];
     [anObject removeObjectAtIndex:index];
 	if ([anObject count] <= 0) [frameSet removeObjectForKey:[Frame getFrameID]];
@@ -586,7 +585,7 @@
     id anObject = [frameSet objectForKey:Name];
 	if (anObject != NULL) {
 		if ([anObject isKindOfClass:[NSMutableArray class]]) {
-			int count = [anObject count];
+			NSInteger count = [anObject count];
 			if (index >= count) [anObject addObject:Frame];
 			else {
 				if (index < 0) index = 0;
@@ -620,8 +619,8 @@
     [frameSet setObject:newFrames forKey:Name];
     NSMutableArray * anObject = [frameSet objectForKey:Name];
     if (anObject != NULL) {
-		int i;
-		int count = [anObject count];
+		NSInteger i;
+		NSInteger count = [anObject count];
 		for (i=0; i < count ;i ++) {
 			frameSetLength += [[anObject objectAtIndex:i] length];
 		}
@@ -642,7 +641,7 @@
 
 -(NSData *)renderExtendedHeader {
 	NSMutableData * header = [NSMutableData dataWithCapacity:10];
-    int length = [extendedHeader length];
+    NSInteger length = [extendedHeader length];
 	int mask = 0xff;
 	
     int Bytes3 = (length & mask);
@@ -758,7 +757,7 @@
 
 -(int)tagLength
 {  // this is actually the tag length less the header length
-    return (extendedHeaderPresent ? [extendedHeader length] + 4 : 0) + frameSetLength + paddingLength + ([self footer]?10:0);
+    return (int)((extendedHeaderPresent ? [extendedHeader length] + 4 : 0) + frameSetLength + paddingLength + ([self footer]?10:0));
 }
 
 -(void)dealloc
@@ -790,7 +789,7 @@
 	}
 	
 	if (![frameRecord objectForKey:@"multi"]) multi = NO; // check to see if you allowed to have more than one frame
-	int i,y;
+	NSInteger i,y;
 	y = [Content count];
 	if (y>0 && !multi) y = 1; // if not allowed mulitple frames set y = 1;
 
@@ -1007,7 +1006,7 @@
 
 -(BOOL)setImages:(NSMutableArray *)Images {
     if (Images == NULL) return NO;
-    int count = [Images count];
+    NSInteger count = [Images count];
 	NSString *tempString;
 	switch (majorVersion) {
         case 0	 	: tempString = @"PIC";
@@ -1126,15 +1125,15 @@
     {
         if(majorVersion < 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TT2"]) title = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TT2"])) title = [anObject getTextFromFrame];
         } else
         if (majorVersion == 3)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TIT2"]) title = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TIT2"])) title = [anObject getTextFromFrame];
         } else
         if (majorVersion == 4)
         {	
-        if (anObject = [self getFirstFrameNamed:@"TIT2"]) title = [anObject getTextFromFrame];
+        if ((anObject = [self getFirstFrameNamed:@"TIT2"])) title = [anObject getTextFromFrame];
         }
     }
     return title;
@@ -1149,15 +1148,15 @@
     {
         if(majorVersion < 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TP1"]) artist = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TP1"])) artist = [anObject getTextFromFrame];
         } else
         if (majorVersion == 3)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TPE1"]) artist = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TPE1"])) artist = [anObject getTextFromFrame];
         } else
         if (majorVersion == 4)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TPE1"]) artist = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TPE1"])) artist = [anObject getTextFromFrame];
         }
 	}    
     return artist;
@@ -1172,15 +1171,15 @@
     {
         if(majorVersion < 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TAL"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TAL"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 3)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TALB"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TALB"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 4)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TALB"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TALB"])) album = [anObject getTextFromFrame];
         }
     }    
     return album;
@@ -1194,7 +1193,7 @@
     {
         if (majorVersion <= 2)
         {
-            if (anObject = [self getFirstFrameNamed:@"TYE"])
+            if ((anObject = [self getFirstFrameNamed:@"TYE"]))
             {
                 NSString * yearString = [anObject getTextFromFrame];
                 return [yearString intValue];
@@ -1202,7 +1201,7 @@
         } else
         if (majorVersion == 3)
         { 
-            if (anObject = [self getFirstFrameNamed:@"TYER"])
+            if ((anObject = [self getFirstFrameNamed:@"TYER"]))
             {
                 NSString * yearString = [anObject getTextFromFrame];
                 return [yearString intValue];
@@ -1210,7 +1209,7 @@
         } else
         if (majorVersion == 4)
         {    
-            if (anObject = [self getFirstFrameNamed:@"TDRC"])
+            if ((anObject = [self getFirstFrameNamed:@"TDRC"]))
             {
                 NSString * yearString = [anObject getTextFromFrame];
                 NSArray *listItems = [yearString componentsSeparatedByString:@"-"];
@@ -1231,7 +1230,7 @@
     {
         if (majorVersion <= 2)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRK"]) 
+            if ((anObject = [self getFirstFrameNamed:@"TRK"])) 
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1239,7 +1238,7 @@
         } else 
         if (majorVersion == 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRCK"])
+            if ((anObject = [self getFirstFrameNamed:@"TRCK"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1247,7 +1246,7 @@
         } else
         if (majorVersion == 4)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRCK"])
+            if ((anObject = [self getFirstFrameNamed:@"TRCK"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1266,7 +1265,7 @@
     {
         if (majorVersion <= 2)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRK"]) 
+            if ((anObject = [self getFirstFrameNamed:@"TRK"])) 
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 tracks = [self setSizeInSetString: trackString];
@@ -1274,7 +1273,7 @@
         } else 
         if (majorVersion == 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRCK"])
+            if ((anObject = [self getFirstFrameNamed:@"TRCK"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 tracks = [self setSizeInSetString: trackString];
@@ -1282,7 +1281,7 @@
         } else
         if (majorVersion == 4)
         {
-            if (anObject = [self getFirstFrameNamed:@"TRCK"])
+            if ((anObject = [self getFirstFrameNamed:@"TRCK"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 tracks = [self setSizeInSetString: trackString];
@@ -1301,7 +1300,7 @@
     {
         if (majorVersion <= 2)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPA"]) 
+            if ((anObject = [self getFirstFrameNamed:@"TPA"])) 
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1309,7 +1308,7 @@
         } else 
         if (majorVersion == 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPOS"])
+            if ((anObject = [self getFirstFrameNamed:@"TPOS"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1317,7 +1316,7 @@
         } else
         if (majorVersion == 4)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPOS"])
+            if ((anObject = [self getFirstFrameNamed:@"TPOS"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 track = [self numberInSetString: trackString];
@@ -1336,7 +1335,7 @@
     {
         if (majorVersion <= 2)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPA"]) 
+            if ((anObject = [self getFirstFrameNamed:@"TPA"])) 
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 Disks = [self setSizeInSetString: trackString];
@@ -1344,7 +1343,7 @@
         } else 
         if (majorVersion == 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPOS"])
+            if ((anObject = [self getFirstFrameNamed:@"TPOS"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 Disks = [self setSizeInSetString: trackString];
@@ -1352,7 +1351,7 @@
         } else
         if (majorVersion == 4)
         {
-            if (anObject = [self getFirstFrameNamed:@"TPOS"])
+            if ((anObject = [self getFirstFrameNamed:@"TPOS"]))
             {
                 NSString * trackString = [anObject getTextFromFrame];
                 Disks = [self setSizeInSetString: trackString];
@@ -1371,15 +1370,15 @@
     {
         if (majorVersion <= 2)
         {
-            if(anObject = [self getFirstFrameNamed:@"TCO"]) genreName = [anObject genreArrayFromFrame];
+            if((anObject = [self getFirstFrameNamed:@"TCO"])) genreName = [anObject genreArrayFromFrame];
         } else
         if (majorVersion == 3)
         {
-            if(anObject = [self getFirstFrameNamed:@"TCON"]) genreName = [anObject genreArrayFromFrame];
+            if((anObject = [self getFirstFrameNamed:@"TCON"])) genreName = [anObject genreArrayFromFrame];
         } else
         if (majorVersion == 4)
         {
-            if(anObject = [self getFirstFrameNamed:@"TCON"]) genreName = [anObject genreArrayFromFrame];
+            if((anObject = [self getFirstFrameNamed:@"TCON"])) genreName = [anObject genreArrayFromFrame];
         }
     }
     if ((genreName == NULL)||([genreName count] == 0)) return NULL;    
@@ -1466,14 +1465,14 @@
     NSMutableDictionary * tempDictionary = NULL;
     NSString * tempString = NULL;
     id anObject;
-    int count;
-    int maxCount;
+    NSInteger count;
+    NSInteger maxCount;
     
     if (!present) return NULL;
     
-    if (majorVersion < 3) tempString = [NSString stringWithCString:"PIC"];
-    if (majorVersion == 3) tempString = [NSString stringWithCString:"APIC"];
-    if (majorVersion == 4) tempString = [NSString stringWithCString:"APIC"];
+    if (majorVersion < 3) tempString = @"PIC";
+    if (majorVersion == 3) tempString = @"APIC";
+    if (majorVersion == 4) tempString = @"APIC";
     
     anObject = [frameSet objectForKey:tempString];
     
@@ -1500,15 +1499,15 @@
     {
         if(majorVersion < 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TSS"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TSS"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 3)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TSSE"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TSSE"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 4)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TSSE"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TSSE"])) album = [anObject getTextFromFrame];
         }
     }    
     return album;
@@ -1523,15 +1522,15 @@
     {
         if(majorVersion < 3)
         {
-            if (anObject = [self getFirstFrameNamed:@"TCM"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TCM"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 3)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TCOM"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TCOM"])) album = [anObject getTextFromFrame];
         } else
         if (majorVersion == 4)
         {	
-            if (anObject = [self getFirstFrameNamed:@"TCOM"]) album = [anObject getTextFromFrame];
+            if ((anObject = [self getFirstFrameNamed:@"TCOM"])) album = [anObject getTextFromFrame];
         }
     }    
     return album;
@@ -1561,7 +1560,7 @@
     char textCoding = *charPtr;  // the first byte is the text coding for the description
     int i;
     
-    pictureType = [NSString stringWithCString:charPtr+1 length:3];
+    pictureType = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, 3)] encoding:NSASCIIStringEncoding] autorelease];
             
     // get the picture type byte and convert into a information string;
     Type = [self decodeImageType:charPtr[4]];
@@ -1576,7 +1575,7 @@
     i++;
     if (textCoding == 0)
     {
-        Description = [NSString stringWithCString:charPtr+5 length:i-5];
+        Description =  [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(5, i-5)] encoding:NSASCIIStringEncoding] autorelease];
     }
     else 
     {
@@ -1617,7 +1616,7 @@
         if (charPtr[i] == '\0') break;
     }
     
-    Type = [NSString stringWithCString:charPtr+1 length:i];
+	Type = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(1, i)] encoding:NSASCIIStringEncoding] autorelease];
     
     i++;
     // get the picture type byte and convert into a information string;
@@ -1634,17 +1633,17 @@
     i++;
     if (textCoding == 0)
     {
-        Description = [NSString stringWithCString:(void *)charPtr length:i-y];
+		Description = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSASCIIStringEncoding] autorelease];//[NSString stringWithCString:(void *)charPtr length:i-y];
     }
     else 
     {
         i++;
-        Description = [[[NSString alloc] initWithData:[NSData dataWithBytesNoCopy:(void *)charPtr+y length: i-y freeWhenDone:NO] encoding:NSUTF8StringEncoding] autorelease];  //this is not the right encoding I will fix later
+        Description = [[[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(y, i-y)] encoding:NSUTF8StringEncoding] autorelease];  //this is not the right encoding I will fix later
     // get the image 
     }
     
     if (charPtr[i]=='\0') i++;
-    tempImage = [NSBitmapImageRep imageRepWithData:[NSData dataWithBytesNoCopy:(void *)charPtr+i length: [data length]-i freeWhenDone:NO]];
+    tempImage = [NSBitmapImageRep imageRepWithData:[data subdataWithRange:NSMakeRange(i, data.length - i)]];
     if (tempImage == NULL ) return NULL;
     [tempDictionary setObject:tempImage forKey:@"Image"];
     [tempDictionary setObject:pictureType forKey:@"Picture Type"];
@@ -1666,49 +1665,49 @@
     NSString * Type;
     switch (encodedValue)
     { // the string values are from the specification
-        case 00 :   Type = [NSString stringWithString:@"Other"];
+        case 00 :   Type = @"Other";
                     break;
-        case 01 :   Type = [NSString stringWithString:@"32x32 pixels \'file icon\'"];
+        case 01 :   Type = @"32x32 pixels \'file icon\'";
                     break;
-        case 02 :   Type = [NSString stringWithString:@"Other file icon"];
+        case 02 :   Type = @"Other file icon";
                     break;
-        case 03 :   Type = [NSString stringWithString:@"Cover (front)"];
+        case 03 :   Type = @"Cover (front)";
                     break;
-        case 04 :   Type = [NSString stringWithString:@"Cover (back)"];
+        case 04 :   Type = @"Cover (back)";
                     break;
-        case 05 :   Type = [NSString stringWithString:@"Leaflet page"];
+        case 05 :   Type = @"Leaflet page";
                     break;
-        case 06 :   Type = [NSString stringWithString:@"Media (e.g. label side of CD)"];
+        case 06 :   Type = @"Media (e.g. label side of CD)";
                     break;
-        case 07 :   Type = [NSString stringWithString:@"Lead artist/lead performer/soloist"];
+        case 07 :   Type = @"Lead artist/lead performer/soloist";
                     break;
-        case 8 :    Type = [NSString stringWithString:@"Artist/performer"];
+        case 8 :    Type = @"Artist/performer";
                     break;
-        case 9 :    Type = [NSString stringWithString:@"Conductor"];
+        case 9 :    Type = @"Conductor";
                     break;
-        case 10 :   Type = [NSString stringWithString:@"Band/Orchestra"];
+        case 10 :   Type = @"Band/Orchestra";
                     break;
-        case 11 :   Type = [NSString stringWithString:@"Composer"];
+        case 11 :   Type = @"Composer";
                     break;
-        case 12 :   Type = [NSString stringWithString:@"Lyricist/text writer"];
+        case 12 :   Type = @"Lyricist/text writer";
                     break;
-        case 13 :   Type = [NSString stringWithString:@"Recording Location"];
+        case 13 :   Type = @"Recording Location";
                     break;
-        case 14 :   Type = [NSString stringWithString:@"During recording"];
+        case 14 :   Type = @"During recording";
                     break;
-        case 15 :   Type = [NSString stringWithString:@"During performance"];
+        case 15 :   Type = @"During performance";
                     break;
-        case 16 :   Type = [NSString stringWithString:@"Movie/video screen capture"];
+        case 16 :   Type = @"Movie/video screen capture";
                     break;
-        case 17 :   Type = [NSString stringWithString:@"A bright coloured fish"];
+        case 17 :   Type = @"A bright coloured fish";
                     break;
-        case 18 :   Type = [NSString stringWithString:@"Illustration"];
+        case 18 :   Type = @"Illustration";
                     break;
-        case 19 :   Type = [NSString stringWithString:@"Band/artist logotype"];
+        case 19 :   Type = @"Band/artist logotype";
                     break;
-        case 20 :   Type = [NSString stringWithString:@"Publisher/Studio logotype"];
+        case 20 :   Type = @"Publisher/Studio logotype";
                     break;
-        default:    Type = [NSString stringWithString:@"Unknown"];
+        default:    Type = [NSString stringWithFormat:@"Unknown, %i", encodedValue];
                     break;
     }
     return Type;

@@ -51,6 +51,7 @@
 
 #import "FSPropertiesController.h"
 #import "KWCommonMethods.h"
+#import "BurnDefines.h"
 
 @interface NSView (EnablingHelper)
 
@@ -171,8 +172,8 @@
 	[contentView setEnabled:([sender state]) deep:YES];
 
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-	[defaultCenter postNotificationName:@"KWLeaveTab" object:nil];
-	[defaultCenter postNotificationName:@"KWReloadRequested" object:nil];
+	[defaultCenter postNotificationName:KWLeaveTabNotification object:nil];
+	[defaultCenter postNotificationName:KWReloadRequestedNotification object:nil];
 }
 
 - (void)clearForMultipleSelection
@@ -283,8 +284,8 @@
 	if ([[propertyMappings objectAtIndex:[sender tag]] isEqualTo:DRInvisible])
 	{
 		NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-		[defaultCenter postNotificationName:@"KWLeaveTab" object:nil];
-		[defaultCenter postNotificationName:@"KWReloadRequested" object:nil];
+		[defaultCenter postNotificationName:KWLeaveTabNotification object:nil];
+		[defaultCenter postNotificationName:KWReloadRequestedNotification object:nil];
 	}
 }
 

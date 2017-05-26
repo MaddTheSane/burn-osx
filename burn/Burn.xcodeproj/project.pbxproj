@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552CBF531ED8A3A400A9A82D /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 552CBF521ED8A31900A9A82D /* MultiTag.framework */; };
+		552CBF541ED8A3A400A9A82D /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 552CBF521ED8A31900A9A82D /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55A3C9CB1ED4E7D900675D13 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */; };
 		55C6D4041ED683A3005A99FD /* BurnDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6D4031ED683A3005A99FD /* BurnDefines.m */; };
 		FE2FF27212F2DA5E0010AD5D /* NSNumber_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2FF26B12F2DA5E0010AD5D /* NSNumber_Extensions.m */; };
 		FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
-		FE7C166F12DBCBDD00CFDA59 /* MultiTag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; };
 		FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FE7C167C12DBCBFE00CFDA59 /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FEDC0F4912FAB33B00919EC2 /* NSControl_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC0F4612FAB33B00919EC2 /* NSControl_Extensions.m */; };
 		FEDC0F5B12FAB49800919EC2 /* NSString_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDC0F5812FAB49800919EC2 /* NSString_Extensions.m */; };
 		FEE0510B130126EA00072366 /* LOXI.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE05104130126EA00072366 /* LOXI.m */; };
@@ -103,6 +103,23 @@
 		FEF8A87A12D9D2BF00FE302C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3CA4E00BAC7D0E001FB922 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		552CBF511ED8A31900A9A82D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE32508712DBC0490001350D;
+			remoteInfo = "MultiTag (Intel 64-bit)";
+		};
+		552CBF551ED8A3A400A9A82D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FE32500512DBC0490001350D;
+			remoteInfo = MultiTag;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FEF8A87D12D9D2BF00FE302C /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -111,7 +128,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */,
-				FE7C167C12DBCBFE00CFDA59 /* MultiTag.framework in Copy Frameworks */,
+				552CBF541ED8A3A400A9A82D /* MultiTag.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +141,7 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* Burn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Burn_Prefix.pch; sourceTree = "<group>"; };
+		552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MultiTag.xcodeproj; path = Frameworks/Sources/MultiTag/MultiTag.xcodeproj; sourceTree = "<group>"; };
 		55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = Images/Icons.xcassets; sourceTree = "<group>"; };
 		55C6D4021ED68394005A99FD /* BurnDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BurnDefines.h; path = Source/BurnDefines.h; sourceTree = "<group>"; };
 		55C6D4031ED683A3005A99FD /* BurnDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BurnDefines.m; path = Source/BurnDefines.m; sourceTree = "<group>"; };
@@ -288,18 +306,7 @@
 		FE6134F51102016400C086EA /* KWMediaListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWMediaListController.m; path = Source/KWMediaListController.m; sourceTree = "<group>"; };
 		FE6DBFD00BDCED47006F5F53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KWInspector.xib; sourceTree = "<group>"; };
 		FE7371CA0F5B0B7600EBC82E /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		FE7C160212DBCAF900CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C160312DBCAF900CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
-		FE7C161812DBCB1B00CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C161912DBCB1B00CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
-		FE7C162C12DBCB4100CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
-		FE7C164412DBCB7800CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C164512DBCB7800CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
-		FE7C165812DBCBBC00CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C165912DBCBBC00CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
-		FE7C166C12DBCBDD00CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MultiTag.framework; sourceTree = "<group>"; };
+		FE7C166C12DBCBDD00CFDA59 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "Frameworks/Intel 64-bit/Growl.framework"; sourceTree = "<group>"; };
 		FE888CB70CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = nl; path = nl.lproj/Credits.html; sourceTree = "<group>"; };
 		FE888CB80CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE888CB90CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/KWDiscInfo.xib; sourceTree = "<group>"; };
@@ -479,8 +486,8 @@
 				FEF8A87612D9D2BF00FE302C /* Cocoa.framework in Frameworks */,
 				FEF8A87712D9D2BF00FE302C /* DiscRecording.framework in Frameworks */,
 				FEF8A87A12D9D2BF00FE302C /* Carbon.framework in Frameworks */,
+				552CBF531ED8A3A400A9A82D /* MultiTag.framework in Frameworks */,
 				FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */,
-				FE7C166F12DBCBDD00CFDA59 /* MultiTag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +526,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* Burn */ = {
 			isa = PBXGroup;
 			children = (
+				552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */,
 				FE32F84F0E51970000C99F32 /* Sounds */,
 				FEEF6F130B92E8AF00ED64A9 /* Images */,
 				FEEF72460B92FCAF00ED64A9 /* Binaries */,
@@ -560,6 +568,14 @@
 				FEA1527012DAEC910073FA9B /* Included Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		552CBF3F1ED8A31800A9A82D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				552CBF521ED8A31900A9A82D /* MultiTag.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FE0340060BA7FBD300622112 /* KWRecorderInfo */ = {
@@ -675,66 +691,6 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
-		FE7C160112DBCAF900CFDA59 /* Universal */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C160212DBCAF900CFDA59 /* Growl.framework */,
-				FE7C160312DBCAF900CFDA59 /* MultiTag.framework */,
-			);
-			name = Universal;
-			path = Frameworks/Universal;
-			sourceTree = "<group>";
-		};
-		FE7C161712DBCB1B00CFDA59 /* Universal 64-bit */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C161812DBCB1B00CFDA59 /* Growl.framework */,
-				FE7C161912DBCB1B00CFDA59 /* MultiTag.framework */,
-			);
-			name = "Universal 64-bit";
-			path = "Frameworks/Universal 64-bit";
-			sourceTree = "<group>";
-		};
-		FE7C162B12DBCB4100CFDA59 /* PowerPC */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C162C12DBCB4100CFDA59 /* Growl.framework */,
-				FE7C162D12DBCB4100CFDA59 /* MultiTag.framework */,
-			);
-			name = PowerPC;
-			path = Frameworks/PowerPC;
-			sourceTree = "<group>";
-		};
-		FE7C164312DBCB7800CFDA59 /* Intel */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C164412DBCB7800CFDA59 /* Growl.framework */,
-				FE7C164512DBCB7800CFDA59 /* MultiTag.framework */,
-			);
-			name = Intel;
-			path = Frameworks/Intel;
-			sourceTree = "<group>";
-		};
-		FE7C165712DBCBBC00CFDA59 /* PowerPC 64-bit */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C165812DBCBBC00CFDA59 /* Growl.framework */,
-				FE7C165912DBCBBC00CFDA59 /* MultiTag.framework */,
-			);
-			name = "PowerPC 64-bit";
-			path = "Frameworks/PowerPC 64-bit";
-			sourceTree = "<group>";
-		};
-		FE7C166B12DBCBDD00CFDA59 /* Intel 64-bit */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C166C12DBCBDD00CFDA59 /* Growl.framework */,
-				FE7C166D12DBCBDD00CFDA59 /* MultiTag.framework */,
-			);
-			name = "Intel 64-bit";
-			path = "Frameworks/Intel 64-bit";
-			sourceTree = "<group>";
-		};
 		FE9DB849110338B10086F62C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,12 +702,7 @@
 		FEA1527012DAEC910073FA9B /* Included Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FE7C160112DBCAF900CFDA59 /* Universal */,
-				FE7C161712DBCB1B00CFDA59 /* Universal 64-bit */,
-				FE7C162B12DBCB4100CFDA59 /* PowerPC */,
-				FE7C164312DBCB7800CFDA59 /* Intel */,
-				FE7C165712DBCBBC00CFDA59 /* PowerPC 64-bit */,
-				FE7C166B12DBCBDD00CFDA59 /* Intel 64-bit */,
+				FE7C166C12DBCBDD00CFDA59 /* Growl.framework */,
 			);
 			name = "Included Frameworks";
 			sourceTree = "<group>";
@@ -1090,6 +1041,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				552CBF561ED8A3A400A9A82D /* PBXTargetDependency */,
 			);
 			name = "Burn (Intel 64-bit)";
 			productInstallPath = "$(HOME)/Applications";
@@ -1127,12 +1079,28 @@
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Burn */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 552CBF3F1ED8A31800A9A82D /* Products */;
+					ProjectRef = 552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FEF8A80612D9D2BF00FE302C /* Burn (Intel 64-bit) */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		552CBF521ED8A31900A9A82D /* MultiTag.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MultiTag.framework;
+			remoteRef = 552CBF511ED8A31900A9A82D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FEF8A80712D9D2BF00FE302C /* Resources */ = {
@@ -1240,6 +1208,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		552CBF561ED8A3A400A9A82D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MultiTag;
+			targetProxy = 552CBF551ED8A3A400A9A82D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
@@ -1567,8 +1543,10 @@
 		C05733CC08A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = USE_QTKIT;
@@ -1588,8 +1566,10 @@
 		C05733CD08A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREPROCESSOR_DEFINITIONS = USE_QTKIT;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1616,6 +1596,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;
@@ -1634,6 +1615,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiwifruitware.Burn;

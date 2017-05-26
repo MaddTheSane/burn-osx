@@ -136,7 +136,8 @@
 -(NSString *)getFrameID
 {
     if (Buffer == NULL) return NULL;
-    return [NSString stringWithCString: (char *)(Buffer + currentFramePosition) length:3];
+	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:3];
+	return [[[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding] autorelease];
 }
 
 //  ?? need to clean up this section I don't have a good calculator handy

@@ -89,7 +89,7 @@
 // read ID3 v2 header information
 - (int)scanForHeader:(NSData *)Data;
 - (BOOL)parseExtendedHeader:(NSData *)Header;
-- (NSMutableData *)desynchData:(NSData *)Data offset:(int)Offset;
+- (NSMutableData *)desynchData:(NSData *)Data offset:(int)Offset NS_RETURNS_RETAINED;
 - (int)tagLength;
 - (int)tagPositionInFile;
 

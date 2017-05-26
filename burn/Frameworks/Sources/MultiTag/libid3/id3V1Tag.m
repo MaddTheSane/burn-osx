@@ -101,7 +101,8 @@
     char * pointer = (char *) [tag bytes];
     
     if ((present == NO)||(tag==NULL)) return 0;
-    return [[NSMutableString stringWithCString: pointer + 93 length:4] intValue];
+	NSData *tmpData = [NSData dataWithBytes:pointer + 93 length:4];
+	return [[[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] autorelease] intValue];
 }
 
 -(NSString *)getComment;
@@ -132,7 +133,9 @@
             if (pointer[i+Position] == 0) break; // if null end string
         } else j=i;
     }
-    return [[NSString stringWithCString: pointer + Position length:j+1] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
+	NSData *tmpData = [NSData dataWithBytes:pointer + Position length:j+1];
+	NSString *tmpStr = [[[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding] autorelease];
+    return [tmpStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
 }
 
 -(int)getGenre
@@ -148,7 +151,7 @@
     NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath: path];
     if (file == NULL) 
     {
-        NSLog(@"Could not open file handle for file:%s",[path cString]);
+        NSLog(@"Could not open file handle for file:%@", path);
         [self newTag];
         return NO;
     }
@@ -161,7 +164,7 @@
         return NO; 
     }
     [file seekToFileOffset: (fileSize - 128)]; //reads last 128 bytes of the file as this is were a id3  tag would be stored
-    tag = [[file readDataToEndOfFile] retain];
+    tag = [[file readDataToEndOfFile] mutableCopy];
     if (tag == NULL)
     {
         [self newTag];
@@ -233,7 +236,7 @@
 -(BOOL)writeTag
 {
     if (!changed) return YES;
-    unsigned char * Buffer = (unsigned char *)[tag bytes];
+    unsigned char * Buffer = (unsigned char *)[tag mutableBytes];
     Buffer [124] = 0;
     int Offset = 0;
     [self clearError];
@@ -294,7 +297,7 @@
     
     for (i = id3TagLength - Offset; i < Length; i++) Buffer[i] = 0;
     if ([String length] > Length) [self setError:1 reason:@"setFieldWithString: Data in field to long"];
-    char *cString = (char *) [String lossyCString];
+    char *cString = (char *) [String cStringUsingEncoding:NSASCIIStringEncoding];
     Buffer += (id3TagLength - Offset);
     for (i = 0; i < Length; i++) Buffer[i] = cString[i];
     changed = YES;
@@ -303,12 +306,13 @@
 
 -(BOOL)setFieldWithNumber:(int)Number offset:(int)Offset length:(int)Length
 {
-    char * Buffer = (char *)[tag bytes];
+    char * Buffer = (char *)[tag mutableBytes];
     if (Buffer == NULL) return NO;
     int i;
     
     for (i = id3TagLength - Offset; i < Length; i++) Buffer[i] = 0;
-    [[[NSNumber numberWithInt:Number] stringValue] getCString:Buffer + id3TagLength - Offset maxLength: Length];
+	NSData *tmpData = [[@(Number) stringValue] dataUsingEncoding:NSASCIIStringEncoding];
+	[tmpData getBytes:Buffer + id3TagLength - Offset length:MIN(Length, tmpData.length)];
     changed = YES;
     return YES;
 }

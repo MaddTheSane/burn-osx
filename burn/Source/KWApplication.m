@@ -1,5 +1,6 @@
 #import "KWApplication.h"
 #import "KWCommonMethods.h"
+#import "BurnDefines.h"
 
 @implementation KWApplication
 
@@ -17,8 +18,8 @@
 														@"KWDefaultMedia",
 														@"KWDefaultDataType",
 														@"KWShowFilePackagesAsFolder",
-														@"KWCalculateFilePackageSizes",
-														@"KWCalculateFolderSizes",
+														KWCalculateFilePackageSizes,
+														KWCalculateFolderSizes,
 														@"KWCalculateTotalSize",
 														@"KWDefaultAudioType",
 														@"KWDefaultPregap",

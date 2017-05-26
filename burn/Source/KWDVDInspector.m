@@ -1,6 +1,6 @@
 #import "KWDVDInspector.h"
 #import "KWVideoController.h"
-#import <KWConverter.h>
+#import "KWConverter.h"
 #import "KWCommonMethods.h"
 
 @interface NSSliderCell (isPressed)

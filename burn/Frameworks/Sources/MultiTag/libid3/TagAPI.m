@@ -55,7 +55,7 @@
     
     if (dataDictionary == NULL) 
     {
-        NSLog(@"Failed to open resource dictionary, can not find file:%s",[dataPath cString]);
+        NSLog(@"Failed to open resource dictionary, can not find file:%@", dataPath);
         [self autorelease];
         return NULL;
     }
@@ -433,7 +433,7 @@
 - (BOOL)setTagTitle:(NSString *)Title
 {
     BOOL result = YES;
-    if (v2Tag != NULL)  if (result = [v2Tag setTitle:Title]) modify = YES;
+    if (v2Tag != NULL)  if ((result = [v2Tag setTitle:Title])) modify = YES;
     if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -446,7 +446,7 @@
 - (BOOL)setTagArtist:(NSString *)Artist
 {
     BOOL result = YES;
-    if (v2Tag != NULL) if (result = [v2Tag setArtist:Artist]) modify = YES;
+    if (v2Tag != NULL) if ((result = [v2Tag setArtist:Artist])) modify = YES;
     if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -459,7 +459,7 @@
 
 - (BOOL)setTagAlbum:(NSString *)Album {
     BOOL result = YES;
-    if (v2Tag != NULL) if (result = [v2Tag setAlbum:Album]) modify = YES;
+    if (v2Tag != NULL) if ((result = [v2Tag setAlbum:Album])) modify = YES;
     if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -483,7 +483,7 @@
 
 - (BOOL)setTagTrack:(int)Track totalTracks:(int)Total {
     BOOL result = YES;
-    if (v2Tag != NULL) if (result = [v2Tag setTrack:Track totalTracks:Total]) modify = YES;
+    if (v2Tag != NULL) if ((result = [v2Tag setTrack:Track totalTracks:Total])) modify = YES;
     if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -494,9 +494,13 @@
 }
 
 - (BOOL)setTagDisk:(int)Disk totalDisks:(int)Total {
-    if (v2Tag != NULL) 
-		if ([v2Tag setDisk:Disk totalDisks:Total]) modify = YES;
-		else return NO;
+	if (v2Tag != NULL) {
+		if ([v2Tag setDisk:Disk totalDisks:Total]) {
+			modify = YES;
+		} else {
+			return NO;
+		}
+	}
 	return YES;
 }
 
@@ -525,24 +529,24 @@
     
     if ([GenreNames count] < 1) return NO;
     
-    int sequenceNumber = [[[dataDictionary objectForKey:@"genreIndexes"] objectForKey:@"-1"] intValue];
+    NSInteger sequenceNumber = [[[dataDictionary objectForKey:@"genreIndexes"] objectForKey:@"-1"] integerValue];
     
     // check the genre names to ensure that they are in the dictionary
     if (externalDictionary) // only change it if you have an external genre dictionary
     {
-		int i = [GenreNames count];
+		NSInteger i = [GenreNames count];
 		for (i --; i >= 0 ; i--) {
 			NSString * tempString = [GenreNames objectAtIndex:i];
 			id anObject = [genreDictionary objectForKey:tempString];
             if (anObject == NULL)  {//If the genre does not exist in the dictionary and the Dictionary is not the static one provided with the library then add the new genre.
                 sequenceNumber++;
-                [[dataDictionary objectForKey:@"genreIndexes"] setObject:[NSNumber numberWithInt:sequenceNumber] forKey:@"-1"];
-                [genreDictionary setObject:[NSNumber numberWithInt:sequenceNumber] forKey:anObject];
+                [[dataDictionary objectForKey:@"genreIndexes"] setObject:@(sequenceNumber) forKey:@"-1"];
+                [genreDictionary setObject:@(sequenceNumber) forKey:anObject];
              }
 		}
     }
     
-    if (v2Tag != NULL) if (result = [v2Tag setGenreName:GenreNames]) modify = YES;
+    if (v2Tag != NULL) if ((result = [v2Tag setGenreName:GenreNames])) modify = YES;
 	if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -562,7 +566,7 @@
 - (BOOL)setTagComments:(NSString *)Comments {
     BOOL results = YES;
     
-    if (v2Tag != NULL) if (results = [v2Tag setComments:Comments]) modify = YES;
+    if (v2Tag != NULL) if ((results = [v2Tag setComments:Comments])) modify = YES;
     if (v1Tag != NULL) {
         if (!parsedV1) if (![v1Tag openPath:path]) return NO;
         parsedV1 = YES;
@@ -575,14 +579,14 @@
 - (BOOL)setTagImages:(NSMutableArray *)Images {
     BOOL results = NO;
 	if (Images == NULL) return NO;
-    if (v2Tag != NULL) if (results = [v2Tag setImages:Images]) modify = YES; 
+    if (v2Tag != NULL) if ((results = [v2Tag setImages:Images])) modify = YES; 
     return results;
 }
 
 - (BOOL)setTagComposer:(NSString *)Text {
     BOOL results = YES;
     if (Text == NULL) return NO;
-    if (v2Tag != NULL) if (results = [v2Tag setComposer:Text]) modify = YES;
+    if (v2Tag != NULL) if ((results = [v2Tag setComposer:Text])) modify = YES;
     return results;
 }
 
@@ -615,7 +619,7 @@
         }
         if (![v1Tag openPath:path])
         {
-            NSLog(@"Failed open file: %s when parsing for V1.1 tag object",[path cString]);
+            NSLog(@"Failed open file: %@ when parsing for V1.1 tag object", path);
             return NO;
         }
     }

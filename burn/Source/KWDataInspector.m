@@ -7,6 +7,7 @@
 #import "UDFController.h"
 #import "KWCommonMethods.h"
 #import "KWDRFolder.h"
+#import "BurnDefines.h"
 
 @implementation KWDataInspector
 
@@ -14,7 +15,7 @@
 {
 	if (self = [super init])
 	{
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaveTab) name:@"KWLeaveTab" object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leaveTab) name:KWLeaveTabNotification object:nil];
 
 		shouldChangeTab = YES;
 	}

@@ -27,11 +27,7 @@
 // VStudio idiocy prevents defining template instanced static data
 // in a namespace. Workaround it by defining in global scope.
 // Other platforms will continue to put things in the proper namespace.
-#if defined( _MSC_VER )
 using namespace mp4v2::impl::itmf;
-#else
-namespace mp4v2 { namespace impl { namespace itmf {
-#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -266,9 +262,7 @@ const EnumContentRating::Entry EnumContentRating::data[] = {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#if defined( _MSC_VER )
 namespace mp4v2 { namespace impl { namespace itmf {
-#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 

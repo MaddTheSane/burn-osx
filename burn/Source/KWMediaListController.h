@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <KWProgress.h>
-#import <KWConverter.h>
-#import <KWBurner.h>
+#import "KWProgress.h"
+#import "KWConverter.h"
+#import "KWBurner.h"
 #import "KWMediaListController.h"
 #import "KWTextField.h"
 

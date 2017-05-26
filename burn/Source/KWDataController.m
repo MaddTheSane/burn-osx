@@ -9,6 +9,7 @@
 #import "KWDiscCreator.h"
 #import "KWTextField.h"
 #import "KWWindow.h"
+#import "BurnDefines.h"
 
 @interface KWDataController (Private)
 - (void)_addNewDataToSelection:(TreeNode *)newChild shouldSelect:(BOOL)boolean;
@@ -45,8 +46,8 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	{
 		//Setup our array for the options menu
 		optionsMappings = [[NSArray alloc] initWithObjects:	@"KWShowFilePackagesAsFolder",	//0
-															@"KWCalculateFilePackageSizes",	//1
-															@"KWCalculateFolderSizes",		//2
+															KWCalculateFilePackageSizes,	//1
+															KWCalculateFolderSizes,			//2
 															@"KWCalculateTotalSize",		//3
 															nil];
 
@@ -132,7 +133,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	//Notifications
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	//Reload the outlineview if need, like when a change has been made in the preferences
-	[defaultCenter addObserver:outlineView selector:@selector(reloadData) name:@"KWReloadRequested" object:nil];
+	[defaultCenter addObserver:outlineView selector:@selector(reloadData) name:KWReloadRequestedNotification object:nil];
 	//Used to save the popups when the user selects this option in the preferences
 	[defaultCenter addObserver:self selector:@selector(saveDataPopup:) name:@"KWTogglePopups" object:nil];
 	//Prevent files to be dropped when for example a sheet is open

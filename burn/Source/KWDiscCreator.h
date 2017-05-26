@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <DiscRecording/DiscRecording.h>
-#import <KWBurner.h>
-#import <KWProgress.h>
+#import "KWBurner.h"
+#import "KWProgress.h"
 #import "KWDRFolder.h"
 
 @class KWWindow;

@@ -8,10 +8,10 @@
 
 #ifdef __APPLE__
 #import "V23FrameSet.h"
-#import "zlib.h"
+#import <zlib.h>
 #else
 #include "V23FrameSet.h"
-#include "zlib.h"
+#include <zlib.h>
 
 #include <Foundation/NSArray.h>
 #include <Foundation/NSData.h>
@@ -131,9 +131,9 @@
         {
             switch (x)
             {
-            case Z_MEM_ERROR: NSLog(@"Decompressing frame %s not enough memory\n", [[self getFrameID] cString]); 
-            case Z_BUF_ERROR: NSLog(@"Decompressing frame %s not enough room in the output buffer\n", [[self getFrameID] cString]); 
-            case Z_DATA_ERROR: NSLog(@"Decompressing frame %s input data was corrupted\n",[[self getFrameID] cString]);
+            case Z_MEM_ERROR: NSLog(@"Decompressing frame %@ not enough memory\n", [self getFrameID]);
+            case Z_BUF_ERROR: NSLog(@"Decompressing frame %@ not enough room in the output buffer\n", [self getFrameID]);
+            case Z_DATA_ERROR: NSLog(@"Decompressing frame %@ input data was corrupted\n",[self getFrameID]);
             }
             return NULL;
         }
@@ -175,7 +175,8 @@
 -(NSString *)getFrameID
 {
     if (Buffer == NULL) return NULL;
-    return [NSString stringWithCString: (char *)(Buffer + currentFramePosition) length:4];
+	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:4];
+	return [[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] autorelease];
 }
 
 -(void)dealloc

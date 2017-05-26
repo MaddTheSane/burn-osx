@@ -7,6 +7,7 @@
 //
 
 #import "KWDRFolder.h"
+#import "BurnDefines.h"
 
 @implementation KWDRFolder
 @synthesize folderIcon;
@@ -76,7 +77,7 @@
 {
 	[super addChild:child];
 
-	if ([child isKindOfClass:[KWDRFolder class]] && [[NSUserDefaults standardUserDefaults] boolForKey:@"KWCalculateFolderSizes"] == YES)
+	if ([child isKindOfClass:[KWDRFolder class]] && [[NSUserDefaults standardUserDefaults] boolForKey:KWCalculateFolderSizes] == YES)
 		[NSThread detachNewThreadSelector:@selector(setFolderSizeOnThread:) toTarget:self withObject:child];
 }
 
@@ -96,7 +97,7 @@
 		}
 		
 		if (![fsObj isVirtual] | ([fsObj isVirtual] && [[fsObj children] count] > 0)) {
-			[[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotificationName:object:) withObject:@"KWReloadRequested" waitUntilDone:YES];
+			[[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotificationName:object:) withObject:KWReloadRequestedNotification waitUntilDone:YES];
 			//[[NSNotificationCenter defaultCenter] postNotificationName:@"KWReloadRequested" object:nil];
 		}
 		

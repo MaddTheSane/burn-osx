@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "KWMediaListController.h"
-#import <KWDVDAuthorizer.h>
+#import "KWDVDAuthorizer.h"
 
 @interface KWVideoController : KWMediaListController {
 	

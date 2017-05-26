@@ -7,6 +7,7 @@
 #import "KWAlert.h"
 #import "LOXI.h"
 #import "BurnDefines.h"
+#import "KWWindow.h"
 
 @implementation KWCopyController
 

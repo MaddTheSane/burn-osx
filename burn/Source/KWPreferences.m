@@ -1,6 +1,7 @@
 #import "KWPreferences.h"
 #import <DiscRecording/DiscRecording.h>
 #import "KWDVDAuthorizer.h"
+#import "BurnDefines.h"
 
 @implementation KWPreferences
 
@@ -20,8 +21,8 @@
 																@"KWDefaultMedia",				//10
 																@"KWDefaultDataType",			//11
 																@"KWShowFilePackagesAsFolder",	//12
-																@"KWCalculateFilePackageSizes",	//13
-																@"KWCalculateFolderSizes",		//14
+																KWCalculateFilePackageSizes,	//13
+																KWCalculateFolderSizes, 		//14
 																@"KWCalculateTotalSize",		//15
 																@"KWDefaultAudioType",			//16
 																@"KWDefaultPregap",				//17
@@ -120,24 +121,24 @@ return self;
 	
 	NSArray *cells = [completionActionMatrix cells];
 	BOOL mount = ([[standardDefaults objectForKey:@"KWBurnOptionsCompletionAction"] isEqualTo:@"DRBurnCompletionActionMount"]);
-	[[cells objectAtIndex:0] setObjectValue:[NSNumber numberWithBool:!mount]];
-	[[cells objectAtIndex:1] setObjectValue:[NSNumber numberWithBool:mount]];
+	[[cells objectAtIndex:0] setObjectValue:@(!mount)];
+	[[cells objectAtIndex:1] setObjectValue:@(mount)];
 	
 	NSInteger selectedCDItem = [[standardDefaults objectForKey:@"KWDefaultCDMedia"] integerValue];
 	if (selectedCDItem == 0 | selectedCDItem == 3)
 		[standardDefaults setObject:[NSNumber numberWithInteger:6] forKey:@"KWDefaultCDMedia"];
 	
 	[cdPopup setAutoenablesItems:NO];
-	[(NSMenuItem *)[cdPopup itemAtIndex:0] setEnabled:NO];
-	[(NSMenuItem *)[cdPopup itemAtIndex:3] setEnabled:NO];
+	[[cdPopup itemAtIndex:0] setEnabled:NO];
+	[[cdPopup itemAtIndex:3] setEnabled:NO];
 	
 	NSInteger selectedDVDItem = [[standardDefaults objectForKey:@"KWDefaultDVDMedia"] integerValue];
 	if (selectedDVDItem == 0 | selectedDVDItem == 3)
-		[standardDefaults setObject:[NSNumber numberWithInteger:4] forKey:@"KWDefaultDVDMedia"];
+		[standardDefaults setObject:@4 forKey:@"KWDefaultDVDMedia"];
 	
 	[dvdPopup setAutoenablesItems:NO];
-	[(NSMenuItem *)[dvdPopup itemAtIndex:0] setEnabled:NO];
-	[(NSMenuItem *)[dvdPopup itemAtIndex:3] setEnabled:NO];
+	[[dvdPopup itemAtIndex:0] setEnabled:NO];
+	[[dvdPopup itemAtIndex:3] setEnabled:NO];
 	
 	//Video
 	[themePopup removeAllItems];
@@ -272,7 +273,7 @@ return self;
 	if (tag == 12 | tag == 13 | tag == 14)
 	{
 		[standardDefaults synchronize];
-		[defaultCenter postNotificationName:@"KWReloadRequested" object:nil];
+		[defaultCenter postNotificationName:KWReloadRequestedNotification object:nil];
 	}
 	else if (tag == 15) //Calculate total size
 	{

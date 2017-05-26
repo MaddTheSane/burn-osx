@@ -2,14 +2,16 @@
 
 #import <Cocoa/Cocoa.h>
 #import <DiscRecording/DiscRecording.h>
-#import <KWProgress.h>
-#import <KWDiscScanner.h>
-#import <KWBurner.h>
+#import "KWProgress.h"
+#import "KWDiscScanner.h"
+#import "KWBurner.h"
+
+@class KWWindow;
 
 @interface KWCopyController : NSObject
 {
     //Main Window
-	IBOutlet id mainWindow;
+	IBOutlet KWWindow *mainWindow;
 	IBOutlet id nameField;
 	IBOutlet id iconView;
 	IBOutlet id sizeField;

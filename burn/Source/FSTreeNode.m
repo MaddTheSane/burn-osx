@@ -50,6 +50,7 @@
 #import "FSTreeNode.h"
 #import "KWCommonMethods.h"
 #import "KWDRFolder.h"
+#import "BurnDefines.h"
 
 @implementation FSNodeData
 
@@ -257,7 +258,7 @@
 
 - (NSString*) kind
 {
-	if (([self isExpandable] && [[NSUserDefaults standardUserDefaults] boolForKey:@"KWCalculateFolderSizes"] == YES) | (![self isExpandable] && [[NSUserDefaults standardUserDefaults] boolForKey:@"KWCalculateFilePackageSizes"] == YES))
+	if (([self isExpandable] && [[NSUserDefaults standardUserDefaults] boolForKey:KWCalculateFolderSizes] == YES) | (![self isExpandable] && [[NSUserDefaults standardUserDefaults] boolForKey:KWCalculateFilePackageSizes] == YES))
 	{
 		if ([(KWDRFolder *)fsObj folderSize])
 			return [(KWDRFolder *)fsObj folderSize];

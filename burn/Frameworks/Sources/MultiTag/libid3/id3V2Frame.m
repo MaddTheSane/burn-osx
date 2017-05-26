@@ -32,8 +32,8 @@
     frame = [Frame copyWithZone:NULL];
     length = [frame length];
     majorVersion = Version;
-    if (majorVersion < 3) frameID = [[NSString alloc]  initWithCString:[FrameID cString] length:3];
-    else frameID = [[NSString  alloc] initWithCString:[FrameID cString] length:4];
+    if (majorVersion < 3) frameID = [[FrameID substringToIndex:3] retain];
+    else frameID = [[FrameID substringToIndex:4] retain];
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
     return self;
@@ -50,8 +50,8 @@
     [frame appendData:[NSData dataWithBytes:nullChar length:(Encoding == 1?2:1)]];
     length = [frame length];
     majorVersion = Version;
-    if (majorVersion < 3) frameID = [[NSString alloc]  initWithCString:[FrameID cString] length:3];
-    else frameID = [[NSString alloc] initWithCString:[FrameID cString] length:4];
+    if (majorVersion < 3) frameID = [[FrameID substringToIndex:3] retain];
+    else frameID = [[FrameID substringToIndex:4] retain];
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
 	iTunesV24Compat = NO;
@@ -225,7 +225,7 @@
             processedFrame = tempUnsynchBuffer;
         }
         
-        [completeFrame appendBytes:[frameID cString] length:4];
+		[completeFrame appendBytes:[frameID cStringUsingEncoding:NSASCIIStringEncoding] length:4];
         if (majorVersion == 3 || iTunesV24Compat) [completeFrame appendData:[self write3FrameLength:tempLength]];
         else [completeFrame appendData:[self write4FrameLength:tempLength]];
         [completeFrame appendBytes:&flagByte1 length:1];
@@ -241,14 +241,14 @@
     }
     else if (majorVersion <3)
     {
-            [completeFrame appendBytes:[frameID cString] length:3];
+            [completeFrame appendBytes:[frameID cStringUsingEncoding:NSASCIIStringEncoding] length:3];
             [completeFrame appendData:[self write2FrameLength:length]];
             [completeFrame appendData:frame];
     }
     return completeFrame;
 }
 
--(NSData *)write2FrameLength:(int)Length
+-(NSData *)write2FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:3];
     char * Bytes = (char *) [Temp bytes];
@@ -262,7 +262,7 @@
     return NULL;
 }
 
--(NSData *)write4FrameLength:(int)Length
+-(NSData *)write4FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:4];
     char * Bytes = (char *)[Temp bytes];
@@ -278,7 +278,7 @@
     return NULL;
 }
 
--(NSData *)write3FrameLength:(int)Length
+-(NSData *)write3FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:4];
     char * Bytes = (char *) [Temp bytes];
@@ -309,7 +309,7 @@
     [frame appendData:[self getTextCodingByte: encoding]];
     if (![Language canBeConvertedToEncoding: NSISOLatin1StringEncoding]) return NO;
     if ([Language length] <3) return NO;
-    [frame appendBytes:[Language cString] length:3];
+    [frame appendBytes:[Language cStringUsingEncoding:NSASCIIStringEncoding] length:3];
 	[frame appendBytes:"" length:1];
 	if (UTF16) [frame appendBytes:"" length:1];
     [frame appendData:[Comments dataUsingEncoding:[self convertTextCodingByte:encoding] allowLossyConversion:YES]];
@@ -356,37 +356,37 @@
     NSString *MIMEString;
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"jpeg"]) {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/jpeg"] retain];
-		else MIMEString = [[NSString stringWithString:@"JPG"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
+		else MIMEString = [@"JPG" retain];
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"jpg"]) {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/jpeg"] retain];
-		else MIMEString = [[NSString stringWithString:@"JPG"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
+		else MIMEString = [@"JPG" retain];
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"BMP"]) {
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/bmp"] retain];
-		else MIMEString = [[NSString stringWithString:@"BMP"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/bmp" retain];
+		else MIMEString = [@"BMP" retain];
 		imageEncoding = NSBMPFileType;
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"GIF"]) {
 		imageEncoding = NSGIFFileType;
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/gif"] retain];
-		else MIMEString = [[NSString stringWithString:@"GIF"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/gif" retain];
+		else MIMEString = [@"GIF" retain];
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"TIFF"]) {
 		imageEncoding = NSTIFFFileType;
-    	if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/tiff"] retain];
-		else MIMEString = [[NSString stringWithString:@"tiff"] retain];
+    	if (majorVersion >= 3) MIMEString = [@"image/tiff" retain];
+		else MIMEString = [@"tiff" retain];
     } else
     if (NSOrderedSame == [tempMime caseInsensitiveCompare:@"PNG"]) {
 		imageEncoding = NSPNGFileType;
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/png"] retain];
-		else MIMEString = [[NSString stringWithString:@"PNG"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/png" retain];
+		else MIMEString = [@"PNG" retain];
     } else  {
 		imageEncoding = NSJPEGFileType;
-		if (majorVersion >= 3) MIMEString = [[NSString stringWithString:@"image/jpeg"] retain];
-		else MIMEString = [[NSString stringWithString:@"JPG"] retain];
+		if (majorVersion >= 3) MIMEString = [@"image/jpeg" retain];
+		else MIMEString = [@"JPG" retain];
     }
 
     [frame appendData:[MIMEString dataUsingEncoding:NSASCIIStringEncoding]];
@@ -453,7 +453,7 @@
 	if ([descriptionString length] == 0) [frame appendBytes:&nullChar length:1];
     }
     
-    [frame appendData: [[Image objectForKey:@"Image"] representationUsingType:imageEncoding properties:NULL]];
+	[frame appendData: [[Image objectForKey:@"Image"] representationUsingType:imageEncoding properties:@{}]];
     
     if (frame == NULL) return NO;
     length = [frame length];
@@ -497,7 +497,7 @@
 
 -(BOOL)compress
 {
-    return (((flagByte2 & 0x80)&&(majorVersion == 3)||(majorVersion == 4)&&(flagByte2 & 0x08)));
+    return ((((flagByte2 & 0x80)&&(majorVersion == 3))||((majorVersion == 4)&&(flagByte2 & 0x08))));
 }
 
 -(BOOL)unsynch
@@ -638,6 +638,7 @@
     NSMutableString * tempString = [NSMutableString stringWithCapacity:[Array count]*10];
     NSEnumerator *enumerator = [Array objectEnumerator];
     char * charPtr = "";
+	//TODO: FIX!
     NSString *nullString = [NSString stringWithCString:charPtr length:1];
     NSString * anObject;
     
@@ -655,9 +656,8 @@
     NSString * String = [[self getTextFromFrame] retain];
        
     //obtain a cstring representation of the genre string
-    NSMutableData *Data = [NSMutableData dataWithLength:[String length]];
-    char * tempPointer = (char *) [Data bytes];
-    [String getCString:tempPointer];
+	NSData *Data = [String dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    const char * tempPointer = [Data bytes];
     int start = 0;
     int end = 0;
     int foundNull = 0;
@@ -681,14 +681,18 @@
     
     end = start;
     
-    while ([String length] > end)
+    while ([Data length] > end)
     {	
         if (tempPointer[end] == '\0') 
         {
             foundBracket = 0;
             foundNull = 0;             
-            if (start < end)
-                [Array addObject:[NSString stringWithCString:tempPointer + start length:end - start]];
+			if (start < end) {
+				NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
+				NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
+				[Array addObject:tmpStr];
+				[tmpStr release];
+			}
             start = end + 1;
         }        
         
@@ -703,13 +707,21 @@
             if (foundBracket > 0) foundBracket--;
             if ((start < end) && (!foundBracket) && (!foundNull)) 
             {
-                [Array  addObject:[NSString stringWithCString:tempPointer + start length:end - start]]; 
+				NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
+				NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
+				[Array addObject:tmpStr];
+				[tmpStr release];
             }
         }
         
         end ++;
     }
-    if (end>start) [Array addObject:[NSString stringWithCString:tempPointer + start length:end - start]];
+	if (end>start) {
+		NSData *tmpData = [Data subdataWithRange:NSMakeRange(start, end - start)];
+		NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
+		[Array addObject:tmpStr];
+		[tmpStr release];
+	}
     [String release];
     return Array;
 }
