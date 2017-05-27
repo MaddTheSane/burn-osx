@@ -28,6 +28,8 @@ extern NSString *const KWChangeInspectorNotification;
 #pragma mark - preferences
 extern NSString *const KWCalculateFolderSizes;
 extern NSString *const KWCalculateFilePackageSizes;
+extern NSString *const KWShowFilePackagesAsFolder;
+extern NSString *const KWCalculateTotalSize;
 
 #pragma mark - Disc Types
 

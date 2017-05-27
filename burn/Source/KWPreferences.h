@@ -4,6 +4,15 @@
 #import <DiscRecording/DiscRecording.h>
 #import "KWCommonMethods.h"
 
+typedef NSString *KWPreferenceIdentifier NS_STRING_ENUM;
+
+extern KWPreferenceIdentifier const KWPreferenceIdentifierGeneral;
+extern KWPreferenceIdentifier const KWPreferenceIdentifierBurner;
+extern KWPreferenceIdentifier const KWPreferenceIdentifierData;
+extern KWPreferenceIdentifier const KWPreferenceIdentifierAudio;
+extern KWPreferenceIdentifier const KWPreferenceIdentifierVideo;
+extern KWPreferenceIdentifier const KWPreferenceIdentifierAdvanced;
+
 @interface KWPreferences : NSWindowController <NSToolbarDelegate>
 {
     //Preferences window outlets
@@ -63,7 +72,7 @@
 - (NSToolbarItem *)createToolbarItemWithName:(NSString *)name;
 - (void)setupToolbar;
 - (void)toolbarAction:(id)object;
-- (NSView*)myViewWithIdentifier:(NSString *)identifier;
+- (NSView*)myViewWithIdentifier:(KWPreferenceIdentifier)identifier;
 
 //Other actions
 - (void)mediaChanged:(NSNotification *)notification;

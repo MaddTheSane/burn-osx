@@ -45,10 +45,10 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	if (self = [super init])
 	{
 		//Setup our array for the options menu
-		optionsMappings = [[NSArray alloc] initWithObjects:	@"KWShowFilePackagesAsFolder",	//0
+		optionsMappings = [[NSArray alloc] initWithObjects:	KWShowFilePackagesAsFolder,	//0
 															KWCalculateFilePackageSizes,	//1
 															KWCalculateFolderSizes,			//2
-															@"KWCalculateTotalSize",		//3
+															KWCalculateTotalSize,		//3
 															nil];
 
 		mainFilesystems = [[NSArray alloc] initWithObjects:		[NSNumber numberWithUnsignedInt:DRFilesystemInclusionMaskHFSPlus],
@@ -153,7 +153,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	lastSelectedItem = [[fileSystemPopup title] retain];
 	[self updateFileSystem];
 	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"KWCalculateTotalSize"] == NO)
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:KWCalculateTotalSize] == NO)
 		[totalSizeText setHidden:YES];
 
 	//Outline
@@ -452,7 +452,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		if ([standardDefaults boolForKey:@"KWRememberPopups"] == YES)
 			[self saveDataPopup:self];
 	
-		[totalSizeText setHidden:![standardDefaults boolForKey:@"KWCalculateTotalSize"]];
+		[totalSizeText setHidden:![standardDefaults boolForKey:KWCalculateTotalSize]];
 
 		if (outlineView == [mainWindow firstResponder])
 		{

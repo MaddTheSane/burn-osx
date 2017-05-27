@@ -3,6 +3,13 @@
 #import "KWDVDAuthorizer.h"
 #import "BurnDefines.h"
 
+KWPreferenceIdentifier const KWPreferenceIdentifierGeneral = @"General";
+KWPreferenceIdentifier const KWPreferenceIdentifierBurner = @"Burner";
+KWPreferenceIdentifier const KWPreferenceIdentifierData = @"Data";
+KWPreferenceIdentifier const KWPreferenceIdentifierAudio = @"Audio";
+KWPreferenceIdentifier const KWPreferenceIdentifierVideo = @"Video";
+KWPreferenceIdentifier const KWPreferenceIdentifierAdvanced = @"Advanced";
+
 @implementation KWPreferences
 
 - (id)init
@@ -20,10 +27,10 @@
 																@"KWDefaultDVDMedia",			//9
 																@"KWDefaultMedia",				//10
 																@"KWDefaultDataType",			//11
-																@"KWShowFilePackagesAsFolder",	//12
+																KWShowFilePackagesAsFolder,		//12
 																KWCalculateFilePackageSizes,	//13
 																KWCalculateFolderSizes, 		//14
-																@"KWCalculateTotalSize",		//15
+																KWCalculateTotalSize,			//15
 																@"KWDefaultAudioType",			//16
 																@"KWDefaultPregap",				//17
 																@"KWUseCDText",					//18
@@ -516,19 +523,19 @@ return self;
 	[[NSUserDefaults standardUserDefaults] setObject:itemIdentifier forKey:@"KWSavedPrefView"];
 }
 
-- (id)myViewWithIdentifier:(NSString *)identifier
+- (id)myViewWithIdentifier:(KWPreferenceIdentifier)identifier
 {
-	if ([identifier isEqualTo:@"General"])
+	if ([identifier isEqualToString:KWPreferenceIdentifierGeneral])
 		return generalView;
-	else if ([identifier isEqualTo:@"Burner"])
+	else if ([identifier isEqualToString:KWPreferenceIdentifierBurner])
 		return burnerView;
-	else if ([identifier isEqualTo:@"Data"])
+	else if ([identifier isEqualToString:KWPreferenceIdentifierData])
 		return dataView;
-	else if ([identifier isEqualTo:@"Audio"])
+	else if ([identifier isEqualToString:KWPreferenceIdentifierAudio])
 		return audioView;
-	else if ([identifier isEqualTo:@"Video"])
+	else if ([identifier isEqualToString:KWPreferenceIdentifierVideo])
 		return videoView;
-	else if ([identifier isEqualTo:@"Advanced"])
+	else if ([identifier isEqualToString:KWPreferenceIdentifierAdvanced])
 		return advancedView;
 	
 	return nil;
@@ -541,12 +548,12 @@ return self;
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
-	return [NSArray arrayWithObjects:NSToolbarSeparatorItemIdentifier, NSToolbarSpaceItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier, @"General",@"Burner",@"Data",@"Audio",@"Video",@"Advanced", nil];
+	return @[NSToolbarSeparatorItemIdentifier, NSToolbarSpaceItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier, KWPreferenceIdentifierGeneral, KWPreferenceIdentifierBurner, KWPreferenceIdentifierData, KWPreferenceIdentifierAudio, KWPreferenceIdentifierVideo, KWPreferenceIdentifierAdvanced];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
-	return [NSArray arrayWithObjects:@"General",@"Burner",@"Data",@"Audio",@"Video",@"Advanced", nil];
+	return @[KWPreferenceIdentifierGeneral, KWPreferenceIdentifierBurner, KWPreferenceIdentifierData, KWPreferenceIdentifierAudio, KWPreferenceIdentifierVideo, KWPreferenceIdentifierAdvanced];
 }
 
 ///////////////////

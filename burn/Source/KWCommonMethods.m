@@ -9,6 +9,7 @@
 #import "KWCommonMethods.h"
 #import "KWDRFolder.h"
 #import "KWWindowController.h"
+#import "KWPreferences.h"
 #include <Carbon/Carbon.h>
 #if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 #import <QuickTime/QuickTime.h>
@@ -1053,7 +1054,7 @@
 	//NSImage *dvd = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericDVD)];
 	//NSImage *blu = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)];
 
-	NSDictionary *customImageDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSImage imageNamed:NSImageNamePreferencesGeneral], [NSImage imageNamed:@"Burn"], [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)], [NSImage imageNamed:@"Audio CD"], [NSImage imageNamed:@"DVD"], [NSImage imageNamed:NSImageNameAdvanced], nil] forKeys:[NSArray arrayWithObjects:@"General", @"Burner",@"Data",@"Audio",@"Video",@"Advanced",nil]];
+	NSDictionary *customImageDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSImage imageNamed:NSImageNamePreferencesGeneral], [NSImage imageNamed:@"Burn"], [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericCDROMIcon)], [NSImage imageNamed:@"Audio CD"], [NSImage imageNamed:@"DVD"], [NSImage imageNamed:NSImageNameAdvanced], nil] forKeys:[NSArray arrayWithObjects:KWPreferenceIdentifierGeneral, KWPreferenceIdentifierBurner,KWPreferenceIdentifierData,KWPreferenceIdentifierAudio,KWPreferenceIdentifierVideo,KWPreferenceIdentifierAdvanced,nil]];
 
 	return [customImageDictionary objectForKey:name];
 }

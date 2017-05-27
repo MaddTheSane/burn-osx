@@ -273,7 +273,7 @@
 
 - (BOOL)isExpandable 
 {
-	if (![(KWDRFolder *)fsObj isFilePackage] || [[NSUserDefaults standardUserDefaults] boolForKey:@"KWShowFilePackagesAsFolder"] == YES || ([[[self name] pathExtension] isEqualTo:@""] && ![[[fsObj baseName] stringByDeletingPathExtension] isEqualTo:[self name]] && ![[self name] isEqualTo:[(KWDRFolder *)fsObj displayName]]))
+	if (![(KWDRFolder *)fsObj isFilePackage] || [[NSUserDefaults standardUserDefaults] boolForKey:KWShowFilePackagesAsFolder] == YES || ([[[self name] pathExtension] isEqualTo:@""] && ![[[fsObj baseName] stringByDeletingPathExtension] isEqualTo:[self name]] && ![[self name] isEqualTo:[(KWDRFolder *)fsObj displayName]]))
 		return YES;
 
 	return NO;

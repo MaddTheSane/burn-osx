@@ -23,6 +23,8 @@ NSString *const KWChangeInspectorNotification = @"KWChangeInspector";
 
 NSString *const KWCalculateFolderSizes = @"KWCalculateFolderSizes";
 NSString *const KWCalculateFilePackageSizes = @"KWCalculateFilePackageSizes";
+NSString *const KWShowFilePackagesAsFolder = @"KWShowFilePackagesAsFolder";
+NSString *const KWCalculateTotalSize = @"KWCalculateTotalSize";
 
 KWDiscType const KWDiscTypeEmpty = @"KWEmpty";
 KWDiscType const KWDiscTypeAudio = @"KWAudio";
