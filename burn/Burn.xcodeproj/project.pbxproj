@@ -494,17 +494,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FE3CA4E00BAC7D0E001FB922 /* Carbon.framework */,
-				FEEF72090B92F47700ED64A9 /* QTKit.framework */,
-				FEEF720A0B92F47700ED64A9 /* QuickTime.framework */,
-				FEEF6FFB0B92EC8800ED64A9 /* DiscRecording.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
 		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,9 +552,12 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				FE7C166C12DBCBDD00CFDA59 /* Growl.framework */,
+				FE3CA4E00BAC7D0E001FB922 /* Carbon.framework */,
+				FEEF72090B92F47700ED64A9 /* QTKit.framework */,
+				FEEF720A0B92F47700ED64A9 /* QuickTime.framework */,
+				FEEF6FFB0B92EC8800ED64A9 /* DiscRecording.framework */,
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
-				FEA1527012DAEC910073FA9B /* Included Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -697,14 +689,6 @@
 				FE9DB850110338EB0086F62C /* iso8859-1 */,
 			);
 			name = "Support Files";
-			sourceTree = "<group>";
-		};
-		FEA1527012DAEC910073FA9B /* Included Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FE7C166C12DBCBDD00CFDA59 /* Growl.framework */,
-			);
-			name = "Included Frameworks";
 			sourceTree = "<group>";
 		};
 		FEA468170D97BE0D0083527F /* Intel */ = {
@@ -1553,7 +1537,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -1575,7 +1559,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					QTKit,
