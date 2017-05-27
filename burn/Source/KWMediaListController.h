@@ -39,7 +39,7 @@
 	IBOutlet NSPopUpButton	*regionPopup;
 	
 	//Variables
-	NSMutableArray *tableData;
+	__unsafe_unretained NSMutableArray *tableData;
 	NSMutableArray *incompatibleFiles;
 	NSMutableArray *protectedFiles;
 	NSArray *knownProtectedFiles;

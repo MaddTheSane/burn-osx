@@ -137,7 +137,7 @@ error:;
 					if (!e)
 						return nil;
 					[session addChild:e];
-					totalSize+=size;
+					totalSize += size;
 				}
 				
 				[root addChild:session];
@@ -159,17 +159,17 @@ error:;
 	else
 		return nil;
 	
-	NSMutableData * md = [NSMutableData dataWithData:[xmlDoc XMLData]];
+	NSMutableData * md = [[xmlDoc XMLData] mutableCopy];
 	uint32_t dataSize = [md length];
 	
-	dataSize=OSSwapHostToBigInt32(dataSize);
+	dataSize = OSSwapHostToBigInt32(dataSize);
 	[md appendBytes:(void*)&dataSize length:sizeof(dataSize)];
 	[md appendBytes:"L" length:1];
 	[md appendBytes:"O" length:1];
 	[md appendBytes:"X" length:1];
 	[md appendBytes:"I" length:1];
 	
-	return md;
+	return [md autorelease];
 }
 
 +(NSXMLDocument*)LOXIXmlDocumentForFileAtPath:(NSString*)path{

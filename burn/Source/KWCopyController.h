@@ -43,7 +43,7 @@
 	BOOL awake;
 	NSMutableArray *temporaryFiles;
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
-	NSArray *cdTextBlocks;
+	NSArray<DRCDTextBlock*> *cdTextBlocks;
 	#endif
 }
 
@@ -82,7 +82,7 @@
 - (NSDictionary *)isoInfo;
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
-- (NSArray *)getCDTextBlocks;
+- (NSArray<DRCDTextBlock*> *)getCDTextBlocks;
 #endif
 
 @end

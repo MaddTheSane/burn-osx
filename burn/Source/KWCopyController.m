@@ -527,7 +527,7 @@
 			
 			[burnProperties setObject:cdTextBlocks forKey:DRCDTextKey];
 			
-			id firstBlock = [cdTextBlocks objectAtIndex:0];
+			DRCDTextBlock *firstBlock = [cdTextBlocks objectAtIndex:0];
 			id mcn = [firstBlock objectForKey:DRCDTextMCNISRCKey ofTrack:0];
 			if (mcn)
 				[burnProperties setObject:mcn forKey:DRMediaCatalogNumberKey];

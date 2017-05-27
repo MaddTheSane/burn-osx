@@ -63,7 +63,7 @@
 - (NSToolbarItem *)createToolbarItemWithName:(NSString *)name;
 - (void)setupToolbar;
 - (void)toolbarAction:(id)object;
-- (id)myViewWithIdentifier:(NSString *)identifier;
+- (NSView*)myViewWithIdentifier:(NSString *)identifier;
 
 //Other actions
 - (void)mediaChanged:(NSNotification *)notification;

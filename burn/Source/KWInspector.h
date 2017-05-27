@@ -11,7 +11,7 @@
 
 @protocol KWInspector <NSObject>
 
-- (void)updateView:(NSArray *)objects;
+- (void)updateView:(NSView *)objects;
 - (__kindof NSView*)myView;
 
 @end

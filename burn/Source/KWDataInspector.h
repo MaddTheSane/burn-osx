@@ -25,7 +25,7 @@
 
 //Main Actions
 - (void)updateView:(NSArray *)objects;
-- (id)myView;
+- (NSView*)myView;
 - (void)leaveTab;
 
 @end

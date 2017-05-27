@@ -4,6 +4,7 @@
 #import "KWCommonMethods.h"
 
 @interface NSSliderCell (isPressed)
+@property (readonly, getter=isPressed) BOOL pressed;
 - (BOOL)isPressed;
 @end
 
@@ -18,10 +19,10 @@
 
 - (id) init
 {
-	self = [super init];
-
-	tableData = [[NSMutableArray alloc] init];
-
+	if (self = [super init]) {
+		tableData = [[NSMutableArray alloc] init];
+	}
+	
 	return self;
 }
 

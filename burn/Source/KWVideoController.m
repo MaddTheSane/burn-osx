@@ -154,7 +154,7 @@
 		if (checkFile == YES)
 		{
 			NSString *filePath = path;
-			NSString *fileType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:path traverseLink:YES] objectForKey:NSFileHFSTypeCode] longValue]);
+			NSString *fileType = NSFileTypeForHFSTypeCode([[[defaultManager fileAttributesAtPath:path traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue]);
 	
 			//Remux MPEG2 files that are encoded by another app
 			if (selfEncoded == NO && selrow == 2 && [standardDefaults boolForKey:@"KWRemuxMPEG2Streams"] == YES && ![[path pathExtension] isEqualTo:@"m2v"] && ![fileType isEqualTo:@"'MPG2'"])

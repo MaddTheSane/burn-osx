@@ -28,13 +28,13 @@
 #import <Cocoa/Cocoa.h>
 #import "KWCommonMethods.h"
 
+@class DRCDTextBlock;
 
-@interface LOXI : NSObject {
+@interface LOXI : NSObject
 
-}
 + (NSData *)LOXIHeaderForDRLayout:(id)layout;
 + (NSXMLDocument *)LOXIXmlDocumentForFileAtPath:(NSString *)path;
-+ (NSData *)LOXIHeaderForDRLayout:(id)layout arrayOfCDTextBlocks:(NSArray *)cdtextBlocks;
-+ (NSXMLElement *)XMLElementForArrayOfCDTextBlocks:(NSArray *)a;
-+ (NSArray *)arrayOfCDTextBlocksForXMLElement:(NSXMLElement *)e;
++ (NSData *)LOXIHeaderForDRLayout:(id)layout arrayOfCDTextBlocks:(NSArray<DRCDTextBlock*> *)cdtextBlocks;
++ (NSXMLElement *)XMLElementForArrayOfCDTextBlocks:(NSArray<DRCDTextBlock*> *)a;
++ (NSArray<DRCDTextBlock*> *)arrayOfCDTextBlocksForXMLElement:(NSXMLElement *)e;
 @end

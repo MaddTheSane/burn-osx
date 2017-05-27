@@ -7,153 +7,85 @@
 + (void)initialize
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; // standard user defaults
-	NSArray *defaultKeys = [NSArray arrayWithObjects:	@"KWUseSoundEffects",
-														@"KWRememberLastTab",
-														@"KWRememberPopups",
-														@"KWCleanTemporaryFolderAction",
-														@"KWBurnOptionsVerifyBurn",
-														@"KWShowOverwritableSpace",
-														@"KWDefaultCDMedia",
-														@"KWDefaultDVDMedia",
-														@"KWDefaultMedia",
-														@"KWDefaultDataType",
-														@"KWShowFilePackagesAsFolder",
-														KWCalculateFilePackageSizes,
-														KWCalculateFolderSizes,
-														@"KWCalculateTotalSize",
-														@"KWDefaultAudioType",
-														@"KWDefaultPregap",
-														@"KWUseCDText",
-														@"KWDefaultMP3Bitrate",
-														@"KWDefaultMP3Mode",
-														@"KWCreateArtistFolders",
-														@"KWCreateAlbumFolders",
-														@"KWDefaultRegion",
-														@"KWDefaultVideoType",
-														@"KWDefaultDVDSoundType",
-														@"KWCustomDVDVideoBitrate",
-														@"KWDefaultDVDVideoBitrate",
-														@"KWCustomDVDSoundBitrate",
-														@"KWDefaultDVDSoundBitrate",
-														@"KWDVDForceAspect",
-														@"KWForceMPEG2",
-														@"KWMuxSeperateStreams",
-														@"KWRemuxMPEG2Streams",
-														@"KWLoopDVD",
-														@"KWUseTheme",
-														@"KWDVDThemePath",
-														@"KWDVDThemeFormat",
-														@"KWDefaultDivXSoundType",
-														@"KWCustomDivXVideoBitrate",
-														@"KWDefaultDivXVideoBitrate",
-														@"KWCustomDivXSoundBitrate",
-														@"KWDefaultDivxSoundBitrate",
-														@"KWCustomDivXSize",
-														@"KWDefaultDivXWidth",
-														@"KWDefaultDivXHeight",
-														@"KWCustomFPS",
-														@"KWDefaultFPS",
-														@"KWAllowMSMPEG4",
-														@"KWForceDivX",
-														@"KWSaveBorders",
-														@"KWSaveBorderSize",
-														@"KWDebug",
-														@"KWUseCustomFFMPEG",
-														@"KWCustomFFMPEG",
-														@"KWAllowOverBurning",
-														@"KWTemporaryLocation",
-														@"KWTemporaryLocationPopup",
-														@"KWDefaultDeviceIdentifier",
-														@"KWBurnOptionsCompletionAction",
-														@"KWSavedPrefView",
-														@"KWLastTab",
-														@"KWAdvancedFilesystems",
-														@"KWDVDTheme",
-														@"KWDefaultWindowWidth",
-														@"KWDefaultWindowHeight",
-														@"KWFirstRun",
-														@"KWEncodingThreads",
-														@"KWSimulateBurn",
-														@"KWDVDAspectMode",
-														@"KWTemporaryFiles",
-	nil];
 
-	NSArray *defaultValues = [NSArray arrayWithObjects:	@YES,		// KWUseSoundEffects
-														@YES,		// KWRememberLastTab
-														@YES,		// KWRememberPopups
-														@0,			// KWCleanTemporaryFolderAction
-														@NO,		// KWBurnOptionsVerifyBurn
-														@NO,		// KWShowOverwritableSpace
-														[NSNumber numberWithInteger:6],			// KWDefaultCDMedia
-														[NSNumber numberWithInteger:4],			// KWDefaultDVDMedia
-														@0,			// KWDefaultMedia
-														@0,			// KWDefaultDataType
-														@NO,		// KWShowFilePackagesAsFolder
-														@YES,		// KWCalculateFilePackageSizes
-														@YES,		// KWCalculateFolderSizes
-														@YES,		// KWCalculateTotalSize
-														@0,			// KWDefaultAudioType
-														[NSNumber numberWithInteger:2],			// KWDefaultPregap
-														@NO,		// KWUseCDText
-														[NSNumber numberWithInteger:128],		// KWDefaultMP3Bitrate
-														[NSNumber numberWithInteger:1],			// KWDefaultMP3Mode
-														@YES,		// KWCreateArtistFolders
-														@YES,		// KWCreateAlbumFolders
-														@0,			// KWDefaultRegion
-														@0,			// KWDefaultVideoType
-														@0,			// KWDefaultDVDSoundType
-														@NO,		// KWCustomDVDVideoBitrate
-														[NSNumber numberWithInteger:6000],		// KWDefaultDVDVideoBitrate
-														@NO,		// KWCustomDVDSoundBitrate
-														[NSNumber numberWithInteger:448],		// KWDefaultDVDSoundBitrate
-														@0,			// KWDVDForceAspect
-														@NO,		// KWForceMPEG2
-														@NO,		// KWMuxSeperateStreams
-														@NO,		// KWRemuxMPEG2Streams
-														@NO,		// KWLoopDVD
-														@YES,		// KWUseTheme
-														[[[NSBundle mainBundle] pathForResource:@"Themes" ofType:@""] stringByAppendingPathComponent:@"Default.burnTheme"], //KWDVDThemePath
-														@0,			// KWThemeFormat
-														@0,			// KWDefaultDivXSoundType
-														@NO,		// KWCustomDivXVideoBitrate
-														[NSNumber numberWithInteger:768],		// KWDefaultDivXVideoBitrate
-														@NO,		// KWCustomDivXSoundBitrate
-														[NSNumber numberWithInteger:128],		// KWDefaultDivxSoundBitrate
-														@NO,		// KWCustomDivXSize
-														[NSNumber numberWithInteger:320],		// KWDefaultDivXWidth
-														[NSNumber numberWithInteger:240],		// KWDefaultDivXHeight
-														@NO,		// KWCustomFPS
-														[NSNumber numberWithInteger:25],		// KWDefaultFPS
-														@NO,		// KWAllowMSMPEG4
-														@NO,		// KWForceDivX
-														@NO,		// KWSaveBorders
-														@0,			// KWSaveBorderSize
-														@NO,		// KWDebug
-														@NO,		// KWUseCustomFFMPEG
-														@"",								// KWCustomFFMPEG
-														@NO,		// KWAllowOverBurning
-														[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"Burn Temporary.localized"], // KWTemporaryLocation
-														@0,			// KWTemporaryLocationPopup
-														@"",								// KWDefaultDeviceIdentifier
-														@"DRBurnCompletionActionMount",		// KWBurnOptionsCompletionAction
-														@"General",							// KWSavedPrefView
-														@"Data",							// KWLastTab
-														[NSArray arrayWithObject:@"HFS+"],	// KWAdvancedFilesystems
-														@0,			//KWDVDTheme
-														[NSNumber numberWithInteger:430],		//KWDefaultWindowWidth
-														[NSNumber numberWithInteger:436],		//KWDefaultWindowHeight
-														@YES,		//KWFirstRun
-														@8,			//KWEncodingThreads
-														@NO,		//KWSimulateBurn
-														@0,			//KWDVDAspectMode
-														[NSArray array],					//KWTemporaryFiles
-	nil];
-
-	NSDictionary *appDefaults = [NSDictionary dictionaryWithObjects:defaultValues forKeys:defaultKeys];
+	NSURL *cacheURL = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:NULL];
+	cacheURL = [cacheURL URLByAppendingPathComponent:@"Burn Temporary.localized" isDirectory:YES];
+	NSDictionary *appDefaults =
+	@{
+	  @"KWUseSoundEffects": @YES,
+	  @"KWRememberLastTab": @YES,
+	  @"KWRememberPopups": @YES,
+	  @"KWCleanTemporaryFolderAction": @0,
+	  @"KWBurnOptionsVerifyBurn": @NO,
+	  @"KWShowOverwritableSpace": @NO,
+	  @"KWDefaultCDMedia": @6,
+	  @"KWDefaultDVDMedia": @4,
+	  @"KWDefaultMedia": @0,
+	  @"KWDefaultDataType": @0,
+	  @"KWShowFilePackagesAsFolder": @NO,
+	  KWCalculateFilePackageSizes: @YES,
+	  KWCalculateFolderSizes: @YES,
+	  @"KWCalculateTotalSize": @YES,
+	  @"KWDefaultAudioType": @0,
+	  @"KWDefaultPregap": @2,
+	  @"KWUseCDText": @NO,
+	  @"KWDefaultMP3Bitrate": @128,
+	  @"KWDefaultMP3Mode": @1,
+	  @"KWCreateArtistFolders": @YES,
+	  @"KWCreateAlbumFolders": @YES,
+	  @"KWDefaultRegion": @0,
+	  @"KWDefaultVideoType": @0,
+	  @"KWDefaultDVDSoundType": @0,
+	  @"KWCustomDVDVideoBitrate": @NO,
+	  @"KWDefaultDVDVideoBitrate": @6000,
+	  @"KWCustomDVDSoundBitrate": @NO,
+	  @"KWDefaultDVDSoundBitrate": @448,
+	  @"KWDVDForceAspect": @0,
+	  @"KWForceMPEG2": @NO,
+	  @"KWMuxSeperateStreams": @NO,
+	  @"KWRemuxMPEG2Streams": @NO,
+	  @"KWLoopDVD": @NO,
+	  @"KWUseTheme": @YES,
+	  @"KWDVDThemePath": [[[NSBundle mainBundle] pathForResource:@"Themes" ofType:@""] stringByAppendingPathComponent:@"Default.burnTheme"],
+	  @"KWThemeFormat": @0,
+	  @"KWDefaultDivXSoundType": @0,
+	  @"KWCustomDivXVideoBitrate": @NO,
+	  @"KWDefaultDivXVideoBitrate": @768,
+	  @"KWCustomDivXSoundBitrate": @NO,
+	  @"KWDefaultDivxSoundBitrate": @128,
+	  @"KWCustomDivXSize": @NO,
+	  @"KWDefaultDivXWidth": @320,
+	  @"KWDefaultDivXHeight": @240,
+	  @"KWCustomFPS": @NO,
+	  @"KWDefaultFPS": @25,
+	  @"KWAllowMSMPEG4": @NO,
+	  @"KWForceDivX": @NO,
+	  @"KWSaveBorders": @NO,
+	  @"KWSaveBorderSize": @0,
+	  @"KWDebug": @NO,
+	  @"KWUseCustomFFMPEG": @NO,
+	  @"KWCustomFFMPEG": @"",
+	  @"KWAllowOverBurning": @NO,
+	  @"KWTemporaryLocation": [cacheURL path],
+	  @"KWTemporaryLocationPopup": @0,
+	  @"KWDefaultDeviceIdentifier": @"",
+	  @"KWBurnOptionsCompletionAction": @"DRBurnCompletionActionMount",
+	  @"KWSavedPrefView": @"General",
+	  @"KWLastTab": @"Data",
+	  @"KWAdvancedFilesystems": @[@"HFS+"],
+	  @"KWDVDTheme": @0,
+	  @"KWDefaultWindowWidth": @430,
+	  @"KWDefaultWindowHeight": @436,
+	  @"KWFirstRun": @YES,
+	  @"KWEncodingThreads": @8,
+	  @"KWSimulateBurn": @NO,
+	  @"KWDVDAspectMode": @0,
+	  @"KWTemporaryFiles": @[],
+	  };
 	[defaults registerDefaults:appDefaults];
 }
 
-- (void)dealloc 
+- (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	

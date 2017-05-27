@@ -1029,9 +1029,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FEF8A80612D9D2BF00FE302C /* Burn (Intel 64-bit) */ = {
+		FEF8A80612D9D2BF00FE302C /* Burn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FEF8A88012D9D2BF00FE302C /* Build configuration list for PBXNativeTarget "Burn (Intel 64-bit)" */;
+			buildConfigurationList = FEF8A88012D9D2BF00FE302C /* Build configuration list for PBXNativeTarget "Burn" */;
 			buildPhases = (
 				FEF8A80712D9D2BF00FE302C /* Resources */,
 				FEF8A83F12D9D2BF00FE302C /* Sources */,
@@ -1043,7 +1043,7 @@
 			dependencies = (
 				552CBF561ED8A3A400A9A82D /* PBXTargetDependency */,
 			);
-			name = "Burn (Intel 64-bit)";
+			name = Burn;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Burn;
 			productReference = FEF8A88312D9D2BF00FE302C /* Burn.app */;
@@ -1087,7 +1087,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				FEF8A80612D9D2BF00FE302C /* Burn (Intel 64-bit) */,
+				FEF8A80612D9D2BF00FE302C /* Burn */,
 			);
 		};
 /* End PBXProject section */
@@ -1637,7 +1637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEF8A88012D9D2BF00FE302C /* Build configuration list for PBXNativeTarget "Burn (Intel 64-bit)" */ = {
+		FEF8A88012D9D2BF00FE302C /* Build configuration list for PBXNativeTarget "Burn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEF8A88112D9D2BF00FE302C /* Debug */,

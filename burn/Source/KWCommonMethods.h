@@ -48,7 +48,7 @@
 //Get the right name for the data list or data inspector
 + (NSString *)fsObjectFileName:(DRFSObject *)object;
 //Get the Finder Flags at a given path
-+ (unsigned long)getFinderFlagsAtPath:(NSString *)path;
++ (UInt16)getFinderFlagsAtPath:(NSString *)path;
 //Check if a virtual or real folder contains .localized
 + (BOOL)isDRFolderIsLocalized:(DRFolder *)folder;
 //Get the max lable size
@@ -92,19 +92,19 @@
 //Get used ffmpeg
 + (NSString *)ffmpegPath;
 //Get the types for diskimages
-+ (NSArray *)diskImageTypes;
++ (NSArray<NSString*> *)diskImageTypes;
 //Create an array with indexes of selected rows in a tableview in an array
-+ (NSArray *)selectedRowsAtRowIndexes:(NSIndexSet *)indexSet;
++ (NSArray<NSNumber*> *)selectedRowsAtRowIndexes:(NSIndexSet *)indexSet;
 //Get ffmpeg and qt types
-+ (NSArray *)mediaTypes;
++ (NSArray<NSString*> *)mediaTypes;
 //Get qt types
-+ (NSArray *)quicktimeTypes;
++ (NSArray<NSString*> *)quicktimeTypes;
 //Create a compilant DVD-Video or Audio folder
 + (NSInteger)createDVDFolderAtPath:(NSString *)path ofType:(NSInteger)type fromTableData:(id)tableData errorString:(NSString **)error;
 //Log command with arguments for easier debugging
 + (void)logCommandIfNeeded:(NSTask *)command;
 //Conveniant method to load a NSTask
-+ (BOOL)launchNSTaskAtPath:(NSString *)path withArguments:(NSArray *)arguments outputError:(BOOL)error outputString:(BOOL)string output:(id *)data;
++ (BOOL)launchNSTaskAtPath:(NSString *)path withArguments:(NSArray<NSString*> *)arguments outputError:(BOOL)error outputString:(BOOL)string output:(id *)data;
 //Standard informative alert
 + (void)standardAlertWithMessageText:(NSString *)message withInformationText:(NSString *)information withParentWindow:(NSWindow *)parent;
 //Get chapters using QTKit

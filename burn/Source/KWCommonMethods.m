@@ -462,7 +462,7 @@
 	}
 }
 
-+ (unsigned long)getFinderFlagsAtPath:(NSString *)path
++ (UInt16)getFinderFlagsAtPath:(NSString *)path
 {
 	FSRef possibleInvisibleFile;
 	FSCatalogInfo catalogInfo;
@@ -1124,7 +1124,7 @@
 	NSUInteger current_index = [indexSet lastIndex];
     while (current_index != NSNotFound)
     {
-		[selectedRows addObject:[NSNumber numberWithUnsignedInt:current_index]];
+		[selectedRows addObject:@(current_index)];
 		current_index = [indexSet indexLessThanIndex: current_index];
     }
 	

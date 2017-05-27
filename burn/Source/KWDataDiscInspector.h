@@ -128,7 +128,7 @@
 - (IBAction)setUID:(id)sender;
 - (IBAction)setGID:(id)sender;
 
-- (id)myView;
+- (NSView*)myView;
 
 //Convenience methods
 - (void)setOptionsForViews:(NSArray *)views setEnabled:(BOOL)enabled;
