@@ -11,6 +11,10 @@
 		552CBF541ED8A3A400A9A82D /* MultiTag.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 552CBF521ED8A31900A9A82D /* MultiTag.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55A3C9CB1ED4E7D900675D13 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */; };
 		55C6D4041ED683A3005A99FD /* BurnDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6D4031ED683A3005A99FD /* BurnDefines.m */; };
+		55CD19B61EDA23E60011321D /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEF72090B92F47700ED64A9 /* QTKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		55CD19BB1EDA2CD10011321D /* libcdio.16.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19B81EDA2CB60011321D /* libcdio.16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		55CD19BC1EDA2CD70011321D /* libiso9660.10.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19B91EDA2CB60011321D /* libiso9660.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		55CD19BD1EDA2CDA0011321D /* libpopt.0.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19BA1EDA2CB60011321D /* libpopt.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		FE2FF27212F2DA5E0010AD5D /* NSNumber_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2FF26B12F2DA5E0010AD5D /* NSNumber_Extensions.m */; };
 		FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
 		FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -129,6 +133,9 @@
 			files = (
 				FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */,
 				552CBF541ED8A3A400A9A82D /* MultiTag.framework in Copy Frameworks */,
+				55CD19BB1EDA2CD10011321D /* libcdio.16.dylib in Copy Frameworks */,
+				55CD19BC1EDA2CD70011321D /* libiso9660.10.dylib in Copy Frameworks */,
+				55CD19BD1EDA2CDA0011321D /* libpopt.0.dylib in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +152,9 @@
 		55A3C9CA1ED4E7D900675D13 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = Images/Icons.xcassets; sourceTree = "<group>"; };
 		55C6D4021ED68394005A99FD /* BurnDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BurnDefines.h; path = Source/BurnDefines.h; sourceTree = "<group>"; };
 		55C6D4031ED683A3005A99FD /* BurnDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BurnDefines.m; path = Source/BurnDefines.m; sourceTree = "<group>"; };
+		55CD19B81EDA2CB60011321D /* libcdio.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcdio.16.dylib; sourceTree = "<group>"; };
+		55CD19B91EDA2CB60011321D /* libiso9660.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libiso9660.10.dylib; sourceTree = "<group>"; };
+		55CD19BA1EDA2CB60011321D /* libpopt.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpopt.0.dylib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE033FFF0BA7FB6100622112 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FE0340010BA7FB6E00622112 /* KWRecorderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWRecorderInfo.h; path = Source/KWRecorderInfo.h; sourceTree = "<group>"; };
@@ -316,7 +326,7 @@
 		FE888CBE0CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FE888CBF0CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE888CC00CF9B4BA003620F1 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		FE9DB850110338EB0086F62C /* iso8859-1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "iso8859-1"; path = "Binaries/Support Files/iso8859-1"; sourceTree = "<group>"; };
+		FE9DB850110338EB0086F62C /* iso8859-1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iso8859-1"; sourceTree = "<group>"; };
 		FE9F920E0D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE9F920F0D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/KWDiscInfo.xib; sourceTree = "<group>"; };
 		FE9F92110D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/KWEjecter.xib; sourceTree = "<group>"; };
@@ -325,13 +335,13 @@
 		FE9F92140D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FE9F92150D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE9F92160D312811002A7BDC /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		FEA4694E0D97E6FE0083527F /* dvda-author */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "dvda-author"; path = "Binaries/Intel/dvda-author"; sourceTree = "<group>"; };
-		FEA4694F0D97E6FE0083527F /* dvdauthor */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = dvdauthor; path = Binaries/Intel/dvdauthor; sourceTree = "<group>"; };
-		FEA469500D97E6FE0083527F /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = Binaries/Intel/ffmpeg; sourceTree = "<group>"; };
-		FEA469510D97E6FE0083527F /* mkisofs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = mkisofs; path = Binaries/Intel/mkisofs; sourceTree = "<group>"; };
-		FEA469520D97E6FE0083527F /* movtowav */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = movtowav; path = Binaries/Intel/movtowav; sourceTree = "<group>"; };
-		FEA469530D97E6FE0083527F /* movtoy4m */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = movtoy4m; path = Binaries/Intel/movtoy4m; sourceTree = "<group>"; };
-		FEA469550D97E6FE0083527F /* spumux */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = spumux; path = Binaries/Intel/spumux; sourceTree = "<group>"; };
+		FEA4694E0D97E6FE0083527F /* dvda-author */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "dvda-author"; sourceTree = "<group>"; };
+		FEA4694F0D97E6FE0083527F /* dvdauthor */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = dvdauthor; sourceTree = "<group>"; };
+		FEA469500D97E6FE0083527F /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ffmpeg; sourceTree = "<group>"; };
+		FEA469510D97E6FE0083527F /* mkisofs */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mkisofs; sourceTree = "<group>"; };
+		FEA469520D97E6FE0083527F /* movtowav */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = movtowav; sourceTree = "<group>"; };
+		FEA469530D97E6FE0083527F /* movtoy4m */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = movtoy4m; sourceTree = "<group>"; };
+		FEA469550D97E6FE0083527F /* spumux */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = spumux; sourceTree = "<group>"; };
 		FEA469640D97E9C50083527F /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/KWBurner.xib; sourceTree = "<group>"; };
 		FEA469660D97E9C50083527F /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/KWEraser.xib; sourceTree = "<group>"; };
 		FEAB1ED90D11730000629E3E /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = "en.lproj/Burn document.icns"; sourceTree = "<group>"; };
@@ -348,7 +358,7 @@
 		FEAC31360D2A75C000555250 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/KWPreferences.xib; sourceTree = "<group>"; };
 		FEAC31370D2A75C000555250 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FEAC3B560EFBFF0300D6F2B5 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FEC3D5280EE32541008DBECA /* vcdimager */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = vcdimager; path = Binaries/Intel/vcdimager; sourceTree = "<group>"; };
+		FEC3D5280EE32541008DBECA /* vcdimager */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = vcdimager; sourceTree = "<group>"; };
 		FEC66B180F2CCD8A00086E2C /* nl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nl; path = nl.lproj/BurnHelp; sourceTree = "<group>"; };
 		FEC66B530F2CCD9200086E2C /* en */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en; path = en.lproj/BurnHelp; sourceTree = "<group>"; };
 		FEC66B8B0F2CCD9B00086E2C /* ja */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ja; path = ja.lproj/BurnHelp; sourceTree = "<group>"; };
@@ -485,6 +495,7 @@
 			files = (
 				FEF8A87612D9D2BF00FE302C /* Cocoa.framework in Frameworks */,
 				FEF8A87712D9D2BF00FE302C /* DiscRecording.framework in Frameworks */,
+				55CD19B61EDA23E60011321D /* QTKit.framework in Frameworks */,
 				FEF8A87A12D9D2BF00FE302C /* Carbon.framework in Frameworks */,
 				552CBF531ED8A3A400A9A82D /* MultiTag.framework in Frameworks */,
 				FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */,
@@ -568,6 +579,17 @@
 				552CBF521ED8A31900A9A82D /* MultiTag.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		55CD19B71EDA2B550011321D /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				55CD19B81EDA2CB60011321D /* libcdio.16.dylib */,
+				55CD19B91EDA2CB60011321D /* libiso9660.10.dylib */,
+				55CD19BA1EDA2CB60011321D /* libpopt.0.dylib */,
+			);
+			name = Libs;
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		FE0340060BA7FBD300622112 /* KWRecorderInfo */ = {
@@ -688,7 +710,7 @@
 			children = (
 				FE9DB850110338EB0086F62C /* iso8859-1 */,
 			);
-			name = "Support Files";
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		FEA468170D97BE0D0083527F /* Intel */ = {
@@ -703,7 +725,7 @@
 				FEA469550D97E6FE0083527F /* spumux */,
 				FEC3D5280EE32541008DBECA /* vcdimager */,
 			);
-			name = Intel;
+			path = Intel;
 			sourceTree = "<group>";
 		};
 		FEE12CD70BAC5821001D474B /* KWEjecter */ = {
@@ -788,10 +810,11 @@
 		FEEF72460B92FCAF00ED64A9 /* Binaries */ = {
 			isa = PBXGroup;
 			children = (
+				55CD19B71EDA2B550011321D /* Libs */,
 				FEA468170D97BE0D0083527F /* Intel */,
 				FE9DB849110338B10086F62C /* Support Files */,
 			);
-			name = Binaries;
+			path = Binaries;
 			sourceTree = "<group>";
 		};
 		FEEFF1F90BEB3E150056C1DB /* KWAudioDiscInspector */ = {
@@ -1539,10 +1562,6 @@
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					QTKit,
-				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1560,10 +1579,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					QTKit,
-				);
 				SDKROOT = macosx;
 			};
 			name = Release;
