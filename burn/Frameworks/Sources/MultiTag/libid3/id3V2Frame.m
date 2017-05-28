@@ -26,9 +26,17 @@
 #define kTrimSetStr	@"%c%@%@", '\0', @"\r\n\t", @"\0\0"
 
 @implementation id3V2Frame
+@synthesize frameID;
+@synthesize frameLength = length;
+
+- (NSData *)rawFrameData
+{
+    return [frame copy];
+}
+
 -(id)initFrame:(NSData *)Frame length:(int)Length frameID:(NSString *)FrameID firstflag:(char)FlagByte1 secondFlag:(char)FlagByte2 version:(int)Version
 {
-    if (!(self = [super init])) return self;
+    if (self = [super init]) {
     frame = [Frame copyWithZone:NULL];
     length = [frame length];
     majorVersion = Version;
@@ -36,12 +44,13 @@
     else frameID = [FrameID substringToIndex:4];
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
+    }
     return self;
 } 
 
 -(id)initTextFrame:(NSString *)FrameID firstflag:(char)FlagByte1 secondFlag:(char)FlagByte2 text:(NSString *)Text withEncoding:(unsigned int)Encoding version:(int)Version
 {
-    if (!(self = [super init])) return self;
+    if (self = [super init]) {
     unsigned char nullChar[] = { 0, 0};
 	if (Text == NULL) Text = @"";
     frame = [[NSMutableData alloc] initWithCapacity:1];
@@ -55,12 +64,13 @@
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
 	iTunesV24Compat = NO;
+    }
     return self;
 }
 
 -(id)init:(NSString *)FrameID firstflag:(char)FlagByte1 secondFlag:(char)FlagByte2 version:(int)Version
 {	
-    if (!(self = [super init])) return self;
+    if (self = [super init]) {
     frame = NULL;
     length = 0;
     majorVersion = Version;
@@ -68,6 +78,7 @@
     flagByte1 = FlagByte1;
     flagByte2 = FlagByte2;
 	iTunesV24Compat = NO;
+    }
     return self;
 }
 
@@ -249,21 +260,21 @@
 -(NSData *)write2FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:3];
-    char * Bytes = (char *) [Temp bytes];
+    char * Bytes = (char *) [Temp mutableBytes];
     
     Bytes[2] = (Length & 0xff);
     Length = Length >> 8;
     Bytes[1] = (Length & 0xff);
     Length = Length >> 8;
     Bytes[0] = (Length & 0xff);
-    if (Length < 256) return Temp;
+    if (Length < 256) return [Temp copy];
     return NULL;
 }
 
 -(NSData *)write4FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:4];
-    char * Bytes = (char *)[Temp bytes];
+    char * Bytes = (char *)[Temp mutableBytes];
     
     Bytes[3] = (Length & 0x7f);
     Length = Length >> 7;
@@ -272,14 +283,14 @@
     Bytes[1] = (Length & 0x7f);
     Length = Length >> 7;
     Bytes[0] =(Length & 0x7f);
-    if (Length < 256) return Temp;
+    if (Length < 256) return [Temp copy];
     return NULL;
 }
 
 -(NSData *)write3FrameLength:(NSInteger)Length
 {
     NSMutableData *Temp  = [NSMutableData dataWithLength:4];
-    char * Bytes = (char *) [Temp bytes];
+    char * Bytes = (char *) [Temp mutableBytes];
     
     Bytes[3] = (Length & 0xff);
     Length = Length >> 8;
@@ -288,7 +299,7 @@
     Bytes[1] = (Length & 0xff);
     Length = Length >> 8;
     Bytes[0] = (Length & 0xff);
-    if (Length < 256) return Temp;
+    if (Length < 256) return [Temp copy];
     return NULL;
 }
 
@@ -304,7 +315,7 @@
     else encoding = 0;
 
     [frame appendData:[self getTextCodingByte: encoding]];
-    if (![Language canBeConvertedToEncoding: NSISOLatin1StringEncoding]) return NO;
+    if (![Language canBeConvertedToEncoding: NSISOLatin1StringEncoding] && !UTF16) return NO;
     if ([Language length] <3) return NO;
     [frame appendBytes:[Language cStringUsingEncoding:NSASCIIStringEncoding] length:3];
 	[frame appendBytes:"" length:1];
@@ -345,7 +356,7 @@
     else encoding = 1;
     [frame appendData:[self getTextCodingByte: encoding]];
     
-    int imageEncoding = 0;
+    NSBitmapImageFileType imageEncoding = 0;
     
     // write Image Format
     NSString *tempMime = [[Image objectForKey:@"Mime Type"] lastPathComponent];
@@ -721,11 +732,11 @@
 }
 
 - (BOOL)isEqual:(id)anObject {
-	if ([frameID isEqual:[anObject getFrameID]]&&[frame isEqual:[anObject getRawFrameData]]&&([self length] == [anObject length])) return YES;
+	if ([frameID isEqual:[anObject frameID]]&&[frame isEqual:[anObject rawFrameData]]&&([self length] == [anObject length])) return YES;
 	else return NO;
 }
 
--(NSMutableString *)cleanString:(NSString *)String {
+-(NSString *)cleanString:(NSString *)String {
 	NSMutableString * cleanString = [[String stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]] mutableCopy];
 	NSRange range;
 	range.location = 0;
@@ -733,7 +744,7 @@
 	[cleanString replaceOccurrencesOfString:@"\0\0" withString:@" " options:NSCaseInsensitiveSearch range:range];
 	range.length = [cleanString length];
 	[cleanString replaceOccurrencesOfString:@"\0" withString:@" " options:NSCaseInsensitiveSearch range:range];
-	return cleanString;
+	return [cleanString copy];
 }
 
 @end

@@ -40,7 +40,9 @@
 -(NSString *)getCommentFromFrame;
 -(NSString *)getShortCommentFromFrame;
 -(NSString *)getTextFromFrame;
--(NSString *)getFrameID;
+@property (readonly, copy) NSString *frameID;
+@property (readonly) int frameLength;
+-(NSString *)getFrameID DEPRECATED_ATTRIBUTE;
 -(int)getFrameLength;
 -(NSArray *)getGenreFromFrame;
 -(NSStringEncoding)convertTextCodingByte:(char)coding;
@@ -49,6 +51,7 @@
 
 -(void)iTunesV24Compat;
 
+@property (readonly, copy) NSData *rawFrameData;
 -(NSData *)getRawFrameData;
 -(NSData *)getCompleteRawFrame;
 -(NSData *)write2FrameLength:(NSInteger)Length;
@@ -73,11 +76,10 @@
 -(BOOL)writeCommentToFrame:(NSString *)Comments language:(NSString *)Language coding:(BOOL)UTF16;
 -(BOOL)writeImage:(NSDictionary *)Image;
 
--(NSString *)genreStringFromArray:(NSArray *)Array;
--(NSMutableArray *)genreArrayFromFrame;
+-(NSString *)genreStringFromArray:(NSArray<NSString*> *)Array;
+-(NSArray<NSString*> *)genreArrayFromFrame;
 
--(NSMutableString *)cleanString:(NSString *)String;
+-(NSString *)cleanString:(NSString *)String;
 
--(void)dealloc;
 @end
 

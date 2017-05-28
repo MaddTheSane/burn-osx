@@ -8,10 +8,10 @@
 
 #ifdef __APPLE__
 #import "V24FrameSet.h"
-#import "zlib.h"
+#import <zlib.h>
 #else
 #include "V24FrameSet.h"
-#include "zlib.h"
+#include <zlib.h>
 
 #include <Foundation/NSArray.h>
 #include <Foundation/NSData.h>
@@ -20,7 +20,7 @@
 @implementation V24FrameSet
 -(id)init:(NSMutableData *)Frames version:(int)Minor validFrameSet:(NSDictionary *)FrameSet  frameSet:(NSMutableDictionary *)frameSet offset:(int)Offset  iTunes:(BOOL)ITunes
 {
-    if (!(self = [super init])) return self;
+    if (self = [super init]) {
     validFrames = FrameSet;
     v2Tag = Frames;
     frameOffset = Offset;
@@ -44,17 +44,17 @@
 
         if (newFrame != NULL) 
         {
-            id anObject = [frameSet objectForKey:[newFrame getFrameID]];
+            id anObject = [frameSet objectForKey:[newFrame frameID]];
             if (anObject == NULL) 
 			{
 				NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:2];
 				[tempArray addObject:newFrame];
-				[frameSet setObject:tempArray forKey:[newFrame getFrameID]];
+				[frameSet setObject:tempArray forKey:[newFrame frameID]];
 			}
             else [anObject addObject:newFrame];
 		}
     } while ([self nextFrame:NO]);
-    
+    }
     return self;
 }
 
@@ -180,7 +180,7 @@
     if (frameFlag2 & 0x02) //only v2.4 allow frame synchronisation
     {  // need to decode unsynched frame. create new buffer and copy across without desync bytes
         tempBuffer = [NSMutableData dataWithLength: frameLength];
-        tempPointer = (unsigned char*) [tempBuffer bytes];
+        tempPointer = (unsigned char*) [tempBuffer mutableBytes];
         count = 0;
         for (i = 10; i < frameLength; i ++)
         {
@@ -201,7 +201,7 @@
 			NSLog(@"Warning Uncompressed frame size > maximum allowable frame size, clipping frame to %i bytes.",MAXUNCOMPRESSEDFRAMESIZE);
 		}
         NSMutableData *uncompressed = [NSMutableData dataWithLength: newLength];
-        unsigned char *temp = (unsigned char *)[uncompressed bytes];
+        unsigned char *temp = (unsigned char *)[uncompressed mutableBytes];
         int x;
         x = uncompress(temp,&newLength,tempPointer+14,frameLength);
         if (x!=0)
@@ -214,10 +214,10 @@
             }
             return NULL;
         }
-        return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:temp length: (int) newLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
+        return [[id3V2Frame alloc] initFrame:[uncompressed subdataWithRange:NSMakeRange(0, newLength)] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
      }
 
-    return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 10 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
+    return [[id3V2Frame alloc] initFrame:[tempBuffer subdataWithRange:NSMakeRange(10, frameLength)] length:frameLength frameID:[self getFrameID] firstflag:frameFlag1 secondFlag:frameFlag2 version:4];
 }
 
 -(BOOL)atValidFrame
@@ -276,7 +276,7 @@
 
 -(NSString *)getFrameID
 {
-	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:4];
+    NSData *tmpData = [v2Tag subdataWithRange:NSMakeRange(currentFramePosition, 4)];
 	return [[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding];
 }
 

@@ -44,6 +44,10 @@
 #define kTrimSetStr	@"%c%@", '\0', @" \r\n\t"
 
 @implementation id3V1Tag
+@synthesize errorCode = errorNo;
+@synthesize errorDescription;
+@synthesize tagPresent = present;
+
 -(id)init
 {
     if (self = [super init]) 
@@ -69,8 +73,8 @@
 
 -(BOOL)openPath:(NSString *)Path
 {
-    id old = path;
     path = [Path copy];
+	tag = nil;
     return [self getTag];
 }
 
@@ -79,27 +83,25 @@
 -(NSString *)getTitle
 {
     if ((present == NO)||(tag==NULL)) return NULL;
-    return [self getString:3 length:30];
+    return [self getString:3 length:TitleLength];
 }
 
 -(NSString *)getArtist;
 {
     if ((present == NO)||(tag==NULL)) return NULL;
-    return [self getString:33 length:30];
+    return [self getString:33 length:ArtistLength];
 }
 
 -(NSString *)getAlbum;
 {
-   if ((present == NO)||(tag==NULL)) return NULL;
-    return [self getString:63 length:30];
+    if ((present == NO)||(tag==NULL)) return NULL;
+    return [self getString:63 length:AlbumLength];
 }
 
 -(int)getYear;
 {
-    char * pointer = (char *) [tag bytes];
-    
     if ((present == NO)||(tag==NULL)) return 0;
-	NSData *tmpData = [NSData dataWithBytes:pointer + 93 length:4];
+	NSData *tmpData = [tag subdataWithRange:NSMakeRange(93, YearLength)];
 	return [[[NSString alloc] initWithData:tmpData encoding:NSASCIIStringEncoding] intValue];
 }
 
@@ -111,7 +113,7 @@
 
 -(int)getTrack;
 {
-    unsigned char * pointer = (unsigned char *) [tag bytes];
+    const unsigned char * pointer = (const unsigned char *) [tag bytes];
     
     if ((present == NO)||(tag==NULL)) return 0;
  //   if (pointer[124] != 0) return 0; // this is not a v1.1 tag
@@ -120,7 +122,7 @@
 
 - (NSString *) getString:(int)Position length:(int)MaxLength
 {  // ensure that we only extract the string and not the crap at the end
-    char * pointer = (char *) [tag bytes];
+    const char * pointer = (const char *) [tag bytes];
     int i = 0;
     int j = 0;
     //step through the string
@@ -131,7 +133,7 @@
             if (pointer[i+Position] == 0) break; // if null end string
         } else j=i;
     }
-	NSData *tmpData = [NSData dataWithBytes:pointer + Position length:j+1];
+    NSData *tmpData = [tag subdataWithRange:NSMakeRange(Position, j+1)];
 	NSString *tmpStr = [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
     return [tmpStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:kTrimSetStr]]];
 }
@@ -155,13 +157,13 @@
     }
     
     fileSize = [file seekToEndOfFile];
-    if (fileSize < 128) 
+    if (fileSize < id3TagLength)
     {
         [self newTag];
         [file closeFile];
         return NO; 
     }
-    [file seekToFileOffset: (fileSize - 128)]; //reads last 128 bytes of the file as this is were a id3  tag would be stored
+    [file seekToFileOffset: (fileSize - id3TagLength)]; //reads last 128 bytes of the file as this is were a id3  tag would be stored
     tag = [[file readDataToEndOfFile] mutableCopy];
     if (tag == NULL)
     {
@@ -170,7 +172,7 @@
         return NO;
     }
     
-    unsigned char * pointer = (unsigned char *) [tag bytes];
+    const unsigned char * pointer = (const unsigned char *) [tag bytes];
     if ((pointer[0] == 'T')&&(pointer[1] == 'A')&&(pointer[2] == 'G'))
     { // found id3 v1 tag
         present = YES;
@@ -209,18 +211,13 @@
     return NO;
 }
 
--(BOOL)tagPresent
-{
-    return present;
-}
-
 // id3 tag editing
 
 -(BOOL)newTag
 { // deletes old tag array and creates a blank tag
     [self clearError];
-    tag = [NSMutableData dataWithLength:128];
-    unsigned char * Buffer = (unsigned char *)[tag bytes];
+    tag = [[NSMutableData alloc] initWithLength:128];
+    unsigned char * Buffer = (unsigned char *)[tag mutableBytes];
     Buffer[0] = 'T';
     Buffer[1] = 'A';
     Buffer[2] = 'G';
@@ -252,12 +249,12 @@
     NSFileHandle *file = [NSFileHandle fileHandleForUpdatingAtPath: path];
     
     fileSize = [file seekToEndOfFile];
-    if (fileSize < 128) 
+    if (fileSize < id3TagLength)
     {
         [file closeFile];
         return NO; 
     }
-    [file seekToFileOffset: (fileSize - 128)]; //reads last 128 bytes of the file as this is were a id3  tag would be stored
+    [file seekToFileOffset: (fileSize - id3TagLength)]; //reads last 128 bytes of the file as this is were a id3  tag would be stored
     NSData * tempTag = [file readDataToEndOfFile];
     if (tag == NULL)
     {
@@ -277,7 +274,7 @@
 
     if (present)
     {
-        [file truncateFileAtOffset:fileSize - 128];
+        [file truncateFileAtOffset:fileSize - id3TagLength];
     }
     [file closeFile];
     present = NO;
@@ -286,7 +283,7 @@
 
 -(BOOL)setFieldWithString:(NSString *)String offset:(int)Offset length:(int)Length
 {
-    char *Buffer = (char *) [tag bytes];
+    char *Buffer = (char *) [tag mutableBytes];
     if (Buffer == NULL) return NO;
     int i;
     

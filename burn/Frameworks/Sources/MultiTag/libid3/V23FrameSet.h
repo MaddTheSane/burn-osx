@@ -21,6 +21,8 @@
 
 #define MAXUNCOMPRESSEDFRAMESIZE 10000000
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface V23FrameSet : NSObject {
     //ID3 tag header variables
     int minorVersion;
@@ -33,8 +35,7 @@
     int padding;
         
     //storage for tag
-    NSMutableData * v2Tag;
-    unsigned char *Buffer;
+    NSData * v2Tag;
     
     //error variables
     int errorNo;
@@ -45,8 +46,8 @@
 	NSCharacterSet *validChars;
 }
 // information 
--(id)init:(NSMutableData *)Frames version:(int)Minor validFrameSet:(NSDictionary *)FrameSet frameSet:(NSMutableDictionary *)frameSet offset:(int)Offset;
--(NSString *)getFrameID;
+-(id)init:(NSData *)Frames version:(int)Minor validFrameSet:(nullable NSDictionary *)FrameSet frameSet:(NSMutableDictionary *)frameSet offset:(int)Offset;
+-(nullable NSString *)getFrameID;
 -(int)frameLength;
 -(int)getFrameSetLength;
 
@@ -54,8 +55,10 @@
 -(int)readPackedLengthFrom:(int)Offset;
 
 // id3V2 tag processing
--(id3V2Frame *)getFrame;
+-(nullable id3V2Frame *)getFrame;
 -(BOOL)nextFrame:(BOOL)atStart;
 -(BOOL)atValidFrame;
 
 @end
+
+NS_ASSUME_NONNULL_END

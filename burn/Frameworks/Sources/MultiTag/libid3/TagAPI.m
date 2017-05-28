@@ -136,20 +136,20 @@
         } 
         
         BOOL test = [[preferences objectForKey:@"Parse V1 only if V2 does not exist"] boolValue];
-        if ([[preferences objectForKey:@"Parse V1"] boolValue]||(test&&![v2Tag tagPresent]))
+        if ([[preferences objectForKey:@"Parse V1"] boolValue]||(test && !v2Tag.tagPresent))
         {
             parsedV1 = YES;
             [v1Tag openPath:path];   
             if (![v1Tag tagPresent]&&[[preferences objectForKey:@"Write V1 Always"] boolValue])
             {
                 // if v2 tag exists copy data into v1 tag
-                if ([v2Tag tagPresent]) [self copyV2TagToV1Tag];
+                if (v2Tag.tagPresent) [self copyV2TagToV1Tag];
                 else [v1Tag newTag];
             }
         }
   
         // if there is no storage for a V2 tag create a v2 tag
-        if (![v2Tag tagPresent])
+        if (!v2Tag.tagPresent)
         {
             if ([v1Tag tagPresent]) [self copyV1TagToV2Tag];
             else [v2Tag newTag:[[preferences objectForKey:@"Default V2 tag - Major number"] intValue] minor:[[preferences objectForKey:@"Default V2 tag - Minor number"] intValue]];
@@ -182,7 +182,7 @@
             if (![v1Tag writeTag]) returnValue = -2;
         }
 
-        if ([v2Tag tagPresent]|| [[preferences objectForKey:@"Write V2 Always"] boolValue])
+        if (v2Tag.tagPresent|| [[preferences objectForKey:@"Write V2 Always"] boolValue])
         {
             if (![v2Tag writeTag]) returnValue += -1;
         }
@@ -209,7 +209,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 title = [v2Tag getTitle];
 				if (title != NULL) return title;
@@ -229,7 +229,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 artist = [v2Tag getArtist];
 				if (artist != NULL) return artist;
@@ -250,7 +250,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 album = [v2Tag getAlbum];
 				if (album != NULL) return album;
@@ -271,7 +271,7 @@
 
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 year = [v2Tag getYear];
 				return [self returnNumber:year];
@@ -293,7 +293,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 track = [v2Tag getTrack];
 				return [self returnNumber:track];
@@ -313,7 +313,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 return [self returnNumber:[v2Tag getTotalNumberTracks]];
             }
@@ -327,7 +327,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 return [self returnNumber:[v2Tag getDisk]];
             }
@@ -342,7 +342,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 return [self returnNumber:[v2Tag getTotalNumberDisks]];
             }
@@ -356,7 +356,7 @@
     
     if (parse != 1) // ie parse v2 tag unless parse is set to 1 to ensure that v1 tag is parsed
     {
-            if ([v2Tag tagPresent]==YES) 
+            if (v2Tag.tagPresent==YES) 
             {
                 genreName = [v2Tag getGenreNames];
                 
@@ -383,7 +383,7 @@
     
     if (parse != 1)
     {
-            if ([v2Tag tagPresent]==YES) {
+            if (v2Tag.tagPresent==YES) {
                 comments = [v2Tag getComments];
 				if (comments != NULL) return comments;
             }
@@ -399,14 +399,14 @@
 
 - (NSMutableArray *)getTagImage
 {
-    if ((![v2Tag tagPresent])||(parse == 1)) return NULL;
+    if ((!v2Tag.tagPresent)||(parse == 1)) return NULL;
     
     return [v2Tag getImage];
 }
 
 - (NSString *)getTagComposer
 {
-    if ((![v2Tag tagPresent])||(parse == 1)) return @"";
+    if ((!v2Tag.tagPresent)||(parse == 1)) return @"";
     return [v2Tag getComposer];
 }
 
@@ -530,7 +530,7 @@
             if (anObject == NULL)  {//If the genre does not exist in the dictionary and the Dictionary is not the static one provided with the library then add the new genre.
                 sequenceNumber++;
                 [[dataDictionary objectForKey:@"genreIndexes"] setObject:@(sequenceNumber) forKey:@"-1"];
-                [genreDictionary setObject:@(sequenceNumber) forKey:anObject];
+                [genreDictionary setObject:@(sequenceNumber) forKey:tempString];
              }
 		}
     }
@@ -682,7 +682,7 @@
 
 -(BOOL)v2TagPresent
 {
-    return [v2Tag tagPresent];
+    return v2Tag.tagPresent;
 }
 
 - (NSMutableArray *)processGenreArray:(NSArray *)Array

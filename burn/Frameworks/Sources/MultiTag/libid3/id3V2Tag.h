@@ -73,7 +73,8 @@
 
 // information
 -(int)tagVersion;
--(BOOL)tagPresent;
+@property (readonly, getter=isTagPresent) BOOL tagPresent;
+-(BOOL)tagPresent DEPRECATED_ATTRIBUTE;
 -(BOOL)extendedHeader;
 -(BOOL)tagUnsynch;
 -(BOOL)compressTag;
@@ -110,7 +111,6 @@
 -(BOOL)addUpdateFrame:(id3V2Frame *)Frame replace:(BOOL)Replace frame:(int)index;
 -(BOOL)setFrames:(NSMutableArray *)newFrames;
 -(NSData *)writePackedLength:(int)Length;
--(void)dealloc;
 
 // set attributes
 -(BOOL)setTitle:(NSString *)Title;

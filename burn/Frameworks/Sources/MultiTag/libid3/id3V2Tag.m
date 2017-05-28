@@ -31,6 +31,8 @@
 
 
 @implementation id3V2Tag
+@synthesize tagPresent = present;
+
 -(id)initWithFrameDictionary:(NSDictionary *)Dictionary
 {
     if (!(self = [super init])) return self;
@@ -235,7 +237,7 @@
 - (NSMutableData *)desynchData:(NSData *)Data offset:(int)Offset
 { // desynches a NSData object  the returned object have been retained and the receive needs to release the object once done with the object.
     NSInteger oldLength = [Data length];
-    char * Buffer = (char *)[Data bytes] + Offset;
+    const char * Buffer = (const char *)[Data bytes] + Offset;
     NSMutableData * newBuffer = [NSMutableData dataWithLength: oldLength];
     unsigned char * tempPointer = (unsigned char*) [newBuffer bytes];
     int count = 0;
@@ -467,7 +469,7 @@
 		NSInteger count;
 		NSInteger divider = 0;
 	
-		if ([[[value objectAtIndex:0] getFrameID] isEqualTo:tempString]) {
+		if ([[[value objectAtIndex:0] frameID] isEqualTo:tempString]) {
 			for (count = maxCount - 1; count >= 0; count --) {
 				[sortArray insertObject:[[value objectAtIndex:count] getCompleteRawFrame] atIndex:divider];
 			}
@@ -551,19 +553,19 @@
 {
     if (Frame == 0) return NO;
 	
-    id anObject = [frameSet objectForKey:[Frame getFrameID]];
+    id anObject = [frameSet objectForKey:[Frame frameID]];
     if (anObject == NULL) return YES;
 	NSInteger index = [anObject indexOfObject:Frame];
     frameSetLength -= [[anObject objectAtIndex:index] length];
     [anObject removeObjectAtIndex:index];
-	if ([anObject count] <= 0) [frameSet removeObjectForKey:[Frame getFrameID]];
+	if ([anObject count] <= 0) [frameSet removeObjectForKey:[Frame frameID]];
     return YES;
 }
 
 -(BOOL)addUpdateFrame:(id3V2Frame *)Frame replace:(BOOL)Replace frame:(int)index
 {
     if (Frame == NULL) return NO;
-    NSString * Name = [Frame getFrameID];
+    NSString * Name = [Frame frameID];
     if (Replace) [self dropFrame:Name frame:index];
     tagChanged = YES;
     frameSetLength += [Frame length];
@@ -595,7 +597,7 @@
 {
     if ((newFrames == NULL)||([newFrames count] < 1)) return NO;
     // get the frame ID from the first frame in the list. all frame should be the same type
-    NSString * Name = [[newFrames objectAtIndex:0] getFrameID];
+    NSString * Name = [[newFrames objectAtIndex:0] frameID];
     
     // get all old frames from the dictionary and delete
     if ([self dropFrame:Name frame:-1] == NO) return NO;

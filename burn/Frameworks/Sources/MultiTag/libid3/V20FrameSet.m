@@ -17,15 +17,15 @@
 
 
 @implementation V20FrameSet
--(id)init:(NSMutableData *)Frames version:(int)Minor validFrameSet:(NSDictionary *)FrameSet frameSet:(NSMutableDictionary *)frameSet offset:(int)Offset
+-(id)init:(NSData *)Frames version:(int)Minor validFrameSet:(NSDictionary *)FrameSet frameSet:(NSMutableDictionary *)frameSet offset:(int)Offset
 {
     if (!(self = [super init])) return self;
     validFrames = FrameSet;
     frameOffset = Offset;
-    v2Tag = Frames;
+    v2Tag = [Frames copy];
     minorVersion = Minor;
     tagLength = [v2Tag length] - frameOffset;
-    Buffer = (unsigned char *) [v2Tag bytes];
+    //Buffer = (unsigned char *) [v2Tag bytes];
     currentFramePosition = frameOffset;
     currentFrameLength = 0;
     framesEndAt = frameOffset;
@@ -40,12 +40,12 @@
         id3V2Frame * newFrame = [self getFrame]; 
         if (newFrame != NULL) 
         {
-            id anObject = [frameSet objectForKey:[newFrame getFrameID]];
+            id anObject = [frameSet objectForKey:[newFrame frameID]];
             if (anObject == NULL) 
 	    {
 		NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:2];
                 [tempArray addObject:newFrame];
-                [frameSet setObject:tempArray forKey:[newFrame getFrameID]];
+                [frameSet setObject:tempArray forKey:[newFrame frameID]];
 	    }
             else [anObject addObject:newFrame];
         }
@@ -92,8 +92,7 @@
     if (![self atValidFrame]) return NULL;
     int frameLength = [self frameLength];
     
-    unsigned char * tempPointer = Buffer + currentFramePosition;
-    return [[id3V2Frame alloc] initFrame:[NSMutableData  dataWithBytes:tempPointer + 6 length: frameLength] length:frameLength frameID:[self getFrameID] firstflag:0 secondFlag:0 version:2];
+    return [[id3V2Frame alloc] initFrame:[v2Tag subdataWithRange:NSMakeRange(currentFramePosition + 6, frameLength)] length:frameLength frameID:[self getFrameID] firstflag:0 secondFlag:0 version:2];
 }
 
 
@@ -101,6 +100,7 @@
 {
     if (validFrames == NULL)
     {
+        const unsigned char *Buffer = [v2Tag bytes];
         if (![validChars characterIsMember:(unichar) Buffer[currentFramePosition]] || 				
 			![validChars characterIsMember:(unichar) Buffer[currentFramePosition+1]] ||
 			![validChars characterIsMember:(unichar) Buffer[currentFramePosition+2]])
@@ -120,7 +120,8 @@
 
 -(int)frameLength
 {
-    int length = Buffer[3+currentFramePosition]*256*256 + Buffer[4+currentFramePosition]*256 + Buffer[5+currentFramePosition];
+    const unsigned char *Buffer = [v2Tag bytes];
+    int length = Buffer[3+currentFramePosition] << 16 | Buffer[4+currentFramePosition] << 8 | Buffer[5+currentFramePosition];
 	
 		if (length > tagLength - frameOffset - currentFramePosition) {
 		NSLog(@"Problem encountered parsing v2 frame:  frame length value longer than tag length, guessing correct frame length");
@@ -135,8 +136,8 @@
 
 -(NSString *)getFrameID
 {
-    if (Buffer == NULL) return NULL;
-	NSData *tmpData = [NSData dataWithBytes:(Buffer + currentFramePosition) length:3];
+    if (v2Tag == NULL) return NULL;
+    NSData *tmpData = [v2Tag subdataWithRange:NSMakeRange(currentFramePosition, 3)];
 	return [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
 }
 

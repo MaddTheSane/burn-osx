@@ -42,8 +42,10 @@
 -(instancetype)init;
 -(BOOL)openPath:(NSString *)Path;
 // information
--(int)getErrorCode;
--(NSString *)getErrorDescription;
+@property (readonly) int errorCode;
+@property (readonly, copy) NSString *errorDescription;
+-(int)getErrorCode DEPRECATED_ATTRIBUTE;
+-(NSString *)getErrorDescription DEPRECATED_ATTRIBUTE;
 -(BOOL)setError:(int)No reason:(NSString *)Description;
 -(void)clearError;
 @property (readonly) BOOL tagPresent;
