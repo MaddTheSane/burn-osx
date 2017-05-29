@@ -5,17 +5,17 @@
 @interface MyDocument : NSDocument
 {
     //Interface outlets
-	IBOutlet id localizationPopup;
+	IBOutlet NSPopUpButton	*localizationPopup;
     IBOutlet id previewView;
-    IBOutlet id selectionPopup;
-    IBOutlet id themeNameField;
-    IBOutlet id viewPopup;
+    IBOutlet NSPopUpButton	*selectionPopup;
+    IBOutlet NSTextField	*themeNameField;
+    IBOutlet NSPopUpButton	*viewPopup;
 	IBOutlet id mainWindow;
 	IBOutlet id editTabView;
 	IBOutlet id editPopup;
 	IBOutlet id localizationSheet;
 	IBOutlet id localizationText;
-	IBOutlet id previewWindow;
+	IBOutlet NSWindow *previewWindow;
 	IBOutlet id previewImageView;
 	IBOutlet id selectionModeTabView;
 	
