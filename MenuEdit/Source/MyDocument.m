@@ -390,7 +390,9 @@ NSControl *cntl;
 	int x;
 	for (x=0;x<[views count];x++)
 	{
-	NSView *currentView;
+		int index;
+		id property = nil;
+		NSView *currentView;
 	
 		if ([[views objectAtIndex:x] isKindOfClass:[NSView class]])
 		currentView = [views objectAtIndex:x];
@@ -404,12 +406,9 @@ NSControl *cntl;
 			[self setViewOptions:[(NSTabView *)cntl tabViewItems] withThemeObject:themeObject];
 			
 		int index = [cntl tag] -1;
-		id property;
 		
 			if (index > -1 && index < 162)
 			property = [themeObject objectForKey:[keyMappings objectAtIndex:index]];
-			
-			
 		
 			if (property)
 			{
