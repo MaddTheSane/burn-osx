@@ -2,6 +2,7 @@
 #import "KWTrackProducer.h"
 #import "KWProgress.h"
 #import "LOXI.h"
+#import "BurnDefines.h"
 
 @implementation KWBurner
 
@@ -124,9 +125,9 @@
 		[burnDict setObject:[deviceInfo objectForKey:@"DRDeviceVendorNameKey"] forKey:@"Vendor"];
 		[burnDict setObject:@"" forKey:@"SerialNumber"];
 
-		[standardDefaults setObject:burnDict forKey:@"KWDefaultDeviceIdentifier"];
+		[standardDefaults setObject:burnDict forKey:KWDefaultDeviceIdentifier];
 
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMediaChanged" object:nil];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWMediaChangedNotification object:nil];
 
 		//We're gonna store our setup values for later :-)
 		savedDevice = currentDevice;
@@ -860,7 +861,7 @@
 	{
 		DRDevice *device = [devices objectAtIndex:i];
 	
-		if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"KWDefaultDeviceIdentifier"] objectForKey:@"Product"]])
+		if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]])
 			return device;
 	}
 	

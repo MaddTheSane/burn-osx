@@ -91,8 +91,10 @@
 + (void)setupBurnerPopup:(NSPopUpButton *)popup;
 //Get used ffmpeg
 + (NSString *)ffmpegPath;
+@property (class, readonly, copy) NSString *ffmpegPath;
 //Get the types for diskimages
 + (NSArray<NSString*> *)diskImageTypes;
+@property (class, readonly, copy) NSArray<NSString*> *diskImageTypes;
 //Create an array with indexes of selected rows in a tableview in an array
 + (NSArray<NSNumber*> *)selectedRowsAtRowIndexes:(NSIndexSet *)indexSet;
 //Get ffmpeg and qt types

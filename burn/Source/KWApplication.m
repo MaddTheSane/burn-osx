@@ -68,7 +68,7 @@
 	  @"KWAllowOverBurning": @NO,
 	  @"KWTemporaryLocation": [cacheURL path],
 	  @"KWTemporaryLocationPopup": @0,
-	  @"KWDefaultDeviceIdentifier": @"",
+	  KWDefaultDeviceIdentifier: @"",
 	  @"KWBurnOptionsCompletionAction": @"DRBurnCompletionActionMount",
 	  @"KWSavedPrefView": KWPreferenceIdentifierGeneral,
 	  @"KWLastTab": @"Data",

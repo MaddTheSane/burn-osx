@@ -80,6 +80,7 @@
 		NSOpenPanel *sheet = [NSOpenPanel openPanel];
 		[sheet setMessage:NSLocalizedString(@"Choose an image file", nil)];
 
+		sheet.allowedFileTypes = KWCommonMethods.diskImageTypes;
 		[sheet beginSheetForDirectory:nil file:nil types:[KWCommonMethods diskImageTypes] modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];	
 	}
 	else

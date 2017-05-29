@@ -1,4 +1,5 @@
 #import "KWEraser.h"
+#import "BurnDefines.h"
 
 @implementation KWEraser
 
@@ -96,9 +97,9 @@
 	[burnDict setObject:[deviceInfo objectForKey:@"DRDeviceVendorNameKey"] forKey:@"Vendor"];
 	[burnDict setObject:@"" forKey:@"SerialNumber"];
 
-	[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:@"KWDefaultDeviceIdentifier"];
+	[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:KWDefaultDeviceIdentifier];
 
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMediaChanged" object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:KWMediaChangedNotification object:nil];
 
 	[[DRNotificationCenter currentRunLoopCenter] addObserver:self selector:@selector(eraseNotification:) name:DREraseStatusChangedNotification object:erase];	
 
@@ -322,7 +323,7 @@
 	{
 	DRDevice *currentDevice = [devices objectAtIndex:i];
 	
-		if ([[[currentDevice info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"KWDefaultDeviceIdentifier"] objectForKey:@"Product"]])
+		if ([[[currentDevice info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]])
 		{
 			return currentDevice;
 		}

@@ -127,7 +127,7 @@ return self;
 	[KWCommonMethods setupBurnerPopup:burnerPopup];
 	
 	NSArray *cells = [completionActionMatrix cells];
-	BOOL mount = ([[standardDefaults objectForKey:@"KWBurnOptionsCompletionAction"] isEqualTo:@"DRBurnCompletionActionMount"]);
+	BOOL mount = ([[standardDefaults objectForKey:@"KWBurnOptionsCompletionAction"] isEqualToString:@"DRBurnCompletionActionMount"]);
 	[[cells objectAtIndex:0] setObjectValue:@(!mount)];
 	[[cells objectAtIndex:1] setObjectValue:@(mount)];
 	
@@ -171,10 +171,8 @@ return self;
 	[mightBeThemes addObjectsFromArray:userThemes];
 	
 	NSInteger y;
-	for (y=0;y<[mightBeThemes count];y++)
+	for (NSString *currentFile in mightBeThemes)
 	{
-		NSString *currentFile = [mightBeThemes objectAtIndex:y];
-
 		if (![currentFile isEqualTo:@"Default.burnTheme"])
 		{
 			if ([[currentFile pathExtension] isEqualTo:@"burnTheme"])
@@ -198,6 +196,7 @@ return self;
 				[[themePopup menu] addItem:[NSMenuItem separatorItem]];
 			}
 		}
+		y++;
 	}
 	
 	[themePopup selectItemAtIndex:[[standardDefaults objectForKey:@"KWDVDTheme"] integerValue]];
@@ -214,7 +213,7 @@ return self;
 	[currentRunLoopCenter addObserver:self selector:@selector(mediaChanged:) name:DRDeviceAppearedNotification object:nil];
 	
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-	[defaultCenter addObserver:self selector:@selector(mediaChanged:) name:@"KWMediaChanged" object:nil];
+	[defaultCenter addObserver:self selector:@selector(mediaChanged:) name:KWMediaChangedNotification object:nil];
 	[defaultCenter addObserver:self selector:@selector(saveFrame) name:NSWindowWillCloseNotification object:nil];
 
 	NSWindow *myWindow = [self window];
@@ -344,7 +343,7 @@ return self;
 	[burnDict setObject:[currentDeviceInfo objectForKey:@"DRDeviceVendorNameKey"] forKey:@"Vendor"];
 	[burnDict setObject:@"" forKey:@"SerialNumber"];
 
-	[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:@"KWDefaultDeviceIdentifier"];
+	[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:KWDefaultDeviceIdentifier];
 }
 
 - (IBAction)setCompletionAction:(id)sender
@@ -766,7 +765,7 @@ return self;
 		[[generalView viewWithTag:5] setEnabled:([[button objectValue] integerValue] != 2)];
 	
 	if (tag == 7 | tag == 8 | tag == 9 | tag == 10)
-		[defaultCenter postNotificationName:@"KWMediaChanged" object:nil];
+		[defaultCenter postNotificationName:KWMediaChangedNotification object:nil];
 }
 
 @end

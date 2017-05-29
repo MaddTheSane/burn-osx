@@ -12,7 +12,6 @@
 NSString *const KWChangeBurnStatusNotification = @"KWChangeBurnStatus";
 NSString *const KWLeaveTabNotification = @"KWLeaveTab";
 NSString *const KWReloadRequestedNotification = @"KWReloadRequested";
-
 NSString *const KWTogglePopupsNotification = @"KWTogglePopups";
 NSString *const KWSetDropStateNotification = @"KWSetDropState";
 NSString *const KWDataListSelectedNotification = @"KWDataListSelected";
@@ -20,11 +19,13 @@ NSString *const KWDiscNameSelectedNotification = @"KWDiscNameSelected";
 NSString *const KWDiscPropertiesChangedNotification = @"KWDiscPropertiesChanged";
 NSString *const KWDVDThemeOpenedNotification = @"KWDVDThemeOpened";
 NSString *const KWChangeInspectorNotification = @"KWChangeInspector";
+NSString *const KWMediaChangedNotification = @"KWMediaChanged";
 
 NSString *const KWCalculateFolderSizes = @"KWCalculateFolderSizes";
 NSString *const KWCalculateFilePackageSizes = @"KWCalculateFilePackageSizes";
 NSString *const KWShowFilePackagesAsFolder = @"KWShowFilePackagesAsFolder";
 NSString *const KWCalculateTotalSize = @"KWCalculateTotalSize";
+NSString *const KWDefaultDeviceIdentifier = @"KWDefaultDeviceIdentifier";
 
 KWDiscType const KWDiscTypeEmpty = @"KWEmpty";
 KWDiscType const KWDiscTypeAudio = @"KWAudio";

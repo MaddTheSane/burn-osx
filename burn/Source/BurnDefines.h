@@ -24,12 +24,14 @@ extern NSString *const KWDiscNameSelectedNotification;
 extern NSString *const KWDiscPropertiesChangedNotification;
 extern NSString *const KWDVDThemeOpenedNotification;
 extern NSString *const KWChangeInspectorNotification;
+extern NSString *const KWMediaChangedNotification;
 
 #pragma mark - preferences
 extern NSString *const KWCalculateFolderSizes;
 extern NSString *const KWCalculateFilePackageSizes;
 extern NSString *const KWShowFilePackagesAsFolder;
 extern NSString *const KWCalculateTotalSize;
+extern NSString *const KWDefaultDeviceIdentifier;
 
 #pragma mark - Disc Types
 

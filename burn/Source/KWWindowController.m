@@ -51,7 +51,7 @@
 	[burnNotificationCenter addObserver:self selector:@selector(mediaChanged:) name:DRDeviceStatusChangedNotification object:nil];
 	
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-	[defaultCenter addObserver:self selector:@selector(mediaChanged:) name:@"KWMediaChanged" object:nil];
+	[defaultCenter addObserver:self selector:@selector(mediaChanged:) name:KWMediaChangedNotification object:nil];
 	[defaultCenter addObserver:self selector:@selector(changeBurnStatus:) name:KWChangeBurnStatusNotification object:nil];
 	[defaultCenter addObserver:self selector:@selector(closeWindow:) name:NSWindowWillCloseNotification object:nil];
 
@@ -80,7 +80,7 @@
 
 - (IBAction)changeRecorder:(id)sender
 {
-	NSArray *devices = [DRDevice devices];
+	NSArray<DRDevice*> *devices = [DRDevice devices];
 	
 	if ([devices count] > 1)
 	{
@@ -103,9 +103,9 @@
 		[burnDict setObject:[deviceInfo objectForKey:@"DRDeviceVendorNameKey"] forKey:@"Vendor"];
 		[burnDict setObject:@"" forKey:@"SerialNumber"];
 	
-		[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:@"KWDefaultDeviceIdentifier"];
+		[[NSUserDefaults standardUserDefaults] setObject:burnDict forKey:KWDefaultDeviceIdentifier];
 	
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMediaChanged" object:nil];
+		[[NSNotificationCenter defaultCenter] postNotificationName:KWMediaChangedNotification object:nil];
 	}
 }
 

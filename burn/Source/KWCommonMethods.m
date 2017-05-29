@@ -11,6 +11,7 @@
 #import "KWWindowController.h"
 #import "KWPreferences.h"
 #include <Carbon/Carbon.h>
+#import "BurnDefines.h"
 #if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 #import <QuickTime/QuickTime.h>
 #endif
@@ -938,7 +939,7 @@
 		{
 		DRDevice *device = [devices objectAtIndex:i];
 		
-			if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"KWDefaultDeviceIdentifier"] objectForKey:@"Product"]])
+			if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]])
 				return device;
 		}
 	
@@ -1029,7 +1030,7 @@
 	NSInteger i;
 	for (i = 0; i < [devices count]; i ++)
 	{
-		if ([[[[devices objectAtIndex:i] info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:@"KWDefaultDeviceIdentifier"] objectForKey:@"Product"]])
+		if ([[[[devices objectAtIndex:i] info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]])
 			return [devices objectAtIndex:i];
 	}
 	
@@ -1073,7 +1074,7 @@
 	{
 		NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
 	
-		if ([standardDefaults dictionaryForKey:@"KWDefaultDeviceIdentifier"])
+		if ([standardDefaults dictionaryForKey:KWDefaultDeviceIdentifier])
 		{
 			[popup selectItemWithTitle:[[KWCommonMethods getCurrentDevice] displayName]];
 		}
@@ -1087,9 +1088,9 @@
 			[burnDict setObject:[deviceInfo objectForKey:@"DRDeviceVendorNameKey"] forKey:@"Vendor"];
 			[burnDict setObject:@"" forKey:@"SerialNumber"];
 
-			[standardDefaults setObject:burnDict forKey:@"KWDefaultDeviceIdentifier"];
+			[standardDefaults setObject:burnDict forKey:KWDefaultDeviceIdentifier];
 		
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMediaChanged" object:nil];
+			[[NSNotificationCenter defaultCenter] postNotificationName:KWMediaChangedNotification object:nil];
 	
 			[popup selectItemWithTitle:[firstDevce displayName]];
 		}
