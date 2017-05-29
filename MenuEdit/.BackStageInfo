@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>filepath</key>
+	<string>/Users/maarten/Movies/Bureaublad/Programmeur/Projecten/Burn/MenuEdit</string>
+	<key>id</key>
+	<string>180</string>
+	<key>isSmart</key>
+	<string>1</string>
+	<key>name</key>
+	<string>MenuEdit</string>
+	<key>parent_id</key>
+	<string>27</string>
+	<key>uniqueCode</key>
+	<string>1202654644</string>
+</dict>
+</plist>

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Burn Menu Creator' target in the 'Burn Menu Creator' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

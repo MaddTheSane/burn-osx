@@ -1,0 +1,45 @@
+{
+    IBClasses =     (
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        },
+                {
+            ACTIONS =             {
+                add = id;
+                addLocalization = id;
+                changeEditMode = id;
+                changeFontAnSize = id;
+                changeFontColor = id;
+                changeSelectionMode = id;
+                changeView = id;
+                deleteLocalization = id;
+                openPreviewWindow = id;
+                selectLocalization = id;
+                setOption = id;
+                setThemeTitle = id;
+                useImage = id;
+            };
+            CLASS = MyDocument;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                editPopup = id;
+                editTabView = id;
+                localizationPopup = id;
+                localizationSheet = id;
+                localizationText = id;
+                mainWindow = id;
+                previewImageView = id;
+                previewView = id;
+                previewWindow = id;
+                selectionModeTabView = id;
+                selectionPopup = id;
+                themeNameField = id;
+                viewPopup = id;
+            };
+            SUPERCLASS = NSDocument;
+        }
+    );
+    IBVersion = 1;
+}

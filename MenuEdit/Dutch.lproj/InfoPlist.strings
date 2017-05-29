@@ -1,0 +1,7 @@
+/* Localized versions of Info.plist keys */
+
+NSHumanReadableCopyright = "Kiwi Fruitware 2009";
+"Burn Theme" = "Brand Thema";
+
+CFBundleName = "Menu-editor";
+CFBundleDisplayName = "Menu-editor";

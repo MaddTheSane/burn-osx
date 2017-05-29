@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072A0486CEB800E47090 /* MyDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.nib */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */ = {isa = PBXBuildFile; fileRef = FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */; };
+		FE4529260B468E050000A2CC /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = FE4529240B468E050000A2CC /* MainMenu.nib */; };
+		FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */; };
+		FECFB2560F06AD3000933318 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = FECFB2540F06AD3000933318 /* MyDocument.m */; };
+		FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F7E0E63123B00379454 /* MenuEdit.icns */; };
+		FEF03F830E63123B00379454 /* Theme document.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F800E63123B00379454 /* Theme document.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
+		FE28BDA80F11A0DD00CC3B49 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE38A8670F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE38A8680F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE38A8690F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = German; path = German.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FE38A86A0F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FE38A86B0F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = German; path = "German.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FE38A86F0F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE38A8700F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE38A8710F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pt_BR; path = pt_BR.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FE38A8720F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FE38A8730F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pt_BR; path = "pt_BR.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FE4529250B468E050000A2CC /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE597C680F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE597C690F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE597C6A0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = cs; path = cs.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FE597C6B0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FE597C6C0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = cs; path = "cs.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FE597C6D0F119EF800041295 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE597C6E0F119F0800041295 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE67A48C0F0FFD19006DB5F7 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FEB8A1640F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FEB8A1650F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Dutch; path = Dutch.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEB8A1660F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FEB8A1670F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Dutch; path = "Dutch.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FEB8A1870F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FEB8A1880F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Japanese; path = Japanese.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEB8A1890F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FEB8A18A0F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Japanese; path = "Japanese.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FEB8A18F0F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FEB8A1900F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = ru.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEB8A1910F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FEB8A1920F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = "ru.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FECFB2540F06AD3000933318 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDocument.m; path = Source/MyDocument.m; sourceTree = "<group>"; };
+		FECFB2550F06AD3000933318 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDocument.h; path = Source/MyDocument.h; sourceTree = "<group>"; };
+		FEF03F7F0E63123B00379454 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = English; path = English.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEF03F810E63123B00379454 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = English; path = "English.lproj/Theme document.icns"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FECFB2550F06AD3000933318 /* MyDocument.h */,
+				FECFB2540F06AD3000933318 /* MyDocument.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* MenuEdit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Burn Menu Creator */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = "Burn Menu Creator";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */,
+				FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */,
+				FEF03F7E0E63123B00379454 /* MenuEdit.icns */,
+				FEF03F800E63123B00379454 /* Theme document.icns */,
+				FE4529240B468E050000A2CC /* MainMenu.nib */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				29B97318FDCFA39411CA2CEA /* MyDocument.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* MenuEdit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuEdit" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MenuEdit;
+			productInstallPath = "$(HOME)/Applications";
+			productName = "Burn Menu Creator";
+			productReference = 8D1107320486CEB800E47090 /* MenuEdit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuEdit" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Dutch,
+				ru,
+				cs,
+				pt_BR,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Burn Menu Creator */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* MenuEdit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072A0486CEB800E47090 /* MyDocument.nib in Resources */,
+				FE4529260B468E050000A2CC /* MainMenu.nib in Resources */,
+				FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */,
+				FEF03F830E63123B00379454 /* Theme document.icns in Resources */,
+				FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */,
+				FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				FECFB2560F06AD3000933318 /* MyDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		29B97318FDCFA39411CA2CEA /* MyDocument.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+				FEB8A1660F098FA900ED9DC5 /* Dutch */,
+				FEB8A1890F099D8900ED9DC5 /* Japanese */,
+				FE597C6B0F119EEB00041295 /* cs */,
+				FEB8A1910F09A88700ED9DC5 /* ru */,
+				FE38A86A0F2F1ED700594CBB /* German */,
+				FE38A8720F2F1F5A00594CBB /* pt_BR */,
+			);
+			name = MyDocument.nib;
+			sourceTree = "<group>";
+		};
+		FE4529240B468E050000A2CC /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE4529250B468E050000A2CC /* English */,
+				FEB8A1640F098FA900ED9DC5 /* Dutch */,
+				FEB8A1870F099D8900ED9DC5 /* Japanese */,
+				FE597C690F119EEB00041295 /* cs */,
+				FEB8A18F0F09A88700ED9DC5 /* ru */,
+				FE38A8680F2F1ED700594CBB /* German */,
+				FE38A8700F2F1F5A00594CBB /* pt_BR */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE67A48C0F0FFD19006DB5F7 /* English */,
+				FE597C6D0F119EF800041295 /* Dutch */,
+				FE28BDA80F11A0DD00CC3B49 /* Japanese */,
+				FE597C680F119EEB00041295 /* cs */,
+				FE597C6E0F119F0800041295 /* ru */,
+				FE38A8670F2F1ED700594CBB /* German */,
+				FE38A86F0F2F1F5A00594CBB /* pt_BR */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FEF03F7E0E63123B00379454 /* MenuEdit.icns */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEF03F7F0E63123B00379454 /* English */,
+				FEB8A1650F098FA900ED9DC5 /* Dutch */,
+				FEB8A1880F099D8900ED9DC5 /* Japanese */,
+				FE597C6A0F119EEB00041295 /* cs */,
+				FEB8A1900F09A88700ED9DC5 /* ru */,
+				FE38A8690F2F1ED700594CBB /* German */,
+				FE38A8710F2F1F5A00594CBB /* pt_BR */,
+			);
+			name = MenuEdit.icns;
+			sourceTree = "<group>";
+		};
+		FEF03F800E63123B00379454 /* Theme document.icns */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEF03F810E63123B00379454 /* English */,
+				FEB8A1670F098FA900ED9DC5 /* Dutch */,
+				FEB8A18A0F099D8900ED9DC5 /* Japanese */,
+				FE597C6C0F119EEB00041295 /* cs */,
+				FEB8A1920F09A88700ED9DC5 /* ru */,
+				FE38A86B0F2F1ED700594CBB /* German */,
+				FE38A8730F2F1F5A00594CBB /* pt_BR */,
+			);
+			name = "Theme document.icns";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_NAME = MenuEdit;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				PRODUCT_NAME = MenuEdit;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
