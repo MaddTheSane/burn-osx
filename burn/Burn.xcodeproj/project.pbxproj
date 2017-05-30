@@ -1580,7 +1580,6 @@
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
-
 			};
 			name = Release;
 		};

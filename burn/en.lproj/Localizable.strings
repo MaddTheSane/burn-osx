@@ -1,7 +1,7 @@
 "Would you like to convert that file to %@?%@" = "Would you like to convert that file to %1$@?%2$@";
 "Preparing to encode" = "Preparing to encode";
 "Unmount" = "Unmount";
-"Some files are to large" = "Some files are to large";
+"Some files are to large" = "Some files are too large";
 "There was a problem creating the image" = "There was a problem creating the image";
 "Processing: %@ (%i of %i)" = "Processing: %1$@ (%2$i of %3$i)";
 "Unsupported Image" = "Unsupported Image";
