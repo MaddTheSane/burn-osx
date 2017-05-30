@@ -1325,12 +1325,14 @@
 {
 	NSString *cueFile = [NSString stringWithFormat:@"FILE \"%@\" BINARY", binFile];
 	NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger x = 0;
+    NSInteger size = 0;
+    NSInteger trackNumber = x + 1;
 	
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	if ([standardDefaults objectForKey:@"KWUseCDText"])
 	#elif MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	if ([KWCommonMethods OSVersion] >= 0x1040 && [standardDefaults objectForKey:@"KWUseCDText"])
-#endif
 	{
 		NSArray *keys = [cueMappings allKeys];
 	
@@ -1366,6 +1368,16 @@
 	for (x=0;x<[tracks count];x++)
 	{
 		NSInteger trackNumber = x + 1;
+		cueFile = [NSString stringWithFormat:@"%@\n  TRACK %2li AUDIO", cueFile, (long)trackNumber];
+	#endif
+		
+	//NSInteger x;
+    
+	//NSInteger size = 0;
+	
+    for (x=0;x<[tracks count];x++)
+	{
+		trackNumber = x + 1;
 		cueFile = [NSString stringWithFormat:@"%@\n  TRACK %2li AUDIO", cueFile, (long)trackNumber];
 		
 		#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
