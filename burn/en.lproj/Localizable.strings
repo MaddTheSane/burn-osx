@@ -62,7 +62,7 @@
 "Failed to eject" = "Failed to eject";
 "Authoring failed" = "Authoring failed";
 "Choose a location to save the burn file" = "Choose a location to save the burn file";
-"After canceling the disc can't be used anymore" = "After canceling the disc can't be used anymore";
+"After canceling the disc can't be used anymore" = "After canceling, the disc can't be used anymore";
 "There was a problem erasing the disc" = "There was a problem erasing the disc";
 "Failed to save Burn file" = "Failed to save Burn file";
 "UDRW" = "Read/write image";
@@ -144,7 +144,7 @@
 "Audio" = "Audio";
 "Mounting: %@" = "Mounting: %@";
 "Could not eject media from the drive" = "Could not eject media from the drive";
-"A cue/bin file needs to be burned on a CD" = "A cue/bin file needs to be burned on a CD";
+"A cue/bin file needs to be burned on a CD" = "A cue/bin file needs to be burned to a CD";
 "Burn failed to encode one file" = "Burn failed to encode one file";
 "%@ (Unsupported audio)" = "%@ (Unsupported audio)";
 "Authoring DVD..." = "Authoring DVD...";
@@ -162,7 +162,7 @@
 "Burn" = "Burn";
 "Unsuported Toc file" = "Unsuported Toc file";
 "Convert" = "Convert";
-"To burn a Audio-CD the media should be a CD" = "To burn a Audio-CD the media should be a CD";
+"To burn a Audio-CD the media should be a CD" = "To burn an Audio CD, the media should be a CD";
 "Finished erasing" = "Finished erasing";
 "IPOD" = "iPod image";
 "Burning failed" = "Burning failed";

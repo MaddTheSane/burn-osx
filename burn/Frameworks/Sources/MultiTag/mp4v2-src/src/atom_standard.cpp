@@ -178,7 +178,7 @@ MP4StandardAtom::MP4StandardAtom (const char *type) : MP4Atom(type)
         ExpectChildAtom("soco", Optional, OnlyOne); /* sort composer */
         ExpectChildAtom("sosn", Optional, OnlyOne); /* sort show */
         ExpectChildAtom("hdvd", Optional, OnlyOne); /* HD video */
-        ExpectChildAtom("©enc", Optional, OnlyOne); /* Encoded by */
+        ExpectChildAtom("\251enc", Optional, OnlyOne); /* Encoded by */
         ExpectChildAtom("pcst", Optional, OnlyOne); /* Podcast flag */
         ExpectChildAtom("keyw", Optional, OnlyOne); /* Keywords (for podcasts?) */
         ExpectChildAtom("catg", Optional, OnlyOne); /* Category (for podcasts?) */
