@@ -63,7 +63,7 @@
 	//Setup save sheet
 	NSSavePanel *sheet = [NSSavePanel savePanel];
 	[sheet setMessage:NSLocalizedString(@"Choose a location to save the image file",nil)];
-	[sheet setRequiredFileType:extension];
+	[sheet setAllowedFileTypes:@[extension]];
 	[sheet setCanSelectHiddenExtension:YES];
 	[saveCombineSessions setState:NSOffState];
 
@@ -90,9 +90,13 @@
 	{
 		info = [[NSArray alloc] initWithObjects:name, fileSystem, nil];
 	}
+	
+	sheet.nameFieldStringValue = name;
 
 	//Show save sheet
-	[sheet beginSheetForDirectory:nil file:name modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(saveImageSavePanelDidEnd:returnCode:contextInfo:) contextInfo:info];
+	[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+		[self saveImageSavePanelDidEnd:sheet returnCode:result contextInfo:info];
+	}];
 }
 
 - (void)saveImageSavePanelDidEnd:(NSSavePanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

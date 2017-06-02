@@ -199,7 +199,9 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	[openPanel setAllowsMultipleSelection:YES];
 	[openPanel setResolvesAliases:NO];
 
-	[openPanel beginSheetForDirectory:nil file:nil types:nil modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(addRealFileEnded:returnCode:contextInfo:) contextInfo:nil];
+	[openPanel beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+		[self addRealFileEnded:openPanel returnCode:result contextInfo:NULL];
+	}];
 }
 
 - (void)addRealFileEnded:(NSOpenPanel*)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
@@ -1009,7 +1011,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 - (void)saveDocument:(id)sender
 {
 	NSSavePanel *sheet = [NSSavePanel savePanel];
-	[sheet setRequiredFileType:@"burn"];
+	sheet.allowedFileTypes = @[@"burn"];
 	[sheet setCanSelectHiddenExtension:YES];
 	[sheet setMessage:NSLocalizedString(@"Choose a location to save the burn file",nil)];
 

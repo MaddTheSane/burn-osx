@@ -81,7 +81,9 @@
 		[sheet setMessage:NSLocalizedString(@"Choose an image file", nil)];
 
 		sheet.allowedFileTypes = KWCommonMethods.diskImageTypes;
-		[sheet beginSheetForDirectory:nil file:nil types:[KWCommonMethods diskImageTypes] modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];	
+		[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+			[self openPanelDidEnd:sheet returnCode:result contextInfo:NULL];
+		}];
 	}
 	else
 	{

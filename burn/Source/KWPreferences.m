@@ -263,7 +263,9 @@ return self;
 			[sheet setCanChooseFiles:NO];
 			[sheet setCanChooseDirectories:YES];
 			[sheet setAllowsMultipleSelection:NO];
-			[sheet beginSheetForDirectory:nil file:nil types:nil modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(temporaryOpenPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+			[sheet beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
+				[self temporaryOpenPanelDidEnd:sheet returnCode:result contextInfo:NULL];
+			}];
 		}
 		else
 		{
@@ -310,7 +312,7 @@ return self;
 	if (returnCode == NSOKButton)
 	{
 		[temporaryFolderPopup removeItemAtIndex:0];
-		NSString *temporaryFolder = [sheet filename];
+		NSString *temporaryFolder = [sheet URL].path;
 		[temporaryFolderPopup insertItemWithTitle:[defaultManager displayNameAtPath:temporaryFolder] atIndex:0];
 		NSImage *folderImage = [[NSWorkspace sharedWorkspace] iconForFile:temporaryFolder];
 		[folderImage setSize:NSMakeSize(16,16)];
@@ -319,7 +321,7 @@ return self;
 		[item setToolTip:[[temporaryFolder stringByDeletingLastPathComponent] stringByAppendingPathComponent:[defaultManager displayNameAtPath:temporaryFolder]]];
 		[temporaryFolderPopup selectItemAtIndex:0];
 	
-		[standardDefaults setObject:[sheet filename] forKey:@"KWTemporaryLocation"];
+		[standardDefaults setObject:[sheet URL].path forKey:@"KWTemporaryLocation"];
 		[standardDefaults setObject:[NSNumber numberWithInteger:0] forKey:@"KWTemporaryLocationPopup"];
 	}
 	else
@@ -379,7 +381,10 @@ return self;
 	[sheet setCanChooseFiles:YES];
 	[sheet setCanChooseDirectories:NO];
 	[sheet setAllowsMultipleSelection:YES];
-	[sheet beginSheetForDirectory:nil file:nil types:[NSArray arrayWithObject:@"burnTheme"] modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(themeOpenPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+	sheet.allowedFileTypes = [NSArray arrayWithObject:@"burnTheme"];
+	[sheet beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
+		[self themeOpenPanelDidEnd:sheet returnCode:result contextInfo:NULL];
+	}];
 }
 
 - (void)themeOpenPanelDidEnd:(NSOpenPanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

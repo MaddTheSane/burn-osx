@@ -65,14 +65,13 @@
 		else
 		{
 			NSString *sourcePath = [firstObject sourcePath];
-			CGFloat size = [[[[NSFileManager defaultManager] fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileSize] cgfloatValue];
+			long long size = [[[[NSFileManager defaultManager] fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileSize] longLongValue];
 			[sizeField setStringValue:[KWCommonMethods makeSizeFromFloat:size]];
 			
 		}
 		
 		iconImage = [KWCommonMethods getIcon:firstObject];
 		
-		[iconImage setScalesWhenResized:YES];
 		[iconImage setSize:NSMakeSize(32.0,32.0)];
 		[iconView setImage:iconImage];
 	}

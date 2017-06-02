@@ -1533,7 +1533,7 @@
 	NSFont *labelFont = [NSFont fontWithName:fontName size:size];
 	NSMutableParagraphStyle *centeredStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[centeredStyle setAlignment:alignment];
-	NSDictionary *attsDict = [NSDictionary dictionaryWithObjectsAndKeys:centeredStyle, NSParagraphStyleAttributeName,color, NSForegroundColorAttributeName, labelFont, NSFontAttributeName, [NSNumber numberWithInteger:NSNoUnderlineStyle], NSUnderlineStyleAttributeName, nil];
+	NSDictionary *attsDict = [NSDictionary dictionaryWithObjectsAndKeys:centeredStyle, NSParagraphStyleAttributeName,color, NSForegroundColorAttributeName, labelFont, NSFontAttributeName, @(NSUnderlineStyleNone), NSUnderlineStyleAttributeName, nil];
 	[centeredStyle release];
 	centeredStyle = nil;
 		
@@ -1556,7 +1556,7 @@
 - (void)drawImage:(NSImage *)drawImage inRect:(NSRect)rect onImage:(NSImage *)image
 {
 	[image lockFocus];
-	[drawImage drawInRect:rect fromRect:NSZeroRect operation:NSCompositeHighlight fraction:1.0];
+	[drawImage drawInRect:rect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 	[image unlockFocus];
 }
 

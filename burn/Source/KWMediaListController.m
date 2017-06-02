@@ -478,7 +478,9 @@
 				[sheet setAccessoryView:saveView];
 			}
 		
-		[sheet beginSheetForDirectory:nil file:nil types:nil modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(savePanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+		[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+			[self savePanelDidEnd:sheet returnCode:result contextInfo:NULL];
+		}];
 	}
 	else
 	{
@@ -612,10 +614,13 @@
 - (void)saveDocument:(id)sender
 {
 	NSSavePanel *sheet = [NSSavePanel savePanel];
-	[sheet setRequiredFileType:@"burn"];
+	sheet.allowedFileTypes = @[@"burn"];
+	sheet.nameFieldStringValue = [[discName stringValue] stringByAppendingPathExtension:@"burn"];
 	[sheet setCanSelectHiddenExtension:YES];
 	[sheet setMessage:NSLocalizedString(@"Choose a location to save the burn file", nil)];
-	[sheet beginSheetForDirectory:nil file:[[discName stringValue] stringByAppendingPathExtension:@"burn"] modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(saveDocumentPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+	[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+		[self saveDocumentPanelDidEnd:sheet returnCode:result contextInfo:NULL];
+	}];
 }
 
 - (void)saveDocumentPanelDidEnd:(NSSavePanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

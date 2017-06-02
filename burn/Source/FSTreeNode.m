@@ -301,7 +301,7 @@
 	if (!emptyFolder)
 		[selfObj setFolderSize:nil];
 
-	if (![childObj isVirtual] && [[[[NSFileManager defaultManager] fileAttributesAtPath:[childObj sourcePath] traverseLink:YES] objectForKey:NSFileSize] unsignedLongLongValue] / 1024 / 1024 > 2048 && [[(FSNodeData*)nodeData fsObject] effectiveFilesystemMask] & DRFilesystemInclusionMaskJoliet || [[(FSNodeData*)nodeData fsObject] effectiveFilesystemMask] & DRFilesystemInclusionMaskISO9660)
+	if (![childObj isVirtual] && [[[[NSFileManager defaultManager] fileAttributesAtPath:[childObj sourcePath] traverseLink:YES] objectForKey:NSFileSize] unsignedLongLongValue] / 1024 / 1024 > 2048 && ([[(FSNodeData*)nodeData fsObject] effectiveFilesystemMask] & DRFilesystemInclusionMaskJoliet || [[(FSNodeData*)nodeData fsObject] effectiveFilesystemMask] & DRFilesystemInclusionMaskISO9660))
 	{
 		if ([[NSApp mainWindow] attachedSheet] == nil)
 		{
