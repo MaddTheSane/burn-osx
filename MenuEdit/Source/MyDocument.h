@@ -20,9 +20,9 @@
 	IBOutlet NSTabView		*selectionModeTabView;
 	
 	//Variables
-	NSMutableDictionary *myTheme;
-	NSArray *keyMappings;
-	id fontObject;
+	NSMutableDictionary<NSString*,id> *myTheme;
+	NSArray<NSString*> *keyMappings;
+	__unsafe_unretained id fontObject;
 	NSFont *currentFont;
 }
 //Interface actions

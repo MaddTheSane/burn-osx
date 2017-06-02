@@ -525,7 +525,7 @@ return self;
 	NSFont *newFont = [sender convertFont:currentFont];
 	NSMutableDictionary *themeObject = [self getCurrentThemeObject];
 	[themeObject setObject:[newFont fontName] forKey:[keyMappings objectAtIndex:[fontObject tag] - 1]];
-	[themeObject setObject:[NSNumber numberWithFloat:[newFont pointSize]] forKey:[keyMappings objectAtIndex:[fontObject tag]]];
+	[themeObject setObject:@([newFont pointSize]) forKey:[keyMappings objectAtIndex:[fontObject tag]]];
 	[fontObject setStringValue:[[newFont displayName] stringByAppendingString:[@" " stringByAppendingString:[[NSNumber numberWithFloat:[newFont pointSize]] stringValue]]]];
 	
 	[self loadPreview];
