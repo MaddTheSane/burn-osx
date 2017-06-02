@@ -150,8 +150,9 @@
 		NSString *errorString;
 		BOOL succes = NO;
 		
-		if ([KWCommonMethods createDirectoryAtPath:tempPath errorString:&errorString])
+		if ([KWCommonMethods createDirectoryAtPath:tempPath errorString:&errorString]) {
 			succes = [KWCommonMethods createDirectoryAtPath:[tempPath stringByAppendingPathComponent:@".localized"] errorString:&errorString];
+		}
 		
 		if (succes)
 		{
@@ -166,7 +167,7 @@
 				NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[[mainBundle resourcePath] stringByAppendingPathComponent:[[resourceFolders objectAtIndex:y] stringByAppendingPathExtension:@"lproj"]] stringByAppendingPathComponent:@"Localizable.strings"]];
 				NSDictionary *localizedDict = [NSDictionary dictionaryWithObject:[dict objectForKey:@"Burn Temporary"] forKey:@"Burn Temporary"];
 				NSString *localizedStringsFile = [[[resourceFolders objectAtIndex:y] stringByDeletingPathExtension] stringByAppendingPathExtension:@"strings"];
-				[KWCommonMethods writeString:[localizedDict descriptionInStringsFileFormat] toFile:[[tempPath stringByAppendingPathComponent:@".localized"] stringByAppendingPathComponent:localizedStringsFile] errorString:nil];
+				[KWCommonMethods writeString:[localizedDict descriptionInStringsFileFormat] toFile:[[tempPath stringByAppendingPathComponent:@".localized"] stringByAppendingPathComponent:localizedStringsFile] error:nil];
 			}
 		
 			[defaultManager movePath:tempPath toPath:defaultPath handler:nil];

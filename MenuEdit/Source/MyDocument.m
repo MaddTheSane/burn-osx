@@ -546,7 +546,10 @@ return self;
 	{
 		NSOpenPanel *sheet = [NSOpenPanel openPanel];
 		[sheet setAllowsMultipleSelection:NO];
-		[sheet beginSheetForDirectory:nil file:nil types:[NSImage imageFileTypes] modalForWindow:mainWindow modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:sender];
+		sheet.allowedFileTypes = [NSImage imageFileTypes];
+		[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger result) {
+			[self openPanelDidEnd:sheet returnCode:result contextInfo:sender];
+		}];
 	}
 	else
 	{
@@ -557,7 +560,7 @@ return self;
 	}
 }
 
-- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 	if (returnCode == NSOKButton)
 	{

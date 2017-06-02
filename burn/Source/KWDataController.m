@@ -688,11 +688,13 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		{
 			[temporaryFiles addObject:outputFolder];
 			
-			if (![KWCommonMethods createDirectoryAtPath:outputFolder errorString:&*error])
-				return [NSNumber numberWithInteger:1];
+			if (![KWCommonMethods createDirectoryAtPath:outputFolder errorString:&*error]) {
+				return @1;
+			}
 			
-			if (![self createVirtualFolder:[SAFENODE(treeData) children] atPath:outputFolder errorString:&*error])
-				return [NSNumber numberWithInteger:1];
+			if (![self createVirtualFolder:[SAFENODE(treeData) children] atPath:outputFolder errorString:error]) {
+				return @1;
+			}
 			
 			NSInteger type = 2;
 			
@@ -706,7 +708,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		}
 		else
 		{
-			return [NSNumber numberWithInteger:2];
+			return @2;
 		}
 	}
 

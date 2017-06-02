@@ -172,7 +172,7 @@
 	NSString *testFile = [@"/tmp/kiwiburntest" stringByAppendingPathExtension:extension];
 	BOOL isPackage = NO;
 	
-	if ([KWCommonMethods createDirectoryAtPath:testFile errorString:nil])
+	if ([KWCommonMethods createDirectoryAtPath:testFile error:nil])
 	{
 		isPackage = [[NSWorkspace sharedWorkspace] isFilePackageAtPath:testFile];
 		[KWCommonMethods removeItemAtPath:testFile];
@@ -235,7 +235,7 @@
 			NSString *fileType = @"";
 		
 			if (containsHFS)
-				fileType = NSFileTypeForHFSTypeCode([[[[NSFileManager defaultManager] fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileHFSTypeCode] longValue]);
+				fileType = NSFileTypeForHFSTypeCode([[[[NSFileManager defaultManager] fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue]);
 	
 			if (![KWCommonMethods isBundleExtension:pathExtension] && ![pathExtension isEqualTo:@""])
 				img = [sharedWorkspace iconForFileType:pathExtension];
@@ -517,93 +517,21 @@
 #pragma mark -
 #pragma mark •• Error actions
 
-+ (BOOL)createDirectoryAtPath:(NSString *)path errorString:(NSString **)error
++ (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError **)error
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	NSError *myError;
-	BOOL succes = [defaultManager createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:&myError];
-			
-	if (!succes)
-		*error = [myError localizedDescription];
-	#else
-	
-	BOOL succes = YES;
-	NSString *details;
-	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	
-	if (![defaultManager fileExistsAtPath:path])
-	{
-		if ([KWCommonMethods OSVersion] >= 0x1050)
-		{
-			NSError *myError;
-			succes = [defaultManager createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:&myError];
-			
-			if (!succes)
-				details = [myError localizedDescription];
-		}
-		else
-		{
-			succes = [defaultManager createDirectoryAtPath:path attributes:nil];
-			NSString *folder = [defaultManager displayNameAtPath:path];
-			NSString *parent = [defaultManager displayNameAtPath:[path stringByDeletingLastPathComponent]];
-			details = [NSString stringWithFormat:@"Failed to create folder '%@' in '%@'.", folder, parent];
-		}
-		
-		if (!succes)
-			*error = details;
-	}
-	#endif
-	
-	return succes;
+	return [defaultManager createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:error];
+
 }
 
-+ (BOOL)copyItemAtPath:(NSString *)inPath toPath:(NSString *)newPath errorString:(NSString **)error
++ (BOOL)copyItemAtPath:(NSString *)inPath toPath:(NSString *)newPath error:(NSError **)error
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	BOOL succes;
-	NSError *myError;
-	succes = [defaultManager copyItemAtPath:inPath toPath:newPath error:&myError];
-			
-	if (!succes)
-		*error = [myError localizedDescription];
-	
-	return succes;
-	#else
-
-	BOOL succes = YES;
-	NSString *details = @"";
-	NSFileManager *defaultManager = [NSFileManager defaultManager];
-
-	if ([KWCommonMethods OSVersion] >= 0x1050)
-	{
-		NSError *myError;
-		succes = [defaultManager copyItemAtPath:inPath toPath:newPath error:&myError];
-			
-		if (!succes)
-			details = [myError localizedDescription];
-	}
-	else
-	{
-		succes = [defaultManager copyPath:inPath toPath:newPath handler:nil];
-	}
-		
-	if (!succes)
-	{
-		NSString *inFile = [defaultManager displayNameAtPath:inPath];
-		NSString *outFile = [defaultManager displayNameAtPath:[newPath stringByDeletingLastPathComponent]];
-		details = [NSString stringWithFormat:NSLocalizedString(@"Failed to copy '%@' to '%@'. %@", nil), inFile, outFile, details];
-		*error = details;
-	}
-	#endif
-
-	return succes;
+	return [defaultManager copyItemAtPath:inPath toPath:newPath error:error];
 }
 
-+ (BOOL)createSymbolicLinkAtPath:(NSString *)path withDestinationPath:(NSString *)dest errorString:(NSString **)error;
++ (BOOL)createSymbolicLinkAtPath:(NSString *)path withDestinationPath:(NSString *)dest error:(NSError **)error
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
 	BOOL succes;
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	
@@ -612,24 +540,101 @@
 	succes = [defaultManager createSymbolicLinkAtPath:path withDestinationPath:dest error:&tempError];
 	
 	if (!succes)
-		succes = [KWCommonMethods copyItemAtPath:path toPath:dest errorString:&*error];
-	#else
+		succes = [KWCommonMethods copyItemAtPath:path toPath:dest error:error];
+
+	if (tempError) {
+		if (error) {
+			*error = tempError;
+		}
+	}
+	return succes;
+}
+
++ (BOOL)writeString:(NSString *)string toFile:(NSString *)path error:(NSError **)error
+{
+	return [string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:error];
+}
+
++ (BOOL)saveImage:(NSImage *)image toPath:(NSString *)path error:(NSError **)error
+{
+	NSData *tiffData = [image TIFFRepresentation];
+	NSBitmapImageRep *bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
+	NSData *imageData = [bitmap representationUsingType:NSPNGFileType properties:@{}];
 	
-	BOOL succes;
+	if (!imageData) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFormattingError userInfo:nil];
+		}
+		return NO;
+	}
+	return [imageData writeToFile:path options:NSAtomicWrite error:error];
+}
+
++ (BOOL)writeDictionary:(NSDictionary *)dictionary toFile:(NSString *)path error:(NSError **)error
+{
+	NSError *tmpErr = nil;
+	NSData *ourData = [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListXMLFormat_v1_0 options:(NSPropertyListWriteOptions)0 error:&tmpErr];
+	if (!ourData) {
+		if (error) {
+			*error = tmpErr;
+		}
+		return NO;
+	}
+	return [ourData writeToFile:path options:NSDataWritingAtomic error:error];
+}
+
++ (BOOL)createFileAtPath:(NSString *)path attributes:(NSDictionary *)attributes error:(NSError **)error
+{
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
+	NSString *file = [defaultManager displayNameAtPath:path];
+	NSString *destination = [defaultManager displayNameAtPath:[path stringByDeletingLastPathComponent]];
 	
-	NSError *tempError;
+	if ([defaultManager fileExistsAtPath:path]) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteFileExistsError userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedString(@"Can't overwrite '%@' in '%@'", nil), file, destination]}];
+		}
+		return NO;
+	}
 	
-	if ([KWCommonMethods OSVersion] >= 0x1050)
-		succes = [defaultManager createSymbolicLinkAtPath:path withDestinationPath:dest error:&tempError];
-	else
-		succes = [defaultManager createSymbolicLinkAtPath:path pathContent:dest];
-		
+	BOOL succes = [defaultManager createFileAtPath:path contents:[NSData data] attributes:attributes];
+	
 	if (!succes)
-		succes = [KWCommonMethods copyItemAtPath:path toPath:dest errorString:&*error];
-	#endif
+		*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:NSLocalizedString(@"Can't create '%@' in '%@'", nil), file, destination]}];
 	
 	return succes;
+}
+
++ (BOOL)createDirectoryAtPath:(NSString *)path errorString:(NSString **)error
+{
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self createDirectoryAtPath:path error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
+	}
+	return success;
+}
+
++ (BOOL)copyItemAtPath:(NSString *)inPath toPath:(NSString *)newPath errorString:(NSString **)error
+{
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self copyItemAtPath:inPath toPath:newPath error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
+	}
+	return success;
+}
+
++ (BOOL)createSymbolicLinkAtPath:(NSString *)path withDestinationPath:(NSString *)dest errorString:(NSString **)error;
+{
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self createSymbolicLinkAtPath:path withDestinationPath:dest error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
+	}
+	return success;
 }
 
 + (BOOL)removeItemAtPath:(NSString *)path
@@ -688,123 +693,46 @@
 
 + (BOOL)writeString:(NSString *)string toFile:(NSString *)path errorString:(NSString **)error
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
-	BOOL succes;
-	NSError *myError;
-	succes = [string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&myError];
-			
-	if (!succes)
-		*error = [myError localizedDescription];
-	#else
-
-	BOOL succes;
-	NSString *details;
-	
-	if ([KWCommonMethods OSVersion] >= 0x1040)
-	{
-		NSError *myError;
-		succes = [string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&myError];
-			
-			if (!succes)
-			details = [myError localizedDescription];
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self writeString:string toFile:path error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
 	}
-	else
-	{
-		succes = [string writeToFile:path atomically:YES];
-		NSFileManager *defaultManager = [NSFileManager defaultManager];
-		NSString *file = [defaultManager displayNameAtPath:path];
-		NSString *parent = [defaultManager displayNameAtPath:[path stringByDeletingLastPathComponent]];
-		details = [NSString stringWithFormat:NSLocalizedString(@"Failed to write '%@' to '%@'", nil), file, parent];
-	}
-
-	if (!succes)
-		*error = details;
-		
-	#endif
-
-	return succes;
+	return success;
 }
 
 + (BOOL)writeDictionary:(NSDictionary *)dictionary toFile:(NSString *)path errorString:(NSString **)error
 {
-	if (![dictionary writeToFile:path atomically:YES])
-	{
-		NSFileManager *defaultManager = [NSFileManager defaultManager];
-		NSString *file = [defaultManager displayNameAtPath:path];
-		NSString *parent = [defaultManager displayNameAtPath:[path stringByDeletingLastPathComponent]];
-		*error = [NSString stringWithFormat:NSLocalizedString(@"Failed to write '%@' to '%@'", nil), file, parent];
-	
-		return NO;
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self writeDictionary:dictionary toFile:path error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
 	}
-
-	return YES;
+	return success;
 }
 
 + (BOOL)saveImage:(NSImage *)image toPath:(NSString *)path errorString:(NSString **)error
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1050
-	NSData *tiffData = [image TIFFRepresentation];
-	NSBitmapImageRep *bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
-	NSData *imageData = [bitmap representationUsingType:NSPNGFileType properties:nil];
-	
-	BOOL succes;
-	NSString *details;
-	
-	NSError *writeError;
-	succes = [imageData writeToFile:path options:NSAtomicWrite error:&writeError];
-			
-	if (!succes)
-		*error = [writeError localizedDescription];
-	#else
-	
-	NSData *tiffData = [image TIFFRepresentation];
-	NSBitmapImageRep *bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
-	NSData *imageData = [bitmap representationUsingType:NSPNGFileType properties:nil];
-	
-	BOOL succes;
-	NSString *details;
-	
-	if ([KWCommonMethods OSVersion] >= 0x1040)
-	{
-		
-		NSError *writeError;
-		succes = [imageData writeToFile:path options:NSAtomicWrite error:&writeError];
-			
-		if (!succes)
-			details = [writeError localizedDescription];
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self saveImage:image toPath:path error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
 	}
-	else
-	{
-		succes = [imageData writeToFile:path atomically:YES];
-		details = [NSString stringWithFormat:@"Failed to save image to Path: %@", path];
-	}
-	
-	if (!succes)
-		*error = details;
-		
-	#endif
-	
-	return succes;
+	return success;
 }
 
 + (BOOL)createFileAtPath:(NSString *)path attributes:(NSDictionary *)attributes errorString:(NSString **)error
 {
-	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	NSString *file = [defaultManager displayNameAtPath:path];
-	NSString *destination = [defaultManager displayNameAtPath:[path stringByDeletingLastPathComponent]];
-	
-	if ([defaultManager fileExistsAtPath:path])
-	{
-		*error = [NSString stringWithFormat:NSLocalizedString(@"Can't overwrite '%@' in '%@'", nil), file, destination];
-		return NO;
+	BOOL success;
+	NSError *tmpErr = nil;
+	success = [self createFileAtPath:path attributes:attributes error:&tmpErr];
+	if (!success) {
+		*error = [tmpErr localizedDescription];
 	}
-	
-	BOOL succes = [defaultManager createFileAtPath:path contents:[NSData data] attributes:attributes];
-		
-		if (!succes)
-			*error = [NSString stringWithFormat:NSLocalizedString(@"Can't create '%@' in '%@'", nil), file, destination];
-	
-	return succes;
+	return success;
 }
 
 ////////////////////////
@@ -814,25 +742,15 @@
 #pragma mark -
 #pragma mark •• Compatible actions
 
-+ (id)stringWithContentsOfFile:(NSString *)path
++ (NSString*)stringWithContentsOfFile:(NSString *)path
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
-	if ([KWCommonMethods OSVersion] < 0x1040)
-		return [NSString stringWithContentsOfFile:path];
-	else
-	#endif
-		return [NSString stringWithContentsOfFile:path usedEncoding:nil error:nil];
+	return [NSString stringWithContentsOfFile:path usedEncoding:nil error:nil];
 }
 
-+ (id)stringWithCString:(const char *)cString length:(NSUInteger)length
++ (NSString*)stringWithCString:(const char *)cString length:(NSUInteger)length
 {
-	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
-	if ([KWCommonMethods OSVersion] < 0x1040)
-		return [NSString stringWithCString:cString length:length];
-	else
-	#endif
-		return [NSString stringWithCString:cString encoding:NSASCIIStringEncoding];
-	
+	NSData *strData = [NSData dataWithBytes:cString length:length];
+	return [[[NSString alloc] initWithData:strData encoding:NSMacOSRomanStringEncoding] autorelease];	
 }
 
 ///////////////////
@@ -842,7 +760,7 @@
 #pragma mark -
 #pragma mark •• Other actions
 
-+ (CGFloat)calculateRealFolderSize:(NSString *)path
++ (long long)calculateRealFolderSize:(NSString *)path
 {
 	NSTask *du = [[NSTask alloc] init];
 	NSPipe *pipe = [[NSPipe alloc] init];
@@ -868,7 +786,7 @@
 	[du release];
 	du = nil;
 
-	CGFloat size = [[[string componentsSeparatedByString:@" "] objectAtIndex:0] cgfloatValue] / 4;
+	long long size = [[[string componentsSeparatedByString:@" "] objectAtIndex:0] longLongValue] / 4;
 	
 	[string release];
 	string = nil;
@@ -876,17 +794,15 @@
 	return size;
 }
 
-+ (CGFloat)calculateVirtualFolderSize:(DRFSObject *)obj
++ (long long)calculateVirtualFolderSize:(DRFSObject *)obj
 {
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	CGFloat size = 0;
+	long long size = 0;
 	
 	NSArray *children = [(DRFolder *)obj children];
 	NSInteger i;
 	for (i = 0; i < [children count]; i ++)
-	{
-		NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
-		
+	@autoreleasepool {
 		DRFSObject *child = [children objectAtIndex:i];
 	
 		if (![child isVirtual])
@@ -895,17 +811,14 @@
 			NSString *sourcePath = [child sourcePath];
 			
 			if ([defaultManager fileExistsAtPath:sourcePath isDirectory:&isDir] && isDir)
-				size = size + [KWCommonMethods calculateRealFolderSize:sourcePath];
+				size += [KWCommonMethods calculateRealFolderSize:sourcePath];
 			else
-				size = size + [[[defaultManager fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+				size += [[[defaultManager fileAttributesAtPath:sourcePath traverseLink:YES] objectForKey:NSFileSize] longLongValue] / 2048;
 		}
 		else
 		{
-			size = size + [self calculateVirtualFolderSize:child];
+			size += [self calculateVirtualFolderSize:child];
 		}
-	
-		[subPool release];
-		subPool = nil;
 	}
 
 	return size;
@@ -1037,7 +950,7 @@
 	return [devices objectAtIndex:0];
 }
 
-+ (CGFloat)defaultSizeForMedia:(NSString *)media
++ (long long)defaultSizeForMedia:(NSString *)media
 {
 	NSArray *sizes;
 
@@ -1046,7 +959,7 @@
 	else
 		sizes = [NSArray arrayWithObjects:@"", @"712891", @"1298828", @"", @"2295104", @"4171712", nil];
 
-	return [[sizes objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:media] integerValue]] cgfloatValue];
+	return [[sizes objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:media] integerValue]] longLongValue];
 }
 
 + (NSImage *)getImageForName:(NSString *)name
@@ -1219,6 +1132,7 @@
 		NSInteger x, z = 0;
 		NSArray *files;
 		NSPredicate *trackPredicate;
+		NSError *tmpErr;
 
 		if (type == 0)
 		{
@@ -1236,14 +1150,20 @@
 	
 		NSFileManager *defaultManager = [NSFileManager defaultManager];
 	
-		if (![KWCommonMethods createDirectoryAtPath:path errorString:&*error])
+		if (![KWCommonMethods createDirectoryAtPath:path error:&tmpErr]) {
+			*error = [tmpErr localizedDescription];
 			return 1;
+		}
 		
 		// create DVD folder
-		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"AUDIO_TS"] errorString:&*error])
+		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"AUDIO_TS"] error:&tmpErr]) {
+			*error = [tmpErr localizedDescription];
 			return 1;
-		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"VIDEO_TS"] errorString:&*error])
+		}
+		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"VIDEO_TS"] error:&tmpErr]) {
+			*error = [tmpErr localizedDescription];
 			return 1;
+		}
 	
 		// folderName should be AUDIO_TS or VIDEO_TS depending on the type
 		NSString *folderPath = [currentData objectForKey:@"Path"];
@@ -1254,9 +1174,7 @@
 		NSArray *folderContents = [defaultManager directoryContentsAtPath:folderPath];
 		
 		for (x = 0; x < [folderContents count]; x++) 
-		{
-			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-		
+		@autoreleasepool {
 			NSString *fileName = [[folderContents objectAtIndex:x] uppercaseString];
 			NSString *filePath = [folderPath stringByAppendingPathComponent:[folderContents objectAtIndex:x]];
 			BOOL isDir;
@@ -1277,9 +1195,6 @@
 					z++;
 				}
 			}
-			
-			[pool release];
-			pool = nil;
 		}
 		
 		if (z == 0)
@@ -1416,9 +1331,7 @@
 			{
 				NSInteger i;
 				for (i = 0; i < [qtChapters count]; i ++)
-				{
-					NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-				
+				@autoreleasepool {
 					NSDictionary *qtChapter = [qtChapters objectAtIndex:i];
 					NSString *title = [qtChapter objectForKey:@"QTMovieChapterName"];
 					QTTime qtTime = [[qtChapter objectForKey:@"QTMovieChapterStartTime"] QTTimeValue];
@@ -1430,13 +1343,10 @@
 
 					[rowData setObject:[KWCommonMethods formatTime:time withFrames:NO] forKey:@"Time"];
 					[rowData setObject:title forKey:@"Title"];
-					[rowData setObject:[NSNumber numberWithCGFloat:time] forKey:@"RealTime"];
+					[rowData setObject:@(time) forKey:@"RealTime"];
 					[rowData setObject:[[movie frameImageAtTime:qtTime] TIFFRepresentationUsingCompression:NSTIFFCompressionLZW factor:0] forKey:@"Image"];
 					
 					[chapters addObject:rowData];
-					
-					[pool release];
-					pool = nil;
 				}
 			}
 		}
