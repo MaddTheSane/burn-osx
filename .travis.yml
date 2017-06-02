@@ -1,10 +1,10 @@
 branches:
   only:
-    - master
+    - madds
 
 language: objective-c
 xcode_project: burn/Burn.xcodeproj
-xcode_scheme: Burn (Universal)
+xcode_scheme: Burn
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
