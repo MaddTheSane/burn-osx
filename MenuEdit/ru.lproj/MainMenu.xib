@@ -7,10 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
                 <menuItem title="MenuEdit" id="56">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="MenuEdit" systemMenu="apple" id="57">
                         <items>
                             <menuItem title="О программе MenuEdit" id="58">
@@ -56,6 +57,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Файл" id="83">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Файл" id="81">
                         <items>
                             <menuItem title="Новый" keyEquivalent="n" id="82">
@@ -101,6 +103,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Редактор" id="163">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Редактор" id="169">
                         <items>
                             <menuItem title="Отменить" keyEquivalent="z" id="158">
@@ -206,6 +209,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Окно" id="19">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Окно" systemMenu="window" id="24">
                         <items>
                             <menuItem title="Убрать окно в Dock" keyEquivalent="m" id="23">
@@ -224,6 +228,18 @@
                             <menuItem title="Все окна на передний план" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="79T-co-wdB">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="8sd-w4-joo">
+                        <items>
+                            <menuItem title="MenuEdit Help" keyEquivalent="?" id="136-2s-dzQ">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="gwa-ue-SSW"/>
                                 </connections>
                             </menuItem>
                         </items>

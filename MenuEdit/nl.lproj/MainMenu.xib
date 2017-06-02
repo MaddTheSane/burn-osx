@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
                 <menuItem title="Menu-editor" id="56">
@@ -224,6 +224,18 @@
                             <menuItem title="Alles op voorgrond" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="DsJ-C8-ebT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="8fQ-nM-Mji">
+                        <items>
+                            <menuItem title="Menu-editor Help" keyEquivalent="?" id="L8b-uS-LKT">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="ReQ-lt-wRu"/>
                                 </connections>
                             </menuItem>
                         </items>

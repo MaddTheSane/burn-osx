@@ -7,10 +7,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
                 <menuItem title="MenuEdit" id="56">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="MenuEdit" systemMenu="apple" id="57">
                         <items>
                             <menuItem title="Sobre MenuEdit" id="58">
@@ -56,6 +57,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Arquivo" id="83">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Arquivo" id="81">
                         <items>
                             <menuItem title="Novo" keyEquivalent="n" id="82">
@@ -101,6 +103,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Editar" id="163">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Editar" id="169">
                         <items>
                             <menuItem title="Desfazer" keyEquivalent="z" id="158">
@@ -206,6 +209,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Janela" id="19">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Janela" systemMenu="window" id="24">
                         <items>
                             <menuItem title="Minimizar" keyEquivalent="m" id="23">
@@ -224,6 +228,18 @@
                             <menuItem title="Trazer Todas para Frente" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="XpX-Uc-nJe">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="2Qr-vP-hfS">
+                        <items>
+                            <menuItem title="MenuEdit Help" keyEquivalent="?" id="Xjf-8J-NHc">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="SlZ-H1-69y"/>
                                 </connections>
                             </menuItem>
                         </items>
