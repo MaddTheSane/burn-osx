@@ -401,16 +401,16 @@
 			else if ([[mediaInfo objectForKey:DRDeviceMediaClassKey] isEqualTo:DRDeviceMediaClassDVD])
 				space = [[mediaInfo objectForKey:DRDeviceMediaOverwritableSpaceKey] cgfloatValue] * 2048 / 1024 / 2;
 			else
-				space = [KWCommonMethods defaultSizeForMedia:@"KWDefaultCDMedia"];
+				space = [KWCommonMethods defaultSizeForMedia:KWDefaultCDMedia];
 		}
 		else
 		{
 			NSInteger media = [[standardDefaults objectForKey:@"KWDefaultMedia"] integerValue];
 		
 			if (media == 1)
-				space = [KWCommonMethods defaultSizeForMedia:@"KWDefaultCDMedia"];
+				space = [KWCommonMethods defaultSizeForMedia:KWDefaultCDMedia];
 			else if (media == 2)
-				space = [KWCommonMethods defaultSizeForMedia:@"KWDefaultDVDMedia"];
+				space = [KWCommonMethods defaultSizeForMedia:KWDefaultDVDMedia];
 			else
 				space = -1;
 		}

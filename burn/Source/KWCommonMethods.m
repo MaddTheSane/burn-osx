@@ -845,18 +845,15 @@
 {
 	NSArray *devices = [NSArray arrayWithArray:[DRDevice devices]];
 	
-	if ([devices count] > 0)
-	{
-		NSInteger i;
-		for (i = 0; i < [devices count]; i ++)
-		{
-		DRDevice *device = [devices objectAtIndex:i];
+	if ([devices count] > 0) {
+		for (DRDevice *device in devices) {
 		
-			if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]])
+			if ([[[device info] objectForKey:@"DRDeviceProductNameKey"] isEqualTo:[[[NSUserDefaults standardUserDefaults] dictionaryForKey:KWDefaultDeviceIdentifier] objectForKey:@"Product"]]) {
 				return device;
+			}
 		}
 	
-		return [devices objectAtIndex:0];
+		return devices.firstObject;
 	}
 
 	return nil;
@@ -878,9 +875,9 @@
 			id value = [[elements objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 			
 			if ([[value lowercaseString] isEqualTo:@"yes"])
-				value = [NSNumber numberWithBool:YES];
+				value = @YES;
 			else if ([[value lowercaseString] isEqualTo:@"no"])
-				value = [NSNumber numberWithBool:NO];
+				value = @NO;
 			
 			[dictionary setObject:value forKey:key];
 		}
@@ -954,7 +951,7 @@
 {
 	NSArray *sizes;
 
-	if ([media isEqualTo:@"KWDefaultCDMedia"])
+	if ([media isEqualTo:KWDefaultCDMedia])
 		sizes = [NSArray arrayWithObjects:@"", @"81000", @"94500", @"", @"283500", @"333000", @"360000", @"405000", @"445500", nil];
 	else
 		sizes = [NSArray arrayWithObjects:@"", @"712891", @"1298828", @"", @"2295104", @"4171712", nil];

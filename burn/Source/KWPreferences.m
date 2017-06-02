@@ -23,8 +23,8 @@ KWPreferenceIdentifier const KWPreferenceIdentifierAdvanced = @"Advanced";
 																@"KWCleanTemporaryFolderAction",//5
 																@"KWBurnOptionsVerifyBurn",		//6
 																@"KWShowOverwritableSpace",		//7
-																@"KWDefaultCDMedia",			//8
-																@"KWDefaultDVDMedia",			//9
+																KWDefaultCDMedia,			//8
+																KWDefaultDVDMedia,			//9
 																@"KWDefaultMedia",				//10
 																@"KWDefaultDataType",			//11
 																KWShowFilePackagesAsFolder,		//12
@@ -131,17 +131,17 @@ return self;
 	[[cells objectAtIndex:0] setObjectValue:@(!mount)];
 	[[cells objectAtIndex:1] setObjectValue:@(mount)];
 	
-	NSInteger selectedCDItem = [[standardDefaults objectForKey:@"KWDefaultCDMedia"] integerValue];
+	NSInteger selectedCDItem = [[standardDefaults objectForKey:KWDefaultCDMedia] integerValue];
 	if (selectedCDItem == 0 | selectedCDItem == 3)
-		[standardDefaults setObject:[NSNumber numberWithInteger:6] forKey:@"KWDefaultCDMedia"];
+		[standardDefaults setObject:[NSNumber numberWithInteger:6] forKey:KWDefaultCDMedia];
 	
 	[cdPopup setAutoenablesItems:NO];
 	[[cdPopup itemAtIndex:0] setEnabled:NO];
 	[[cdPopup itemAtIndex:3] setEnabled:NO];
 	
-	NSInteger selectedDVDItem = [[standardDefaults objectForKey:@"KWDefaultDVDMedia"] integerValue];
+	NSInteger selectedDVDItem = [[standardDefaults objectForKey:KWDefaultDVDMedia] integerValue];
 	if (selectedDVDItem == 0 | selectedDVDItem == 3)
-		[standardDefaults setObject:@4 forKey:@"KWDefaultDVDMedia"];
+		[standardDefaults setObject:@4 forKey:KWDefaultDVDMedia];
 	
 	[dvdPopup setAutoenablesItems:NO];
 	[[dvdPopup itemAtIndex:0] setEnabled:NO];

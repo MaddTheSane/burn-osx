@@ -886,7 +886,7 @@
 	}
 	else
 	{
-		space = (NSInteger)[KWCommonMethods defaultSizeForMedia:@"KWDefaultCDMedia"];
+		space = (NSInteger)[KWCommonMethods defaultSizeForMedia:KWDefaultCDMedia];
 	}
 		
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"KWAllowOverBurning"])

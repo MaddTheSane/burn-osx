@@ -26,6 +26,8 @@ NSString *const KWCalculateFilePackageSizes = @"KWCalculateFilePackageSizes";
 NSString *const KWShowFilePackagesAsFolder = @"KWShowFilePackagesAsFolder";
 NSString *const KWCalculateTotalSize = @"KWCalculateTotalSize";
 NSString *const KWDefaultDeviceIdentifier = @"KWDefaultDeviceIdentifier";
+NSString *const KWDefaultCDMedia = @"KWDefaultCDMedia";
+NSString *const KWDefaultDVDMedia = @"KWDefaultDVDMedia";
 
 KWDiscType const KWDiscTypeEmpty = @"KWEmpty";
 KWDiscType const KWDiscTypeAudio = @"KWAudio";

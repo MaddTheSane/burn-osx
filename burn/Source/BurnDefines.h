@@ -32,6 +32,8 @@ extern NSString *const KWCalculateFilePackageSizes;
 extern NSString *const KWShowFilePackagesAsFolder;
 extern NSString *const KWCalculateTotalSize;
 extern NSString *const KWDefaultDeviceIdentifier;
+extern NSString *const KWDefaultCDMedia;
+extern NSString *const KWDefaultDVDMedia;
 
 #pragma mark - Disc Types
 
