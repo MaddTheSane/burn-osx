@@ -31,19 +31,19 @@
 - (void)addFile:(id)file isSelfEncoded:(BOOL)selfEncoded;
 
 //Disc creation actions
-//Set type temporary to video for burning
+//! Set type temporary to video for burning
 - (void)burn:(id)sender;
-//Create a track for burning
+//! Create a track for burning
 - (NSInteger)authorizeFolderAtPathIfNeededAtPath:(NSString *)path errorString:(NSString **)error;
 
 //Other actions
-//Get files from the tableData
+//! Get files from the tableData
 - (NSArray *)files;
-//Only DivX can be combined, since it's created using Apples framework
+//! Only DivX can be combined, since it's created using Apple's framework
 - (BOOL)isCombinable;
-//Set an empty info
+//! Set an empty info
 - (void)volumeLabelSelected:(NSNotification *)notif;
-//Calculate VCD size (bit different from the rest)
+//! Calculate VCD size (bit different from the rest)
 - (CGFloat)totalSVCDSize;
 
 @end

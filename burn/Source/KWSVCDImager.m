@@ -38,7 +38,7 @@
 		NSInteger i;
 		for (i=0;i<[files count];i++)
 		{
-			totalSize = totalSize + [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+			totalSize += [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
 		}
 		
 	[defaultCenter postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:totalSize]];

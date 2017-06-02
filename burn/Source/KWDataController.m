@@ -690,7 +690,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		{
 			[temporaryFiles addObject:outputFolder];
 			
-			if (![KWCommonMethods createDirectoryAtPath:outputFolder errorString:&*error]) {
+			if (![KWCommonMethods createDirectoryAtPath:outputFolder errorString:error]) {
 				return @1;
 			}
 			
@@ -731,12 +731,12 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 			NSString *fileName = [NODE_DATA(item) name];
 			NSString *savePath = [KWCommonMethods uniquePathNameFromPath:[path stringByAppendingPathComponent:fileName]];
 			
-			if (![KWCommonMethods createDirectoryAtPath:savePath errorString:&*error])
+			if (![KWCommonMethods createDirectoryAtPath:savePath errorString:error])
 				return NO;
 				
 			NSArray *children = [SAFENODE(item) children];
 		
-			if (![self createVirtualFolder:children atPath:savePath errorString:&*error])
+			if (![self createVirtualFolder:children atPath:savePath errorString:error])
 				return NO;
 		}
 		else 
@@ -752,12 +752,12 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 			NSString *saveFileName = [[NODE_DATA(item) fsObject] baseName];
 			NSString *savePath = [KWCommonMethods uniquePathNameFromPath:[path stringByAppendingPathComponent:saveFileName]];
 				
-			if (![KWCommonMethods createSymbolicLinkAtPath:savePath withDestinationPath:file errorString:&*error] && fileIsFolder)
+			if (![KWCommonMethods createSymbolicLinkAtPath:savePath withDestinationPath:file errorString:error] && fileIsFolder)
 			{
 				NSString *saveFileName = [[NODE_DATA(item) fsObject] baseName];
 				NSString *savePath = [KWCommonMethods uniquePathNameFromPath:[path stringByAppendingPathComponent:saveFileName]];
 			
-				if (![KWCommonMethods createDirectoryAtPath:savePath errorString:&*error])
+				if (![KWCommonMethods createDirectoryAtPath:savePath errorString:error])
 					return NO;
 					
 				enumer = [defaultManager enumeratorAtPath:file];
@@ -768,12 +768,12 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 					NSString *savePathName = [pathName lastPathComponent];
 					NSString *savePath = [KWCommonMethods uniquePathNameFromPath:[path stringByAppendingPathComponent:[[saveFileName stringByAppendingPathComponent:[pathName stringByDeletingLastPathComponent]] stringByAppendingPathComponent:savePathName]]];
 
-					if (![KWCommonMethods createSymbolicLinkAtPath:savePath withDestinationPath:[file stringByAppendingPathComponent:pathName] errorString:&*error] && fileIsFolder)
+					if (![KWCommonMethods createSymbolicLinkAtPath:savePath withDestinationPath:[file stringByAppendingPathComponent:pathName] errorString:error] && fileIsFolder)
 					{
 						NSString *savePathName = [pathName lastPathComponent];
 						NSString *savePath = [KWCommonMethods uniquePathNameFromPath:[path stringByAppendingPathComponent:[[saveFileName stringByAppendingPathComponent:[pathName stringByDeletingLastPathComponent]] stringByAppendingPathComponent:savePathName]]];
 			
-						if (![KWCommonMethods createDirectoryAtPath:savePath errorString:&*error])
+						if (![KWCommonMethods createDirectoryAtPath:savePath errorString:error])
 							return NO;
 					}
 					else

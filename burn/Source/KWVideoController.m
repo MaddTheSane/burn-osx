@@ -295,7 +295,7 @@
 		{
 			[temporaryFiles addObject:outputFolder];
 
-			succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder errorString:&*error];
+			succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder errorString:error];
 		}
 		else
 		{
@@ -361,7 +361,7 @@
 	
 	if ([tableData count] > 0 && [[[currentData objectForKey:@"Name"] lowercaseString] isEqualTo:@"video_ts"])
 	{
-		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:1 fromTableData:tableData errorString:&*error];
+		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:1 fromTableData:tableData errorString:error];
 	}
 	else
 	{
@@ -379,11 +379,11 @@
 			NSBundle *themeBundle = [NSBundle bundleWithPath:[standardDefaults objectForKey:@"KWDVDThemePath"]];
 			NSDictionary *theme = [[NSArray arrayWithContentsOfFile:[themeBundle pathForResource:@"Theme" ofType:@"plist"]] objectAtIndex:[[standardDefaults objectForKey:@"KWDVDThemeFormat"] integerValue]];
 			
-			succes = [DVDAuthorizer createDVDMenuFiles:path withTheme:theme withFileArray:tableData withSize:[NSNumber numberWithInteger:totalSize / 2] withName:[discName stringValue] errorString:&*error];
+			succes = [DVDAuthorizer createDVDMenuFiles:path withTheme:theme withFileArray:tableData withSize:@(totalSize / 2) withName:[discName stringValue] errorString:error];
 		}
 		else
 		{
-			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:[NSNumber numberWithInteger:totalSize / 2] errorString:&*error];
+			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:@(totalSize / 2) errorString:error];
 		}
 	
 		[DVDAuthorizer release];
@@ -515,10 +515,9 @@
 {
 	NSMutableArray *files = [NSMutableArray array];
 
-	NSInteger i;
-	for (i = 0; i < [tableData count]; i ++)
+	for (id obj in tableData)
 	{
-		[files addObject:[[tableData objectAtIndex:i] objectForKey:@"Path"]];
+		[files addObject:[obj objectForKey:@"Path"]];
 	}
 	
 	return files;

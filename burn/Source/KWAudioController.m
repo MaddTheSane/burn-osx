@@ -466,7 +466,7 @@
 		{
 			[temporaryFiles addObject:outputFolder];
 	
-			NSInteger succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder errorString:&*error];
+			NSInteger succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder errorString:error];
 	
 			if (succes == 0)
 				return [[KWTrackProducer alloc] getTrackForFolder:outputFolder ofType:7 withDiscName:discTitle];
@@ -563,7 +563,7 @@
 	
 	if ([tableData count] > 0 && [[[currentData objectForKey:@"Name"] lowercaseString] isEqualTo:@"audio_ts"])
 	{
-		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:0 fromTableData:tableData errorString:&*error];	
+		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:0 fromTableData:tableData errorString:error];
 	}
 	else
 	{
@@ -590,7 +590,7 @@
 		[defaultCenter postNotificationName:@"KWStatusChanged" object:NSLocalizedString(@"Generating DVD folder",nil)];
 	
 		DVDAuthorizer = [[KWDVDAuthorizer alloc] init];
-		succes = [DVDAuthorizer createStandardDVDAudioFolderAtPath:[path retain] withFiles:files errorString:&*error];
+		succes = [DVDAuthorizer createStandardDVDAudioFolderAtPath:[path retain] withFiles:files errorString:error];
 		[DVDAuthorizer release];
 		DVDAuthorizer = nil;
 	}

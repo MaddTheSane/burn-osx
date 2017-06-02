@@ -598,7 +598,7 @@
 	
 	BOOL succes = [defaultManager createFileAtPath:path contents:[NSData data] attributes:attributes];
 	
-	if (!succes)
+	if (!succes && error != nil)
 		*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteUnknownError userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:NSLocalizedString(@"Can't create '%@' in '%@'", nil), file, destination]}];
 	
 	return succes;
@@ -1183,7 +1183,7 @@
 				{
 					// proper name... link or copy
 					NSString *dstPath = [[path stringByAppendingPathComponent:folderName] stringByAppendingPathComponent:fileName];
-					BOOL result = [KWCommonMethods createSymbolicLinkAtPath:dstPath withDestinationPath:filePath errorString:&*error];
+					BOOL result = [KWCommonMethods createSymbolicLinkAtPath:dstPath withDestinationPath:filePath errorString:error];
 					
 					if (result == NO)
 						succes = 1;
@@ -1209,7 +1209,7 @@
 		NSString *inPath = [currentData objectForKey:@"Path"];
 		NSString *outPath = [path stringByAppendingPathComponent:[currentData objectForKey:@"Name"]];
 	
-		if ([KWCommonMethods createSymbolicLinkAtPath:outPath withDestinationPath:inPath errorString:&*error])
+		if ([KWCommonMethods createSymbolicLinkAtPath:outPath withDestinationPath:inPath errorString:error])
 			return 0;
 		else
 			return 1;
