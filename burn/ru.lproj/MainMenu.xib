@@ -69,15 +69,8 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Archief" id="83">
-                    <attributedString key="attributedTitle">
-                        <fragment content="Archief">
-                            <attributes>
-                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <font key="NSFont" size="14" name="LucidaGrande"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
+                <menuItem title="Файл" id="83">
+                    <attributedString key="attributedTitle"/>
                     <menu key="submenu" title="Файл" id="81">
                         <items>
                             <menuItem title="Открыть…" keyEquivalent="o" id="72">

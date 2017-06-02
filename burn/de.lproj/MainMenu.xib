@@ -70,16 +70,7 @@
                     </menu>
                 </menuItem>
                 <menuItem title="Ablage" id="83">
-                    <attributedString key="attributedTitle">
-                        <fragment content="Ablage">
-                            <attributes>
-                                <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <font key="NSFont" size="14" name="LucidaGrande"/>
-                                <font key="NSOriginalFont" size="14" name="LucidaGrande"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
+                    <attributedString key="attributedTitle"/>
                     <menu key="submenu" title="Ablage" id="81">
                         <items>
                             <menuItem title="Öffnen…" keyEquivalent="o" id="72">
