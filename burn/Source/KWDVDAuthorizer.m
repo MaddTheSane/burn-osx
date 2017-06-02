@@ -174,10 +174,10 @@
 		NSInteger i;
 		for (i = 0; i < [files count]; i ++)
 		{
-			fileSize = fileSize + [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+			fileSize += [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] longLongValue] / 2048;
 		}
 		
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:fileSize]];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMaximumValueChanged" object:@(fileSize)];
 	
 	NSPipe *pipe =[ [NSPipe alloc] init];
 	NSFileHandle *handle;

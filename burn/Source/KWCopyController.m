@@ -382,7 +382,7 @@
 		//Set current file information for later use
 		[currentInformation setObject:workingPath forKey:@"Path"];
 		[currentInformation setObject:[[workingPath pathExtension] lowercaseString] forKey:@"Extension"];
-		[currentInformation setObject:[NSNumber numberWithCGFloat:size / 2048] forKey:@"Blocks"];
+		[currentInformation setObject:[NSNumber numberWithCGFloat:size / 2048.0] forKey:@"Blocks"];
 		
 		if (currentMountedPath)
 		{
@@ -637,7 +637,7 @@
 			[defaultCenter addObserver:self selector:@selector(stopImageing) name:@"KWStopImaging" object:nil];
 			[defaultCenter postNotificationName:@"KWCancelNotificationChanged" object:@"KWStopImaging"];
 			[defaultCenter postNotificationName:@"KWStatusChanged" object:NSLocalizedString(@"Copying disc", Localized)];
-			[defaultCenter postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:[[self totalSize] cgfloatValue]]];
+			[defaultCenter postNotificationName:@"KWMaximumValueChanged" object:[[[self totalSize] copy] autorelease]];
 		
 			[self performSelectorOnMainThread:@selector(startTimer:) withObject:outputFile waitUntilDone:NO];
 			
@@ -717,13 +717,13 @@
 {
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 
-	CGFloat currentSize = [[[[NSFileManager defaultManager] fileAttributesAtPath:[theTimer userInfo] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+	long long currentSize = [[[[NSFileManager defaultManager] fileAttributesAtPath:[theTimer userInfo] traverseLink:YES] objectForKey:NSFileSize] longLongValue] / 2048;
 	CGFloat percent = currentSize / [[self totalSize] cgfloatValue] * 100;
 		
 		if (percent < 101)
 		[defaultCenter postNotificationName:@"KWStatusByAddingPercentChanged" object:[NSString stringWithFormat:@" (%.0f%@)", percent, @"%"]];
 
-	[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithCGFloat:currentSize]];
+	[defaultCenter postNotificationName:@"KWValueChanged" object:@(currentSize)];
 }
 
 - (void)stopImageing

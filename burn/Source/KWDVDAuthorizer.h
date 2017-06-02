@@ -21,7 +21,7 @@
 	NSDictionary *theme;
 	
 	NSNumber *progressSize;
-	NSInteger fileSize;
+	long long fileSize;
 }
 
 //Standard DVD-Video

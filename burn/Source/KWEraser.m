@@ -254,7 +254,7 @@
 	NSNumber *percent = [status objectForKey:DRStatusPercentCompleteKey];
 	if ([percent cgfloatValue] > 0)
 	{
-		[defaultCenter postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:1.0]];
+		[defaultCenter postNotificationName:@"KWMaximumValueChanged" object:@(1.0)];
 		[defaultCenter postNotificationName:@"KWValueChanged" object:percent];
 		
 		NSString *progressString;

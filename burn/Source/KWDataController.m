@@ -367,7 +367,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 
 - (NSNumber *)totalSize
 {
-	return [NSNumber numberWithCGFloat:(CGFloat)totalSize];
+	return @(totalSize);
 
 	//KWDRFolder *rootFolder = (KWDRFolder*)[(FSNodeData*)[treeData nodeData] fsObject];
 	//DRTrack *track = [DRTrack trackForRootFolder:rootFolder];

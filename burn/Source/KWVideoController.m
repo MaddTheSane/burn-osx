@@ -508,7 +508,7 @@
 	if ([tableViewPopup indexOfSelectedItem] > 1)
 		return [super totalSize];
 	else
-		return [NSNumber numberWithCGFloat:[self totalSVCDSize] / 2048];
+		return @([self totalSVCDSize] / 2048);
 }
 
 - (NSArray *)files
@@ -535,7 +535,7 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:KWChangeInspectorNotification object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:KWDiscTypeEmpty, @"Type", nil]];
 }
 
-- (CGFloat)totalSVCDSize
+- (long long)totalSVCDSize
 {
 	NSInteger numberOfFiles = [tableData count];
 
@@ -543,18 +543,18 @@
 		return 0;
 	
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
-	CGFloat size = 1058400;
+	long long size = 1058400;
 	
 	NSInteger i;
 	for (i = 0; i < [tableData count]; i ++)
 	{
 		NSString *path = [[tableData objectAtIndex:i] objectForKey:@"Path"];
 		NSDictionary *attrib = [defaultManager fileAttributesAtPath:path traverseLink:YES];
-		CGFloat fileSize = [[attrib objectForKey:NSFileSize] cgfloatValue] + 862288;
-		size = size + fileSize;
+		CGFloat fileSize = [[attrib objectForKey:NSFileSize] longLongValue] + 862288;
+		size += fileSize;
 	}
 
-	return size / 2352 * 2048 + 307200;
+	return (size * 2048) / 2352 + 307200;
 }
 
 @end

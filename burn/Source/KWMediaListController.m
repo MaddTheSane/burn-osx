@@ -865,7 +865,7 @@
 	
 	if (numberOfRows > 0 && [[[firstObject objectForKey:@"Name"] lowercaseString] isEqualTo:[dvdFolderName lowercaseString]] && isDVD)
 	{
-		return [NSNumber numberWithCGFloat:[KWCommonMethods calculateRealFolderSize:[firstObject objectForKey:@"Path"]]];
+		return @([KWCommonMethods calculateRealFolderSize:[firstObject objectForKey:@"Path"]]);
 	}
 	else
 	{
@@ -889,7 +889,7 @@
 			[discRoot setExplicitFilesystemMask:(1<<2)];
 		}
 
-		return [NSNumber numberWithCGFloat:[[DRTrack trackForRootFolder:discRoot] estimateLength]];
+		return @([[DRTrack trackForRootFolder:discRoot] estimateLength]);
 	}
 }
 

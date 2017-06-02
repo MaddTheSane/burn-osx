@@ -43,7 +43,7 @@
 - (BOOL)isCombinable;
 //Set an empty info
 - (void)volumeLabelSelected:(NSNotification *)notif;
-//Calculate VCD size (bit different from the rest)
-- (CGFloat)totalSVCDSize;
+//! Calculate VCD size (bit different from the rest)
+- (long long)totalSVCDSize;
 
 @end
