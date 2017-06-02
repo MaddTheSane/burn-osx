@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D11072A0486CEB800E47090 /* MyDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.nib */; };
+		8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */ = {isa = PBXBuildFile; fileRef = FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */; };
-		FE4529260B468E050000A2CC /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = FE4529240B468E050000A2CC /* MainMenu.nib */; };
+		FE4529260B468E050000A2CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4529240B468E050000A2CC /* MainMenu.xib */; };
 		FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */; };
 		FECFB2560F06AD3000933318 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = FECFB2540F06AD3000933318 /* MyDocument.m */; };
 		FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F7E0E63123B00379454 /* MenuEdit.icns */; };
@@ -22,49 +22,49 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
-		FE28BDA80F11A0DD00CC3B49 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE38A8670F2F1ED700594CBB /* German */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE38A8680F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FE38A8690F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = German; path = German.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FE38A86A0F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = German; path = German.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		FE38A86B0F2F1ED700594CBB /* German */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = German; path = "German.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FE28BDA80F11A0DD00CC3B49 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE38A8670F2F1ED700594CBB /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE38A8680F2F1ED700594CBB /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FE38A8690F2F1ED700594CBB /* de */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = de; path = de.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FE38A86A0F2F1ED700594CBB /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		FE38A86B0F2F1ED700594CBB /* de */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = de; path = "de.lproj/Theme document.icns"; sourceTree = "<group>"; };
 		FE38A86F0F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE38A8700F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE38A8700F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FE38A8710F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pt_BR; path = pt_BR.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FE38A8720F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_BR; path = pt_BR.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FE38A8720F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt_BR; path = pt_BR.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		FE38A8730F2F1F5A00594CBB /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pt_BR; path = "pt_BR.lproj/Theme document.icns"; sourceTree = "<group>"; };
-		FE4529250B468E050000A2CC /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE4529250B468E050000A2CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FE597C680F119EEB00041295 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE597C690F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE597C690F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = cs; path = cs.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FE597C6A0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = cs; path = cs.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FE597C6B0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = cs; path = cs.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FE597C6B0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = cs; path = cs.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		FE597C6C0F119EEB00041295 /* cs */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = cs; path = "cs.lproj/Theme document.icns"; sourceTree = "<group>"; };
-		FE597C6D0F119EF800041295 /* Dutch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE597C6D0F119EF800041295 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE597C6E0F119F0800041295 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FE67A48C0F0FFD19006DB5F7 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FEB8A1640F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FEB8A1650F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Dutch; path = Dutch.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FEB8A1660F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Dutch; path = Dutch.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		FEB8A1670F098FA900ED9DC5 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Dutch; path = "Dutch.lproj/Theme document.icns"; sourceTree = "<group>"; };
-		FEB8A1870F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FEB8A1880F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Japanese; path = Japanese.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FEB8A1890F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = Japanese.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		FEB8A18A0F099D8900ED9DC5 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Japanese; path = "Japanese.lproj/Theme document.icns"; sourceTree = "<group>"; };
-		FEB8A18F0F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		FE67A48C0F0FFD19006DB5F7 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FEB8A1640F098FA900ED9DC5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FEB8A1650F098FA900ED9DC5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = nl; path = nl.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEB8A1660F098FA900ED9DC5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		FEB8A1670F098FA900ED9DC5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = nl; path = "nl.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FEB8A1870F099D8900ED9DC5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FEB8A1880F099D8900ED9DC5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ja; path = ja.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEB8A1890F099D8900ED9DC5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		FEB8A18A0F099D8900ED9DC5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ja; path = "ja.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FEB8A18F0F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FEB8A1900F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = ru.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FEB8A1910F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ru; path = ru.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		FEB8A1910F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		FEB8A1920F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = "ru.lproj/Theme document.icns"; sourceTree = "<group>"; };
 		FECFB2540F06AD3000933318 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDocument.m; path = Source/MyDocument.m; sourceTree = "<group>"; };
 		FECFB2550F06AD3000933318 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDocument.h; path = Source/MyDocument.h; sourceTree = "<group>"; };
-		FEF03F7F0E63123B00379454 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = English; path = English.lproj/MenuEdit.icns; sourceTree = "<group>"; };
-		FEF03F810E63123B00379454 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = English; path = "English.lproj/Theme document.icns"; sourceTree = "<group>"; };
+		FEF03F7F0E63123B00379454 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = en.lproj/MenuEdit.icns; sourceTree = "<group>"; };
+		FEF03F810E63123B00379454 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = "en.lproj/Theme document.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +142,9 @@
 				FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */,
 				FEF03F7E0E63123B00379454 /* MenuEdit.icns */,
 				FEF03F800E63123B00379454 /* Theme document.icns */,
-				FE4529240B468E050000A2CC /* MainMenu.nib */,
+				FE4529240B468E050000A2CC /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				29B97318FDCFA39411CA2CEA /* MyDocument.nib */,
+				29B97318FDCFA39411CA2CEA /* MyDocument.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -189,14 +189,14 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuEdit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-				Dutch,
+				en,
+				ja,
+				fr,
+				de,
+				nl,
 				ru,
 				cs,
 				pt_BR,
@@ -215,8 +215,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072A0486CEB800E47090 /* MyDocument.nib in Resources */,
-				FE4529260B468E050000A2CC /* MainMenu.nib in Resources */,
+				8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */,
+				FE4529260B468E050000A2CC /* MainMenu.xib in Resources */,
 				FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */,
 				FEF03F830E63123B00379454 /* Theme document.icns in Resources */,
 				FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */,
@@ -239,43 +239,43 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		29B97318FDCFA39411CA2CEA /* MyDocument.nib */ = {
+		29B97318FDCFA39411CA2CEA /* MyDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
-				FEB8A1660F098FA900ED9DC5 /* Dutch */,
-				FEB8A1890F099D8900ED9DC5 /* Japanese */,
+				29B97319FDCFA39411CA2CEA /* en */,
+				FEB8A1660F098FA900ED9DC5 /* nl */,
+				FEB8A1890F099D8900ED9DC5 /* ja */,
 				FE597C6B0F119EEB00041295 /* cs */,
 				FEB8A1910F09A88700ED9DC5 /* ru */,
-				FE38A86A0F2F1ED700594CBB /* German */,
+				FE38A86A0F2F1ED700594CBB /* de */,
 				FE38A8720F2F1F5A00594CBB /* pt_BR */,
 			);
-			name = MyDocument.nib;
+			name = MyDocument.xib;
 			sourceTree = "<group>";
 		};
-		FE4529240B468E050000A2CC /* MainMenu.nib */ = {
+		FE4529240B468E050000A2CC /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FE4529250B468E050000A2CC /* English */,
-				FEB8A1640F098FA900ED9DC5 /* Dutch */,
-				FEB8A1870F099D8900ED9DC5 /* Japanese */,
+				FE4529250B468E050000A2CC /* en */,
+				FEB8A1640F098FA900ED9DC5 /* nl */,
+				FEB8A1870F099D8900ED9DC5 /* ja */,
 				FE597C690F119EEB00041295 /* cs */,
 				FEB8A18F0F09A88700ED9DC5 /* ru */,
-				FE38A8680F2F1ED700594CBB /* German */,
+				FE38A8680F2F1ED700594CBB /* de */,
 				FE38A8700F2F1F5A00594CBB /* pt_BR */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FE67A48C0F0FFD19006DB5F7 /* English */,
-				FE597C6D0F119EF800041295 /* Dutch */,
-				FE28BDA80F11A0DD00CC3B49 /* Japanese */,
+				FE67A48C0F0FFD19006DB5F7 /* en */,
+				FE597C6D0F119EF800041295 /* nl */,
+				FE28BDA80F11A0DD00CC3B49 /* ja */,
 				FE597C680F119EEB00041295 /* cs */,
 				FE597C6E0F119F0800041295 /* ru */,
-				FE38A8670F2F1ED700594CBB /* German */,
+				FE38A8670F2F1ED700594CBB /* de */,
 				FE38A86F0F2F1F5A00594CBB /* pt_BR */,
 			);
 			name = InfoPlist.strings;
@@ -284,12 +284,12 @@
 		FEF03F7E0E63123B00379454 /* MenuEdit.icns */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FEF03F7F0E63123B00379454 /* English */,
-				FEB8A1650F098FA900ED9DC5 /* Dutch */,
-				FEB8A1880F099D8900ED9DC5 /* Japanese */,
+				FEF03F7F0E63123B00379454 /* en */,
+				FEB8A1650F098FA900ED9DC5 /* nl */,
+				FEB8A1880F099D8900ED9DC5 /* ja */,
 				FE597C6A0F119EEB00041295 /* cs */,
 				FEB8A1900F09A88700ED9DC5 /* ru */,
-				FE38A8690F2F1ED700594CBB /* German */,
+				FE38A8690F2F1ED700594CBB /* de */,
 				FE38A8710F2F1F5A00594CBB /* pt_BR */,
 			);
 			name = MenuEdit.icns;
@@ -298,12 +298,12 @@
 		FEF03F800E63123B00379454 /* Theme document.icns */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FEF03F810E63123B00379454 /* English */,
-				FEB8A1670F098FA900ED9DC5 /* Dutch */,
-				FEB8A18A0F099D8900ED9DC5 /* Japanese */,
+				FEF03F810E63123B00379454 /* en */,
+				FEB8A1670F098FA900ED9DC5 /* nl */,
+				FEB8A18A0F099D8900ED9DC5 /* ja */,
 				FE597C6C0F119EEB00041295 /* cs */,
 				FEB8A1920F09A88700ED9DC5 /* ru */,
-				FE38A86B0F2F1ED700594CBB /* German */,
+				FE38A86B0F2F1ED700594CBB /* de */,
 				FE38A8730F2F1F5A00594CBB /* pt_BR */,
 			);
 			name = "Theme document.icns";
