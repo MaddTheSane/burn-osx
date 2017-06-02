@@ -6,18 +6,18 @@
 {
     //Interface outlets
 	IBOutlet NSPopUpButton	*localizationPopup;
-    IBOutlet id previewView;
+    IBOutlet NSImageView	*previewView;
     IBOutlet NSPopUpButton	*selectionPopup;
     IBOutlet NSTextField	*themeNameField;
     IBOutlet NSPopUpButton	*viewPopup;
-	IBOutlet id mainWindow;
-	IBOutlet id editTabView;
-	IBOutlet id editPopup;
-	IBOutlet id localizationSheet;
-	IBOutlet id localizationText;
-	IBOutlet NSWindow *previewWindow;
-	IBOutlet id previewImageView;
-	IBOutlet id selectionModeTabView;
+	IBOutlet NSWindow		*mainWindow;
+	IBOutlet NSTabView		*editTabView;
+	IBOutlet NSPopUpButton	*editPopup;
+	IBOutlet NSPanel		*localizationSheet;
+	IBOutlet NSTextField	*localizationText;
+	IBOutlet NSWindow		*previewWindow;
+	IBOutlet NSImageView	*previewImageView;
+	IBOutlet NSTabView		*selectionModeTabView;
 	
 	//Variables
 	NSMutableDictionary *myTheme;

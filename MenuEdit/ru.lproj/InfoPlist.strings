@@ -1,10 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Kiwi Fruitware 2009</string>
-	<key>Burn Theme</key>
-	<string>Тема Burn</string>
-</dict>
-</plist>
+/* Localized versions of Info.plist keys */
+
+NSHumanReadableCopyright = "Kiwi Fruitware 2009";
+"Burn Theme" = "Тема Burn";
