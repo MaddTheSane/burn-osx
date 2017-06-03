@@ -253,7 +253,6 @@ return self;
 	NSArray *keys = [[myTheme objectForKey:@"Languages"] allKeys];
 	NSMutableDictionary *localWrapper = [NSMutableDictionary dictionaryWithCapacity:[keys count]];
 	
-	int i;
 	for (NSInteger i = 0; i < [keys count]; i++)
 	{
 		NSMutableDictionary *themeWrapper = [NSMutableDictionary dictionaryWithCapacity:1];
@@ -364,11 +363,10 @@ return self;
 	
 	NSMutableDictionary *languages = [NSMutableDictionary dictionaryWithCapacity:[keys count]];
 	
-	int i;
-	for (NSInteger i=0;i<[keys count];i++)
+	for (NSString *key in keys)
 	{
-		if ([[[keys objectAtIndex:i] pathExtension] isEqualTo:@"lproj"])
-			[languages setObject:[NSPropertyListSerialization propertyListFromData:[[[[resources objectForKey:[keys objectAtIndex:i]] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] mutabilityOption:NSPropertyListMutableContainersAndLeaves format:nil errorDescription:nil] forKey:[[keys objectAtIndex:i] stringByDeletingPathExtension]];
+		if ([[key pathExtension] isEqualTo:@"lproj"])
+			[languages setObject:[NSPropertyListSerialization propertyListWithData:[[[[resources objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil] forKey:[key stringByDeletingPathExtension]];
 	}
 	
 	myTheme = [[NSMutableDictionary alloc] initWithObjects:[NSMutableArray arrayWithObject:languages] forKeys:[NSMutableArray arrayWithObject:@"Languages"]];
@@ -387,10 +385,8 @@ return self;
 	NSEnumerator *iter = [[NSEnumerator alloc] init];
 	NSControl *cntl;
 	
-	int x;
-	for (x=0;x<[views count];x++)
+	for (NSInteger x = 0; x < [views count]; x++)
 	{
-		int index;
 		id property = nil;
 		NSView *currentView;
 		
@@ -458,7 +454,7 @@ return self;
 
 - (IBAction)addLocalization:(id)sender
 {
-[NSApp beginSheet:localizationSheet modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
+	[NSApp beginSheet:localizationSheet modalForWindow:mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil];
 }
 
 - (IBAction)add:(id)sender
