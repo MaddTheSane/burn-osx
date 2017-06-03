@@ -151,7 +151,7 @@ return self;
 	[themePopup removeAllItems];
 	
 	NSBundle *mainBundle = [NSBundle mainBundle];
-	NSString *defaultThemePath = [[mainBundle pathForResource:@"Themes" ofType:nil] stringByAppendingPathComponent:@"Default.burnTheme"];
+	NSString *defaultThemePath = [mainBundle pathForResource:@"Default" ofType:@"burnTheme" inDirectory:@"Themes"];
 	NSBundle *themeBundle = [NSBundle bundleWithPath:defaultThemePath];
 	NSDictionary *theme = [[NSArray arrayWithContentsOfFile:[themeBundle pathForResource:@"Theme" ofType:@"plist"]] objectAtIndex:[[standardDefaults objectForKey:@"KWDVDThemeFormat"] unsignedIntegerValue]];
 	
