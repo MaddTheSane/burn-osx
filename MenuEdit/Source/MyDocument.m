@@ -1,4 +1,5 @@
 #import "MyDocument.h"
+#import "KWBurnThemeObject.h"
 
 @implementation MyDocument
 

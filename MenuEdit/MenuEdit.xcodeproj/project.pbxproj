@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
 		8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -26,6 +27,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
+		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWBurnThemeObject.h; path = Source/KWBurnThemeObject.h; sourceTree = "<group>"; };
+		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWBurnThemeObject.m; path = Source/KWBurnThemeObject.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 			children = (
 				FECFB2550F06AD3000933318 /* MyDocument.h */,
 				FECFB2540F06AD3000933318 /* MyDocument.m */,
+				55C378991EE350190045DDD5 /* KWBurnThemeObject.h */,
+				55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				FECFB2560F06AD3000933318 /* MyDocument.m in Sources */,
 			);
