@@ -172,6 +172,8 @@ extern NSString *const KWScreenshotAtTimeKey;
 extern NSString *const KWSelectionImagesUseImageKey;
 extern NSString *const KWDefaultImageKey;
 
-@interface KWBurnThemeObject : NSObject <NSCopying, NSMutableCopying>
+@interface KWBurnThemeObject : NSObject
+
++ (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme;
 
 @end

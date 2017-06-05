@@ -7,6 +7,7 @@
 //
 
 #import "KWBurnThemeObject.h"
+#import "KWMutableBurnThemeObject.h"
 
 NSString *const KWDVDNameDisableTextKey = @"KWDVDNameDisableText";
 NSString *const KWDVDNameFontKey = @"KWDVDNameFont";
@@ -174,7 +175,30 @@ NSString *const KWDefaultImageKey = @"KWDefaultImage";
 
 @implementation KWBurnThemeObject
 {
+@protected
 	NSFileWrapper *fileWrapper;
 }
 
++ (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
+{
+	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:0 error:NULL];
+	KWBurnThemeObject*newVal = [[KWBurnThemeObject alloc] init];
+	
+	return newVal;
+}
+
+- (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper
+{
+	if (self = [super init]) {
+		fileWrapper = wrapper;
+	}
+	return self;
+}
+
+- (instancetype)init
+{
+	return [self initWithFileWrapper:[[NSFileWrapper alloc] init]];
+}
+
 @end
+
