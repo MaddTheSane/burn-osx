@@ -1044,7 +1044,7 @@ return self;
 	NSFont *labelFont = [NSFont fontWithName:fontName size:size];
 	NSMutableParagraphStyle *centeredStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[centeredStyle setAlignment:alignment];
-	NSDictionary *attsDict = [NSDictionary dictionaryWithObjectsAndKeys:[centeredStyle copy], NSParagraphStyleAttributeName, color, NSForegroundColorAttributeName, labelFont, NSFontAttributeName, @(NSNoUnderlineStyle), NSUnderlineStyleAttributeName, nil];
+	NSDictionary *attsDict = [NSDictionary dictionaryWithObjectsAndKeys:[centeredStyle copy], NSParagraphStyleAttributeName, color, NSForegroundColorAttributeName, labelFont, NSFontAttributeName, @(NSUnderlineStyleNone), NSUnderlineStyleAttributeName, nil];
 	centeredStyle = nil;
 	
 	[image lockFocus];

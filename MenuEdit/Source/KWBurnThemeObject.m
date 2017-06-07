@@ -258,9 +258,11 @@ static NSString *const themePlist = @"Theme.plist";
 			NSString *tmpRectStr;
 			NSString *langKey = [key stringByDeletingPathExtension];
 			langKey = [NSLocale canonicalLanguageIdentifierFromString:langKey];
-			NSDictionary *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil];
+			NSDictionary *oldDict = [[NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil] objectAtIndex:0];
 			newVal.currentLocale = [NSLocale localeWithLocaleIdentifier:langKey];
+			
 #define MigrateResource(key) if (oldDict[ key ]) [newVal addResource:oldDict[ key ] named: key]
+			
 			MigrateResource(KWStartButtonImageKey);
 			MigrateResource(KWStartButtonMaskImageKey);
 			MigrateResource(KWTitleButtonImageKey);
@@ -284,6 +286,7 @@ static NSString *const themePlist = @"Theme.plist";
 			MigrateResource(KWChapterSelectionOverlayImageKey);
 			MigrateResource(KWSelectionImagesUseImageKey);
 			MigrateResource(KWDefaultImageKey);
+			
 #undef MigrateResource
 			
 #define MigrateRectSettings(base) tmpRect = NSMakeRect( [[oldDict objectForKey: base @"X"] intValue], [[oldDict objectForKey: base @"Y"] intValue], [[oldDict objectForKey: base @"W"] intValue], [[oldDict objectForKey: base @"H"] intValue]); \
@@ -524,7 +527,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		if (!themeData) {
 			continue;
 		}
-		[themeWrapper addRegularFileWithContents:themeData preferredFilename:themePlist];
+		[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themePlist];
 	}
 	
 	if ([fileWrapper writeToURL:url options:NSFileWrapperWritingWithNameUpdating originalContentsURL:oldDir error:error]) {

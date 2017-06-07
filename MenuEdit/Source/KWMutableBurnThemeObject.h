@@ -15,11 +15,11 @@
 
 - (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper NS_DESIGNATED_INITIALIZER;
 
-- (void)addResource:(NSData*)res named:(NSString*)resName locale:(NSLocale*)locale;
-- (void)addResource:(NSData*)res named:(NSString*)resName;
+- (void)addResource:(NSData*)res named:(KWDataKeys)resName locale:(NSLocale*)locale;
+- (void)addResource:(NSData*)res named:(KWDataKeys)resName;
 
-- (void)setPropertyValue:(id)val forKey:(NSString*)key;
-- (void)setPropertyValue:(id)val forKey:(NSString*)key locale:(NSLocale*)locale;
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key;
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key locale:(NSLocale*)locale;
 
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error;
 

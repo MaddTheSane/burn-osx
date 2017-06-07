@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
+		55E8BC341EE7CDAC00BBE4F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E8BC331EE7CDAC00BBE4F6 /* main.m */; };
+		55E8BC381EE7CDC900BBE4F6 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
 		8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -18,6 +20,18 @@
 		FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F7E0E63123B00379454 /* MenuEdit.icns */; };
 		FEF03F830E63123B00379454 /* Theme document.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F800E63123B00379454 /* Theme document.icns */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55E8BC2F1EE7CDAC00BBE4F6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -30,6 +44,8 @@
 		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWBurnThemeObject.h; path = Source/KWBurnThemeObject.h; sourceTree = "<group>"; };
 		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWBurnThemeObject.m; path = Source/KWBurnThemeObject.m; sourceTree = "<group>"; };
 		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KWMutableBurnThemeObject.h; path = Source/KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
+		55E8BC311EE7CDAC00BBE4F6 /* btoTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = btoTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E8BC331EE7CDAC00BBE4F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
@@ -72,6 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		55E8BC2E1EE7CDAC00BBE4F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* MenuEdit.app */,
+				55E8BC311EE7CDAC00BBE4F6 /* btoTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +151,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				55E8BC321EE7CDAC00BBE4F6 /* btoTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -165,9 +190,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		55E8BC321EE7CDAC00BBE4F6 /* btoTest */ = {
+			isa = PBXGroup;
+			children = (
+				55E8BC331EE7CDAC00BBE4F6 /* main.m */,
+			);
+			path = btoTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		55E8BC301EE7CDAC00BBE4F6 /* btoTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55E8BC351EE7CDAC00BBE4F6 /* Build configuration list for PBXNativeTarget "btoTest" */;
+			buildPhases = (
+				55E8BC2D1EE7CDAC00BBE4F6 /* Sources */,
+				55E8BC2E1EE7CDAC00BBE4F6 /* Frameworks */,
+				55E8BC2F1EE7CDAC00BBE4F6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = btoTest;
+			productName = btoTest;
+			productReference = 55E8BC311EE7CDAC00BBE4F6 /* btoTest */;
+			productType = "com.apple.product-type.tool";
+		};
 		8D1107260486CEB800E47090 /* MenuEdit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuEdit" */;
@@ -193,6 +243,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					55E8BC301EE7CDAC00BBE4F6 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuEdit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -213,6 +269,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* MenuEdit */,
+				55E8BC301EE7CDAC00BBE4F6 /* btoTest */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +291,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		55E8BC2D1EE7CDAC00BBE4F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E8BC341EE7CDAC00BBE4F6 /* main.m in Sources */,
+				55E8BC381EE7CDC900BBE4F6 /* KWBurnThemeObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +386,61 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		55E8BC361EE7CDAC00BBE4F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		55E8BC371EE7CDAC00BBE4F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -408,6 +529,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		55E8BC351EE7CDAC00BBE4F6 /* Build configuration list for PBXNativeTarget "btoTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E8BC361EE7CDAC00BBE4F6 /* Debug */,
+				55E8BC371EE7CDAC00BBE4F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuEdit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
