@@ -9,6 +9,11 @@
 #import "KWBurnThemeObject.h"
 #import "KWMutableBurnThemeObject.h"
 
+#if !__has_feature(objc_arc)
+#error this must be compiled with ARC
+#endif
+
+
 NSString *const KWDVDNameDisableTextKey = @"KWDVDNameDisableText";
 NSString *const KWDVDNameFontKey = @"KWDVDNameFont";
 NSString *const KWDVDNameFontSizeKey = @"KWDVDNameFontSize";
@@ -173,32 +178,360 @@ NSString *const KWSelectionImagesUseImageKey = @"KWSelectionImagesUseImage";
 NSString *const KWDefaultImageKey = @"KWDefaultImage";
 
 
+
+NSString *const KWThemeTitleKey = @"KWThemeTitle";
+
+NSString *const KWDVDNameRectKey = @"KWDVDNameRect";
+NSString *const KWVideoNameRectKey = @"KWVideoNameRect";
+NSString *const KWStartButtonRectKey = @"KWStartButtonRect";
+NSString *const KWStartButtonMaskRectKey = @"KWStartButtonMaskRect";
+NSString *const KWTitleButtonRectKey = @"KWTitleButtonRect";
+NSString *const KWTitleButtonMaskRectKey = @"KWTitleButtonMaskRect";
+NSString *const KWChapterButtonRectKey = @"KWChapterButtonRect";
+NSString *const KWChapterButtonMaskRectKey = @"KWChapterButtonMaskRect";
+NSString *const KWPreviousButtonRectKey = @"KWPreviousButtonRect";
+NSString *const KWPreviousButtonMaskRectKey = @"KWPreviousButtonMaskRect";
+NSString *const KWNextButtonRectKey = @"KWNextButtonRect";
+NSString *const KWNextButtonMaskRectKey = @"KWNextButtonMaskRect";
+NSString *const KWSelectionImagesRectKey = @"KWSelectionImagesRect";
+NSString *const KWSelectionImagesMaskRectKey = @"KWSelectionImagesMaskRect";
+NSString *const KWSelectionStringsRectKey = @"KWSelectionStringsRect";
+NSString *const KWSelectionStringsMaskRectKey = @"KWSelectionStringsMaskRect";
+
+
+static NSString *const burnVersion = @"2";
+static NSString *const burnVersionFileName = @"burnVersion";
+
+static NSString *const themePlist = @"Theme.plist";
+
 @implementation KWBurnThemeObject
 {
 @protected
 	NSFileWrapper *fileWrapper;
+	NSURL *oldDir;
+	NSFileWrapper *localeWrapper;
+	NSMutableDictionary<NSString*, NSMutableDictionary<NSString*, id>*> *prop;
+}
+
+@synthesize currentLocale = _currentLocale;
+
+- (void)setCurrentLocale:(NSLocale *)newLocale
+{
+	if (!newLocale) {
+		_currentLocale = [NSLocale currentLocale];
+	} else {
+		_currentLocale = [newLocale copy];
+	}
+	if (![[fileWrapper fileWrappers] objectForKey:[_currentLocale languageCode]]) {
+		NSFileWrapper *newLocaleWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
+		newLocaleWrap.preferredFilename = [_currentLocale languageCode];
+		[fileWrapper addFileWrapper:newLocaleWrap];
+	}
+	localeWrapper = [[fileWrapper fileWrappers] objectForKey:[_currentLocale languageCode]];
+	if (prop[[_currentLocale languageCode]] == nil) {
+		prop[[_currentLocale languageCode]] = [[NSMutableDictionary alloc] initWithCapacity:100];
+	}
 }
 
 + (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
 {
 	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:0 error:NULL];
-	KWBurnThemeObject*newVal = [[KWBurnThemeObject alloc] init];
+	if (!oldWrap) {
+		return nil;
+	}
+	NSDictionary<NSString *, NSFileWrapper *> *resMaps;
+	@try {
+		resMaps = [[[[[oldWrap fileWrappers] objectForKey:@"Contents"] fileWrappers] objectForKey:@"Resources"] fileWrappers];
+	} @catch(...) {
+		resMaps = nil;
+	}
+	if (!resMaps) {
+		return nil;
+	}
+	NSArray<NSString*> *keys = [resMaps allKeys];
+
+	KWBurnThemeObject *newVal = [[KWBurnThemeObject alloc] init];
+	
+	for (NSString *key in keys) {
+		if ([[key pathExtension] isEqualTo:@"lproj"]) {
+			NSRect tmpRect;
+			NSString *tmpRectStr;
+			NSString *langKey = [key stringByDeletingPathExtension];
+			langKey = [NSLocale canonicalLanguageIdentifierFromString:langKey];
+			NSDictionary *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil];
+			newVal.currentLocale = [NSLocale localeWithLocaleIdentifier:langKey];
+#define MigrateResource(key) if (oldDict[ key ]) [newVal addResource:oldDict[ key ] named: key]
+			MigrateResource(KWStartButtonImageKey);
+			MigrateResource(KWStartButtonMaskImageKey);
+			MigrateResource(KWTitleButtonImageKey);
+			MigrateResource(KWTitleButtonMaskImageKey);
+			MigrateResource(KWChapterButtonImageKey);
+			MigrateResource(KWChapterButtonMaskImageKey);
+			MigrateResource(KWAltRootImageKey);
+			MigrateResource(KWAltChapterImageKey);
+			MigrateResource(KWRootOverlayImageKey);
+			MigrateResource(KWChapterOverlayImageKey);
+			MigrateResource(KWTitleSelectionImageKey);
+			MigrateResource(KWChapterSelectionImageKey);
+			MigrateResource(KWNextButtonImageKey);
+			MigrateResource(KWNextButtonMaskImageKey);
+			MigrateResource(KWPreviousButtonImageKey);
+			MigrateResource(KWPreviousButtonMaskImageKey);
+			MigrateResource(KWSelectionStringsImageKey);
+			MigrateResource(KWAltTitleSelectionImageKey);
+			MigrateResource(KWAltChapterSelectionImageKey);
+			MigrateResource(KWTitleSelectionOverlayImageKey);
+			MigrateResource(KWChapterSelectionOverlayImageKey);
+			MigrateResource(KWSelectionImagesUseImageKey);
+			MigrateResource(KWDefaultImageKey);
+#undef MigrateResource
+			
+#define MigrateRectSettings(base) tmpRect = NSMakeRect( [[oldDict objectForKey: base @"X"] intValue], [[oldDict objectForKey: base @"Y"] intValue], [[oldDict objectForKey: base @"W"] intValue], [[oldDict objectForKey: base @"H"] intValue]); \
+tmpRectStr = NSStringFromRect(tmpRect); \
+[newVal setPropertyValue: tmpRectStr forKey: base @"Rect"]
+			
+			MigrateRectSettings(@"KWDVDName");
+			MigrateRectSettings(@"KWVideoName");
+			MigrateRectSettings(@"KWStartButton");
+			MigrateRectSettings(@"KWStartButtonMask");
+			MigrateRectSettings(@"KWTitleButton");
+			MigrateRectSettings(@"KWTitleButtonMask");
+			MigrateRectSettings(@"KWChapterButton");
+			MigrateRectSettings(@"KWChapterButtonMask");
+			MigrateRectSettings(@"KWPreviousButton");
+			MigrateRectSettings(@"KWPreviousButtonMask");
+			MigrateRectSettings(@"KWNextButton");
+			MigrateRectSettings(@"KWNextButtonMask");
+			MigrateRectSettings(@"KWSelectionImages");
+			MigrateRectSettings(@"KWSelectionImagesMask");
+			MigrateRectSettings(@"KWSelectionStrings");
+			MigrateRectSettings(@"KWSelectionStringsMask");
+			MigrateRectSettings(@"KWPreviousButtonMask");
+			MigrateRectSettings(@"KWPreviousButtonMask");
+			
+#undef MigrateRectSettings
+			
+#define MigrateSettings(base) [newVal setPropertyValue:[oldDict objectForKey: base ] forKey: base ]
+			
+			MigrateSettings(KWDVDNameDisableTextKey);
+			MigrateSettings(KWDVDNameFontKey);
+			MigrateSettings(KWDVDNameFontSizeKey);
+			MigrateSettings(KWDVDNameFontColorKey);
+			MigrateSettings(KWVideoNameDisableTextKey);
+			MigrateSettings(KWVideoNameFontKey);
+			MigrateSettings(KWVideoNameFontSizeKey);
+			MigrateSettings(KWVideoNameFontColorKey);
+			MigrateSettings(KWStartButtonDisableKey);
+			MigrateSettings(KWStartButtonStringKey);
+			MigrateSettings(KWStartButtonFontKey);
+			MigrateSettings(KWStartButtonFontSizeKey);
+			MigrateSettings(KWStartButtonFontColorKey);
+			MigrateSettings(KWStartButtonMaskLineWidthKey);
+			MigrateSettings(KWTitleButtonDisableKey);
+			MigrateSettings(KWTitleButtonStringKey);
+			MigrateSettings(KWTitleButtonFontKey);
+			MigrateSettings(KWTitleButtonFontSizeKey);
+			MigrateSettings(KWTitleButtonFontColorKey);
+			MigrateSettings(KWTitleButtonMaskLineWidthKey);
+			MigrateSettings(KWChapterButtonDisableKey);
+			MigrateSettings(KWChapterButtonStringKey);
+			MigrateSettings(KWChapterButtonFontKey);
+			MigrateSettings(KWChapterButtonFontSizeKey);
+			MigrateSettings(KWChapterButtonFontColorKey);
+			MigrateSettings(KWChapterButtonMaskLineWidthKey);
+			MigrateSettings(KWTitleSelectionDisableKey);
+			MigrateSettings(KWTitleSelectionStringKey);
+			MigrateSettings(KWTitleSelectionFontKey);
+			MigrateSettings(KWTitleSelectionFontSizeKey);
+			MigrateSettings(KWTitleSelectionFontColorKey);
+			MigrateSettings(KWChapterSelectionDisableKey);
+			MigrateSettings(KWChapterSelectionStringKey);
+			MigrateSettings(KWChapterSelectionFontKey);
+			MigrateSettings(KWChapterSelectionFontSizeKey);
+			MigrateSettings(KWChapterSelectionFontColorKey);
+			MigrateSettings(KWNextButtonDisableKey);
+			MigrateSettings(KWNextButtonStringKey);
+			MigrateSettings(KWNextButtonFontKey);
+			MigrateSettings(KWNextButtonFontSizeKey);
+			MigrateSettings(KWNextButtonFontColorKey);
+			MigrateSettings(KWNextButtonMaskLineWidthKey);
+			MigrateSettings(KWPreviousButtonDisableKey);
+			MigrateSettings(KWPreviousButtonStringKey);
+			MigrateSettings(KWPreviousButtonFontKey);
+			MigrateSettings(KWPreviousButtonFontSizeKey);
+			MigrateSettings(KWPreviousButtonFontColorKey);
+			MigrateSettings(KWPreviousButtonMaskLineWidthKey);
+			MigrateSettings(KWSelectionImagesFontKey);
+			MigrateSettings(KWSelectionImagesFontSizeKey);
+			MigrateSettings(KWSelectionImagesFontColorKey);
+			MigrateSettings(KWSelectionImagesSeperationWKey);
+			MigrateSettings(KWSelectionImagesSeperationHKey);
+			MigrateSettings(KWSelectionImagesMaskLineWidthKey);
+			MigrateSettings(KWSelectionImagesMaskSeperationWKey);
+			MigrateSettings(KWSelectionImagesMaskSeperationHKey);
+			MigrateSettings(KWSelectionImagesOnAPageKey);
+			MigrateSettings(KWSelectionImagesOnARowKey);
+			MigrateSettings(KWSelectionStringsFontKey);
+			MigrateSettings(KWSelectionStringsFontSizeKey);
+			MigrateSettings(KWSelectionStringsFontColorKey);
+			MigrateSettings(KWSelectionStringsSeperationKey);
+			MigrateSettings(KWSelectionStringsMaskLineWidthKey);
+			MigrateSettings(KWSelectionStringsMaskSeperationKey);
+			MigrateSettings(KWSelectionStringsOnAPageKey);
+			MigrateSettings(KWSelectionModeKey);
+			MigrateSettings(KWScreenshotAtTimeKey);
+
+#undef MigrateSettings
+		}
+	}
+
 	
 	return newVal;
+}
+
+- (void)setPropertyValue:(id)val forKey:(NSString*)key
+{
+	prop[_currentLocale.languageCode][key] = val;
+}
+
+- (void)setPropertyValue:(id)val forKey:(NSString*)key locale:(NSLocale*)locale
+{
+	if (locale == nil) {
+		[self setPropertyValue:val forKey:key];
+	}
 }
 
 - (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper
 {
 	if (self = [super init]) {
 		fileWrapper = wrapper;
+		_currentLocale = [NSLocale currentLocale];
+		prop = [[NSMutableDictionary alloc] initWithCapacity:1];
+		// attempt to read from the Themes plist in each localizable directory.
+		NSDictionary<NSString*, NSFileWrapper*> *localizedWrappers = fileWrapper.fileWrappers;
+		for (NSString *key in localizedWrappers) {
+			NSFileWrapper *localized = localizedWrappers[key];
+			if (!localized.isDirectory) {
+				continue;
+			}
+			
+			NSFileWrapper *themeWrapper = localized.fileWrappers[themePlist];
+			if (!themeWrapper || !themeWrapper.isRegularFile) {
+				continue;
+			}
+			
+			NSData *themeData = themeWrapper.regularFileContents;
+			if (!themeData) {
+				continue;
+			}
+			NSError *tmpErr = nil;
+			NSMutableDictionary *locThemeDict = [NSPropertyListSerialization propertyListWithData:themeData options:NSPropertyListMutableContainersAndLeaves format:nil error:&tmpErr];
+			if (!locThemeDict) {
+				NSLog(@"Error loading theme dictionary from localization '%@': %@", key, tmpErr);
+				continue;
+			}
+			tmpErr = nil;
+			
+			prop[key] = locThemeDict;
+		}
 	}
 	return self;
 }
 
 - (instancetype)init
 {
-	return [self initWithFileWrapper:[[NSFileWrapper alloc] init]];
+	NSData *versData = [burnVersion dataUsingEncoding:NSASCIIStringEncoding];
+	NSFileWrapper *newWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{burnVersionFileName: [[NSFileWrapper alloc] initRegularFileWithContents:versData]}];
+	self = [self initWithFileWrapper:newWrap];
+	self.currentLocale = [NSLocale currentLocale];
+	return self;
+}
+
+- (instancetype)initWithURL:(NSURL *)url error:(NSError * _Nullable __autoreleasing *)error
+{
+	NSFileWrapper *fwrap = [[NSFileWrapper alloc] initWithURL:url options:NSFileWrapperReadingImmediate error:error];
+	if (!fwrap) {
+		return nil;
+	}
+	NSData *versData = nil;
+	@try {
+		versData = [[[fwrap fileWrappers] objectForKey:burnVersionFileName] regularFileContents];
+	} @catch(...) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
+		}
+		return nil;
+	}
+	if (!versData) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
+		}
+		return nil;
+	}
+	NSString *strVal = [[NSString alloc] initWithData:versData encoding:NSMacOSRomanStringEncoding];
+	if (![strVal isEqualToString:burnVersion]) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
+		}
+		return nil;
+	}
+	return [self initWithFileWrapper:fwrap];
+}
+
+
+- (NSData *)resourceNamed:(NSString *)resName locale:(NSLocale *)locale error:(NSError * _Nullable __autoreleasing *)error
+{
+	return nil;
+}
+
+- (nullable NSData*)resourceNamed:(NSString*)resName error:(NSError**)error
+{
+	return [self resourceNamed:resName locale:_currentLocale error:error];
+}
+
+- (void)addResource:(NSData*)res named:(NSString*)resName
+{
+	[localeWrapper addRegularFileWithContents:res preferredFilename:resName];
+}
+
+- (void)addResource:(NSData*)res named:(NSString*)resName locale:(NSLocale*)locale
+{
+	if (locale == nil) {
+		[self addResource:res named:resName];
+		return;
+	}
+}
+
+- (BOOL)saveToURL:(NSURL*)url error:(NSError**)error
+{
+	// Update the theme wrappers.
+	for (NSString *locale in prop) {
+		NSFileWrapper *localeWrapper2 = [fileWrapper fileWrappers][locale];
+		if (!localeWrapper2 || !localeWrapper2.isDirectory) {
+			if (localeWrapper2) {
+				[fileWrapper removeFileWrapper:localeWrapper2];
+			}
+			localeWrapper2 = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
+			localeWrapper2.preferredFilename = locale;
+			[fileWrapper addFileWrapper:localeWrapper2];
+		}
+		//Remove the old theme file, if present
+		NSFileWrapper *themeWrapper = localeWrapper2.fileWrappers[themePlist];
+		if (themeWrapper) {
+			[localeWrapper2 removeFileWrapper:themeWrapper];
+		}
+		NSData *themeData = [NSPropertyListSerialization dataWithPropertyList:prop[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+		if (!themeData) {
+			continue;
+		}
+		[themeWrapper addRegularFileWithContents:themeData preferredFilename:themePlist];
+	}
+	
+	if ([fileWrapper writeToURL:url options:NSFileWrapperWritingWithNameUpdating originalContentsURL:oldDir error:error]) {
+		oldDir = url;
+		return YES;
+	}
+	return NO;
 }
 
 @end
-

@@ -330,7 +330,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiwifruitware.Burn-Menu-Creator";
 				PRODUCT_NAME = MenuEdit;
 				WRAPPER_EXTENSION = app;
@@ -344,7 +343,6 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiwifruitware.Burn-Menu-Creator";
 				PRODUCT_NAME = MenuEdit;
 				WRAPPER_EXTENSION = app;

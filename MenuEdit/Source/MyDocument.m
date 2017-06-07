@@ -80,7 +80,7 @@
 															KWChapterButtonMaskImageKey,			//64
 
 															KWAltRootImageKey,						//65
-															@"KWAltChapterImage",					//66
+															KWAltChapterImageKey,					//66
 															KWRootOverlayImageKey,					//67
 															KWChapterOverlayImageKey,				//68
 
@@ -217,7 +217,7 @@ return self;
 	if ([[localizationPopup itemTitles] containsObject:preferedLanguage])
 		[localizationPopup selectItemWithTitle:preferedLanguage];
 	
-	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:@"KWThemeTitle"]];
+	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:KWThemeTitleKey]];
 	
 	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
 	[self updateChangeCount:NSChangeCleared];
@@ -347,8 +347,8 @@ return self;
 
 - (IBAction)setThemeTitle:(id)sender
 {
-	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:0] setObject:[sender objectValue] forKey:@"KWThemeTitle"];
-	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:1] setObject:[sender objectValue] forKey:@"KWThemeTitle"];
+	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:0] setObject:[sender objectValue] forKey:KWThemeTitleKey];
+	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:1] setObject:[sender objectValue] forKey:KWThemeTitleKey];
 	
 	[self loadPreview];
 	[self updateChangeCount:NSChangeDone];
@@ -499,7 +499,7 @@ return self;
 - (IBAction)selectLocalization:(id)sender
 {
 	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
-	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:@"KWThemeTitle"]];
+	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:KWThemeTitleKey]];
 	[self loadPreview];
 }
 
@@ -623,7 +623,7 @@ return self;
 	if (titles)
 		newImage = [[NSImage alloc] initWithData:[theme objectForKey:KWAltRootImageKey]];
 	else
-		newImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWAltChapterImage"]];
+		newImage = [[NSImage alloc] initWithData:[theme objectForKey:KWAltChapterImageKey]];
 	
 	if (!newImage)
 		newImage = [[NSImage alloc] initWithData:[theme objectForKey:KWDefaultImageKey]];

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 // keys
 extern NSString *const KWDVDNameDisableTextKey;
 extern NSString *const KWDVDNameFontKey;
@@ -172,8 +174,21 @@ extern NSString *const KWScreenshotAtTimeKey;
 extern NSString *const KWSelectionImagesUseImageKey;
 extern NSString *const KWDefaultImageKey;
 
+extern NSString *const KWThemeTitleKey;
+
 @interface KWBurnThemeObject : NSObject
 
-+ (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme;
+@property (nonatomic, readwrite, copy, null_resettable) NSLocale *currentLocale;
+
+- (instancetype)init;
+- (nullable instancetype)initWithURL:(NSURL*)url error:(NSError**)error;
+
++ (nullable KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme;
+
+
+- (nullable NSData*)resourceNamed:(NSString*)resName locale:(nullable NSLocale*)locale error:(NSError**)error;
+- (nullable NSData*)resourceNamed:(NSString*)resName error:(NSError**)error;
 
 @end
+
+NS_ASSUME_NONNULL_END
