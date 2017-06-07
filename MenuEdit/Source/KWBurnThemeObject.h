@@ -209,6 +209,7 @@ extern KWResourceKeys const KWSelectionStringsMaskRectKey;
 
 - (nullable NSData*)resourceNamed:(KWDataKeys)resName locale:(nullable NSLocale*)locale error:(NSError**)error;
 - (nullable NSData*)resourceNamed:(KWDataKeys)resName error:(NSError**)error;
+- (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
 @end
 

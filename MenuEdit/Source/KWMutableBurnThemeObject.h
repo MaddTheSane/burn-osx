@@ -19,7 +19,9 @@
 - (void)addResource:(NSData*)res named:(KWDataKeys)resName;
 
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key;
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws;
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key locale:(NSLocale*)locale;
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws locale:(NSLocale*)locale;
 
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error;
 

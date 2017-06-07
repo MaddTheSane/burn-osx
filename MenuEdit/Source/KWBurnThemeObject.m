@@ -203,6 +203,7 @@ static NSString *const burnVersion = @"2";
 static NSString *const burnVersionFileName = @"burnVersion";
 
 static NSString *const themePlist = @"Theme.plist";
+static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 
 @implementation KWBurnThemeObject
 {
@@ -211,6 +212,7 @@ static NSString *const themePlist = @"Theme.plist";
 	NSURL *oldDir;
 	NSFileWrapper *localeWrapper;
 	NSMutableDictionary<NSString*, NSMutableDictionary<NSString*, id>*> *prop;
+	NSMutableDictionary<NSString*, NSMutableDictionary<NSString*, id>*> *propWS;
 }
 
 @synthesize currentLocale = _currentLocale;
@@ -228,9 +230,13 @@ static NSString *const themePlist = @"Theme.plist";
 		[fileWrapper addFileWrapper:newLocaleWrap];
 	}
 	localeWrapper = [[fileWrapper fileWrappers] objectForKey:[_currentLocale languageCode]];
-	if (prop[[_currentLocale languageCode]] == nil) {
-		prop[[_currentLocale languageCode]] = [[NSMutableDictionary alloc] initWithCapacity:100];
+	if (prop[_currentLocale.languageCode] == nil) {
+		prop[_currentLocale.languageCode] = [[NSMutableDictionary alloc] initWithCapacity:100];
 	}
+	if (propWS[_currentLocale.languageCode] == nil) {
+		propWS[_currentLocale.languageCode] = [[NSMutableDictionary alloc] initWithCapacity:100];
+	}
+
 }
 
 + (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
@@ -258,11 +264,20 @@ static NSString *const themePlist = @"Theme.plist";
 			NSString *tmpRectStr;
 			NSString *langKey = [key stringByDeletingPathExtension];
 			langKey = [NSLocale canonicalLanguageIdentifierFromString:langKey];
-			NSDictionary *oldDict = [[NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil] objectAtIndex:0];
+			NSArray<NSDictionary *> *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil];
 			newVal.currentLocale = [NSLocale localeWithLocaleIdentifier:langKey];
 			
-#define MigrateResource(key) if (oldDict[ key ]) [newVal addResource:oldDict[ key ] named: key]
-			
+#define MigrateResource(key) if (oldDict[0][ key ]) { \
+NSString *keyWithExt = [key stringByAppendingPathExtension:@"tiff"];\
+[newVal addResource:oldDict[0][ key ] named: keyWithExt]; \
+[newVal setPropertyValue: keyWithExt forKey: key wideScreen:NO]; \
+} \
+if (oldDict[1][ key ]) { \
+NSString *keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension:@"tiff"];\
+[newVal addResource:oldDict[1][ key ] named: keyWithExt]; \
+[newVal setPropertyValue: keyWithExt forKey: key wideScreen:YES]; \
+}
+		
 			MigrateResource(KWStartButtonImageKey);
 			MigrateResource(KWStartButtonMaskImageKey);
 			MigrateResource(KWTitleButtonImageKey);
@@ -289,10 +304,13 @@ static NSString *const themePlist = @"Theme.plist";
 			
 #undef MigrateResource
 			
-#define MigrateRectSettings(base) tmpRect = NSMakeRect( [[oldDict objectForKey: base @"X"] intValue], [[oldDict objectForKey: base @"Y"] intValue], [[oldDict objectForKey: base @"W"] intValue], [[oldDict objectForKey: base @"H"] intValue]); \
+#define MigrateRectSettings(base) tmpRect = NSMakeRect( [[oldDict[0] objectForKey: base @"X"] intValue], [[oldDict[0] objectForKey: base @"Y"] intValue], [[oldDict[0] objectForKey: base @"W"] intValue], [[oldDict[0] objectForKey: base @"H"] intValue]); \
 tmpRectStr = NSStringFromRect(tmpRect); \
-[newVal setPropertyValue: tmpRectStr forKey: base @"Rect"]
-			
+[newVal setPropertyValue: tmpRectStr forKey: base @"Rect"]; \
+tmpRect = NSMakeRect( [[oldDict[1] objectForKey: base @"X"] intValue], [[oldDict[1] objectForKey: base @"Y"] intValue], [[oldDict[1] objectForKey: base @"W"] intValue], [[oldDict[1] objectForKey: base @"H"] intValue]); \
+tmpRectStr = NSStringFromRect(tmpRect); \
+[newVal setPropertyValue: tmpRectStr forKey: base @"Rect" wideScreen:YES]
+
 			MigrateRectSettings(@"KWDVDName");
 			MigrateRectSettings(@"KWVideoName");
 			MigrateRectSettings(@"KWStartButton");
@@ -314,7 +332,9 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			
 #undef MigrateRectSettings
 			
-#define MigrateSettings(base) [newVal setPropertyValue:[oldDict objectForKey: base ] forKey: base ]
+#define MigrateSettings(base) \
+[newVal setPropertyValue:[oldDict[0] objectForKey: base ] forKey: base ]; \
+[newVal setPropertyValue:[oldDict[1] objectForKey: base ] forKey: base wideScreen:YES]
 			
 			MigrateSettings(KWDVDNameDisableTextKey);
 			MigrateSettings(KWDVDNameFontKey);
@@ -392,16 +412,36 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	return newVal;
 }
 
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws
+{
+	if (ws) {
+		propWS[_currentLocale.languageCode][key] = val;
+	} else {
+		prop[_currentLocale.languageCode][key] = val;
+	}
+}
+
 - (void)setPropertyValue:(id)val forKey:(NSString*)key
 {
-	prop[_currentLocale.languageCode][key] = val;
+	[self setPropertyValue:val forKey:key wideScreen:NO];
 }
 
 - (void)setPropertyValue:(id)val forKey:(NSString*)key locale:(NSLocale*)locale
 {
+	[self setPropertyValue:val forKey:key wideScreen:NO locale:locale];
+}
+
+- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws locale:(NSLocale*)locale
+{
 	if (locale == nil) {
-		[self setPropertyValue:val forKey:key];
+		[self setPropertyValue:val forKey:key wideScreen:ws];
 	}
+	NSString *lang = locale.languageCode;
+	NSMutableDictionary *dictToEdit = ws ? propWS : prop;
+	if (dictToEdit[lang] == nil) {
+		dictToEdit[lang] = [[NSMutableDictionary alloc] init];
+	}
+	dictToEdit[lang][key] = val;
 }
 
 - (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper
@@ -410,6 +450,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		fileWrapper = wrapper;
 		_currentLocale = [NSLocale currentLocale];
 		prop = [[NSMutableDictionary alloc] initWithCapacity:1];
+		propWS = [[NSMutableDictionary alloc] initWithCapacity:1];
 		// attempt to read from the Themes plist in each localizable directory.
 		NSDictionary<NSString*, NSFileWrapper*> *localizedWrappers = fileWrapper.fileWrappers;
 		for (NSString *key in localizedWrappers) {
@@ -419,12 +460,14 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			}
 			
 			NSFileWrapper *themeWrapper = localized.fileWrappers[themePlist];
-			if (!themeWrapper || !themeWrapper.isRegularFile) {
+			NSFileWrapper *themeWSWrapper = localized.fileWrappers[themeWideScreenPlist];
+			if (!themeWrapper || !themeWrapper.isRegularFile || !themeWSWrapper || !themeWSWrapper.isRegularFile) {
 				continue;
 			}
 			
 			NSData *themeData = themeWrapper.regularFileContents;
-			if (!themeData) {
+			NSData *themeWSData = themeWSWrapper.regularFileContents;
+			if (!themeData || !themeWSData) {
 				continue;
 			}
 			NSError *tmpErr = nil;
@@ -435,7 +478,14 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			}
 			tmpErr = nil;
 			
+			NSMutableDictionary *locThemeWSDict = [NSPropertyListSerialization propertyListWithData:themeWSData options:NSPropertyListMutableContainersAndLeaves format:nil error:&tmpErr];
+			if (!locThemeWSDict) {
+				NSLog(@"Error loading widescreen theme dictionary from localization '%@': %@", key, tmpErr);
+				continue;
+			}
+
 			prop[key] = locThemeDict;
+			propWS[key] = locThemeWSDict;
 		}
 	}
 	return self;
@@ -474,11 +524,13 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	NSString *strVal = [[NSString alloc] initWithData:versData encoding:NSMacOSRomanStringEncoding];
 	if (![strVal isEqualToString:burnVersion]) {
 		if (error) {
-			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url, NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Unknown/bad version number '%@'", strVal]}];
 		}
 		return nil;
 	}
-	return [self initWithFileWrapper:fwrap];
+	self = [self initWithFileWrapper:fwrap];
+	oldDir = url;
+	return self;
 }
 
 
@@ -505,6 +557,18 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	}
 }
 
+- (id)propertyWithKey:(KWDataKeys)key widescreen:(BOOL)ws locale:(NSLocale *)locale
+{
+	NSString *lang;
+	if (locale) {
+		lang = [locale languageCode];
+	} else {
+		lang = [_currentLocale languageCode];
+	}
+	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
+	return dictToGet[lang][key];
+}
+
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error
 {
 	// Update the theme wrappers.
@@ -518,16 +582,24 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			localeWrapper2.preferredFilename = locale;
 			[fileWrapper addFileWrapper:localeWrapper2];
 		}
-		//Remove the old theme file, if present
+		//Remove the old theme files, if present
 		NSFileWrapper *themeWrapper = localeWrapper2.fileWrappers[themePlist];
 		if (themeWrapper) {
 			[localeWrapper2 removeFileWrapper:themeWrapper];
 		}
-		NSData *themeData = [NSPropertyListSerialization dataWithPropertyList:prop[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
-		if (!themeData) {
-			continue;
+		themeWrapper = localeWrapper2.fileWrappers[themeWideScreenPlist];
+		if (themeWrapper) {
+			[localeWrapper2 removeFileWrapper:themeWrapper];
 		}
-		[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themePlist];
+
+		NSData *themeData = [NSPropertyListSerialization dataWithPropertyList:prop[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+		if (themeData) {
+			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themePlist];
+		}
+		themeData = [NSPropertyListSerialization dataWithPropertyList:propWS[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+		if (themeData) {
+			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themeWideScreenPlist];
+		}
 	}
 	
 	if ([fileWrapper writeToURL:url options:NSFileWrapperWritingWithNameUpdating originalContentsURL:oldDir error:error]) {
