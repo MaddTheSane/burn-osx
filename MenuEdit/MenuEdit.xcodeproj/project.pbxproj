@@ -41,9 +41,9 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
-		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWBurnThemeObject.h; path = Source/KWBurnThemeObject.h; sourceTree = "<group>"; };
-		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWBurnThemeObject.m; path = Source/KWBurnThemeObject.m; sourceTree = "<group>"; };
-		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KWMutableBurnThemeObject.h; path = Source/KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
+		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBurnThemeObject.h; sourceTree = "<group>"; };
+		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBurnThemeObject.m; sourceTree = "<group>"; };
+		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
 		55E8BC311EE7CDAC00BBE4F6 /* btoTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = btoTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E8BC331EE7CDAC00BBE4F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 		FEB8A1900F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = ru.lproj/MenuEdit.icns; sourceTree = "<group>"; };
 		FEB8A1910F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		FEB8A1920F09A88700ED9DC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = ru; path = "ru.lproj/Theme document.icns"; sourceTree = "<group>"; };
-		FECFB2540F06AD3000933318 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDocument.m; path = Source/MyDocument.m; sourceTree = "<group>"; };
-		FECFB2550F06AD3000933318 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDocument.h; path = Source/MyDocument.h; sourceTree = "<group>"; };
+		FECFB2540F06AD3000933318 /* MyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDocument.m; sourceTree = "<group>"; };
+		FECFB2550F06AD3000933318 /* MyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDocument.h; sourceTree = "<group>"; };
 		FEF03F7F0E63123B00379454 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = en.lproj/MenuEdit.icns; sourceTree = "<group>"; };
 		FEF03F810E63123B00379454 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = en; path = "en.lproj/Theme document.icns"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +116,7 @@
 				55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */,
 			);
 			name = Classes;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -148,9 +149,7 @@
 		29B97314FDCFA39411CA2CEA /* Burn Menu Creator */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
+				55E8BC391EE8765000BBE4F6 /* MenuEdit */,
 				55E8BC321EE7CDAC00BBE4F6 /* btoTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -196,6 +195,16 @@
 				55E8BC331EE7CDAC00BBE4F6 /* main.m */,
 			);
 			path = btoTest;
+			sourceTree = "<group>";
+		};
+		55E8BC391EE8765000BBE4F6 /* MenuEdit */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+			);
+			name = MenuEdit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

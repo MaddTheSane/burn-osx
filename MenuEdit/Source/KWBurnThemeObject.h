@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString *KWResourceKeys NS_STRING_ENUM;
-typedef NSString *KWDataKeys NS_STRING_ENUM;
+typedef KWResourceKeys KWDataKeys NS_STRING_ENUM;
 
 // keys
 extern KWResourceKeys const KWDVDNameDisableTextKey;
@@ -207,9 +207,12 @@ extern KWResourceKeys const KWSelectionStringsMaskRectKey;
 + (nullable KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme;
 
 
-- (nullable NSData*)resourceNamed:(KWDataKeys)resName locale:(nullable NSLocale*)locale error:(NSError**)error;
-- (nullable NSData*)resourceNamed:(KWDataKeys)resName error:(NSError**)error;
+- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws locale:(nullable NSLocale*)locale error:(NSError**)error;
+- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws error:(NSError**)error;
 - (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
+
+
+- (BOOL)saveToURL:(NSURL*)url error:(NSError**)error;
 
 @end
 

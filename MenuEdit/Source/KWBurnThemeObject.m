@@ -241,7 +241,7 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 
 + (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
 {
-	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:0 error:NULL];
+	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:NSFileWrapperReadingImmediate error:NULL];
 	if (!oldWrap) {
 		return nil;
 	}
@@ -262,18 +262,19 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 		if ([[key pathExtension] isEqualTo:@"lproj"]) {
 			NSRect tmpRect;
 			NSString *tmpRectStr;
+			NSString *keyWithExt;
 			NSString *langKey = [key stringByDeletingPathExtension];
 			langKey = [NSLocale canonicalLanguageIdentifierFromString:langKey];
-			NSArray<NSDictionary *> *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil];
+			NSArray<NSDictionary *> *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListImmutable format:nil error:nil];
 			newVal.currentLocale = [NSLocale localeWithLocaleIdentifier:langKey];
 			
 #define MigrateResource(key) if (oldDict[0][ key ]) { \
-NSString *keyWithExt = [key stringByAppendingPathExtension:@"tiff"];\
+keyWithExt = [key stringByAppendingPathExtension:@"tiff"];\
 [newVal addResource:oldDict[0][ key ] named: keyWithExt]; \
 [newVal setPropertyValue: keyWithExt forKey: key wideScreen:NO]; \
 } \
 if (oldDict[1][ key ]) { \
-NSString *keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension:@"tiff"];\
+keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension:@"tiff"];\
 [newVal addResource:oldDict[1][ key ] named: keyWithExt]; \
 [newVal setPropertyValue: keyWithExt forKey: key wideScreen:YES]; \
 }
@@ -455,7 +456,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		NSDictionary<NSString*, NSFileWrapper*> *localizedWrappers = fileWrapper.fileWrappers;
 		for (NSString *key in localizedWrappers) {
 			NSFileWrapper *localized = localizedWrappers[key];
-			if (!localized.isDirectory) {
+			if (!localized.isDirectory || [key length] != 2) {
 				continue;
 			}
 			
@@ -529,19 +530,61 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		return nil;
 	}
 	self = [self initWithFileWrapper:fwrap];
-	oldDir = url;
+	oldDir = [url absoluteURL];
 	return self;
 }
 
 
-- (NSData *)resourceNamed:(NSString *)resName locale:(NSLocale *)locale error:(NSError * _Nullable __autoreleasing *)error
+- (NSData *)resourceNamed:(NSString *)resName widescreen:(BOOL)ws locale:(NSLocale *)locale error:(NSError * _Nullable __autoreleasing *)error
 {
-	return nil;
+	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToUse = ws ? propWS : prop;
+	NSString *lang = locale ? locale.languageCode : _currentLocale.languageCode;
+	NSDictionary *dictLoc = dictToUse[lang];
+	if (!dictLoc[resName]) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadNoSuchFileError userInfo:nil];
+		}
+		return nil;
+	}
+	//First, try to find it in the localized resources.
+	NSData *regData;
+	NSString *key = dictLoc[resName];
+	NSFileWrapper *langWrapper = fileWrapper.fileWrappers[lang];
+	if (langWrapper && langWrapper.directory && langWrapper.fileWrappers[key].regularFile) {
+		regData = langWrapper.fileWrappers[key].regularFileContents;
+		if (regData) {
+			return regData;
+		}
+	}
+	// otherwise, try to find it in the base directory.
+	NSFileWrapper *nonLocWrap = fileWrapper.fileWrappers[key];
+	if (!nonLocWrap) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadNoSuchFileError userInfo:nil];
+		}
+		return nil;
+	}
+	
+	if (!nonLocWrap.regularFile) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadInvalidFileNameError userInfo:nil];
+		}
+		return nil;
+	}
+	regData = nonLocWrap.regularFileContents;
+	if (!regData) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
+		}
+		return nil;
+	}
+	
+	return regData;
 }
 
-- (nullable NSData*)resourceNamed:(NSString*)resName error:(NSError**)error
+- (nullable NSData*)resourceNamed:(NSString*)resName widescreen:(BOOL)ws error:(NSError**)error
 {
-	return [self resourceNamed:resName locale:_currentLocale error:error];
+	return [self resourceNamed:resName widescreen:ws locale:_currentLocale error:error];
 }
 
 - (void)addResource:(NSData*)res named:(NSString*)resName
@@ -552,12 +595,18 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 - (void)addResource:(NSData*)res named:(NSString*)resName locale:(NSLocale*)locale
 {
 	if (locale == nil) {
-		[self addResource:res named:resName];
+		[fileWrapper addRegularFileWithContents:res preferredFilename:resName];
 		return;
 	}
+	if (!fileWrapper.fileWrappers[locale.languageCode]) {
+		NSFileWrapper *tmpLocWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
+		tmpLocWrap.preferredFilename = locale.languageCode;
+		[fileWrapper addFileWrapper:tmpLocWrap];
+	}
+	[fileWrapper.fileWrappers[locale.languageCode] addRegularFileWithContents:res preferredFilename:resName];
 }
 
-- (id)propertyWithKey:(KWDataKeys)key widescreen:(BOOL)ws locale:(NSLocale *)locale
+- (id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(NSLocale *)locale
 {
 	NSString *lang;
 	if (locale) {
