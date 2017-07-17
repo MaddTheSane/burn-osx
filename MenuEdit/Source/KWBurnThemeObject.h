@@ -211,6 +211,8 @@ extern KWResourceKeys const KWSelectionStringsMaskRectKey;
 - (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws error:(NSError**)error;
 - (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
+@property (readonly, copy) NSArray<NSString*> *allLanguages;
+
 
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error;
 

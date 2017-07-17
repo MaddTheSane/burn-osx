@@ -215,6 +215,7 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 	NSMutableDictionary<NSString*, NSMutableDictionary<NSString*, id>*> *propWS;
 }
 
+@synthesize fileWrapper;
 @synthesize currentLocale = _currentLocale;
 
 - (void)setCurrentLocale:(NSLocale *)newLocale
@@ -237,6 +238,11 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 		propWS[_currentLocale.languageCode] = [[NSMutableDictionary alloc] initWithCapacity:100];
 	}
 
+}
+
+- (NSArray<NSString *> *)allLanguages
+{
+	return prop.allKeys;
 }
 
 + (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
@@ -445,9 +451,33 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	dictToEdit[lang][key] = val;
 }
 
-- (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper
+- (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper error:(NSError *__autoreleasing *)error
 {
 	if (self = [super init]) {
+		NSData *versData = nil;
+		@try {
+			versData = [[[wrapper fileWrappers] objectForKey:burnVersionFileName] regularFileContents];
+		} @catch(...) {
+			if (error) {
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
+			}
+			return nil;
+		}
+		if (!versData) {
+			if (error) {
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
+			}
+			return nil;
+		}
+		// Use NSMacOSRomanStringEncoding to force it to load even invalid data.
+		NSString *strVal = [[NSString alloc] initWithData:versData encoding:NSMacOSRomanStringEncoding];
+		if (![strVal isEqualToString:burnVersion]) {
+			if (error) {
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Unknown/bad version number '%@'", strVal]}];
+			}
+			return nil;
+		}
+
 		fileWrapper = wrapper;
 		_currentLocale = [NSLocale currentLocale];
 		prop = [[NSMutableDictionary alloc] initWithCapacity:1];
@@ -496,7 +526,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 {
 	NSData *versData = [burnVersion dataUsingEncoding:NSASCIIStringEncoding];
 	NSFileWrapper *newWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{burnVersionFileName: [[NSFileWrapper alloc] initRegularFileWithContents:versData]}];
-	if (self = [self initWithFileWrapper:newWrap]) {
+	if (self = [self initWithFileWrapper:newWrap error:nil]) {
 		self.currentLocale = [NSLocale currentLocale];
 	}
 	return self;
@@ -508,31 +538,9 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	if (!fwrap) {
 		return nil;
 	}
-	NSData *versData = nil;
-	@try {
-		versData = [[[fwrap fileWrappers] objectForKey:burnVersionFileName] regularFileContents];
-	} @catch(...) {
-		if (error) {
-			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
-		}
-		return nil;
+	if (self = [self initWithFileWrapper:fwrap error:error]) {
+		oldDir = [url absoluteURL];
 	}
-	if (!versData) {
-		if (error) {
-			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url}];
-		}
-		return nil;
-	}
-	// Use NSMacOSRomanStringEncoding to force it to load even invalid data.
-	NSString *strVal = [[NSString alloc] initWithData:versData encoding:NSMacOSRomanStringEncoding];
-	if (![strVal isEqualToString:burnVersion]) {
-		if (error) {
-			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{NSURLErrorKey: url, NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Unknown/bad version number '%@'", strVal]}];
-		}
-		return nil;
-	}
-	self = [self initWithFileWrapper:fwrap];
-	oldDir = [url absoluteURL];
 	return self;
 }
 

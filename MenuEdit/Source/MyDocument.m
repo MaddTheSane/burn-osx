@@ -1,5 +1,5 @@
 #import "MyDocument.h"
-#import "KWBurnThemeObject.h"
+#import "KWMutableBurnThemeObject.h"
 
 @implementation MyDocument
 
@@ -84,7 +84,7 @@
 															KWRootOverlayImageKey,					//67
 															KWChapterOverlayImageKey,				//68
 
-															@"KWTitleSelectionDisable",				//69
+															KWTitleSelectionDisableKey,				//69
 															@"KWTitleSelectionString",				//70
 															@"KWTitleSelectionFont",				//71
 															@"KWTitleSelectionFontSize",			//72
@@ -204,7 +204,7 @@ return self;
 	
 	[localizationPopup removeAllItems];
 	
-	NSArray *keys = [[myTheme objectForKey:@"Languages"] allKeys];
+	NSArray *keys = myTheme.allLanguages;
 	
 	int i;
 	for (i=0;i<[keys count];i++)
@@ -217,9 +217,9 @@ return self;
 	if ([[localizationPopup itemTitles] containsObject:preferedLanguage])
 		[localizationPopup selectItemWithTitle:preferedLanguage];
 	
-	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:KWThemeTitleKey]];
+	[themeNameField setStringValue:[myTheme propertyWithKey:KWThemeTitleKey widescreen:[self isWideScreen] locale:nil]];
 	
-	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
+	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:myTheme];
 	[self updateChangeCount:NSChangeCleared];
 	[self loadPreview];
 }
@@ -244,30 +244,22 @@ return self;
 
 - (BOOL)readFromFileWrapper:(NSFileWrapper *)fileWrapper ofType:(NSString *)typeName error:(NSError **)outError
 {
-	[self loadThemeFromFileWrapper:fileWrapper];
+	myTheme = [[KWBurnThemeObject alloc] initWithFileWrapper:fileWrapper error:outError];
+	
+	if (!myTheme) {
+		return NO;
+	}
 	
 	return YES;
 }
 
 -(NSFileWrapper *)fileWrapperRepresentationOfType:(NSString *)aType
 {
-	NSArray *keys = [[myTheme objectForKey:@"Languages"] allKeys];
-	NSMutableDictionary *localWrapper = [NSMutableDictionary dictionaryWithCapacity:[keys count]];
-	
-	for (NSInteger i = 0; i < [keys count]; i++)
-	{
-		NSMutableDictionary *themeWrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-		NSData *dataFile = [NSPropertyListSerialization dataFromPropertyList:[[myTheme objectForKey:@"Languages"] objectForKey:[keys objectAtIndex:i]] format:NSPropertyListXMLFormat_v1_0 errorDescription:nil];
-		[themeWrapper setObject:[[NSFileWrapper alloc] initRegularFileWithContents:dataFile] forKey:@"Theme.plist"];
-		[localWrapper setObject:[[NSFileWrapper alloc] initDirectoryWithFileWrappers:themeWrapper] forKey:[[keys objectAtIndex:i] stringByAppendingPathExtension:@"lproj"]];
+	if (![aType isEqualToString:@"burnTheme"]) {
+		return nil;
 	}
 	
-	NSMutableDictionary *contentWrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-	NSMutableDictionary *resourceWrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-	[resourceWrapper setObject:[[NSFileWrapper alloc] initDirectoryWithFileWrappers:localWrapper] forKey:@"Resources"];
-	[contentWrapper setObject:[[NSFileWrapper alloc] initDirectoryWithFileWrappers:resourceWrapper] forKey:@"Contents"];
-	
-	return [[NSFileWrapper alloc] initDirectoryWithFileWrappers:contentWrapper];
+	return myTheme.fileWrapper;
 }
 
 ///////////////////////
@@ -281,12 +273,12 @@ return self;
 {
 	if ([sender indexOfSelectedItem] == 0 || [sender indexOfSelectedItem] == 3)
 	{
-		[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
+		[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:myTheme];
 		[editTabView selectTabViewItemAtIndex:0];
 	}
 	else if ([sender indexOfSelectedItem] == 1 || [sender indexOfSelectedItem] == 4)
 	{
-		[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
+		[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:myTheme];
 		[editTabView selectTabViewItemAtIndex:1];
 	}
 	
@@ -331,11 +323,11 @@ return self;
 		else
 			[selectionModeTabView selectLastTabViewItem:self];
 		
-		[[self getCurrentThemeObject] setObject:@(row) forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
+		[myTheme setPropertyValue:@(row) forKey:[keyMappings objectAtIndex:[sender tag] - 1] wideScreen:[self isWideScreen]];
 	}
 	else
 	{
-		[[self getCurrentThemeObject] setObject:[sender objectValue] forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
+		[myTheme setPropertyValue:[sender objectValue] forKey:[keyMappings objectAtIndex:[sender tag] - 1] wideScreen:[self isWideScreen]];
 		
 		if ([sender isKindOfClass:[NSButton class]])
 			[self checkForExceptions:sender];
@@ -347,8 +339,7 @@ return self;
 
 - (IBAction)setThemeTitle:(id)sender
 {
-	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:0] setObject:[sender objectValue] forKey:KWThemeTitleKey];
-	[[[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:1] setObject:[sender objectValue] forKey:KWThemeTitleKey];
+	[myTheme setPropertyValue:[sender objectValue] forKey:KWThemeTitleKey wideScreen:[self isWideScreen] locale:[NSLocale localeWithLocaleIdentifier:[localizationPopup titleOfSelectedItem]]];
 	
 	[self loadPreview];
 	[self updateChangeCount:NSChangeDone];
@@ -357,31 +348,15 @@ return self;
 #pragma mark -
 #pragma mark •• - Loading
 
-- (void)loadThemeFromFileWrapper:(NSFileWrapper *)fileWrapper
-{
-	NSDictionary *resources = [[[[[fileWrapper fileWrappers] objectForKey:@"Contents"] fileWrappers] objectForKey:@"Resources"] fileWrappers];
-	NSArray *keys = [resources allKeys];
-	
-	NSMutableDictionary *languages = [NSMutableDictionary dictionaryWithCapacity:[keys count]];
-	
-	for (NSString *key in keys)
-	{
-		if ([[key pathExtension] isEqualTo:@"lproj"])
-			[languages setObject:[NSPropertyListSerialization propertyListWithData:[[[[resources objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListMutableContainersAndLeaves format:nil error:nil] forKey:[key stringByDeletingPathExtension]];
-	}
-	
-	myTheme = [[NSMutableDictionary alloc] initWithObjects:[NSMutableArray arrayWithObject:languages] forKeys:[NSMutableArray arrayWithObject:@"Languages"]];
-}
-
-- (NSMutableDictionary *)getCurrentThemeObject
+- (BOOL)isWideScreen
 {
 	if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
-		return [[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:0];
+		return NO;
 	else
-		return [[[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]] objectAtIndex:1];
+		return YES;
 }
 
-- (void)setViewOptions:(NSArray *)views withThemeObject:(NSDictionary *)themeObject
+- (void)setViewOptions:(NSArray *)views withThemeObject:(KWBurnThemeObject *)themeObject
 {
 	NSEnumerator *iter = [[NSEnumerator alloc] init];
 	NSControl *cntl;
@@ -498,7 +473,7 @@ return self;
 
 - (IBAction)selectLocalization:(id)sender
 {
-	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:[self getCurrentThemeObject]];
+	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:myTheme];
 	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:KWThemeTitleKey]];
 	[self loadPreview];
 }
@@ -520,9 +495,8 @@ return self;
 - (void)changeFont:(id)sender
 {
 	NSFont *newFont = [sender convertFont:currentFont];
-	NSMutableDictionary *themeObject = [self getCurrentThemeObject];
-	[themeObject setObject:[newFont fontName] forKey:[keyMappings objectAtIndex:[fontObject tag] - 1]];
-	[themeObject setObject:@([newFont pointSize]) forKey:[keyMappings objectAtIndex:[fontObject tag]]];
+	[myTheme setPropertyValue:[newFont fontName] forKey:[keyMappings objectAtIndex:[fontObject tag] - 1] wideScreen:[self isWideScreen]];
+	[myTheme setPropertyValue:@([newFont pointSize]) forKey:[keyMappings objectAtIndex:[fontObject tag]] wideScreen:[self isWideScreen]];
 	[fontObject setStringValue:[[newFont displayName] stringByAppendingFormat:@" %f", newFont.pointSize]];
 	
 	[self loadPreview];
@@ -531,7 +505,7 @@ return self;
 
 - (IBAction)changeFontColor:(id)sender
 {
-	[[self getCurrentThemeObject] setObject:[NSArchiver archivedDataWithRootObject:[sender color]] forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
+	[myTheme setPropertyValue:[NSArchiver archivedDataWithRootObject:[sender color]] forKey:[keyMappings objectAtIndex:[sender tag] - 1] wideScreen:[self isWideScreen]];
 	
 	[self loadPreview];
 	[self updateChangeCount:NSChangeDone];

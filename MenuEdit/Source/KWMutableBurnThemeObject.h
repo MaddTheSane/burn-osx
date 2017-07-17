@@ -13,7 +13,9 @@
 
 @interface KWBurnThemeObject ()
 
-- (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFileWrapper:(NSFileWrapper*)wrapper error:(NSError**)error NS_DESIGNATED_INITIALIZER;
+
+@property (readonly, strong) NSFileWrapper *fileWrapper;
 
 - (void)addResource:(NSData*)res named:(NSString*)resName locale:(NSLocale*)locale;
 - (void)addResource:(NSData*)res named:(NSString*)resName;
