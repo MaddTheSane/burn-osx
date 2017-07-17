@@ -199,17 +199,17 @@ return self;
 
 - (void)awakeFromNib
 {
-	if (!myTheme)
-		[self loadThemeFromFileWrapper:[[NSFileWrapper alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"burnTheme"]]];
+	if (!myTheme) {
+		myTheme = [[KWBurnThemeObject alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"default" withExtension:@"burnTheme"] error:NULL];
+	}
 	
 	[localizationPopup removeAllItems];
 	
 	NSArray *keys = myTheme.allLanguages;
 	
-	int i;
-	for (i=0;i<[keys count];i++)
+	for (NSString *lang in keys)
 	{
-		[localizationPopup addItemWithTitle:[keys objectAtIndex:i]];
+		[localizationPopup addItemWithTitle:lang];
 	}
 	
 	NSString *preferedLanguage = [[[NSBundle mainBundle] preferredLocalizations] objectAtIndex:0];
@@ -380,7 +380,7 @@ return self;
 			NSInteger index = [cntl tag] -1;
 			
 			if (index > -1 && index < 162)
-				property = [themeObject objectForKey:[keyMappings objectAtIndex:index]];
+				property = [themeObject propertyWithKey:[keyMappings objectAtIndex:index] widescreen:[self isWideScreen] locale:nil];
 			
 			if (property)
 			{
@@ -392,7 +392,8 @@ return self;
 				
 				if ([[keyMappings objectAtIndex:index] rangeOfString:@"Image"].length > 0 && [property isKindOfClass:[NSData class]])
 				{
-					[cntl setObjectValue:@([[NSImage alloc] initWithData:[themeObject objectForKey:[keyMappings objectAtIndex:index]]] != nil)];
+					NSData *imgData = [themeObject resourceNamed:property widescreen:[self isWideScreen] error:NULL];
+					[cntl setObjectValue:@([[NSImage alloc] initWithData:imgData] != nil)];
 				}
 			}
 			
@@ -473,8 +474,10 @@ return self;
 
 - (IBAction)selectLocalization:(id)sender
 {
+	NSString *localized = [localizationPopup titleOfSelectedItem];
+	myTheme.currentLocale = [NSLocale localeWithLocaleIdentifier:localized];
 	[self setViewOptions:[NSArray arrayWithObject:[mainWindow contentView]] withThemeObject:myTheme];
-	[themeNameField setStringValue:[[self getCurrentThemeObject] objectForKey:KWThemeTitleKey]];
+	[themeNameField setStringValue:[myTheme propertyWithKey:KWThemeTitleKey widescreen:[self isWideScreen] locale:nil]];
 	[self loadPreview];
 }
 
