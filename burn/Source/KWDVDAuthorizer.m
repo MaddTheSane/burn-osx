@@ -8,6 +8,7 @@
 
 #import "KWDVDAuthorizer.h"
 #import "KWConverter.h"
+#import "KWBurnThemeObject.h"
 
 @implementation KWDVDAuthorizer
 

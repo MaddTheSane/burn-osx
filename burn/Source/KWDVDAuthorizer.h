@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "KWCommonMethods.h"
 
+@class KWBurnThemeObject;
 
 @interface KWDVDAuthorizer : NSObject 
 {
