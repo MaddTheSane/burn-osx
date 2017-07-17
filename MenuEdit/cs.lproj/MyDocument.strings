@@ -1,0 +1,732 @@
+
+/* Class = "NSWindow"; title = "Okno"; ObjectID = "742"; */
+"742.title" = "Okno";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "858"; */
+"858.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Základní nabídka 4:3"; ObjectID = "859"; */
+"859.title" = "Základní nabídka 4:3";
+
+/* Class = "NSMenuItem"; title = "Nabídka kapitol 4:3"; ObjectID = "861"; */
+"861.title" = "Nabídka kapitol 4:3";
+
+/* Class = "NSTabViewItem"; label = "2"; ObjectID = "1080"; */
+"1080.label" = "2";
+
+/* Class = "NSTabViewItem"; label = "1"; ObjectID = "1082"; */
+"1082.label" = "1";
+
+/* Class = "NSTabViewItem"; label = "Spouštění"; ObjectID = "1085"; */
+"1085.label" = "Spouštění";
+
+/* Class = "NSTabViewItem"; label = "Kapitola"; ObjectID = "1121"; */
+"1121.label" = "Kapitola";
+
+/* Class = "NSTabViewItem"; label = "Titul"; ObjectID = "1157"; */
+"1157.label" = "Titul";
+
+/* Class = "NSTabViewItem"; label = "Titul"; ObjectID = "1194"; */
+"1194.label" = "Titul";
+
+/* Class = "NSTabViewItem"; label = "Další"; ObjectID = "1234"; */
+"1234.label" = "Další";
+
+/* Class = "NSTabViewItem"; label = "Výběr"; ObjectID = "1312"; */
+"1312.label" = "Výběr";
+
+/* Class = "NSTabViewItem"; label = "Předchozí"; ObjectID = "1358"; */
+"1358.label" = "Předchozí";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1395"; */
+"1395.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Titul"; ObjectID = "1397"; */
+"1397.title" = "Titul";
+
+/* Class = "NSMenuItem"; title = "Kapitoly"; ObjectID = "1398"; */
+"1398.title" = "Kapitoly";
+
+/* Class = "NSButtonCell"; title = "Obrázky a texty"; ObjectID = "1411"; */
+"1411.title" = "Obrázky a texty";
+
+/* Class = "NSButtonCell"; title = "Pouze obrázek"; ObjectID = "1412"; */
+"1412.title" = "Pouze obrázek";
+
+/* Class = "NSButtonCell"; title = "Pouze text"; ObjectID = "1413"; */
+"1413.title" = "Pouze text";
+
+/* Class = "NSMenuItem"; title = "Základní nabídka 16:9"; ObjectID = "1432"; */
+"1432.title" = "Základní nabídka 16:9";
+
+/* Class = "NSMenuItem"; title = "Nabídka kapitol 16:9"; ObjectID = "1433"; */
+"1433.title" = "Nabídka kapitol 16:9";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "1847"; */
+"1847.title" = "Box";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1850"; */
+"1850.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Skrýt"; ObjectID = "1851"; */
+"1851.title" = "Skrýt";
+
+/* Class = "NSMenuItem"; title = "Zobrazit"; ObjectID = "1852"; */
+"1852.title" = "Zobrazit";
+
+/* Class = "NSWindow"; title = "Náhled"; ObjectID = "1857"; */
+"1857.title" = "Náhled";
+
+/* Class = "NSTabViewItem"; label = "Rozšířené"; ObjectID = "1957"; */
+"1957.label" = "Rozšířené";
+
+/* Class = "NSTabViewItem"; label = "Rozšířené"; ObjectID = "1959"; */
+"1959.label" = "Rozšířené";
+
+/* Class = "NSTabViewItem"; label = "Texty"; ObjectID = "2111"; */
+"2111.label" = "Texty";
+
+/* Class = "NSTabViewItem"; label = "Obrázky"; ObjectID = "2149"; */
+"2149.label" = "Obrázky";
+
+/* Class = "NSTabViewItem"; label = "Jména"; ObjectID = "2272"; */
+"2272.label" = "Jména";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "2338"; */
+"2338.title" = "OtherViews";
+
+/* Class = "NSWindow"; title = "Panel"; ObjectID = "2524"; */
+"2524.title" = "Panel";
+
+/* Class = "NSMenuItem"; title = " "; ObjectID = "2538"; */
+"2538.title" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Upravit:"; ObjectID = "2555"; */
+"2555.title" = "Upravit:";
+
+/* Class = "NSTextFieldCell"; title = "Náhled:"; ObjectID = "2558"; */
+"2558.title" = "Náhled:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2560"; */
+"2560.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Text výběru titulu:"; ObjectID = "2561"; */
+"2561.title" = "Text výběru titulu:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2562"; */
+"2562.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Text výběru kapitoly:"; ObjectID = "2563"; */
+"2563.title" = "Text výběru kapitoly:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2564"; */
+"2564.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2565"; */
+"2565.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2566"; */
+"2566.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2567"; */
+"2567.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2571"; */
+"2571.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2573"; */
+"2573.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2574"; */
+"2574.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2575"; */
+"2575.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2577"; */
+"2577.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2578"; */
+"2578.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2579"; */
+"2579.title" = "Rozměr š:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2580"; */
+"2580.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2582"; */
+"2582.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2584"; */
+"2584.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2585"; */
+"2585.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2587"; */
+"2587.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Zakázat výběr textu titulu"; ObjectID = "2589"; */
+"2589.title" = "Zakázat výběr textu titulu";
+
+/* Class = "NSButtonCell"; title = "Zakázat výběr textu kapitoly"; ObjectID = "2590"; */
+"2590.title" = "Zakázat výběr textu kapitoly";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2591"; */
+"2591.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2592"; */
+"2592.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2594"; */
+"2594.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2595"; */
+"2595.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2597"; */
+"2597.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2599"; */
+"2599.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2600"; */
+"2600.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2604"; */
+"2604.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2605"; */
+"2605.title" = "Umístění x:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2606"; */
+"2606.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2607"; */
+"2607.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2608"; */
+"2608.title" = "Použít obrázek";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2609"; */
+"2609.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2611"; */
+"2611.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2613"; */
+"2613.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "Maska tlačítka další:"; ObjectID = "2614"; */
+"2614.title" = "Maska tlačítka další:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2617"; */
+"2617.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2618"; */
+"2618.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Tlačítko následující:"; ObjectID = "2619"; */
+"2619.title" = "Tlačítko následující:";
+
+/* Class = "NSButtonCell"; title = "Zakázat tlačítko další"; ObjectID = "2620"; */
+"2620.title" = "Zakázat tlačítko další";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2621"; */
+"2621.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "Rozšířené:"; ObjectID = "2622"; */
+"2622.title" = "Rozšířené:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2623"; */
+"2623.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2624"; */
+"2624.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Rozdělení v:"; ObjectID = "2627"; */
+"2627.title" = "Rozdělení v:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2628"; */
+"2628.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Maska výběru textu:"; ObjectID = "2629"; */
+"2629.title" = "Maska výběru textu:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2630"; */
+"2630.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2631"; */
+"2631.title" = "Síla linky:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2632"; */
+"2632.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2633"; */
+"2633.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Počet položek na stránku:"; ObjectID = "2634"; */
+"2634.title" = "Počet položek na stránku:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2635"; */
+"2635.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2636"; */
+"2636.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2638"; */
+"2638.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Rozdělení v:"; ObjectID = "2642"; */
+"2642.title" = "Rozdělení v:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2648"; */
+"2648.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2649"; */
+"2649.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Texty výběru:"; ObjectID = "2651"; */
+"2651.title" = "Texty výběru:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2652"; */
+"2652.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2653"; */
+"2653.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "Rozšířené:"; ObjectID = "2658"; */
+"2658.title" = "Rozšířené:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2659"; */
+"2659.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2660"; */
+"2660.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2661"; */
+"2661.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2662"; */
+"2662.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2663"; */
+"2663.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "Rozdělení š:"; ObjectID = "2666"; */
+"2666.title" = "Rozdělení š:";
+
+/* Class = "NSTextFieldCell"; title = "Obrázky výběru:"; ObjectID = "2668"; */
+"2668.title" = "Obrázky výběru:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2669"; */
+"2669.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2670"; */
+"2670.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSTextFieldCell"; title = "Rozdělení š:"; ObjectID = "2672"; */
+"2672.title" = "Rozdělení š:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2677"; */
+"2677.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Počet položek na stránku:"; ObjectID = "2679"; */
+"2679.title" = "Počet položek na stránku:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2680"; */
+"2680.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2681"; */
+"2681.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "Počet položek na řádek:"; ObjectID = "2682"; */
+"2682.title" = "Počet položek na řádek:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2683"; */
+"2683.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Maska výběru obrázku:"; ObjectID = "2684"; */
+"2684.title" = "Maska výběru obrázku:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2685"; */
+"2685.title" = "Umístění x:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2686"; */
+"2686.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2687"; */
+"2687.title" = "Rozměr š:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2690"; */
+"2690.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2691"; */
+"2691.title" = "Písmo:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2692"; */
+"2692.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Maska tlačítka předchozí:"; ObjectID = "2693"; */
+"2693.title" = "Maska tlačítka předchozí:";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2694"; */
+"2694.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2696"; */
+"2696.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2697"; */
+"2697.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2700"; */
+"2700.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2701"; */
+"2701.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2702"; */
+"2702.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2704"; */
+"2704.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2706"; */
+"2706.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2707"; */
+"2707.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2708"; */
+"2708.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2711"; */
+"2711.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2714"; */
+"2714.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Tlačítko předchozí:"; ObjectID = "2715"; */
+"2715.title" = "Tlačítko předchozí:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr š:"; ObjectID = "2717"; */
+"2717.title" = "Rozměr š:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2718"; */
+"2718.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Zakázat tlačítko předchozí"; ObjectID = "2719"; */
+"2719.title" = "Zakázat tlačítko předchozí";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2720"; */
+"2720.title" = "Písmo:";
+
+/* Class = "NSButtonCell"; title = "Použít alternativní výběr pozadí titulu"; ObjectID = "2721"; */
+"2721.title" = "Použít alternativní výběr pozadí titulu";
+
+/* Class = "NSButtonCell"; title = "Použít alternativní výběr pozadí kapitoly"; ObjectID = "2722"; */
+"2722.title" = "Použít alternativní výběr pozadí kapitoly";
+
+/* Class = "NSButtonCell"; title = "Použít pro výběr titulu překryvný obrázek"; ObjectID = "2723"; */
+"2723.title" = "Použít pro výběr titulu překryvný obrázek";
+
+/* Class = "NSButtonCell"; title = "Použít pro výběr kapitoly překryvný obrázek"; ObjectID = "2724"; */
+"2724.title" = "Použít pro výběr kapitoly překryvný obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2725"; */
+"2725.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2726"; */
+"2726.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2727"; */
+"2727.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2728"; */
+"2728.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Maska spouštěcího tlačítka:"; ObjectID = "2732"; */
+"2732.title" = "Maska spouštěcího tlačítka:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2733"; */
+"2733.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2736"; */
+"2736.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2737"; */
+"2737.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2739"; */
+"2739.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2740"; */
+"2740.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2741"; */
+"2741.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2744"; */
+"2744.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2745"; */
+"2745.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2746"; */
+"2746.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2747"; */
+"2747.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Spouštěcí tlačítko:"; ObjectID = "2749"; */
+"2749.title" = "Spouštěcí tlačítko:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2750"; */
+"2750.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Zakázat spouštěcí tlačítko"; ObjectID = "2752"; */
+"2752.title" = "Zakázat spouštěcí tlačítko";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2753"; */
+"2753.title" = "Písmo:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2754"; */
+"2754.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2755"; */
+"2755.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2757"; */
+"2757.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2758"; */
+"2758.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2763"; */
+"2763.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2764"; */
+"2764.title" = "Text:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2765"; */
+"2765.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2766"; */
+"2766.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2768"; */
+"2768.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2769"; */
+"2769.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2770"; */
+"2770.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2771"; */
+"2771.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Maska tlačítka kapitoly:"; ObjectID = "2772"; */
+"2772.title" = "Maska tlačítka kapitoly:";
+
+/* Class = "NSTextFieldCell"; title = "Tlačítko kapitoly:"; ObjectID = "2773"; */
+"2773.title" = "Tlačítko kapitoly:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2774"; */
+"2774.title" = "v:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2777"; */
+"2777.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2778"; */
+"2778.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Zakázat tlačítko kapitoly"; ObjectID = "2781"; */
+"2781.title" = "Zakázat tlačítko kapitoly";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2782"; */
+"2782.title" = "Písmo:";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2783"; */
+"2783.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2787"; */
+"2787.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Maska tlačítka titulu:"; ObjectID = "2788"; */
+"2788.title" = "Maska tlačítka titulu:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2791"; */
+"2791.title" = "Umístění x:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2793"; */
+"2793.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2795"; */
+"2795.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "Síla linky:"; ObjectID = "2796"; */
+"2796.title" = "Síla linky:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2797"; */
+"2797.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2798"; */
+"2798.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Tlačítko titulu:"; ObjectID = "2799"; */
+"2799.title" = "Tlačítko titulu:";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2801"; */
+"2801.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2802"; */
+"2802.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2804"; */
+"2804.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "2805"; */
+"2805.title" = "Text:";
+
+/* Class = "NSButtonCell"; title = "Použít obrázek"; ObjectID = "2807"; */
+"2807.title" = "Použít obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2808"; */
+"2808.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2809"; */
+"2809.title" = "Rozměr: š";
+
+/* Class = "NSButtonCell"; title = "Zakázat tlačítko titulu"; ObjectID = "2810"; */
+"2810.title" = "Zakázat tlačítko titulu";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2811"; */
+"2811.title" = "Písmo:";
+
+/* Class = "NSButtonCell"; title = "Použít alternativní pozadí nabídky titulu"; ObjectID = "2812"; */
+"2812.title" = "Použít alternativní pozadí nabídky titulu";
+
+/* Class = "NSButtonCell"; title = "Použít alternativní pozadí nabídky kapitoly"; ObjectID = "2813"; */
+"2813.title" = "Použít alternativní pozadí nabídky kapitoly";
+
+/* Class = "NSButtonCell"; title = "Použít pro nabídku titulu překryvný obrázek"; ObjectID = "2814"; */
+"2814.title" = "Použít pro nabídku titulu překryvný obrázek";
+
+/* Class = "NSButtonCell"; title = "Použít pro nabídku kapitoly překryvný obrázek"; ObjectID = "2815"; */
+"2815.title" = "Použít pro nabídku kapitoly překryvný obrázek";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2816"; */
+"2816.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2817"; */
+"2817.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2818"; */
+"2818.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2820"; */
+"2820.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2821"; */
+"2821.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2823"; */
+"2823.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2825"; */
+"2825.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Jméno DVD:"; ObjectID = "2827"; */
+"2827.title" = "Jméno DVD:";
+
+/* Class = "NSButtonCell"; title = "Zakázat jméno DVD"; ObjectID = "2828"; */
+"2828.title" = "Zakázat jméno DVD";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande tučně 12b"; ObjectID = "2829"; */
+"2829.title" = "Lucida Grande tučně 12b";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2830"; */
+"2830.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Barva:"; ObjectID = "2831"; */
+"2831.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Umístění x:"; ObjectID = "2833"; */
+"2833.title" = "Umístění x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2834"; */
+"2834.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Rozměr: š"; ObjectID = "2836"; */
+"2836.title" = "Rozměr: š";
+
+/* Class = "NSTextFieldCell"; title = "v:"; ObjectID = "2838"; */
+"2838.title" = "v:";
+
+/* Class = "NSTextFieldCell"; title = "Jméno videa:"; ObjectID = "2840"; */
+"2840.title" = "Jméno videa:";
+
+/* Class = "NSButtonCell"; title = "Zakázat jméno videa"; ObjectID = "2841"; */
+"2841.title" = "Zakázat jméno videa";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2842"; */
+"2842.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "Písmo:"; ObjectID = "2843"; */
+"2843.title" = "Písmo:";
+
+/* Class = "NSTextFieldCell"; title = "Zobrazení:"; ObjectID = "2845"; */
+"2845.title" = "Zobrazení:";
+
+/* Class = "NSTextFieldCell"; title = "Volby:"; ObjectID = "2846"; */
+"2846.title" = "Volby:";
+
+/* Class = "NSTextFieldCell"; title = "Jak zobrazovat výběr nabídky titulu/kapitoly"; ObjectID = "2847"; */
+"2847.title" = "Jak zobrazovat výběr nabídky titulu/kapitoly";
+
+/* Class = "NSTextFieldCell"; title = "Otisk obrazovky v čase:"; ObjectID = "2848"; */
+"2848.title" = "Otisk obrazovky v čase:";
+
+/* Class = "NSTextFieldCell"; title = "sekund"; ObjectID = "2850"; */
+"2850.title" = "sekund";
+
+/* Class = "NSTextFieldCell"; title = "Výběr:"; ObjectID = "2852"; */
+"2852.title" = "Výběr:";
+
+/* Class = "NSButtonCell"; title = "Tlačítko"; ObjectID = "2853"; */
+"2853.title" = "Tlačítko";
+
+/* Class = "NSTextFieldCell"; title = "Po klepnutí se otevře náhled v plné velikosti"; ObjectID = "2854"; */
+"2854.title" = "Po klepnutí se otevře náhled v plné velikosti";
+
+/* Class = "NSButtonCell"; title = "Vybrat…"; ObjectID = "2855"; */
+"2855.title" = "Vybrat…";
+
+/* Class = "NSTextFieldCell"; title = "Hlavní obrázek pozadí:"; ObjectID = "2856"; */
+"2856.title" = "Hlavní obrázek pozadí:";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "2858"; */
+"2858.title" = "+";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "2859"; */
+"2859.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "Lokalizace:"; ObjectID = "2860"; */
+"2860.title" = "Lokalizace:";
+
+/* Class = "NSTextFieldCell"; title = "Téma disku:"; ObjectID = "2861"; */
+"2861.title" = "Téma disku:";
+
+/* Class = "NSTextFieldCell"; title = "Beze jména"; ObjectID = "2862"; */
+"2862.title" = "Beze jména";
+
+/* Class = "NSTextFieldCell"; title = "Lokalizace:"; ObjectID = "2865"; */
+"2865.title" = "Lokalizace:";
+
+/* Class = "NSButtonCell"; title = "Přidat"; ObjectID = "2866"; */
+"2866.title" = "Přidat";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2867"; */
+"2867.title" = "Radio";

@@ -95,7 +95,7 @@ class BurnThemeDocument: NSDocument {
 		return false
 	}
 	
-	open func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject!) {
+	open func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject) {
 		
 	}
 	

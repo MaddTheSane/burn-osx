@@ -1,0 +1,732 @@
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "742"; */
+"742.title" = "Window";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "858"; */
+"858.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Hauptmenu 4:3"; ObjectID = "859"; */
+"859.title" = "Hauptmenu 4:3";
+
+/* Class = "NSMenuItem"; title = "Auswahlmenu 4:3"; ObjectID = "861"; */
+"861.title" = "Auswahlmenu 4:3";
+
+/* Class = "NSTabViewItem"; label = "2"; ObjectID = "1080"; */
+"1080.label" = "2";
+
+/* Class = "NSTabViewItem"; label = "1"; ObjectID = "1082"; */
+"1082.label" = "1";
+
+/* Class = "NSTabViewItem"; label = "Start"; ObjectID = "1085"; */
+"1085.label" = "Start";
+
+/* Class = "NSTabViewItem"; label = "Kapitel"; ObjectID = "1121"; */
+"1121.label" = "Kapitel";
+
+/* Class = "NSTabViewItem"; label = "Titel"; ObjectID = "1157"; */
+"1157.label" = "Titel";
+
+/* Class = "NSTabViewItem"; label = "Titel"; ObjectID = "1194"; */
+"1194.label" = "Titel";
+
+/* Class = "NSTabViewItem"; label = "Nächste"; ObjectID = "1234"; */
+"1234.label" = "Nächste";
+
+/* Class = "NSTabViewItem"; label = "Auswahl"; ObjectID = "1312"; */
+"1312.label" = "Auswahl";
+
+/* Class = "NSTabViewItem"; label = "Vorherige"; ObjectID = "1358"; */
+"1358.label" = "Vorherige";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1395"; */
+"1395.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Titel"; ObjectID = "1397"; */
+"1397.title" = "Titel";
+
+/* Class = "NSMenuItem"; title = "Kapitel"; ObjectID = "1398"; */
+"1398.title" = "Kapitel";
+
+/* Class = "NSButtonCell"; title = "Bilder und Texte"; ObjectID = "1411"; */
+"1411.title" = "Bilder und Texte";
+
+/* Class = "NSButtonCell"; title = "Nur Bilder"; ObjectID = "1412"; */
+"1412.title" = "Nur Bilder";
+
+/* Class = "NSButtonCell"; title = "Nur Texte"; ObjectID = "1413"; */
+"1413.title" = "Nur Texte";
+
+/* Class = "NSMenuItem"; title = "Hauptmenu 16:9"; ObjectID = "1432"; */
+"1432.title" = "Hauptmenu 16:9";
+
+/* Class = "NSMenuItem"; title = "Auswahlmenu 16:9"; ObjectID = "1433"; */
+"1433.title" = "Auswahlmenu 16:9";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "1847"; */
+"1847.title" = "Box";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1850"; */
+"1850.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Verbergen"; ObjectID = "1851"; */
+"1851.title" = "Verbergen";
+
+/* Class = "NSMenuItem"; title = "Zeigen"; ObjectID = "1852"; */
+"1852.title" = "Zeigen";
+
+/* Class = "NSWindow"; title = "Vorschau"; ObjectID = "1857"; */
+"1857.title" = "Vorschau";
+
+/* Class = "NSTabViewItem"; label = "Extra"; ObjectID = "1957"; */
+"1957.label" = "Extra";
+
+/* Class = "NSTabViewItem"; label = "Extra"; ObjectID = "1959"; */
+"1959.label" = "Extra";
+
+/* Class = "NSTabViewItem"; label = "Strings"; ObjectID = "2111"; */
+"2111.label" = "Strings";
+
+/* Class = "NSTabViewItem"; label = "Images"; ObjectID = "2149"; */
+"2149.label" = "Images";
+
+/* Class = "NSTabViewItem"; label = "Name"; ObjectID = "2272"; */
+"2272.label" = "Name";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "2338"; */
+"2338.title" = "OtherViews";
+
+/* Class = "NSWindow"; title = "Panel"; ObjectID = "2524"; */
+"2524.title" = "Panel";
+
+/* Class = "NSMenuItem"; title = " "; ObjectID = "2538"; */
+"2538.title" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Bearbeiten"; ObjectID = "2555"; */
+"2555.title" = "Bearbeiten";
+
+/* Class = "NSTextFieldCell"; title = "Vorschau:"; ObjectID = "2558"; */
+"2558.title" = "Vorschau:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2560"; */
+"2560.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Titel Auswahlbezeichnung"; ObjectID = "2561"; */
+"2561.title" = "Titel Auswahlbezeichnung";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2562"; */
+"2562.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Kapitel Auswahlbezeichnung"; ObjectID = "2563"; */
+"2563.title" = "Kapitel Auswahlbezeichnung";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2564"; */
+"2564.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2565"; */
+"2565.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2566"; */
+"2566.title" = "Bezei.:";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2567"; */
+"2567.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2571"; */
+"2571.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2573"; */
+"2573.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2574"; */
+"2574.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2575"; */
+"2575.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2577"; */
+"2577.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2578"; */
+"2578.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2579"; */
+"2579.title" = "Größe w:";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2580"; */
+"2580.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2582"; */
+"2582.title" = "Bezei.:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2584"; */
+"2584.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2585"; */
+"2585.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2587"; */
+"2587.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Titel Auswahlbezeichnung"; ObjectID = "2589"; */
+"2589.title" = "Deaktiviere Titel Auswahlbezeichnung";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Kapitel Auswahlbezeichnung"; ObjectID = "2590"; */
+"2590.title" = "Deaktiviere Kapitel Auswahlbezeichnung";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2591"; */
+"2591.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2592"; */
+"2592.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2594"; */
+"2594.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2595"; */
+"2595.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2597"; */
+"2597.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2599"; */
+"2599.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2600"; */
+"2600.title" = "Bezei.:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2604"; */
+"2604.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Placement x:"; ObjectID = "2605"; */
+"2605.title" = "Placement x:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2606"; */
+"2606.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2607"; */
+"2607.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2608"; */
+"2608.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2609"; */
+"2609.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2611"; */
+"2611.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Linienweite:"; ObjectID = "2613"; */
+"2613.title" = "Linienweite:";
+
+/* Class = "NSTextFieldCell"; title = "\"Nächstes-Knopf\" Maske"; ObjectID = "2614"; */
+"2614.title" = "\"Nächstes-Knopf\" Maske";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2617"; */
+"2617.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2618"; */
+"2618.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "\"Nächstes-Knopf\""; ObjectID = "2619"; */
+"2619.title" = "\"Nächstes-Knopf\"";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere \"Nächstes-Knopf\""; ObjectID = "2620"; */
+"2620.title" = "Deaktiviere \"Nächstes-Knopf\"";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2621"; */
+"2621.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "Extra:"; ObjectID = "2622"; */
+"2622.title" = "Extra:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2623"; */
+"2623.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2624"; */
+"2624.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Seperation h:"; ObjectID = "2627"; */
+"2627.title" = "Seperation h:";
+
+/* Class = "NSTextFieldCell"; title = "Size w:"; ObjectID = "2628"; */
+"2628.title" = "Size w:";
+
+/* Class = "NSTextFieldCell"; title = "Selection Strings Mask:"; ObjectID = "2629"; */
+"2629.title" = "Selection Strings Mask:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2630"; */
+"2630.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Line width:"; ObjectID = "2631"; */
+"2631.title" = "Line width:";
+
+/* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2632"; */
+"2632.title" = "Choose...";
+
+/* Class = "NSTextFieldCell"; title = "Size w:"; ObjectID = "2633"; */
+"2633.title" = "Size w:";
+
+/* Class = "NSTextFieldCell"; title = "Number of items per page:"; ObjectID = "2634"; */
+"2634.title" = "Number of items per page:";
+
+/* Class = "NSButtonCell"; title = "Use image instead"; ObjectID = "2635"; */
+"2635.title" = "Use image instead";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2636"; */
+"2636.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "2638"; */
+"2638.title" = "Color:";
+
+/* Class = "NSTextFieldCell"; title = "Seperation h:"; ObjectID = "2642"; */
+"2642.title" = "Seperation h:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2648"; */
+"2648.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Placement x:"; ObjectID = "2649"; */
+"2649.title" = "Placement x:";
+
+/* Class = "NSTextFieldCell"; title = "Selection Strings:"; ObjectID = "2651"; */
+"2651.title" = "Selection Strings:";
+
+/* Class = "NSTextFieldCell"; title = "Placement x:"; ObjectID = "2652"; */
+"2652.title" = "Placement x:";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2653"; */
+"2653.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "Extra:"; ObjectID = "2658"; */
+"2658.title" = "Extra:";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2659"; */
+"2659.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2660"; */
+"2660.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2661"; */
+"2661.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2662"; */
+"2662.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Lienenweite:"; ObjectID = "2663"; */
+"2663.title" = "Lienenweite:";
+
+/* Class = "NSTextFieldCell"; title = "Seperation w:"; ObjectID = "2666"; */
+"2666.title" = "Seperation w:";
+
+/* Class = "NSTextFieldCell"; title = "Auswahlbilder"; ObjectID = "2668"; */
+"2668.title" = "Auswahlbilder";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2669"; */
+"2669.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2670"; */
+"2670.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Seperation w:"; ObjectID = "2672"; */
+"2672.title" = "Seperation w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2677"; */
+"2677.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Anzahl der Einträge pro Seite"; ObjectID = "2679"; */
+"2679.title" = "Anzahl der Einträge pro Seite";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2680"; */
+"2680.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2681"; */
+"2681.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Anzahl der Einträge je Reihe"; ObjectID = "2682"; */
+"2682.title" = "Anzahl der Einträge je Reihe";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2683"; */
+"2683.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Auswahlbilder Maske"; ObjectID = "2684"; */
+"2684.title" = "Auswahlbilder Maske";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2685"; */
+"2685.title" = "Platzierung x:";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2686"; */
+"2686.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2687"; */
+"2687.title" = "Größe w:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2690"; */
+"2690.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2691"; */
+"2691.title" = "Font:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2692"; */
+"2692.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "\"Vorheriges\"-Knopf Maske"; ObjectID = "2693"; */
+"2693.title" = "\"Vorheriges\"-Knopf Maske";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2694"; */
+"2694.title" = "Bezei.:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2696"; */
+"2696.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2697"; */
+"2697.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Linienweite:"; ObjectID = "2700"; */
+"2700.title" = "Linienweite:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2701"; */
+"2701.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2702"; */
+"2702.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2704"; */
+"2704.title" = "Choose...";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2706"; */
+"2706.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2707"; */
+"2707.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2708"; */
+"2708.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2711"; */
+"2711.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2714"; */
+"2714.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "\"Vorheriges\"-Knopf"; ObjectID = "2715"; */
+"2715.title" = "\"Vorheriges\"-Knopf";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2717"; */
+"2717.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2718"; */
+"2718.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere \"Vorheriges\"-Knopf"; ObjectID = "2719"; */
+"2719.title" = "Deaktiviere \"Vorheriges\"-Knopf";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2720"; */
+"2720.title" = "Font:";
+
+/* Class = "NSButtonCell"; title = "Benutze alternativen Titelmenu-Hintergrund"; ObjectID = "2721"; */
+"2721.title" = "Benutze alternativen Titelmenu-Hintergrund";
+
+/* Class = "NSButtonCell"; title = "Benutze alternativen Kapitelmenu-Hintergrund"; ObjectID = "2722"; */
+"2722.title" = "Benutze alternativen Kapitelmenu-Hintergrund";
+
+/* Class = "NSButtonCell"; title = "Benutze ein Overlay-Bild im Titelmenu"; ObjectID = "2723"; */
+"2723.title" = "Benutze ein Overlay-Bild im Titelmenu";
+
+/* Class = "NSButtonCell"; title = "Benutze ein Overlay-Bild im Kapitelmenu"; ObjectID = "2724"; */
+"2724.title" = "Benutze ein Overlay-Bild im Kapitelmenu";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2725"; */
+"2725.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2726"; */
+"2726.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2727"; */
+"2727.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2728"; */
+"2728.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Startknopf-Maske:"; ObjectID = "2732"; */
+"2732.title" = "Startknopf-Maske:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2733"; */
+"2733.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2736"; */
+"2736.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2737"; */
+"2737.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2739"; */
+"2739.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2740"; */
+"2740.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Lienenweite:"; ObjectID = "2741"; */
+"2741.title" = "Lienenweite:";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2744"; */
+"2744.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2745"; */
+"2745.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2746"; */
+"2746.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2747"; */
+"2747.title" = "Bezei.:";
+
+/* Class = "NSTextFieldCell"; title = "Start Button:"; ObjectID = "2749"; */
+"2749.title" = "Start Button:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2750"; */
+"2750.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Startknopf"; ObjectID = "2752"; */
+"2752.title" = "Deaktiviere Startknopf";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2753"; */
+"2753.title" = "Font:";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2754"; */
+"2754.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2755"; */
+"2755.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Lienenweite:"; ObjectID = "2757"; */
+"2757.title" = "Lienenweite:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2758"; */
+"2758.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2763"; */
+"2763.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "Bezei:."; ObjectID = "2764"; */
+"2764.title" = "Bezei:.";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2765"; */
+"2765.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2766"; */
+"2766.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2768"; */
+"2768.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2769"; */
+"2769.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2770"; */
+"2770.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2771"; */
+"2771.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Kapitelknopf-Maske"; ObjectID = "2772"; */
+"2772.title" = "Kapitelknopf-Maske";
+
+/* Class = "NSTextFieldCell"; title = "Kapitelknopf"; ObjectID = "2773"; */
+"2773.title" = "Kapitelknopf";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2774"; */
+"2774.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2777"; */
+"2777.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2778"; */
+"2778.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Kapitelknopf"; ObjectID = "2781"; */
+"2781.title" = "Deaktiviere Kapitelknopf";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2782"; */
+"2782.title" = "Font:";
+
+/* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2783"; */
+"2783.title" = "Choose...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2787"; */
+"2787.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Titelknopf-Maske"; ObjectID = "2788"; */
+"2788.title" = "Titelknopf-Maske";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2791"; */
+"2791.title" = "Platzierung x:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2793"; */
+"2793.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2795"; */
+"2795.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "Lienenweite:"; ObjectID = "2796"; */
+"2796.title" = "Lienenweite:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2797"; */
+"2797.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2798"; */
+"2798.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Titelknopf"; ObjectID = "2799"; */
+"2799.title" = "Titelknopf";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2801"; */
+"2801.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2802"; */
+"2802.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2804"; */
+"2804.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Bezei.:"; ObjectID = "2805"; */
+"2805.title" = "Bezei.:";
+
+/* Class = "NSButtonCell"; title = "Benutze stattdessen das Bild"; ObjectID = "2807"; */
+"2807.title" = "Benutze stattdessen das Bild";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2808"; */
+"2808.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2809"; */
+"2809.title" = "Größe w:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Titelknopf"; ObjectID = "2810"; */
+"2810.title" = "Deaktiviere Titelknopf";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2811"; */
+"2811.title" = "Font:";
+
+/* Class = "NSButtonCell"; title = "Benutze alternativen Titelmenu-Hintergrund"; ObjectID = "2812"; */
+"2812.title" = "Benutze alternativen Titelmenu-Hintergrund";
+
+/* Class = "NSButtonCell"; title = "Benutze alternativen Kapitelmenu-Hintergrund"; ObjectID = "2813"; */
+"2813.title" = "Benutze alternativen Kapitelmenu-Hintergrund";
+
+/* Class = "NSButtonCell"; title = "Benutze ein Overlay-Bild im Titelmenu"; ObjectID = "2814"; */
+"2814.title" = "Benutze ein Overlay-Bild im Titelmenu";
+
+/* Class = "NSButtonCell"; title = "Benutze ein Overlay-Bild im Kapitelmenu"; ObjectID = "2815"; */
+"2815.title" = "Benutze ein Overlay-Bild im Kapitelmenu";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2816"; */
+"2816.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2817"; */
+"2817.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2818"; */
+"2818.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2820"; */
+"2820.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2821"; */
+"2821.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2823"; */
+"2823.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2825"; */
+"2825.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "DVD Name Text:"; ObjectID = "2827"; */
+"2827.title" = "DVD Name Text:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere DVD Name Text"; ObjectID = "2828"; */
+"2828.title" = "Deaktiviere DVD Name Text";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2829"; */
+"2829.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2830"; */
+"2830.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Farbe:"; ObjectID = "2831"; */
+"2831.title" = "Farbe:";
+
+/* Class = "NSTextFieldCell"; title = "Platzierung x:"; ObjectID = "2833"; */
+"2833.title" = "Platzierung x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2834"; */
+"2834.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Größe w:"; ObjectID = "2836"; */
+"2836.title" = "Größe w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2838"; */
+"2838.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Video Name Text:"; ObjectID = "2840"; */
+"2840.title" = "Video Name Text:";
+
+/* Class = "NSButtonCell"; title = "Deaktiviere Video Name Text"; ObjectID = "2841"; */
+"2841.title" = "Deaktiviere Video Name Text";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2842"; */
+"2842.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "Font:"; ObjectID = "2843"; */
+"2843.title" = "Font:";
+
+/* Class = "NSTextFieldCell"; title = "Zeige:"; ObjectID = "2845"; */
+"2845.title" = "Zeige:";
+
+/* Class = "NSTextFieldCell"; title = "Optionen:"; ObjectID = "2846"; */
+"2846.title" = "Optionen:";
+
+/* Class = "NSTextFieldCell"; title = "Wie soll das Titel/Kapitel-Auswahlmenu aussehen?"; ObjectID = "2847"; */
+"2847.title" = "Wie soll das Titel/Kapitel-Auswahlmenu aussehen?";
+
+/* Class = "NSTextFieldCell"; title = "Erstelle einen Screenshot bei"; ObjectID = "2848"; */
+"2848.title" = "Erstelle einen Screenshot bei";
+
+/* Class = "NSTextFieldCell"; title = "Sekunden"; ObjectID = "2850"; */
+"2850.title" = "Sekunden";
+
+/* Class = "NSTextFieldCell"; title = "Auswahl:"; ObjectID = "2852"; */
+"2852.title" = "Auswahl:";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "2853"; */
+"2853.title" = "Button";
+
+/* Class = "NSTextFieldCell"; title = "Hier klicken um es in einem neuen Vollbild-Fenster zu sehen"; ObjectID = "2854"; */
+"2854.title" = "Hier klicken um es in einem neuen Vollbild-Fenster zu sehen";
+
+/* Class = "NSButtonCell"; title = "Auswählen..."; ObjectID = "2855"; */
+"2855.title" = "Auswählen...";
+
+/* Class = "NSTextFieldCell"; title = "Allgemeines Hintergrundbild"; ObjectID = "2856"; */
+"2856.title" = "Allgemeines Hintergrundbild";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "2858"; */
+"2858.title" = "+";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "2859"; */
+"2859.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "Sprache:"; ObjectID = "2860"; */
+"2860.title" = "Sprache:";
+
+/* Class = "NSTextFieldCell"; title = "Theme Name:"; ObjectID = "2861"; */
+"2861.title" = "Theme Name:";
+
+/* Class = "NSTextFieldCell"; title = "Unbenannt"; ObjectID = "2862"; */
+"2862.title" = "Unbenannt";
+
+/* Class = "NSTextFieldCell"; title = "Sprache:"; ObjectID = "2865"; */
+"2865.title" = "Sprache:";
+
+/* Class = "NSButtonCell"; title = "Hinzufügen"; ObjectID = "2866"; */
+"2866.title" = "Hinzufügen";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2867"; */
+"2867.title" = "Radio";

@@ -1,0 +1,732 @@
+
+/* Class = "NSWindow"; title = "Venster"; ObjectID = "742"; */
+"742.title" = "Venster";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "858"; */
+"858.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Hoofd menu 4:3"; ObjectID = "859"; */
+"859.title" = "Hoofd menu 4:3";
+
+/* Class = "NSMenuItem"; title = "Selectie menu 4:3"; ObjectID = "861"; */
+"861.title" = "Selectie menu 4:3";
+
+/* Class = "NSTabViewItem"; label = "2"; ObjectID = "1080"; */
+"1080.label" = "2";
+
+/* Class = "NSTabViewItem"; label = "1"; ObjectID = "1082"; */
+"1082.label" = "1";
+
+/* Class = "NSTabViewItem"; label = "Start"; ObjectID = "1085"; */
+"1085.label" = "Start";
+
+/* Class = "NSTabViewItem"; label = "Hoofdstuk"; ObjectID = "1121"; */
+"1121.label" = "Hoofdstuk";
+
+/* Class = "NSTabViewItem"; label = "Titel"; ObjectID = "1157"; */
+"1157.label" = "Titel";
+
+/* Class = "NSTabViewItem"; label = "Titel"; ObjectID = "1194"; */
+"1194.label" = "Titel";
+
+/* Class = "NSTabViewItem"; label = "Volgende"; ObjectID = "1234"; */
+"1234.label" = "Volgende";
+
+/* Class = "NSTabViewItem"; label = "Selectie"; ObjectID = "1312"; */
+"1312.label" = "Selectie";
+
+/* Class = "NSTabViewItem"; label = "Vorige"; ObjectID = "1358"; */
+"1358.label" = "Vorige";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1395"; */
+"1395.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Titel"; ObjectID = "1397"; */
+"1397.title" = "Titel";
+
+/* Class = "NSMenuItem"; title = "Hoofdstuk"; ObjectID = "1398"; */
+"1398.title" = "Hoofdstuk";
+
+/* Class = "NSButtonCell"; title = "Afbeeldingen en tekst"; ObjectID = "1411"; */
+"1411.title" = "Afbeeldingen en tekst";
+
+/* Class = "NSButtonCell"; title = "Alleen afbeeldingen"; ObjectID = "1412"; */
+"1412.title" = "Alleen afbeeldingen";
+
+/* Class = "NSButtonCell"; title = "Alleen tekst"; ObjectID = "1413"; */
+"1413.title" = "Alleen tekst";
+
+/* Class = "NSMenuItem"; title = "Hoofd menu 16:9"; ObjectID = "1432"; */
+"1432.title" = "Hoofd menu 16:9";
+
+/* Class = "NSMenuItem"; title = "Selectie menu 16:9"; ObjectID = "1433"; */
+"1433.title" = "Selectie menu 16:9";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "1847"; */
+"1847.title" = "Box";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1850"; */
+"1850.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Verberg"; ObjectID = "1851"; */
+"1851.title" = "Verberg";
+
+/* Class = "NSMenuItem"; title = "Toon"; ObjectID = "1852"; */
+"1852.title" = "Toon";
+
+/* Class = "NSWindow"; title = "Voorvertoning"; ObjectID = "1857"; */
+"1857.title" = "Voorvertoning";
+
+/* Class = "NSTabViewItem"; label = "Extra"; ObjectID = "1957"; */
+"1957.label" = "Extra";
+
+/* Class = "NSTabViewItem"; label = "Extra"; ObjectID = "1959"; */
+"1959.label" = "Extra";
+
+/* Class = "NSTabViewItem"; label = "Strings"; ObjectID = "2111"; */
+"2111.label" = "Strings";
+
+/* Class = "NSTabViewItem"; label = "Images"; ObjectID = "2149"; */
+"2149.label" = "Images";
+
+/* Class = "NSTabViewItem"; label = "Naam"; ObjectID = "2272"; */
+"2272.label" = "Naam";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "2338"; */
+"2338.title" = "OtherViews";
+
+/* Class = "NSWindow"; title = "Paneel"; ObjectID = "2524"; */
+"2524.title" = "Paneel";
+
+/* Class = "NSMenuItem"; title = " "; ObjectID = "2538"; */
+"2538.title" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Bewerk:"; ObjectID = "2586"; */
+"2586.title" = "Bewerk:";
+
+/* Class = "NSTextFieldCell"; title = "Voorvertoning:"; ObjectID = "2589"; */
+"2589.title" = "Voorvertoning:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2591"; */
+"2591.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Titel selectie tekst:"; ObjectID = "2592"; */
+"2592.title" = "Titel selectie tekst:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2593"; */
+"2593.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Hoofdstukken selectie tekst:"; ObjectID = "2594"; */
+"2594.title" = "Hoofdstukken selectie tekst:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2595"; */
+"2595.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2596"; */
+"2596.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2597"; */
+"2597.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2598"; */
+"2598.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2602"; */
+"2602.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2604"; */
+"2604.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2605"; */
+"2605.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2606"; */
+"2606.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2608"; */
+"2608.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2609"; */
+"2609.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2610"; */
+"2610.title" = "Grootte w:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2611"; */
+"2611.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2613"; */
+"2613.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2615"; */
+"2615.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2616"; */
+"2616.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2618"; */
+"2618.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Geen titel selectie tekst"; ObjectID = "2620"; */
+"2620.title" = "Geen titel selectie tekst";
+
+/* Class = "NSButtonCell"; title = "Geen hoofdstukken selectie tekst"; ObjectID = "2621"; */
+"2621.title" = "Geen hoofdstukken selectie tekst";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2622"; */
+"2622.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2623"; */
+"2623.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2625"; */
+"2625.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2626"; */
+"2626.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2628"; */
+"2628.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2630"; */
+"2630.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2631"; */
+"2631.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2635"; */
+"2635.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2636"; */
+"2636.title" = "Plaatsing x:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2637"; */
+"2637.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2638"; */
+"2638.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2639"; */
+"2639.title" = "Gebruik een afbeelding";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2640"; */
+"2640.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Font Color:"; ObjectID = "2642"; */
+"2642.title" = "Font Color:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2644"; */
+"2644.title" = "Lijn wijdte:";
+
+/* Class = "NSTextFieldCell"; title = "Volgende knop masker:"; ObjectID = "2645"; */
+"2645.title" = "Volgende knop masker:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2648"; */
+"2648.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2649"; */
+"2649.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Volgende knop:"; ObjectID = "2650"; */
+"2650.title" = "Volgende knop:";
+
+/* Class = "NSButtonCell"; title = "Geen volgende knop"; ObjectID = "2651"; */
+"2651.title" = "Geen volgende knop";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2652"; */
+"2652.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "Extra:"; ObjectID = "2653"; */
+"2653.title" = "Extra:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype: Lucida Grande Bold12"; ObjectID = "2654"; */
+"2654.title" = "Lettertype: Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2655"; */
+"2655.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2658"; */
+"2658.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2659"; */
+"2659.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Selectie tekst masker:"; ObjectID = "2660"; */
+"2660.title" = "Selectie tekst masker:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2661"; */
+"2661.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2662"; */
+"2662.title" = "Lijn wijdte:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2663"; */
+"2663.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2664"; */
+"2664.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Aantal voorwerpen per pagina:"; ObjectID = "2665"; */
+"2665.title" = "Aantal voorwerpen per pagina:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2666"; */
+"2666.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2667"; */
+"2667.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2669"; */
+"2669.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Afstand h:"; ObjectID = "2673"; */
+"2673.title" = "Afstand h:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2679"; */
+"2679.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2680"; */
+"2680.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Selectie tekst:"; ObjectID = "2682"; */
+"2682.title" = "Selectie tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2683"; */
+"2683.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2684"; */
+"2684.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "Extra:"; ObjectID = "2689"; */
+"2689.title" = "Extra:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2690"; */
+"2690.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2691"; */
+"2691.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2692"; */
+"2692.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2693"; */
+"2693.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Line width:"; ObjectID = "2694"; */
+"2694.title" = "Line width:";
+
+/* Class = "NSTextFieldCell"; title = "Seperation w:"; ObjectID = "2697"; */
+"2697.title" = "Seperation w:";
+
+/* Class = "NSTextFieldCell"; title = "Selectie afbeeldingen:"; ObjectID = "2699"; */
+"2699.title" = "Selectie afbeeldingen:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2700"; */
+"2700.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype: Lucida Grande Bold12"; ObjectID = "2701"; */
+"2701.title" = "Lettertype: Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Afstand w:"; ObjectID = "2703"; */
+"2703.title" = "Afstand w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2708"; */
+"2708.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Aantal voorwerpen per pagina:"; ObjectID = "2710"; */
+"2710.title" = "Aantal voorwerpen per pagina:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2711"; */
+"2711.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2712"; */
+"2712.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Aantal voorwerpen per rij:"; ObjectID = "2713"; */
+"2713.title" = "Aantal voorwerpen per rij:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2714"; */
+"2714.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Selectie afbeeldingen masker:"; ObjectID = "2715"; */
+"2715.title" = "Selectie afbeeldingen masker:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2716"; */
+"2716.title" = "Plaatsing x:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2717"; */
+"2717.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2718"; */
+"2718.title" = "Grootte w:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2721"; */
+"2721.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2722"; */
+"2722.title" = "Lettertype:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2723"; */
+"2723.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Vorige knop masker:"; ObjectID = "2724"; */
+"2724.title" = "Vorige knop masker:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2725"; */
+"2725.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2727"; */
+"2727.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2728"; */
+"2728.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2731"; */
+"2731.title" = "Lijn wijdte:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2732"; */
+"2732.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2733"; */
+"2733.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2735"; */
+"2735.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2737"; */
+"2737.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2738"; */
+"2738.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2739"; */
+"2739.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2742"; */
+"2742.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2745"; */
+"2745.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Vorige knop:"; ObjectID = "2746"; */
+"2746.title" = "Vorige knop:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2748"; */
+"2748.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2749"; */
+"2749.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "Geen vorige knop"; ObjectID = "2750"; */
+"2750.title" = "Geen vorige knop";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2751"; */
+"2751.title" = "Lettertype:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een andere titel selectie achtergrond"; ObjectID = "2752"; */
+"2752.title" = "Gebruik een andere titel selectie achtergrond";
+
+/* Class = "NSButtonCell"; title = "Gebruik een andere hoofdstuk selectie achtergrond"; ObjectID = "2753"; */
+"2753.title" = "Gebruik een andere hoofdstuk selectie achtergrond";
+
+/* Class = "NSButtonCell"; title = "Plaats een afbeelding over de titel selectie"; ObjectID = "2754"; */
+"2754.title" = "Plaats een afbeelding over de titel selectie";
+
+/* Class = "NSButtonCell"; title = "Plaats een afbeelding over de hoofdstuk selectie"; ObjectID = "2755"; */
+"2755.title" = "Plaats een afbeelding over de hoofdstuk selectie";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold 12"; ObjectID = "2756"; */
+"2756.title" = "Lucida Grande Bold 12";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2757"; */
+"2757.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2758"; */
+"2758.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2759"; */
+"2759.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Start knop masker:"; ObjectID = "2763"; */
+"2763.title" = "Start knop masker:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2764"; */
+"2764.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2767"; */
+"2767.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2768"; */
+"2768.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2770"; */
+"2770.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2771"; */
+"2771.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2772"; */
+"2772.title" = "Lijn wijdte:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2775"; */
+"2775.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2776"; */
+"2776.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2777"; */
+"2777.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2778"; */
+"2778.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Start knop:"; ObjectID = "2780"; */
+"2780.title" = "Start knop:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2781"; */
+"2781.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Geen start knop"; ObjectID = "2783"; */
+"2783.title" = "Geen start knop";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2784"; */
+"2784.title" = "Lettertype:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2785"; */
+"2785.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2786"; */
+"2786.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2788"; */
+"2788.title" = "Lijn wijdte:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2789"; */
+"2789.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2794"; */
+"2794.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2795"; */
+"2795.title" = "Tekst:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2796"; */
+"2796.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2797"; */
+"2797.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2799"; */
+"2799.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2800"; */
+"2800.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2801"; */
+"2801.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2802"; */
+"2802.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Hoofdstukken knop masker:"; ObjectID = "2803"; */
+"2803.title" = "Hoofdstukken knop masker:";
+
+/* Class = "NSTextFieldCell"; title = "Hoofdstukken knop:"; ObjectID = "2804"; */
+"2804.title" = "Hoofdstukken knop:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2805"; */
+"2805.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2808"; */
+"2808.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2809"; */
+"2809.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Geen hoofdstukken knop:"; ObjectID = "2812"; */
+"2812.title" = "Geen hoofdstukken knop:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2813"; */
+"2813.title" = "Lettertype:";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2814"; */
+"2814.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2818"; */
+"2818.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Titel knop masker:"; ObjectID = "2819"; */
+"2819.title" = "Titel knop masker:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2822"; */
+"2822.title" = "Plaatsing x:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2824"; */
+"2824.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2826"; */
+"2826.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "Lijn wijdte:"; ObjectID = "2827"; */
+"2827.title" = "Lijn wijdte:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2828"; */
+"2828.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2829"; */
+"2829.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Titel knop:"; ObjectID = "2830"; */
+"2830.title" = "Titel knop:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2832"; */
+"2832.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2833"; */
+"2833.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2835"; */
+"2835.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Tekst:"; ObjectID = "2836"; */
+"2836.title" = "Tekst:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een afbeelding"; ObjectID = "2838"; */
+"2838.title" = "Gebruik een afbeelding";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2839"; */
+"2839.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2840"; */
+"2840.title" = "Grootte w:";
+
+/* Class = "NSButtonCell"; title = "Geen titel knop"; ObjectID = "2841"; */
+"2841.title" = "Geen titel knop";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2842"; */
+"2842.title" = "Lettertype:";
+
+/* Class = "NSButtonCell"; title = "Gebruik een andere titelscherm achtergrond"; ObjectID = "2843"; */
+"2843.title" = "Gebruik een andere titelscherm achtergrond";
+
+/* Class = "NSButtonCell"; title = "Gebruik een andere hoofdstukkenscherm achtergrond"; ObjectID = "2844"; */
+"2844.title" = "Gebruik een andere hoofdstukkenscherm achtergrond";
+
+/* Class = "NSButtonCell"; title = "Plaats een afbeelding over het titelscherm"; ObjectID = "2845"; */
+"2845.title" = "Plaats een afbeelding over het titelscherm";
+
+/* Class = "NSButtonCell"; title = "Plaats een afbeelding over het hoofdstukkenscherm"; ObjectID = "2846"; */
+"2846.title" = "Plaats een afbeelding over het hoofdstukkenscherm";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold 12"; ObjectID = "2847"; */
+"2847.title" = "Lucida Grande Bold 12";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2848"; */
+"2848.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Kleur:"; ObjectID = "2849"; */
+"2849.title" = "Kleur:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2851"; */
+"2851.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2852"; */
+"2852.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2854"; */
+"2854.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2856"; */
+"2856.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "DVD naam tekst:"; ObjectID = "2858"; */
+"2858.title" = "DVD naam tekst:";
+
+/* Class = "NSButtonCell"; title = "Geen DVD naam tekst"; ObjectID = "2859"; */
+"2859.title" = "Geen DVD naam tekst";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold 12"; ObjectID = "2860"; */
+"2860.title" = "Lucida Grande Bold 12";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2861"; */
+"2861.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Font Color:"; ObjectID = "2862"; */
+"2862.title" = "Font Color:";
+
+/* Class = "NSTextFieldCell"; title = "Plaatsing x:"; ObjectID = "2864"; */
+"2864.title" = "Plaatsing x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2865"; */
+"2865.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "Grootte w:"; ObjectID = "2867"; */
+"2867.title" = "Grootte w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2869"; */
+"2869.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Video naam tekst:"; ObjectID = "2871"; */
+"2871.title" = "Video naam tekst:";
+
+/* Class = "NSButtonCell"; title = "Geen video naam tekst"; ObjectID = "2872"; */
+"2872.title" = "Geen video naam tekst";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2873"; */
+"2873.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "Lettertype:"; ObjectID = "2874"; */
+"2874.title" = "Lettertype:";
+
+/* Class = "NSTextFieldCell"; title = "Toon:"; ObjectID = "2876"; */
+"2876.title" = "Toon:";
+
+/* Class = "NSTextFieldCell"; title = "Opties:"; ObjectID = "2877"; */
+"2877.title" = "Opties:";
+
+/* Class = "NSTextFieldCell"; title = "Toon het titel / hoofdstuk scherm als:"; ObjectID = "2878"; */
+"2878.title" = "Toon het titel / hoofdstuk scherm als:";
+
+/* Class = "NSTextFieldCell"; title = "Maak voorvertoning afbeeldingen op:"; ObjectID = "2879"; */
+"2879.title" = "Maak voorvertoning afbeeldingen op:";
+
+/* Class = "NSTextFieldCell"; title = "seconden"; ObjectID = "2881"; */
+"2881.title" = "seconden";
+
+/* Class = "NSTextFieldCell"; title = "Selectie:"; ObjectID = "2883"; */
+"2883.title" = "Selectie:";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "2884"; */
+"2884.title" = "Button";
+
+/* Class = "NSTextFieldCell"; title = "Klik om te open in een groter venster"; ObjectID = "2885"; */
+"2885.title" = "Klik om te open in een groter venster";
+
+/* Class = "NSButtonCell"; title = "Kies..."; ObjectID = "2886"; */
+"2886.title" = "Kies...";
+
+/* Class = "NSTextFieldCell"; title = "Algemene achtergrond:"; ObjectID = "2887"; */
+"2887.title" = "Algemene achtergrond:";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "2889"; */
+"2889.title" = "+";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "2890"; */
+"2890.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "Lokalisatie:"; ObjectID = "2891"; */
+"2891.title" = "Lokalisatie:";
+
+/* Class = "NSTextFieldCell"; title = "Thema naam:"; ObjectID = "2892"; */
+"2892.title" = "Thema naam:";
+
+/* Class = "NSTextFieldCell"; title = "Naamloos"; ObjectID = "2893"; */
+"2893.title" = "Naamloos";
+
+/* Class = "NSTextFieldCell"; title = "Lokalisatie:"; ObjectID = "2896"; */
+"2896.title" = "Lokalisatie:";
+
+/* Class = "NSButtonCell"; title = "Voeg toe"; ObjectID = "2897"; */
+"2897.title" = "Voeg toe";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2898"; */
+"2898.title" = "Radio";
