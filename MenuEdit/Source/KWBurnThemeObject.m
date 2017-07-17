@@ -245,12 +245,17 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 	return prop.allKeys;
 }
 
-+ (KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme
++ (KWBurnThemeObject*)migrageOldBurnThemeFromContentsOfURL:(NSURL *)oldTheme error:(NSError * _Nullable __autoreleasing *)error
 {
-	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:NSFileWrapperReadingImmediate error:NULL];
+	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:NSFileWrapperReadingImmediate error:error];
 	if (!oldWrap) {
 		return nil;
 	}
+	return [self migrageOldBurnThemeFromFileWrapper:oldWrap error:error];
+}
+
++ (KWBurnThemeObject*)migrageOldBurnThemeFromFileWrapper:(NSFileWrapper*)oldWrap error:(NSError * _Nullable __autoreleasing * _Nullable)error
+{
 	NSDictionary<NSString *, NSFileWrapper *> *resMaps;
 	@try {
 		resMaps = [[[[[oldWrap fileWrappers] objectForKey:@"Contents"] fileWrappers] objectForKey:@"Resources"] fileWrappers];
@@ -258,6 +263,9 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 		resMaps = nil;
 	}
 	if (!resMaps) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
+		}
 		return nil;
 	}
 	NSArray<NSString*> *keys = [resMaps allKeys];

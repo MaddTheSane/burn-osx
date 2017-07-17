@@ -10,6 +10,7 @@
 		55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
 		55E8BC341EE7CDAC00BBE4F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E8BC331EE7CDAC00BBE4F6 /* main.m */; };
 		55E8BC381EE7CDC900BBE4F6 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
+		55FB77141F1D6F9D00959AE1 /* BurnThemeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB77131F1D6F9D00959AE1 /* BurnThemeDocument.swift */; };
 		8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -46,6 +47,8 @@
 		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
 		55E8BC311EE7CDAC00BBE4F6 /* btoTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = btoTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E8BC331EE7CDAC00BBE4F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		55FB77121F1D6F9C00959AE1 /* MenuEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MenuEdit-Bridging-Header.h"; path = "Source/MenuEdit-Bridging-Header.h"; sourceTree = "<group>"; };
+		55FB77131F1D6F9D00959AE1 /* BurnThemeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurnThemeDocument.swift; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 				55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */,
 				55C378991EE350190045DDD5 /* KWBurnThemeObject.h */,
 				55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */,
+				55FB77131F1D6F9D00959AE1 /* BurnThemeDocument.swift */,
 			);
 			name = Classes;
 			path = Source;
@@ -160,6 +164,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				55FB77121F1D6F9C00959AE1 /* MenuEdit-Bridging-Header.h */,
 				32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -257,6 +262,9 @@
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
+					8D1107260486CEB800E47090 = {
+						LastSwiftMigration = 0830;
+					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuEdit" */;
@@ -316,6 +324,7 @@
 				55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				FECFB2560F06AD3000933318 /* MyDocument.m in Sources */,
+				55FB77141F1D6F9D00959AE1 /* BurnThemeDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +462,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -460,8 +470,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiwifruitware.Burn-Menu-Creator";
 				PRODUCT_NAME = MenuEdit;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/MenuEdit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -469,12 +483,16 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiwifruitware.Burn-Menu-Creator";
 				PRODUCT_NAME = MenuEdit;
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/MenuEdit-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -545,6 +563,7 @@
 				55E8BC371EE7CDAC00BBE4F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuEdit" */ = {
 			isa = XCConfigurationList;

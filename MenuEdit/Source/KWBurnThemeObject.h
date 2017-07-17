@@ -204,11 +204,12 @@ extern KWResourceKeys const KWSelectionStringsMaskRectKey;
 - (instancetype)init;
 - (nullable instancetype)initWithURL:(NSURL*)url error:(NSError**)error;
 
-+ (nullable KWBurnThemeObject*)migrageOldBurnTheme:(NSURL*)oldTheme;
++ (nullable KWBurnThemeObject*)migrageOldBurnThemeFromContentsOfURL:(NSURL*)oldTheme error:(NSError * _Nullable __autoreleasing * _Nullable)error;
++ (nullable KWBurnThemeObject*)migrageOldBurnThemeFromFileWrapper:(NSFileWrapper*)oldTheme error:(NSError * _Nullable __autoreleasing * _Nullable)error;
 
 
-- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws locale:(nullable NSLocale*)locale error:(NSError**)error;
-- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws error:(NSError**)error;
+- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws locale:(nullable NSLocale*)locale error:(NSError * _Nullable __autoreleasing * _Nullable)error;
+- (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws error:(NSError * _Nullable __autoreleasing * _Nullable)error;
 - (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
 @property (readonly, copy) NSArray<NSString*> *allLanguages;
