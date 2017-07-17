@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
@@ -233,13 +233,13 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" id="mlu-vj-Jti">
+                <menuItem title="Help" id="nZ8-ko-Q2b">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Help" systemMenu="help" id="aNS-dp-QaF">
+                    <menu key="submenu" title="Help" systemMenu="help" id="nEV-hW-E7W">
                         <items>
-                            <menuItem title="MenuEdit Help" keyEquivalent="?" id="2wm-TO-38K">
+                            <menuItem title="MenuEdit Help" keyEquivalent="?" id="R75-VK-0AL">
                                 <connections>
-                                    <action selector="showHelp:" target="-1" id="VIM-Qd-ydu"/>
+                                    <action selector="showHelp:" target="-1" id="d5h-2c-fHj"/>
                                 </connections>
                             </menuItem>
                         </items>
