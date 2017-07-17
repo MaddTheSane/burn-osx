@@ -12,23 +12,23 @@
 int main()
 {
 	KWBurnThemeObject * bto = [KWBurnThemeObject migrageOldBurnTheme:[NSURL fileURLWithPath:@"../Default.burnTheme"]];
-	BOOL success = [bto saveToURL:[NSURL fileURLWithPath:@"Default.burnTheme"] error:NULL];
+	NSError *tmpErr = nil;
+	BOOL success = [bto saveToURL:[NSURL fileURLWithPath:@"Default.burnTheme"] error:&tmpErr];
 	if (!success) {
-		printf("Save failed!\n");
+		printf("Save failed, error: '%s'!\n", tmpErr.description.UTF8String);
 		return EXIT_FAILURE;
 	}
 	
 	bto = nil;
-	NSError *tmpErr;
 	bto = [[KWBurnThemeObject alloc] initWithURL:[NSURL fileURLWithPath:@"Default.burnTheme"] error:&tmpErr];
 	if (!bto) {
 		printf("Load failed, error: %s\n", tmpErr.description.UTF8String);
 		return EXIT_FAILURE;
 	}
 	
-	success = [bto saveToURL:[NSURL fileURLWithPath:@"Default2.burnTheme"] error:NULL];
+	success = [bto saveToURL:[NSURL fileURLWithPath:@"Default2.burnTheme"] error:&tmpErr];
 	if (!success) {
-		printf("Save failed!\n");
+		printf("Save failed, error: '%s'!\n", tmpErr.description.UTF8String);
 		return EXIT_FAILURE;
 	}
 	

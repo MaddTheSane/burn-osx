@@ -307,7 +307,7 @@ keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension
 			
 #define MigrateRectSettings(base) tmpRect = NSMakeRect( [[oldDict[0] objectForKey: base @"X"] intValue], [[oldDict[0] objectForKey: base @"Y"] intValue], [[oldDict[0] objectForKey: base @"W"] intValue], [[oldDict[0] objectForKey: base @"H"] intValue]); \
 tmpRectStr = NSStringFromRect(tmpRect); \
-[newVal setPropertyValue: tmpRectStr forKey: base @"Rect"]; \
+[newVal setPropertyValue: tmpRectStr forKey: base @"Rect" wideScreen:NO]; \
 tmpRect = NSMakeRect( [[oldDict[1] objectForKey: base @"X"] intValue], [[oldDict[1] objectForKey: base @"Y"] intValue], [[oldDict[1] objectForKey: base @"W"] intValue], [[oldDict[1] objectForKey: base @"H"] intValue]); \
 tmpRectStr = NSStringFromRect(tmpRect); \
 [newVal setPropertyValue: tmpRectStr forKey: base @"Rect" wideScreen:YES]
@@ -334,7 +334,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 #undef MigrateRectSettings
 			
 #define MigrateSettings(base) \
-[newVal setPropertyValue:[oldDict[0] objectForKey: base ] forKey: base ]; \
+[newVal setPropertyValue:[oldDict[0] objectForKey: base ] forKey: base wideScreen:NO]; \
 [newVal setPropertyValue:[oldDict[1] objectForKey: base ] forKey: base wideScreen:YES]
 			
 			MigrateSettings(KWDVDNameDisableTextKey);
@@ -496,8 +496,9 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 {
 	NSData *versData = [burnVersion dataUsingEncoding:NSASCIIStringEncoding];
 	NSFileWrapper *newWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{burnVersionFileName: [[NSFileWrapper alloc] initRegularFileWithContents:versData]}];
-	self = [self initWithFileWrapper:newWrap];
-	self.currentLocale = [NSLocale currentLocale];
+	if (self = [self initWithFileWrapper:newWrap]) {
+		self.currentLocale = [NSLocale currentLocale];
+	}
 	return self;
 }
 
@@ -522,6 +523,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		}
 		return nil;
 	}
+	// Use NSMacOSRomanStringEncoding to force it to load even invalid data.
 	NSString *strVal = [[NSString alloc] initWithData:versData encoding:NSMacOSRomanStringEncoding];
 	if (![strVal isEqualToString:burnVersion]) {
 		if (error) {
