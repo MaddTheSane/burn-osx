@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
 - (void)collectGarbage;
+- (void)updateLocales;
 
 @end
 

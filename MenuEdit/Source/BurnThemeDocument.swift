@@ -39,6 +39,7 @@ class BurnThemeDocument: NSDocument {
 
 	override func fileWrapper(ofType typeName: String) throws -> FileWrapper {
 		if typeName == "burnTheme" {
+			myTheme.updateLocales()
 			return myTheme.fileWrapper
 		} else {
 			throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)

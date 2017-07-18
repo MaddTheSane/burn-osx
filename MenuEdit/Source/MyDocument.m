@@ -259,6 +259,7 @@ return self;
 		return nil;
 	}
 	
+	[myTheme updateLocales];
 	return myTheme.fileWrapper;
 }
 
@@ -886,7 +887,7 @@ return self;
 - (NSImage *)selectionMaskWithTitles:(BOOL)titles
 {
 	NSImage *newImage;
-	NSDictionary *theme = nil;
+	NSDictionary *theme = [self getCurrentThemeObject];
 	
 	if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
 		newImage = [[NSImage alloc] initWithSize: NSMakeSize(720,576)];

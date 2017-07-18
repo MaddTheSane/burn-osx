@@ -218,6 +218,39 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 @synthesize fileWrapper;
 @synthesize currentLocale = _currentLocale;
 
+- (void)updateLocales
+{
+	for (NSString *locale in prop) {
+		NSFileWrapper *localeWrapper2 = [fileWrapper fileWrappers][locale];
+		if (!localeWrapper2 || !localeWrapper2.isDirectory) {
+			if (localeWrapper2) {
+				[fileWrapper removeFileWrapper:localeWrapper2];
+			}
+			localeWrapper2 = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
+			localeWrapper2.preferredFilename = locale;
+			[fileWrapper addFileWrapper:localeWrapper2];
+		}
+		//Remove the old theme files, if present
+		NSFileWrapper *themeWrapper = localeWrapper2.fileWrappers[themePlist];
+		if (themeWrapper) {
+			[localeWrapper2 removeFileWrapper:themeWrapper];
+		}
+		themeWrapper = localeWrapper2.fileWrappers[themeWideScreenPlist];
+		if (themeWrapper) {
+			[localeWrapper2 removeFileWrapper:themeWrapper];
+		}
+		
+		NSData *themeData = [NSPropertyListSerialization dataWithPropertyList:prop[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+		if (themeData) {
+			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themePlist];
+		}
+		themeData = [NSPropertyListSerialization dataWithPropertyList:propWS[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
+		if (themeData) {
+			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themeWideScreenPlist];
+		}
+	}
+}
+
 - (void)setCurrentLocale:(NSLocale *)newLocale
 {
 	if (!newLocale) {
@@ -225,17 +258,17 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 	} else {
 		_currentLocale = [newLocale copy];
 	}
-	if (![[fileWrapper fileWrappers] objectForKey:[_currentLocale languageCode]]) {
+	if (![[fileWrapper fileWrappers] objectForKey:[_currentLocale localeIdentifier]]) {
 		NSFileWrapper *newLocaleWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
-		newLocaleWrap.preferredFilename = [_currentLocale languageCode];
+		newLocaleWrap.preferredFilename = [_currentLocale localeIdentifier];
 		[fileWrapper addFileWrapper:newLocaleWrap];
 	}
-	localeWrapper = [[fileWrapper fileWrappers] objectForKey:[_currentLocale languageCode]];
-	if (prop[_currentLocale.languageCode] == nil) {
-		prop[_currentLocale.languageCode] = [[NSMutableDictionary alloc] initWithCapacity:100];
+	localeWrapper = [[fileWrapper fileWrappers] objectForKey:[_currentLocale localeIdentifier]];
+	if (prop[_currentLocale.localeIdentifier] == nil) {
+		prop[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:100];
 	}
-	if (propWS[_currentLocale.languageCode] == nil) {
-		propWS[_currentLocale.languageCode] = [[NSMutableDictionary alloc] initWithCapacity:100];
+	if (propWS[_currentLocale.localeIdentifier] == nil) {
+		propWS[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:100];
 	}
 
 }
@@ -247,7 +280,7 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 
 + (KWBurnThemeObject*)migrageOldBurnThemeFromContentsOfURL:(NSURL *)oldTheme error:(NSError * _Nullable __autoreleasing *)error
 {
-	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:NSFileWrapperReadingImmediate error:error];
+	NSFileWrapper *oldWrap = [[NSFileWrapper alloc] initWithURL:oldTheme options:0 error:error];
 	if (!oldWrap) {
 		return nil;
 	}
@@ -278,19 +311,18 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 			NSString *tmpRectStr;
 			NSString *keyWithExt;
 			NSString *langKey = [key stringByDeletingPathExtension];
-			langKey = [NSLocale canonicalLanguageIdentifierFromString:langKey];
-			NSArray<NSDictionary *> *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListImmutable format:nil error:nil];
+			langKey = [NSLocale canonicalLocaleIdentifierFromString:langKey];
+			NSArray<NSDictionary<NSString*,id> *> *oldDict = [NSPropertyListSerialization propertyListWithData:[[[[resMaps objectForKey:key] fileWrappers] objectForKey:@"Theme.plist"] regularFileContents] options:NSPropertyListImmutable format:nil error:nil];
 			newVal.currentLocale = [NSLocale localeWithLocaleIdentifier:langKey];
 			
-#define MigrateResource(key) if (oldDict[0][ key ]) { \
+#define MigrateResource(key) \
+if (oldDict[0][ key ]) { \
 keyWithExt = [key stringByAppendingPathExtension:@"tiff"];\
-[newVal addResource:oldDict[0][ key ] named: keyWithExt]; \
-[newVal setPropertyValue: keyWithExt forKey: key wideScreen:NO]; \
+[newVal addResource:oldDict[0][ key ] named: keyWithExt wideScreen:NO locale:newVal.currentLocale forKey: key]; \
 } \
 if (oldDict[1][ key ]) { \
 keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension:@"tiff"];\
-[newVal addResource:oldDict[1][ key ] named: keyWithExt]; \
-[newVal setPropertyValue: keyWithExt forKey: key wideScreen:YES]; \
+[newVal addResource:oldDict[1][ key ] named: keyWithExt wideScreen:YES locale:newVal.currentLocale forKey: key]; \
 }
 		
 			MigrateResource(KWStartButtonImageKey);
@@ -430,9 +462,9 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws
 {
 	if (ws) {
-		propWS[_currentLocale.languageCode][key] = val;
+		propWS[_currentLocale.localeIdentifier][key] = val;
 	} else {
-		prop[_currentLocale.languageCode][key] = val;
+		prop[_currentLocale.localeIdentifier][key] = val;
 	}
 }
 
@@ -451,7 +483,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	if (locale == nil) {
 		[self setPropertyValue:val forKey:key wideScreen:ws];
 	}
-	NSString *lang = locale.languageCode;
+	NSString *lang = locale.localeIdentifier;
 	NSMutableDictionary *dictToEdit = ws ? propWS : prop;
 	if (dictToEdit[lang] == nil) {
 		dictToEdit[lang] = [[NSMutableDictionary alloc] init];
@@ -556,7 +588,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 - (NSData *)resourceNamed:(NSString *)resName widescreen:(BOOL)ws locale:(NSLocale *)locale error:(NSError * _Nullable __autoreleasing *)error
 {
 	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToUse = ws ? propWS : prop;
-	NSString *lang = locale ? locale.languageCode : _currentLocale.languageCode;
+	NSString *lang = locale ? locale.localeIdentifier : _currentLocale.localeIdentifier;
 	NSDictionary *dictLoc = dictToUse[lang];
 	if (!dictLoc[resName]) {
 		if (error) {
@@ -616,12 +648,12 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		[fileWrapper addRegularFileWithContents:res preferredFilename:resName];
 		return;
 	}
-	if (!fileWrapper.fileWrappers[locale.languageCode]) {
+	if (!fileWrapper.fileWrappers[locale.localeIdentifier]) {
 		NSFileWrapper *tmpLocWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
-		tmpLocWrap.preferredFilename = locale.languageCode;
+		tmpLocWrap.preferredFilename = locale.localeIdentifier;
 		[fileWrapper addFileWrapper:tmpLocWrap];
 	}
-	[fileWrapper.fileWrappers[locale.languageCode] addRegularFileWithContents:res preferredFilename:resName];
+	[fileWrapper.fileWrappers[locale.localeIdentifier] addRegularFileWithContents:res preferredFilename:resName];
 }
 
 - (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws locale:(NSLocale*)locale forKey:(KWDataKeys)key
@@ -629,16 +661,16 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	NSString *lang;
 	NSString *actualName;
 	if (locale == nil) {
-		lang = [_currentLocale languageCode];
+		lang = [_currentLocale localeIdentifier];
 		actualName = [fileWrapper addRegularFileWithContents:res preferredFilename:resName];
 	} else {
-		lang = [_currentLocale languageCode];
-		if (!fileWrapper.fileWrappers[locale.languageCode]) {
+		lang = [locale localeIdentifier];
+		if (!fileWrapper.fileWrappers[locale.localeIdentifier]) {
 			NSFileWrapper *tmpLocWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
-			tmpLocWrap.preferredFilename = locale.languageCode;
+			tmpLocWrap.preferredFilename = locale.localeIdentifier;
 			[fileWrapper addFileWrapper:tmpLocWrap];
 		}
-		actualName = [fileWrapper.fileWrappers[locale.languageCode] addRegularFileWithContents:res preferredFilename:resName];
+		actualName = [fileWrapper.fileWrappers[locale.localeIdentifier] addRegularFileWithContents:res preferredFilename:resName];
 	}
 	NSMutableDictionary<NSString*,NSMutableDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
 	dictToGet[lang][key] = actualName;
@@ -653,9 +685,9 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 {
 	NSString *lang;
 	if (locale) {
-		lang = [locale languageCode];
+		lang = [locale localeIdentifier];
 	} else {
-		lang = [_currentLocale languageCode];
+		lang = [_currentLocale localeIdentifier];
 	}
 	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
 	return dictToGet[lang][key];
@@ -664,36 +696,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error
 {
 	// Update the theme wrappers.
-	for (NSString *locale in prop) {
-		NSFileWrapper *localeWrapper2 = [fileWrapper fileWrappers][locale];
-		if (!localeWrapper2 || !localeWrapper2.isDirectory) {
-			if (localeWrapper2) {
-				[fileWrapper removeFileWrapper:localeWrapper2];
-			}
-			localeWrapper2 = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
-			localeWrapper2.preferredFilename = locale;
-			[fileWrapper addFileWrapper:localeWrapper2];
-		}
-		//Remove the old theme files, if present
-		NSFileWrapper *themeWrapper = localeWrapper2.fileWrappers[themePlist];
-		if (themeWrapper) {
-			[localeWrapper2 removeFileWrapper:themeWrapper];
-		}
-		themeWrapper = localeWrapper2.fileWrappers[themeWideScreenPlist];
-		if (themeWrapper) {
-			[localeWrapper2 removeFileWrapper:themeWrapper];
-		}
-
-		NSData *themeData = [NSPropertyListSerialization dataWithPropertyList:prop[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
-		if (themeData) {
-			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themePlist];
-		}
-		themeData = [NSPropertyListSerialization dataWithPropertyList:propWS[locale] format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];
-		if (themeData) {
-			[localeWrapper2 addRegularFileWithContents:themeData preferredFilename:themeWideScreenPlist];
-		}
-	}
-	
+	[self updateLocales];
 	if ([fileWrapper writeToURL:url options:NSFileWrapperWritingWithNameUpdating originalContentsURL:oldDir error:error]) {
 		oldDir = url;
 		return YES;

@@ -11,8 +11,8 @@
 
 int main()
 {
-	KWBurnThemeObject * bto = [KWBurnThemeObject migrageOldBurnTheme:[NSURL fileURLWithPath:@"../Default.burnTheme"]];
 	NSError *tmpErr = nil;
+	KWBurnThemeObject * bto = [KWBurnThemeObject migrageOldBurnThemeFromContentsOfURL:[NSURL fileURLWithPath:@"../Default.burnTheme"] error:&tmpErr];
 	BOOL success = [bto saveToURL:[NSURL fileURLWithPath:@"Default.burnTheme"] error:&tmpErr];
 	if (!success) {
 		printf("Save failed, error: '%s'!\n", tmpErr.description.UTF8String);
