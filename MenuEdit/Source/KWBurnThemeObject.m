@@ -566,6 +566,31 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	return self;
 }
 
+- (void)setRectValue:(NSRect)val forKey:(KWRectKeys)key wideScreen:(BOOL)ws
+{
+	[self setRectValue:val forKey:key wideScreen:ws locale:nil];
+}
+
+- (void)setRectValue:(NSRect)val forKey:(KWRectKeys)key wideScreen:(BOOL)ws locale:(nullable NSLocale*)locale
+{
+	NSString *rectStr = NSStringFromRect(val);
+	[self setPropertyValue:rectStr forKey:key wideScreen:ws locale:locale];
+}
+
+- (void)removeLocale:(NSLocale*)locale
+{
+	if ([locale isEqual:_currentLocale]) {
+		return;
+	}
+	NSString *localeStr = locale.localeIdentifier;
+	[prop removeObjectForKey:localeStr];
+	[propWS removeObjectForKey:localeStr];
+	NSFileWrapper *localeWrapper2 = [fileWrapper fileWrappers][localeStr];
+	if (localeWrapper2) {
+		[fileWrapper removeFileWrapper:localeWrapper2];
+	}
+}
+
 - (instancetype)init
 {
 	NSData *versData = [burnVersion dataUsingEncoding:NSASCIIStringEncoding];
@@ -695,6 +720,15 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	}
 	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
 	return dictToGet[lang][key];
+}
+
+- (NSRect)rectWithKey:(KWRectKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale
+{
+	NSString *aProp = [self propertyWithKey:key widescreen:ws locale:locale];
+	if (!aProp) {
+		return NSZeroRect;
+	}
+	return NSRectFromString(aProp);
 }
 
 - (BOOL)saveToURL:(NSURL*)url error:(NSError**)error

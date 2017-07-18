@@ -359,9 +359,6 @@ return self;
 
 - (void)setViewOptions:(NSArray *)views withThemeObject:(KWBurnThemeObject *)themeObject
 {
-	NSEnumerator *iter = [[NSEnumerator alloc] init];
-	NSControl *cntl;
-	
 	for (NSInteger x = 0; x < [views count]; x++)
 	{
 		id property = nil;
@@ -372,8 +369,7 @@ return self;
 		else
 			currentView = [[views objectAtIndex:x] view];
 		
-		iter = [[currentView subviews] objectEnumerator];
-		while ((cntl = [iter nextObject]) != NULL)
+		for (NSControl *cntl in [currentView subviews])
 		{
 			if ([cntl isKindOfClass:[NSTabView class]])
 				[self setViewOptions:[(NSTabView *)cntl tabViewItems] withThemeObject:themeObject];

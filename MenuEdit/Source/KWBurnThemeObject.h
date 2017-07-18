@@ -216,6 +216,7 @@ extern KWRectKeys const KWChapterSelectionRectKey;
 - (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws locale:(nullable NSLocale*)locale error:(NSError * _Nullable __autoreleasing * _Nullable)error;
 - (nullable NSData*)resourceNamed:(KWDataKeys)resName widescreen:(BOOL)ws error:(NSError * _Nullable __autoreleasing * _Nullable)error;
 - (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
+- (NSRect)rectWithKey:(KWRectKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
 @property (readonly, copy) NSArray<NSString*> *allLanguages;
 

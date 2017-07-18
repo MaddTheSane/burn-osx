@@ -136,6 +136,11 @@ private let keyMappings: [Int: KWResourceKeys] = {
 private let oldKeyMappings: [Int: (key: KWRectKeys, side: OldKeySide)] = {
 	var okm = [Int: (key: KWRectKeys, side: OldKeySide)]()
 
+	okm[5] = (KWRectKeys.KWDVDNameRectKey, .x)
+	okm[6] = (KWRectKeys.KWDVDNameRectKey, .y)
+	okm[7] = (KWRectKeys.KWDVDNameRectKey, .width)
+	okm[8] = (KWRectKeys.KWDVDNameRectKey, .height)
+
 	okm[13] = (KWRectKeys.videoNameRectKey, .x)
 	okm[14] = (KWRectKeys.videoNameRectKey, .y)
 	okm[15] = (KWRectKeys.videoNameRectKey, .width)
@@ -226,19 +231,19 @@ private let oldKeyMappings: [Int: (key: KWRectKeys, side: OldKeySide)] = {
 
 class BurnThemeDocument: NSDocument {
 	//Interface outlets
-	@IBOutlet weak var localizationPopup: NSPopUpButton?
-	@IBOutlet weak var previewView: NSImageView?
-	@IBOutlet weak var selectionPopup: NSPopUpButton?
-	@IBOutlet weak var themeNameField: NSTextField?
-	@IBOutlet weak var viewPopup: NSPopUpButton?
-	@IBOutlet weak var mainWindow: NSWindow?
-	@IBOutlet weak var editTabView: NSTabView?
-	@IBOutlet weak var editPopup: NSPopUpButton?
-	@IBOutlet weak var localizationSheet: NSPanel?
-	@IBOutlet weak var localizationText: NSTextField?
-	@IBOutlet weak var previewWindow: NSWindow?
-	@IBOutlet weak var previewImageView: NSImageView?
-	@IBOutlet weak var selectionModeTabView: NSTabView?
+	@IBOutlet weak var localizationPopup: NSPopUpButton!
+	@IBOutlet weak var previewView: NSImageView!
+	@IBOutlet weak var selectionPopup: NSPopUpButton!
+	@IBOutlet weak var themeNameField: NSTextField!
+	@IBOutlet weak var viewPopup: NSPopUpButton!
+	@IBOutlet weak var mainWindow: NSWindow!
+	@IBOutlet weak var editTabView: NSTabView!
+	@IBOutlet weak var editPopup: NSPopUpButton!
+	@IBOutlet weak var localizationSheet: NSPanel!
+	@IBOutlet weak var localizationText: NSTextField!
+	@IBOutlet weak var previewWindow: NSWindow!
+	@IBOutlet weak var previewImageView: NSImageView!
+	@IBOutlet weak var selectionModeTabView: NSTabView!
 	
 	var myTheme: KWBurnThemeObject = KWBurnThemeObject()
 
@@ -307,7 +312,11 @@ class BurnThemeDocument: NSDocument {
 	
 	//Loading
 	func isWideScreen() -> Bool {
-		return false
+		if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 1 {
+			return false
+		} else {
+			return true
+		}
 	}
 	
 	func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject) {
