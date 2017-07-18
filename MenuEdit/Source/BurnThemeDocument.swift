@@ -63,114 +63,129 @@ class BurnThemeDocument: NSDocument {
     }
 
 	//Interface actions
-	@IBAction open func changeEditMode(_ sender: Any!) {
+	@IBAction func changeEditMode(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func changeSelectionMode(_ sender: Any!) {
+	@IBAction func changeSelectionMode(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func changeView(_ sender: Any!) {
+	@IBAction func changeView(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func openPreviewWindow(_ sender: Any!) {
+	@IBAction func openPreviewWindow(_ sender: Any!) {
 		
 	}
 	
 	
 	//Theme actions
 	//General
-	@IBAction open func setOption(_ sender: Any!) {
+	@IBAction func setOption(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func setThemeTitle(_ sender: Any!) {
+	@IBAction func setThemeTitle(_ sender: Any!) {
 		
 	}
 	
 	//Loading
-	open func isWideScreen() -> Bool {
+	func isWideScreen() -> Bool {
 		return false
 	}
 	
-	open func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject) {
+	func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject) {
 		
 	}
 	
-	open func check(forExceptions control: Any!) {
+	func check(forExceptions control: Any!) {
 		
 	}
 	
 	//Localization
-	@IBAction open func addLocalization(_ sender: Any!) {
+	@IBAction func addLocalization(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func add(_ sender: Any!) {
+	@IBAction func add(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func deleteLocalization(_ sender: Any!) {
+	@IBAction func deleteLocalization(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func selectLocalization(_ sender: Any!) {
+	@IBAction func selectLocalization(_ sender: Any!) {
 		
 	}
 	
 	//Appearance
-	@IBAction open func changeFontAnSize(_ sender: Any!) {
+	@IBAction func changeFontAnSize(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func changeFontColor(_ sender: Any!) {
+	@IBAction func changeFontColor(_ sender: Any!) {
 		
 	}
 	
-	@IBAction open func useImage(_ sender: Any!) {
+	@IBAction func useImage(_ sender: NSButton!) {
 		
 	}
 	
 	
 	//Preview actions
-	open func loadPreview() {
+	func loadPreview() {
 		
 	}
 	
-	open func rootMenu(withTitles titles: Bool) -> NSImage! {
+	func rootMenu(withTitles titles: Bool) -> NSImage! {
 		return nil
 	}
 	
-	open func rootMask(withTitles titles: Bool) -> NSImage! {
+	func rootMask(withTitles titles: Bool) -> NSImage! {
 		return nil
 	}
 	
-	open func selectionMenu(withTitles titles: Bool) -> NSImage! {
+	func selectionMenu(withTitles titles: Bool) -> NSImage! {
 		return nil
 	}
 	
-	open func selectionMask(withTitles titles: Bool) -> NSImage! {
+	func selectionMask(withTitles titles: Bool) -> NSImage! {
 		return nil
 	}
 	
 	
 	//Other actions
-	open func previewImage() -> NSImage! {
+	func previewImage() -> NSImage! {
 		return nil
 	}
 	
-	open func draw(_ string: String!, in rect: NSRect, on image: NSImage!, withFontName fontName: String!, withSize size: Int32, with color: NSColor!, use alignment: NSTextAlignment) {
+	open func draw(_ string: String, in rect: NSRect, on image: NSImage, withFontName fontName: String, withSize size: CGFloat, with color: NSColor, use alignment: NSTextAlignment) {
+		let labelFont = NSFont(name: fontName, size: size)
+		let centeredStyle = NSMutableParagraphStyle()
+		centeredStyle.alignment = alignment
+		var attsDict: [String: Any] = [NSParagraphStyleAttributeName: centeredStyle, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleNone, NSForegroundColorAttributeName: color]
+		attsDict[NSFontAttributeName] = labelFont
 		
-	}
-	
-	open func drawBox(in rect: NSRect, lineWidth width: Int32, on image: NSImage!) {
-		
-	}
-	
-	open func draw(_ drawImage: NSImage!, in rect: NSRect, on image: NSImage!) {
-		
+		image.lockFocus()
+		string.draw(in: rect, withAttributes: attsDict)
+		image.unlockFocus()
 	}
 
+	open func drawBox(in rect: NSRect, lineWidth width: CGFloat, on image: NSImage) {
+		image.lockFocus()
+		NSGraphicsContext.current()?.shouldAntialias = false
+		NSColor.white.set()
+		let path = NSBezierPath(rect: rect)
+		path.lineWidth = width
+		path.stroke()
+		image.unlockFocus()
+	}
+
+	open func draw(_ drawImage: NSImage, in rect: NSRect, on image: NSImage) {
+		image.lockFocus()
+		drawImage.draw(in: rect, from: .zero, operation: .sourceOver, fraction: 1)
+		image.unlockFocus()
+	}
 }

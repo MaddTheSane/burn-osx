@@ -624,6 +624,31 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	[fileWrapper.fileWrappers[locale.languageCode] addRegularFileWithContents:res preferredFilename:resName];
 }
 
+- (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws locale:(NSLocale*)locale forKey:(KWDataKeys)key
+{
+	NSString *lang;
+	NSString *actualName;
+	if (locale == nil) {
+		lang = [_currentLocale languageCode];
+		actualName = [fileWrapper addRegularFileWithContents:res preferredFilename:resName];
+	} else {
+		lang = [_currentLocale languageCode];
+		if (!fileWrapper.fileWrappers[locale.languageCode]) {
+			NSFileWrapper *tmpLocWrap = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{}];
+			tmpLocWrap.preferredFilename = locale.languageCode;
+			[fileWrapper addFileWrapper:tmpLocWrap];
+		}
+		actualName = [fileWrapper.fileWrappers[locale.languageCode] addRegularFileWithContents:res preferredFilename:resName];
+	}
+	NSMutableDictionary<NSString*,NSMutableDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
+	dictToGet[lang][key] = actualName;
+}
+
+- (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws forKey:(KWDataKeys)key
+{
+	[self addResource:res named:resName wideScreen:ws locale:nil forKey:key];
+}
+
 - (id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(NSLocale *)locale
 {
 	NSString *lang;
@@ -674,6 +699,11 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		return YES;
 	}
 	return NO;
+}
+
+- (void)collectGarbage
+{
+	//TODO: implement
 }
 
 @end

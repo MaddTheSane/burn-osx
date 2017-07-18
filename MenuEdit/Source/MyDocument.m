@@ -414,15 +414,21 @@ return self;
 	}
 }
 
+- (NSDictionary*)getCurrentThemeObject
+{
+	return nil;
+}
+
 - (void)checkForExceptions:(id)button
 {
 	if ([button tag] == 2 || [button tag] == 10 || [button tag] == 19 || [button tag] == 35 || [button tag] == 51 || [button tag] == 71 || [button tag] == 81 || [button tag] == 91 || [button tag] == 107 || [button tag] == 121 || [button tag] == 139)
 	{
-	[button setStringValue:[[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] - 1]] stringByAppendingString:[@" " stringByAppendingString:[[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag]]] stringValue]]]];
-		if (![[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] + 1]] isEqualTo:@""])
-		[[[button superview] viewWithTag:[button tag] + 2] setColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] + 1]]]];
-		else
-		[[[button superview] viewWithTag:[button tag] + 2] setColor:[NSColor whiteColor]];
+		[button setStringValue:[[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] - 1]] stringByAppendingString:[@" " stringByAppendingString:[[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag]]] stringValue]]]];
+		if (![[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] + 1]] isEqualTo:@""]) {
+			[[[button superview] viewWithTag:[button tag] + 2] setColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[[self getCurrentThemeObject] objectForKey:[keyMappings objectAtIndex:[button tag] + 1]]]];
+		} else {
+			[[[button superview] viewWithTag:[button tag] + 2] setColor:[NSColor whiteColor]];
+		}
 	}
 }
 
@@ -440,10 +446,8 @@ return self;
 	{
 		[NSApp endSheet:localizationSheet];
 		[localizationSheet orderOut:self];
-		NSMutableArray *currentArray = [[myTheme objectForKey:@"Languages"] objectForKey:[localizationPopup titleOfSelectedItem]];
-		NSMutableDictionary *normalDictionary = [currentArray objectAtIndex:0];
-		NSMutableDictionary *wideDictionary = [currentArray objectAtIndex:1];
-		[[myTheme objectForKey:@"Languages"] setObject:[[NSMutableArray alloc] initWithObjects:[normalDictionary mutableCopy],[wideDictionary mutableCopy],nil] forKey:[localizationText stringValue]];
+		NSString *locStr = [localizationPopup titleOfSelectedItem];
+		myTheme.currentLocale = [NSLocale localeWithLocaleIdentifier:locStr];
 		[localizationPopup addItemWithTitle:[localizationText stringValue]];
 		[localizationPopup selectItemWithTitle:[localizationText stringValue]];
 		
@@ -459,7 +463,7 @@ return self;
 {
 	if ([localizationPopup numberOfItems] > 1)
 	{
-		[[myTheme objectForKey:@"Languages"] removeObjectForKey:[localizationPopup title]];
+		//[[myTheme objectForKey:@"Languages"] removeObjectForKey:[localizationPopup title]];
 		[localizationPopup removeItemWithTitle:[localizationPopup title]];
 		[self selectLocalization:self];
 	}
@@ -522,8 +526,7 @@ return self;
 		[sheet setAllowsMultipleSelection:NO];
 		sheet.allowedFileTypes = [NSImage imageFileTypes];
 		[sheet beginSheetModalForWindow:mainWindow completionHandler:^(NSInteger returnCode) {
-			if (returnCode == NSOKButton)
-			{
+			if (returnCode == NSOKButton) {
 				NSImage *newImage;
 				
 				if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
@@ -535,7 +538,9 @@ return self;
 				[[[NSImage alloc] initWithContentsOfURL:[sheet URL]] drawInRect:NSMakeRect(0,0,[newImage size].width,[newImage size].height) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 				[newImage unlockFocus];
 				
-				[[self getCurrentThemeObject] setObject:[newImage TIFFRepresentationUsingCompression:NSTIFFCompressionLZW factor:0] forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
+				NSData *newImgDat = [newImage TIFFRepresentationUsingCompression:NSTIFFCompressionLZW factor:0];
+				
+				[myTheme addResource:newImgDat named:[[keyMappings objectAtIndex:[sender tag] - 1] stringByAppendingPathExtension:@"tiff"] wideScreen:[self isWideScreen] forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
 				
 				[self loadPreview];
 				[self updateChangeCount:NSChangeDone];
@@ -548,7 +553,7 @@ return self;
 	}
 	else
 	{
-		[[self getCurrentThemeObject] setObject:[@"" dataUsingEncoding:NSASCIIStringEncoding] forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
+		[myTheme addResource:[@"" dataUsingEncoding:NSASCIIStringEncoding] named:[keyMappings objectAtIndex:[sender tag] - 1] wideScreen:self.isWideScreen forKey:[keyMappings objectAtIndex:[sender tag] - 1]];
 		
 		[self loadPreview];
 		[self updateChangeCount:NSChangeDone];
@@ -881,7 +886,7 @@ return self;
 - (NSImage *)selectionMaskWithTitles:(BOOL)titles
 {
 	NSImage *newImage;
-	NSDictionary *theme = [self getCurrentThemeObject];
+	NSDictionary *theme = nil;
 	
 	if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
 		newImage = [[NSImage alloc] initWithSize: NSMakeSize(720,576)];
