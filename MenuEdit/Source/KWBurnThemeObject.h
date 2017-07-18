@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSString *KWResourceKeys NS_STRING_ENUM;
+typedef KWResourceKeys KWRectKeys NS_STRING_ENUM;
 typedef KWResourceKeys KWDataKeys NS_STRING_ENUM;
 
 // keys
@@ -180,22 +181,26 @@ extern KWDataKeys const KWDefaultImageKey;
 extern NSString *const KWThemeTitleKey;
 
 
-extern KWResourceKeys const KWDVDNameRectKey;
-extern KWResourceKeys const KWVideoNameRectKey;
-extern KWResourceKeys const KWStartButtonRectKey;
-extern KWResourceKeys const KWStartButtonMaskRectKey;
-extern KWResourceKeys const KWTitleButtonRectKey;
-extern KWResourceKeys const KWTitleButtonMaskRectKey;
-extern KWResourceKeys const KWChapterButtonRectKey;
-extern KWResourceKeys const KWChapterButtonMaskRectKey;
-extern KWResourceKeys const KWPreviousButtonRectKey;
-extern KWResourceKeys const KWPreviousButtonMaskRectKey;
-extern KWResourceKeys const KWNextButtonRectKey;
-extern KWResourceKeys const KWNextButtonMaskRectKey;
-extern KWResourceKeys const KWSelectionImagesRectKey;
-extern KWResourceKeys const KWSelectionImagesMaskRectKey;
-extern KWResourceKeys const KWSelectionStringsRectKey;
-extern KWResourceKeys const KWSelectionStringsMaskRectKey;
+extern KWRectKeys const KWDVDNameRectKey;
+extern KWRectKeys const KWVideoNameRectKey;
+extern KWRectKeys const KWStartButtonRectKey;
+extern KWRectKeys const KWStartButtonMaskRectKey;
+extern KWRectKeys const KWTitleButtonRectKey;
+extern KWRectKeys const KWTitleButtonMaskRectKey;
+extern KWRectKeys const KWChapterButtonRectKey;
+extern KWRectKeys const KWChapterButtonMaskRectKey;
+extern KWRectKeys const KWPreviousButtonRectKey;
+extern KWRectKeys const KWPreviousButtonMaskRectKey;
+extern KWRectKeys const KWNextButtonRectKey;
+extern KWRectKeys const KWNextButtonMaskRectKey;
+extern KWRectKeys const KWSelectionImagesRectKey;
+extern KWRectKeys const KWSelectionImagesMaskRectKey;
+extern KWRectKeys const KWSelectionStringsRectKey;
+extern KWRectKeys const KWSelectionStringsMaskRectKey;
+
+extern KWRectKeys const KWTitleSelectionRectKey;
+extern KWRectKeys const KWChapterSelectionRectKey;
+
 
 @interface KWBurnThemeObject : NSObject
 

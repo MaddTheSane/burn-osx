@@ -198,6 +198,9 @@ NSString *const KWSelectionImagesMaskRectKey = @"KWSelectionImagesMaskRect";
 NSString *const KWSelectionStringsRectKey = @"KWSelectionStringsRect";
 NSString *const KWSelectionStringsMaskRectKey = @"KWSelectionStringsMaskRect";
 
+KWRectKeys const KWTitleSelectionRectKey = @"KWTitleSelectionRect";
+KWRectKeys const KWChapterSelectionRectKey = @"KWChapterSelectionRect";
+
 
 static NSString *const burnVersion = @"2";
 static NSString *const burnVersionFileName = @"burnVersion";
@@ -375,7 +378,8 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			MigrateRectSettings(@"KWSelectionStrings");
 			MigrateRectSettings(@"KWSelectionStringsMask");
 			MigrateRectSettings(@"KWPreviousButtonMask");
-			MigrateRectSettings(@"KWPreviousButtonMask");
+			MigrateRectSettings(@"KWTitleSelection");
+			MigrateRectSettings(@"KWChapterSelection");
 			
 #undef MigrateRectSettings
 			
