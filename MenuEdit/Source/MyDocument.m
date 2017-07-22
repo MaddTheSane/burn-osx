@@ -795,23 +795,23 @@ return self;
 		
 		if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
 		{
-			x = x + [[theme objectForKey:@"KWSelectionImagesSeperationW"] intValue];
+			x += [[theme objectForKey:@"KWSelectionImagesSeperationW"] intValue];
 			
 			if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] intValue]-1)
 			{
-				y = y - [[theme objectForKey:@"KWSelectionImagesSeperationH"] intValue];
+				y -= [[theme objectForKey:@"KWSelectionImagesSeperationH"] intValue];
 				x = [[theme objectForKey:@"KWSelectionImagesX"] intValue];
 				newRow = 0;
 			}
 			else
 			{
-				newRow = newRow + 1;
+				newRow += 1;
 			}
 			
 		}
 		else
 		{
-			y = y - [[theme objectForKey:@"KWSelectionStringsSeperation"] intValue];
+			y -= [[theme objectForKey:@"KWSelectionStringsSeperation"] intValue];
 		}
 	}
 	
@@ -966,12 +966,12 @@ return self;
 			}
 			else
 			{
-				newRow = newRow + 1;
+				newRow += 1;
 			}
 		}
 		else
 		{
-			y = y - [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue];
+			y -= [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue];
 		}
 	}
 	
