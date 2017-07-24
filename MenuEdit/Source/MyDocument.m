@@ -485,7 +485,7 @@ return self;
 #pragma mark -
 #pragma mark •• - Appearance
 
-- (IBAction)changeFontAnSize:(id)sender
+- (IBAction)changeFontAndSize:(id)sender
 {
 	[mainWindow makeFirstResponder:[[sender superview] viewWithTag:[sender tag] - 1]];
 	currentFont = nil;

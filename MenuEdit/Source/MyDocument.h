@@ -47,7 +47,7 @@
 - (IBAction)deleteLocalization:(id)sender;
 - (IBAction)selectLocalization:(id)sender;
 //Appearance
-- (IBAction)changeFontAnSize:(id)sender;
+- (IBAction)changeFontAndSize:(id)sender;
 - (IBAction)changeFontColor:(id)sender;
 - (IBAction)useImage:(id)sender;
 

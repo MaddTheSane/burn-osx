@@ -252,8 +252,8 @@ class BurnThemeDocument: NSDocument {
     }
 
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {
+		aController.shouldCascadeWindows = true
         super.windowControllerDidLoadNib(aController)
-        // Add any code here that needs to be executed once the windowController has loaded the document's window.
     }
 
 	override func fileWrapper(ofType typeName: String) throws -> FileWrapper {
@@ -282,17 +282,17 @@ class BurnThemeDocument: NSDocument {
         return true
     }
 
-	//Interface actions
+	// MARK: Interface actions
 	@IBAction func changeEditMode(_ sender: Any!) {
 		
 	}
 	
 	@IBAction func changeSelectionMode(_ sender: Any!) {
-		
+		loadPreview()
 	}
 	
 	@IBAction func changeView(_ sender: Any!) {
-		
+		loadPreview()
 	}
 	
 	@IBAction func openPreviewWindow(_ sender: Any!) {
@@ -300,8 +300,8 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	
-	//Theme actions
-	//General
+	// MARK: - Theme actions
+	// MARK: General
 	@IBAction func setOption(_ sender: Any!) {
 		
 	}
@@ -310,7 +310,7 @@ class BurnThemeDocument: NSDocument {
 		
 	}
 	
-	//Loading
+	// MARK: Loading
 	var isWideScreen: Bool {
 		if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 1 {
 			return false
@@ -327,7 +327,7 @@ class BurnThemeDocument: NSDocument {
 		
 	}
 	
-	//Localization
+	// MARK: Localization
 	@IBAction func addLocalization(_ sender: Any!) {
 		
 	}
@@ -344,8 +344,8 @@ class BurnThemeDocument: NSDocument {
 		
 	}
 	
-	//Appearance
-	@IBAction func changeFontAnSize(_ sender: Any!) {
+	// MARK: Appearance
+	@IBAction func changeFontAndSize(_ sender: Any!) {
 		
 	}
 	
@@ -358,7 +358,7 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	
-	//Preview actions
+	// MARK: Preview actions
 	func loadPreview() {
 		let titles = viewPopup.indexOfSelectedItem == 0
 		let selection = selectionPopup.indexOfSelectedItem == 1
@@ -411,61 +411,105 @@ class BurnThemeDocument: NSDocument {
 		guard let newImage = newImage2 else {
 			return nil
 		}
-		/*
-int y = [[theme objectForKey:KWStartButtonYKey] intValue];
+		
+		//var y = myTheme.rect(withKey: .startButtonRectKey, widescreen: isWideScreen).origin.y
+		
+		if titles {
+			if !(myTheme.property(withKey: .KWDVDNameDisableTextKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let color: NSColor
+				if let colorData = myTheme.property(withKey: .KWDVDNameFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+					color = colorA
+				} else {
+					color = NSColor.black
+				}
+				draw(themeNameField.stringValue, in: myTheme.rect(withKey: .KWDVDNameRectKey, widescreen: isWideScreen), on: newImage, withFontName: myTheme.property(withKey: .KWDVDNameFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .KWDVDNameFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+			}
+		} else {
+			if !(myTheme.property(withKey: .videoNameDisableTextKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let color: NSColor
+				if let colorData = myTheme.property(withKey: .videoNameFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+					color = colorA
+				} else {
+					color = NSColor.black
+				}
+				draw(themeNameField.stringValue, in: myTheme.rect(withKey: .videoNameRectKey, widescreen: isWideScreen), on: newImage, withFontName: myTheme.property(withKey: .videoNameFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .videoNameFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+			}
+		}
+		
+		if !(myTheme.property(withKey: .startButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+			let nextButtonImage: NSImage?
+			let rect = myTheme.rect(withKey: .startButtonRectKey, widescreen: isWideScreen)
+			//rect.origin.y = y
+			if let dat = try? myTheme.resourceNamed(.startButtonImageKey, widescreen: isWideScreen) {
+				nextButtonImage = NSImage(data: dat)
+			} else {
+				nextButtonImage = nil
+			}
+			
+			if let previousButtonImage = nextButtonImage {
+				draw(previousButtonImage, in: rect, on: newImage)
+			} else {
+				let color: NSColor
+				if let colorData = myTheme.property(withKey: .startButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+					color = colorA
+				} else {
+					color = NSColor.black
+				}
+				
+				draw(myTheme.property(withKey: .startButtonStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .startButtonFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .startButtonFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+			}
+		}
 
-if (titles)
-{
-if (![[theme objectForKey:KWDVDNameDisableTextKey] boolValue])
-[self drawString:[themeNameField stringValue] inRect:NSMakeRect([[theme objectForKey:KWDVDNameXKey] intValue],[[theme objectForKey:KWDVDNameYKey] intValue],[[theme objectForKey:KWDVDNameWKey] intValue],[[theme objectForKey:KWDVDNameHKey] intValue]) onImage:newImage withFontName:[theme objectForKey:KWDVDNameFontKey] withSize:[[theme objectForKey:KWDVDNameFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWDVDNameFontColorKey]] useAlignment:NSCenterTextAlignment];
-}
-else
-{
-if (![[theme objectForKey:KWVideoNameDisableTextKey] boolValue])
-[self drawString:[themeNameField stringValue] inRect:NSMakeRect([[theme objectForKey:KWVideoNameXKey] intValue],[[theme objectForKey:KWVideoNameYKey] intValue],[[theme objectForKey:KWVideoNameWKey]  intValue],[[theme objectForKey:KWVideoNameHKey]  intValue]) onImage:newImage withFontName:[theme objectForKey:KWVideoNameFontKey] withSize:[[theme objectForKey:KWVideoNameFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWVideoNameFontColorKey]] useAlignment:NSCenterTextAlignment];
-}
-
-if (![[theme objectForKey:KWStartButtonDisableKey] boolValue])
-{
-NSImage *startButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWStartButtonImageKey]];
-NSRect rect = NSMakeRect([[theme objectForKey:KWStartButtonXKey] intValue],y,[[theme objectForKey:KWStartButtonWKey]  intValue],[[theme objectForKey:KWStartButtonHKey] intValue]);
-
-if (!startButtonImage)
-[self drawString:[theme objectForKey:KWStartButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWStartButtonFontKey] withSize:[[theme objectForKey:KWStartButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWStartButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
-else
-[self drawImage:startButtonImage inRect:rect onImage:newImage];
-}
-
-//Draw titles if needed
-if (titles)
-{
-if (![[theme objectForKey:KWTitleButtonDisableKey] boolValue])
-{
-NSImage *titleButonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWTitleButtonImageKey]];
-NSRect rect = NSMakeRect([[theme objectForKey:KWTitleButtonXKey] intValue],[[theme objectForKey:KWTitleButtonYKey] intValue],[[theme objectForKey:KWTitleButtonWKey] intValue],[[theme objectForKey:KWTitleButtonHKey] intValue]);
-
-if (!titleButonImage)
-[self drawString:[theme objectForKey:KWTitleButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWTitleButtonFontKey] withSize:[[theme objectForKey:KWTitleButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWTitleButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
-else
-[self drawImage:titleButonImage inRect:rect onImage:newImage];
-}
-}
-//Draw chapters if needed
-else
-{
-if (![[theme objectForKey:KWChapterButtonDisableKey] boolValue])
-{
-NSImage *chapterButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWChapterButtonImageKey]];
-NSRect rect = NSMakeRect([[theme objectForKey:KWChapterButtonXKey] intValue],[[theme objectForKey:KWChapterButtonYKey] intValue],[[theme objectForKey:KWChapterButtonWKey] intValue],[[theme objectForKey:KWChapterButtonHKey] intValue]);
-
-if (!chapterButtonImage)
-[self drawString:[theme objectForKey:KWChapterButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWChapterButtonFontKey] withSize:[[theme objectForKey:KWChapterButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWChapterButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
-else
-[self drawImage:chapterButtonImage inRect:rect onImage:newImage];
-}
-}
-
-*/
+		//Draw titles if needed
+		if titles {
+			if !(myTheme.property(withKey: .nextButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let titleButonImage: NSImage?
+				let rect = myTheme.rect(withKey: .nextButtonRectKey, widescreen: isWideScreen)
+				if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen) {
+					titleButonImage = NSImage(data: dat)
+				} else {
+					titleButonImage = nil
+				}
+				
+				if let titleButonImage = titleButonImage {
+					draw(titleButonImage, in: rect, on: newImage)
+				} else {
+					let color: NSColor
+					if let colorData = myTheme.property(withKey: .nextButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+						color = colorA
+					} else {
+						color = NSColor.black
+					}
+					
+					draw(myTheme.property(withKey: .nextButtonStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .nextButtonFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .nextButtonFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+				}
+			}
+		} else {
+			//Draw chapters if needed
+			if !(myTheme.property(withKey: .titleButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let chapterButtonImage: NSImage?
+				let rect = myTheme.rect(withKey: .titleButtonRectKey, widescreen: isWideScreen)
+				if let dat = try? myTheme.resourceNamed(.titleButtonImageKey, widescreen: isWideScreen) {
+					chapterButtonImage = NSImage(data: dat)
+				} else {
+					chapterButtonImage = nil
+				}
+				
+				if let chapterButtonImage = chapterButtonImage {
+					draw(chapterButtonImage, in: rect, on: newImage)
+				} else {
+					let color: NSColor
+					if let colorData = myTheme.property(withKey: .titleButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+						color = colorA
+					} else {
+						color = NSColor.black
+					}
+					
+					draw(myTheme.property(withKey: .titleButtonStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .titleButtonFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .titleButtonFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+				}
+			}
+		}
+		
 		var overlay: NSImage?
 		
 		if titles {
@@ -689,7 +733,7 @@ else
 					draw(myTheme.property(withKey: .titleSelectionStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .titleSelectionFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .titleSelectionFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
 				}
 			}
-		}		
+		}
 		
 		var overlay: NSImage? = nil
 		
@@ -844,7 +888,7 @@ return newImage;
 		return newImage
 	}
 	
-	open func draw(_ string: String, in rect: NSRect, on image: NSImage, withFontName fontName: String, withSize size: CGFloat, with color: NSColor, use alignment: NSTextAlignment) {
+	func draw(_ string: String, in rect: NSRect, on image: NSImage, withFontName fontName: String, withSize size: CGFloat, with color: NSColor, use alignment: NSTextAlignment) {
 		let labelFont = NSFont(name: fontName, size: size)
 		let centeredStyle = NSMutableParagraphStyle()
 		centeredStyle.alignment = alignment
@@ -856,7 +900,7 @@ return newImage;
 		image.unlockFocus()
 	}
 
-	open func drawBox(in rect: NSRect, lineWidth width: CGFloat, on image: NSImage) {
+	func drawBox(in rect: NSRect, lineWidth width: CGFloat, on image: NSImage) {
 		image.lockFocus()
 		NSGraphicsContext.current()?.shouldAntialias = false
 		NSColor.white.set()
@@ -866,7 +910,7 @@ return newImage;
 		image.unlockFocus()
 	}
 
-	open func draw(_ drawImage: NSImage, in rect: NSRect, on image: NSImage) {
+	func draw(_ drawImage: NSImage, in rect: NSRect, on image: NSImage) {
 		image.lockFocus()
 		drawImage.draw(in: rect, from: .zero, operation: .sourceOver, fraction: 1)
 		image.unlockFocus()

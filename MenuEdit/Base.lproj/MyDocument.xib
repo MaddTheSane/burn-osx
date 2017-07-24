@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -117,7 +117,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2361"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2361"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="2278">
@@ -262,7 +262,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2368"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2368"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="2295">
@@ -450,7 +450,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2375"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2375"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1113">
@@ -769,7 +769,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2390"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2390"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1179">
@@ -1088,7 +1088,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2405"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2405"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1127">
@@ -1477,7 +1477,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2430"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2430"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1206">
@@ -1643,7 +1643,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2439"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2439"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1228">
@@ -1853,7 +1853,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2463"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2463"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1376">
@@ -2172,7 +2172,7 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <action selector="changeFontAnSize:" target="-2" id="2448"/>
+                                                                    <action selector="changeFontAndSize:" target="-2" id="2448"/>
                                                                 </connections>
                                                             </button>
                                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1258">
@@ -2480,7 +2480,7 @@
                                                                                         <font key="font" metaFont="smallSystem"/>
                                                                                     </buttonCell>
                                                                                     <connections>
-                                                                                        <action selector="changeFontAnSize:" target="-2" id="2499"/>
+                                                                                        <action selector="changeFontAndSize:" target="-2" id="2499"/>
                                                                                     </connections>
                                                                                 </button>
                                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="2133">
@@ -2832,7 +2832,7 @@
                                                                                         <font key="font" metaFont="smallSystem"/>
                                                                                     </buttonCell>
                                                                                     <connections>
-                                                                                        <action selector="changeFontAnSize:" target="-2" id="2476"/>
+                                                                                        <action selector="changeFontAndSize:" target="-2" id="2476"/>
                                                                                     </connections>
                                                                                 </button>
                                                                                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="2156">
@@ -3487,10 +3487,10 @@
                             <action selector="selectLocalization:" target="-2" id="2356"/>
                         </connections>
                     </popUpButton>
-                    <button tag="101" imageHugsTitle="YES" id="2340">
+                    <button tag="101" imageHugsTitle="YES" id="2340" userLabel="Add Localization">
                         <rect key="frame" x="527" y="596" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" tag="101" imageScaling="proportionallyDown" inset="2" id="2858">
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="101" imageScaling="proportionallyDown" inset="2" id="2858">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="label"/>
                         </buttonCell>
@@ -3498,10 +3498,10 @@
                             <action selector="addLocalization:" target="-2" id="2358"/>
                         </connections>
                     </button>
-                    <button tag="100" imageHugsTitle="YES" id="2341">
+                    <button tag="100" imageHugsTitle="YES" id="2341" userLabel="Remove Localization">
                         <rect key="frame" x="508" y="596" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" tag="100" imageScaling="proportionallyDown" inset="2" id="2859">
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="100" imageScaling="proportionallyDown" inset="2" id="2859">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="label"/>
                         </buttonCell>
