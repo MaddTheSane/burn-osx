@@ -144,7 +144,7 @@
 "2575.title" = "Lucida Grande Bold12";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2577"; */
-"2577.title" = "Choose...";
+"2577.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Placement x:"; ObjectID = "2578"; */
 "2578.title" = "Placement x:";
@@ -153,7 +153,7 @@
 "2579.title" = "Size w:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2580"; */
-"2580.title" = "Choose...";
+"2580.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "String:"; ObjectID = "2582"; */
 "2582.title" = "String:";
@@ -210,7 +210,7 @@
 "2608.title" = "Use image instead";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2609"; */
-"2609.title" = "Choose...";
+"2609.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "2611"; */
 "2611.title" = "Color:";
@@ -261,7 +261,7 @@
 "2631.title" = "Line width:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2632"; */
-"2632.title" = "Choose...";
+"2632.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Size w:"; ObjectID = "2633"; */
 "2633.title" = "Size w:";
@@ -354,7 +354,7 @@
 "2685.title" = "Placement x:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2686"; */
-"2686.title" = "Choose...";
+"2686.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Size w:"; ObjectID = "2687"; */
 "2687.title" = "Size w:";
@@ -390,7 +390,7 @@
 "2702.title" = "h:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2704"; */
-"2704.title" = "Choose...";
+"2704.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Placement x:"; ObjectID = "2706"; */
 "2706.title" = "Placement x:";
@@ -438,7 +438,7 @@
 "2725.title" = "Lucida Grande Bold12";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2726"; */
-"2726.title" = "Choose...";
+"2726.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2727"; */
 "2727.title" = "h:";
@@ -492,7 +492,7 @@
 "2753.title" = "Font:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2754"; */
-"2754.title" = "Choose...";
+"2754.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "2755"; */
 "2755.title" = "Color:";
@@ -549,7 +549,7 @@
 "2782.title" = "Font:";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2783"; */
-"2783.title" = "Choose...";
+"2783.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2787"; */
 "2787.title" = "h:";
@@ -621,7 +621,7 @@
 "2816.title" = "Lucida Grande Bold12";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2817"; */
-"2817.title" = "Choose...";
+"2817.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "2818"; */
 "2818.title" = "Color:";
@@ -648,7 +648,7 @@
 "2829.title" = "Lucida Grande Bold12";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2830"; */
-"2830.title" = "Choose...";
+"2830.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "2831"; */
 "2831.title" = "Color:";
@@ -702,7 +702,7 @@
 "2854.title" = "Click to open it in a new full size window";
 
 /* Class = "NSButtonCell"; title = "Choose..."; ObjectID = "2855"; */
-"2855.title" = "Choose...";
+"2855.title" = "Choose…";
 
 /* Class = "NSTextFieldCell"; title = "General background image:"; ObjectID = "2856"; */
 "2856.title" = "General background image:";
