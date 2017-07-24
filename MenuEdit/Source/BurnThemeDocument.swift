@@ -366,7 +366,9 @@ class BurnThemeDocument: NSDocument {
 		if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 3 {
 			let rootMenu = self.rootMenu(withTitles: titles)
 			if selection {
-				draw(rootMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu!.size), on: rootMenu!)
+				if let img = rootMask(withTitles: titles) {
+					draw(img, in: NSRect(origin: .zero, size: rootMenu!.size), on: rootMenu!)
+				}
 			}
 			
 			previewView.image = rootMenu
@@ -388,27 +390,125 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	/// Create menu image with titles or chapters
-	func rootMenu(withTitles titles: Bool) -> NSImage! {
-		return nil
+	func rootMenu(withTitles titles: Bool) -> NSImage? {
+		var newImage2: NSImage?
+		
+		if titles {
+			if let dat = try? myTheme.resourceNamed(.altRootImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
+		} else {
+			if let dat = try? myTheme.resourceNamed(.altChapterImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
+		}
+		if newImage2 == nil {
+			if let dat = try? myTheme.resourceNamed(.defaultImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
+		}
+		
+		guard let newImage = newImage2 else {
+			return nil
+		}
+		/*
+int y = [[theme objectForKey:KWStartButtonYKey] intValue];
+
+if (titles)
+{
+if (![[theme objectForKey:KWDVDNameDisableTextKey] boolValue])
+[self drawString:[themeNameField stringValue] inRect:NSMakeRect([[theme objectForKey:KWDVDNameXKey] intValue],[[theme objectForKey:KWDVDNameYKey] intValue],[[theme objectForKey:KWDVDNameWKey] intValue],[[theme objectForKey:KWDVDNameHKey] intValue]) onImage:newImage withFontName:[theme objectForKey:KWDVDNameFontKey] withSize:[[theme objectForKey:KWDVDNameFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWDVDNameFontColorKey]] useAlignment:NSCenterTextAlignment];
+}
+else
+{
+if (![[theme objectForKey:KWVideoNameDisableTextKey] boolValue])
+[self drawString:[themeNameField stringValue] inRect:NSMakeRect([[theme objectForKey:KWVideoNameXKey] intValue],[[theme objectForKey:KWVideoNameYKey] intValue],[[theme objectForKey:KWVideoNameWKey]  intValue],[[theme objectForKey:KWVideoNameHKey]  intValue]) onImage:newImage withFontName:[theme objectForKey:KWVideoNameFontKey] withSize:[[theme objectForKey:KWVideoNameFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWVideoNameFontColorKey]] useAlignment:NSCenterTextAlignment];
+}
+
+if (![[theme objectForKey:KWStartButtonDisableKey] boolValue])
+{
+NSImage *startButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWStartButtonImageKey]];
+NSRect rect = NSMakeRect([[theme objectForKey:KWStartButtonXKey] intValue],y,[[theme objectForKey:KWStartButtonWKey]  intValue],[[theme objectForKey:KWStartButtonHKey] intValue]);
+
+if (!startButtonImage)
+[self drawString:[theme objectForKey:KWStartButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWStartButtonFontKey] withSize:[[theme objectForKey:KWStartButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWStartButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
+else
+[self drawImage:startButtonImage inRect:rect onImage:newImage];
+}
+
+//Draw titles if needed
+if (titles)
+{
+if (![[theme objectForKey:KWTitleButtonDisableKey] boolValue])
+{
+NSImage *titleButonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWTitleButtonImageKey]];
+NSRect rect = NSMakeRect([[theme objectForKey:KWTitleButtonXKey] intValue],[[theme objectForKey:KWTitleButtonYKey] intValue],[[theme objectForKey:KWTitleButtonWKey] intValue],[[theme objectForKey:KWTitleButtonHKey] intValue]);
+
+if (!titleButonImage)
+[self drawString:[theme objectForKey:KWTitleButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWTitleButtonFontKey] withSize:[[theme objectForKey:KWTitleButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWTitleButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
+else
+[self drawImage:titleButonImage inRect:rect onImage:newImage];
+}
+}
+//Draw chapters if needed
+else
+{
+if (![[theme objectForKey:KWChapterButtonDisableKey] boolValue])
+{
+NSImage *chapterButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:KWChapterButtonImageKey]];
+NSRect rect = NSMakeRect([[theme objectForKey:KWChapterButtonXKey] intValue],[[theme objectForKey:KWChapterButtonYKey] intValue],[[theme objectForKey:KWChapterButtonWKey] intValue],[[theme objectForKey:KWChapterButtonHKey] intValue]);
+
+if (!chapterButtonImage)
+[self drawString:[theme objectForKey:KWChapterButtonStringKey] inRect:rect onImage:newImage withFontName:[theme objectForKey:KWChapterButtonFontKey] withSize:[[theme objectForKey:KWChapterButtonFontSizeKey] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:KWChapterButtonFontColorKey]] useAlignment:NSCenterTextAlignment];
+else
+[self drawImage:chapterButtonImage inRect:rect onImage:newImage];
+}
+}
+
+*/
+		var overlay: NSImage?
+		
+		if titles {
+			if let dat = try? myTheme.resourceNamed(.rootOverlayImageKey, widescreen: isWideScreen, locale: myTheme.currentLocale) {
+				overlay = NSImage(data: dat)
+			}
+		} else {
+			if let dat = try? myTheme.resourceNamed(.chapterOverlayImageKey, widescreen: isWideScreen, locale: myTheme.currentLocale) {
+				overlay = NSImage(data: dat)
+			}
+		}
+		
+		if let overlay = overlay {
+			draw(overlay, in: NSRect(origin: .zero, size: newImage.size), on: newImage)
+		}
+		
+		return newImage
 	}
 
 	/// Create menu image mask with titles or chapters
-	func rootMask(withTitles titles: Bool) -> NSImage! {
+	func rootMask(withTitles titles: Bool) -> NSImage? {
 		return nil
 	}
 
 	/// Create menu image
-	func selectionMenu(withTitles titles: Bool) -> NSImage! {
+	func selectionMenu(withTitles titles: Bool) -> NSImage? {
 		var newImage2: NSImage?
+		var newRow = 0
 		
 		if titles {
-			newImage2 = NSImage(data: try! myTheme.resourceNamed(KWDataKeys.altTitleSelectionImageKey, widescreen: isWideScreen))
+			if let dat = try? myTheme.resourceNamed(KWDataKeys.altTitleSelectionImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
 		} else {
-			newImage2 = NSImage(data: try! myTheme.resourceNamed(KWDataKeys.altChapterSelectionImageKey, widescreen: isWideScreen))
+			if let dat = try? myTheme.resourceNamed(KWDataKeys.altChapterSelectionImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
 		}
 		
 		if newImage2 == nil {
-			newImage2 = NSImage(data: try! myTheme.resourceNamed(KWDataKeys.defaultImageKey, widescreen: isWideScreen))
+			if let dat = try? myTheme.resourceNamed(KWDataKeys.defaultImageKey, widescreen: isWideScreen) {
+				newImage2 = NSImage(data: dat)
+			}
 		}
 		
 		guard let newImage = newImage2 else {
@@ -418,163 +518,187 @@ class BurnThemeDocument: NSDocument {
 		var files = [String]()
 		
 		var pageKey: KWResourceKeys
-		if let aTheme = myTheme.property(withKey: KWResourceKeys.selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int, aTheme == 2 {
+		if let aTheme = myTheme.property(withKey: KWResourceKeys.selectionModeKey, widescreen: isWideScreen) as? Int, aTheme == 2 {
 			pageKey = KWResourceKeys.selectionStringsOnAPageKey;
 		} else {
 			pageKey = KWResourceKeys.selectionImagesOnAPageKey;
 		}
 		
-		for i in 0 ..< (myTheme.property(withKey: pageKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! Int) {
+		for i in 0 ..< (myTheme.property(withKey: pageKey, widescreen: isWideScreen) as! Int) {
 			files.append(themeNameField.stringValue + " \(i + 1)")
 		}
 		
 		var aRect = NSRect()
-		if let selVal = myTheme.property(withKey: KWResourceKeys.selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int, selVal != 2 {
-			aRect.origin = myTheme.rect(withKey: KWRectKeys.selectionImagesRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin
+		if let selVal = myTheme.property(withKey: KWResourceKeys.selectionModeKey, widescreen: isWideScreen) as? Int, selVal != 2 {
+			aRect.origin = myTheme.rect(withKey: KWRectKeys.selectionImagesRectKey, widescreen: isWideScreen).origin
 		} else {
-			if myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.x == -1 {
+			if myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.x == -1 {
 				aRect.origin.x = 0
 			} else {
-				aRect.origin.x = myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.x
+				aRect.origin.x = myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.x
 			}
 			
-			if myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.y == -1 {
+			if myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.y == -1 {
 				if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 1 {
-					aRect.origin.y = 576 - CGFloat((576 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! Int)) / 2)
+					aRect.origin.y = 576 - CGFloat((576 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen) as! Int)) / 2)
 				} else {
-					aRect.origin.y = 384 - CGFloat((384 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! Int)) / 2)
+					aRect.origin.y = 384 - CGFloat((384 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen) as! Int)) / 2)
 				}
 			} else {
-				aRect.origin.y = myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.y
+				aRect.origin.y = myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.y
 			}
-
 		}
 		
 		for file in files {
 			if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int != 2 {
-				draw(previewImage(), in: NSRect(origin: aRect.origin, size: myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).size), on: newImage)
+				draw(previewImage(), in: NSRect(origin: aRect.origin, size: myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen).size), on: newImage)
 			}
 			if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int == 0 {
-				let imagesRect = myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale)
+				let imagesRect = myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen)
 				let color: NSColor
-				if let colorData = myTheme.property(withKey: .selectionImagesFontColorKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+				if let colorData = myTheme.property(withKey: .selectionImagesFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
 					color = colorA
 				} else {
 					color = NSColor.black
 				}
-				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height ), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! String, withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! CGFloat, with: color, use: .center)
+				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height ), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
 			} else if let selmodeKey = myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int, selmodeKey == 2 {
 				let alignment: NSTextAlignment
 				if myTheme.rect(withKey: .selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.x == -1 {
 					alignment = .center
 				} else {
-					alignment = .center
+					alignment = .left
 				}
 				
-				let imagesRect = myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale)
+				let imagesRect = myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen)
 				let color: NSColor
 				if let colorData = myTheme.property(withKey: .selectionImagesFontColorKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
 					color = colorA
 				} else {
 					color = NSColor.black
 				}
-				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height ), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! String, withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as! CGFloat, with: color, use: alignment)
+				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height ), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: alignment)
 			}
 			
-			
+			if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int != 2 {
+				aRect.origin.x += myTheme.property(withKey: .selectionImagesSeperationWKey, widescreen: isWideScreen) as! CGFloat
+				
+				if newRow == (myTheme.property(withKey: .selectionImagesOnARowKey, widescreen: isWideScreen) as! Int) - 1 {
+					aRect.origin.y -= myTheme.property(withKey: .selectionImagesSeperationHKey, widescreen: isWideScreen) as! CGFloat
+					aRect.origin.x = myTheme.rect(withKey: .selectionImagesRectKey, widescreen: isWideScreen).origin.x
+					newRow = 0
+				} else {
+					newRow += 1
+				}
+			} else {
+				aRect.origin.y -= myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen) as! CGFloat
+			}
 		}
-		
 		
 		files = []
-		
-		/*
-		
-		for (i=0;i<[files count];i++)
-		{
-		
-		if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
-		{
-		x = x + [[theme objectForKey:@"KWSelectionImagesSeperationW"] intValue];
-		
-		if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] intValue]-1)
-		{
-		y = y - [[theme objectForKey:@"KWSelectionImagesSeperationH"] intValue];
-		x = [[theme objectForKey:@"KWSelectionImagesX"] intValue];
-		newRow = 0;
-		}
-		else
-		{
-		newRow = newRow + 1;
-		}
-		
-		}
-		else
-		{
-		y = y - [[theme objectForKey:@"KWSelectionStringsSeperation"] intValue];
-		}
+
+		if !(myTheme.property(withKey: .previousButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+			let previousButtonImage: NSImage?
+			let rect = myTheme.rect(withKey: .previousButtonRectKey, widescreen: isWideScreen)
+			if let dat = try? myTheme.resourceNamed(.previousButtonImageKey, widescreen: isWideScreen) {
+				previousButtonImage = NSImage(data: dat)
+			} else {
+				previousButtonImage = nil
+			}
+			
+			if let previousButtonImage = previousButtonImage {
+				draw(previousButtonImage, in: rect, on: newImage)
+			} else {
+				let color: NSColor
+				if let colorData = myTheme.property(withKey: .previousButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+					color = colorA
+				} else {
+					color = NSColor.black
+				}
+
+				draw(myTheme.property(withKey: .previousButtonStringKey, widescreen: isWideScreen) as? String ?? "prev.", in: rect, on: newImage, withFontName: myTheme.property(withKey: .previousButtonFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .previousButtonFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+			}
 		}
 		
-		files = nil;
-		
-		if (![[theme objectForKey:@"KWPreviousButtonDisable"] boolValue])
-		{
-		NSImage *previousButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWPreviousButtonImage"]];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWPreviousButtonX"] intValue],[[theme objectForKey:@"KWPreviousButtonY"] intValue],[[theme objectForKey:@"KWPreviousButtonW"] intValue],[[theme objectForKey:@"KWPreviousButtonH"] intValue]);
-		
-		if (!previousButtonImage)
-		[self drawString:[theme objectForKey:@"KWPreviousButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWPreviousButtonFont"] withSize:[[theme objectForKey:@"KWPreviousButtonFontSize"] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWPreviousButtonFontColor"]] useAlignment:NSCenterTextAlignment];
-		else
-		[self drawImage:previousButtonImage inRect:rect onImage:newImage];
+		if !(myTheme.property(withKey: .nextButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+			let nextButtonImage: NSImage?
+			let rect = myTheme.rect(withKey: .nextButtonRectKey, widescreen: isWideScreen)
+			if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen) {
+				nextButtonImage = NSImage(data: dat)
+			} else {
+				nextButtonImage = nil
+			}
+			
+			if let previousButtonImage = nextButtonImage {
+				draw(previousButtonImage, in: rect, on: newImage)
+			} else {
+				let color: NSColor
+				if let colorData = myTheme.property(withKey: .nextButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+					color = colorA
+				} else {
+					color = NSColor.black
+				}
+				
+				draw(myTheme.property(withKey: .nextButtonStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .nextButtonFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .nextButtonFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+			}
 		}
 		
-		if (![[theme objectForKey:@"KWNextButtonDisable"] boolValue])
-		{
-		NSImage *nextButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonImage"]];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWNextButtonX"] intValue],[[theme objectForKey:@"KWNextButtonY"] intValue],[[theme objectForKey:@"KWNextButtonW"] intValue],[[theme objectForKey:@"KWNextButtonH"] intValue]);
-		
-		if (!nextButtonImage)
-		[self drawString:[theme objectForKey:@"KWNextButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWNextButtonFont"] withSize:[[theme objectForKey:@"KWNextButtonFontSize"] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWNextButtonFontColor"]] useAlignment:NSCenterTextAlignment];
-		else
-		[self drawImage:nextButtonImage inRect:rect onImage:newImage];
-		}
-		
-		if (!titles)
-		{
-		if (![[theme objectForKey:@"KWChapterSelectionDisable"] boolValue])
-		{
-		NSImage *chapterSelectionButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionImage"]];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWChapterSelectionX"] intValue],[[theme objectForKey:@"KWChapterSelectionY"] intValue],[[theme objectForKey:@"KWChapterSelectionW"] intValue],[[theme objectForKey:@"KWChapterSelectionH"] intValue]);
-		
-		if (!chapterSelectionButtonImage)
-		[self drawString:[theme objectForKey:@"KWChapterSelectionString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWChapterSelectionFont"] withSize:[[theme objectForKey:@"KWChapterSelectionFontSize"] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWChapterSelectionFontColor"]] useAlignment:NSCenterTextAlignment];
-		else
-		[self drawImage:chapterSelectionButtonImage inRect:rect onImage:newImage];
-		}
-		}
-		else
-		{
-		if (![[theme objectForKey:@"KWTitleSelectionDisable"] boolValue])
-		{
-		NSImage *titleSelectionButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionImage"]];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWTitleSelectionX"] intValue],[[theme objectForKey:@"KWTitleSelectionY"] intValue],[[theme objectForKey:@"KWTitleSelectionW"] intValue],[[theme objectForKey:@"KWTitleSelectionH"] intValue]);
-		
-		if (!titleSelectionButtonImage)
-		[self drawString:[theme objectForKey:@"KWTitleSelectionString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWTitleSelectionFont"] withSize:[[theme objectForKey:@"KWTitleSelectionFontSize"] intValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWTitleSelectionFontColor"]] useAlignment:NSCenterTextAlignment];
-		else
-		[self drawImage:titleSelectionButtonImage inRect:rect onImage:newImage];
-		}
-		}
-		*/
-		
+		if !titles {
+			if !(myTheme.property(withKey: .chapterSelectionDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let chapterSelectionButtonImage: NSImage?
+				let rect = myTheme.rect(withKey: .chapterSelectionRectKey, widescreen: isWideScreen)
+				if let dat = try? myTheme.resourceNamed(.chapterSelectionImageKey, widescreen: isWideScreen) {
+					chapterSelectionButtonImage = NSImage(data: dat)
+				} else {
+					chapterSelectionButtonImage = nil
+				}
+				
+				if let previousButtonImage = chapterSelectionButtonImage {
+					draw(previousButtonImage, in: rect, on: newImage)
+				} else {
+					let color: NSColor
+					if let colorData = myTheme.property(withKey: .chapterSelectionFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+						color = colorA
+					} else {
+						color = NSColor.black
+					}
+					
+					draw(myTheme.property(withKey: .chapterSelectionStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .chapterSelectionFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .chapterSelectionFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+				}
+			}
+		} else {
+			if !(myTheme.property(withKey: .titleSelectionDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
+				let titleSelectionButtonImage: NSImage?
+				let rect = myTheme.rect(withKey: .titleSelectionRectKey, widescreen: isWideScreen)
+				if let dat = try? myTheme.resourceNamed(.titleSelectionImageKey, widescreen: isWideScreen) {
+					titleSelectionButtonImage = NSImage(data: dat)
+				} else {
+					titleSelectionButtonImage = nil
+				}
+				
+				if let previousButtonImage = titleSelectionButtonImage {
+					draw(previousButtonImage, in: rect, on: newImage)
+				} else {
+					let color: NSColor
+					if let colorData = myTheme.property(withKey: .titleSelectionFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
+						color = colorA
+					} else {
+						color = NSColor.black
+					}
+					
+					draw(myTheme.property(withKey: .titleSelectionStringKey, widescreen: isWideScreen) as? String ?? "next", in: rect, on: newImage, withFontName: myTheme.property(withKey: .titleSelectionFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .titleSelectionFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+				}
+			}
+		}		
 		
 		var overlay: NSImage? = nil
 		
-		if (titles) {
-			if let dat = try? myTheme.resourceNamed(KWDataKeys.titleSelectionOverlayImageKey, widescreen: isWideScreen) {
+		if titles {
+			if let dat = try? myTheme.resourceNamed(.titleSelectionOverlayImageKey, widescreen: isWideScreen) {
 				overlay = NSImage(data: dat)
 			}
 		} else {
-			if let dat = try? myTheme.resourceNamed(KWDataKeys.chapterSelectionOverlayImageKey, widescreen: isWideScreen) {
+			if let dat = try? myTheme.resourceNamed(.chapterSelectionOverlayImageKey, widescreen: isWideScreen) {
 				overlay = NSImage(data: dat)
 			}
 		}
@@ -587,15 +711,129 @@ class BurnThemeDocument: NSDocument {
 	}
 
 	/// Create menu mask
-	func selectionMask(withTitles titles: Bool) -> NSImage! {
-		return nil
+	func selectionMask(withTitles titles: Bool) -> NSImage {
+		let newImage: NSImage
+		
+		if isWideScreen {
+			newImage = NSImage(size: NSSize(width: 720, height: 576))
+		} else {
+			newImage = NSImage(size: NSSize(width: 720, height: 384))
+		}
+		
+		var newRow = 0
+		var rect = NSPoint()
+		
+		var files = [String]()
+		
+		let pageKey: KWResourceKeys
+		
+		if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen) as? Int == 2 {
+			pageKey = .selectionStringsOnAPageKey
+		} else {
+			pageKey = .selectionImagesOnAPageKey
+		}
+		
+		for i in 0 ..< (myTheme.property(withKey: pageKey, widescreen: isWideScreen) as! Int) {
+			files.append(themeNameField.stringValue + " \(i + 1)")
+		}
+		/*
+if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
+{
+x = [[theme objectForKey:KWSelectionImagesMaskXKey] intValue];
+y = [[theme objectForKey:KWSelectionImagesMaskYKey] intValue];
+}
+else
+{
+if ([[theme objectForKey:@"KWSelectionStringsMaskX"] intValue] == -1)
+x = (720 - [[theme objectForKey:@"KWSelectionStringsMaskW"] intValue]) / 2;
+else
+x = [[theme objectForKey:@"KWSelectionStringsMaskX"] intValue];
+
+if ([[theme objectForKey:@"KWSelectionStringsMaskY"] intValue] == -1)
+{
+if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
+y = 576 - (576 - [files count] * [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue]) / 2;
+else
+y = 384 - (384 - [files count] * [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue]) / 2;
+}
+else
+{
+y = [[theme objectForKey:KWSelectionImagesMaskYKey] intValue];
+}
+}
+
+for (i=0;i<[files count];i++)
+{
+if ([[theme objectForKey:KWSelectionModeKey] intValue] == 2)
+{
+NSImage *selectionStringsMaskButtonImage  = [[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionStringsImage"]];
+NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsMaskW"] intValue],[[theme objectForKey:@"KWSelectionStringsMaskH"] intValue]);
+
+if (!selectionStringsMaskButtonImage)
+[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionStringsMaskLineWidth"] intValue] onImage:newImage];
+else
+[self drawImage:selectionStringsMaskButtonImage inRect:rect onImage:newImage];
+}
+else
+{
+NSImage *selectionImageMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionImagesImage"]];
+NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionImagesMaskW"] intValue],[[theme objectForKey:@"KWSelectionImagesMaskH"] intValue]);
+
+if (!selectionImageMaskButtonImage)
+[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionImagesMaskLineWidth"] intValue] onImage:newImage];
+else
+[self drawImage:selectionImageMaskButtonImage inRect:rect onImage:newImage];
+}
+
+if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
+{
+x = x + [[theme objectForKey:@"KWSelectionImagesMaskSeperationW"] intValue];
+
+if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] intValue]-1)
+{
+y = y - [[theme objectForKey:@"KWSelectionImagesMaskSeperationH"] intValue];
+x = [[theme objectForKey:KWSelectionImagesMaskXKey] intValue];
+newRow = 0;
+}
+else
+{
+newRow += 1;
+}
+}
+else
+{
+y -= [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue];
+}
+}
+
+files = nil;
+
+NSImage *previousMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWPreviousButtonMaskImage"]];
+NSRect rect = NSMakeRect([[theme objectForKey:@"KWPreviousButtonMaskX"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskY"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskW"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskH"] intValue]);
+
+if (!previousMaskButtonImage)
+[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWPreviousButtonMaskLineWidth"] intValue] onImage:newImage];
+else
+[self drawImage:previousMaskButtonImage inRect:rect onImage:newImage];
+
+NSImage *nextMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonMaskImage"]];
+rect = NSMakeRect([[theme objectForKey:@"KWNextButtonMaskX"] intValue],[[theme objectForKey:@"KWNextButtonMaskY"] intValue],[[theme objectForKey:@"KWNextButtonMaskW"] intValue],[[theme objectForKey:@"KWNextButtonMaskH"] intValue]);
+
+if (!nextMaskButtonImage)
+[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWNextButtonMaskLineWidth"] intValue] onImage:newImage];
+else
+[self drawImage:nextMaskButtonImage inRect:rect onImage:newImage];
+
+return newImage;
+*/
+		return newImage
 	}
-	
-	
-	//Other actions
+
+
+	//MARK: Other actions
 	func previewImage() -> NSImage {
 		let newImage = NSImage(size: NSSize(width: 320, height: 240))
-		
+
 		newImage.lockFocus()
 		NSColor.white.set()
 		let path = NSBezierPath(rect: NSRect(x: 0, y: 0, width: 320, height: 240))

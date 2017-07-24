@@ -710,6 +710,11 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	[self addResource:res named:resName wideScreen:ws locale:nil forKey:key];
 }
 
+- (nullable id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws
+{
+	return [self propertyWithKey:key widescreen:ws locale:nil];
+}
+
 - (id)propertyWithKey:(KWResourceKeys)key widescreen:(BOOL)ws locale:(NSLocale *)locale
 {
 	NSString *lang;
@@ -720,6 +725,11 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 	}
 	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
 	return dictToGet[lang][key];
+}
+
+- (NSRect)rectWithKey:(KWRectKeys)key widescreen:(BOOL)ws
+{
+	return [self rectWithKey:key widescreen:ws locale:nil];
 }
 
 - (NSRect)rectWithKey:(KWRectKeys)key widescreen:(BOOL)ws locale:(nullable NSLocale*)locale
