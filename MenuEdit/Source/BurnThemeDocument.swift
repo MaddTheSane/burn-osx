@@ -364,27 +364,27 @@ class BurnThemeDocument: NSDocument {
 		let selection = selectionPopup.indexOfSelectedItem == 1
 		
 		if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 3 {
-			let rootMenu = self.rootMenu(withTitles: titles)
+			if let rootMenu = self.rootMenu(withTitles: titles) {
 			if selection {
-				if let img = rootMask(withTitles: titles) {
-					draw(img, in: NSRect(origin: .zero, size: rootMenu!.size), on: rootMenu!)
-				}
+				draw(rootMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
 			}
 			
 			previewView.image = rootMenu
 			if previewWindow.isVisible {
 				previewImageView.image = rootMenu
+			}
 			}
 		} else {
-			let rootMenu = selectionMenu(withTitles: titles)
+			if let rootMenu = selectionMenu(withTitles: titles) {
 			
 			if selection {
-				draw(selectionMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu!.size), on: rootMenu!)
+				draw(selectionMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
 			}
 			
 			previewView.image = rootMenu
 			if previewWindow.isVisible {
 				previewImageView.image = rootMenu
+			}
 			}
 		}
 	}
@@ -437,17 +437,11 @@ class BurnThemeDocument: NSDocument {
 		}
 		
 		if !(myTheme.property(withKey: .startButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
-			let nextButtonImage: NSImage?
 			let rect = myTheme.rect(withKey: .startButtonRectKey, widescreen: isWideScreen)
 			//rect.origin.y = y
-			if let dat = try? myTheme.resourceNamed(.startButtonImageKey, widescreen: isWideScreen) {
-				nextButtonImage = NSImage(data: dat)
-			} else {
-				nextButtonImage = nil
-			}
-			
-			if let previousButtonImage = nextButtonImage {
-				draw(previousButtonImage, in: rect, on: newImage)
+			if let dat = try? myTheme.resourceNamed(.startButtonImageKey, widescreen: isWideScreen),
+				let nextButtonImage = NSImage(data: dat) {
+				draw(nextButtonImage, in: rect, on: newImage)
 			} else {
 				let color: NSColor
 				if let colorData = myTheme.property(withKey: .startButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
@@ -463,15 +457,9 @@ class BurnThemeDocument: NSDocument {
 		//Draw titles if needed
 		if titles {
 			if !(myTheme.property(withKey: .nextButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
-				let titleButonImage: NSImage?
 				let rect = myTheme.rect(withKey: .nextButtonRectKey, widescreen: isWideScreen)
-				if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen) {
-					titleButonImage = NSImage(data: dat)
-				} else {
-					titleButonImage = nil
-				}
-				
-				if let titleButonImage = titleButonImage {
+				if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen),
+					let titleButonImage = NSImage(data: dat) {
 					draw(titleButonImage, in: rect, on: newImage)
 				} else {
 					let color: NSColor
@@ -487,15 +475,9 @@ class BurnThemeDocument: NSDocument {
 		} else {
 			//Draw chapters if needed
 			if !(myTheme.property(withKey: .titleButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
-				let chapterButtonImage: NSImage?
 				let rect = myTheme.rect(withKey: .titleButtonRectKey, widescreen: isWideScreen)
-				if let dat = try? myTheme.resourceNamed(.titleButtonImageKey, widescreen: isWideScreen) {
-					chapterButtonImage = NSImage(data: dat)
-				} else {
-					chapterButtonImage = nil
-				}
-				
-				if let chapterButtonImage = chapterButtonImage {
+				if let dat = try? myTheme.resourceNamed(.titleButtonImageKey, widescreen: isWideScreen),
+					let chapterButtonImage = NSImage(data: dat) {
 					draw(chapterButtonImage, in: rect, on: newImage)
 				} else {
 					let color: NSColor
@@ -530,8 +512,47 @@ class BurnThemeDocument: NSDocument {
 	}
 
 	/// Create menu image mask with titles or chapters
-	func rootMask(withTitles titles: Bool) -> NSImage? {
-		return nil
+	func rootMask(withTitles titles: Bool) -> NSImage {
+		let newImage: NSImage
+		
+		if isWideScreen {
+			newImage = NSImage(size: NSSize(width: 720, height: 576))
+		} else {
+			newImage = NSImage(size: NSSize(width: 720, height: 384))
+		}
+		
+		let y = myTheme.rect(withKey: .startButtonMaskRectKey, widescreen: isWideScreen).origin.y
+		var rect = myTheme.rect(withKey: .startButtonMaskRectKey, widescreen: isWideScreen)
+		rect.origin.y = y - 5
+		
+		if let dat = try? myTheme.resourceNamed(.startButtonMaskImageKey, widescreen: isWideScreen),
+			let startMaskButtonImage = NSImage(data: dat) {
+			draw(startMaskButtonImage, in: rect, on: newImage)
+		} else {
+			drawBox(in: rect, lineWidth: myTheme.property(withKey: .startButtonMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+		}
+		
+		if titles {
+			let rect = myTheme.rect(withKey: .startButtonMaskRectKey, widescreen: isWideScreen)
+			
+			if let dat = try? myTheme.resourceNamed(.titleButtonMaskImageKey, widescreen: isWideScreen),
+				let titleMaskButtonImage = NSImage(data: dat) {
+				draw(titleMaskButtonImage, in: rect, on: newImage)
+			} else {
+				drawBox(in: rect, lineWidth: myTheme.property(withKey: .titleButtonMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+			}
+		} else {
+			let rect = myTheme.rect(withKey: .chapterButtonMaskRectKey, widescreen: isWideScreen)
+			
+			if let dat = try? myTheme.resourceNamed(.chapterButtonMaskImageKey, widescreen: isWideScreen),
+				let titleMaskButtonImage = NSImage(data: dat) {
+				draw(titleMaskButtonImage, in: rect, on: newImage)
+			} else {
+				drawBox(in: rect, lineWidth: myTheme.property(withKey: .chapterButtonMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+			}
+		}
+		
+		return newImage
 	}
 
 	/// Create menu image
@@ -639,7 +660,7 @@ class BurnThemeDocument: NSDocument {
 			}
 		}
 		
-		files = []
+		files.removeAll(keepingCapacity: false)
 
 		if !(myTheme.property(withKey: .previousButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
 			let previousButtonImage: NSImage?
@@ -765,7 +786,7 @@ class BurnThemeDocument: NSDocument {
 		}
 		
 		var newRow = 0
-		var rect = NSPoint()
+		var origin = NSPoint()
 		
 		var files = [String]()
 		
@@ -780,96 +801,81 @@ class BurnThemeDocument: NSDocument {
 		for i in 0 ..< (myTheme.property(withKey: pageKey, widescreen: isWideScreen) as! Int) {
 			files.append(themeNameField.stringValue + " \(i + 1)")
 		}
-		/*
-if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
-{
-x = [[theme objectForKey:KWSelectionImagesMaskXKey] intValue];
-y = [[theme objectForKey:KWSelectionImagesMaskYKey] intValue];
-}
-else
-{
-if ([[theme objectForKey:@"KWSelectionStringsMaskX"] intValue] == -1)
-x = (720 - [[theme objectForKey:@"KWSelectionStringsMaskW"] intValue]) / 2;
-else
-x = [[theme objectForKey:@"KWSelectionStringsMaskX"] intValue];
+		
+		if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen) as? Int != 2 {
+			origin = myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin
+		} else {
+			if myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.x == -1 {
+				origin.x = (720 - myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.x) / 2
+			} else {
+				origin.x = myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.x
+			}
+			
+			if myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.y == -1 {
+				if isWideScreen {
+					origin.y = 576 - CGFloat(576 - files.count * (myTheme.property(withKey: .selectionStringsMaskSeperationKey, widescreen: true) as! Int)) / 2
+				} else {
+					origin.y = 384 - CGFloat(384 - files.count * (myTheme.property(withKey: .selectionStringsMaskSeperationKey, widescreen: false) as! Int)) / 2
+				}
+			} else {
+				origin.y = myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.y
+			}
+		}
+		
+		for _ in files {
+			if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen) as? Int == 2 {
+				let rect = NSRect(origin: origin, size: myTheme.rect(withKey: .selectionStringsMaskRectKey, widescreen: isWideScreen).size)
+				
+				if let dat = try? myTheme.resourceNamed(.selectionStringsImageKey, widescreen: isWideScreen),
+					let selectionStringsMaskButtonImage = NSImage(data: dat) {
+					draw(selectionStringsMaskButtonImage, in: rect, on: newImage)
+				} else {
+					drawBox(in: rect, lineWidth: myTheme.property(withKey: .selectionStringsMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+				}
+			} else {
+				let rect = NSRect(origin: origin, size: myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).size)
 
-if ([[theme objectForKey:@"KWSelectionStringsMaskY"] intValue] == -1)
-{
-if ([editPopup indexOfSelectedItem] == 0 || [editPopup indexOfSelectedItem] == 1)
-y = 576 - (576 - [files count] * [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue]) / 2;
-else
-y = 384 - (384 - [files count] * [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue]) / 2;
-}
-else
-{
-y = [[theme objectForKey:KWSelectionImagesMaskYKey] intValue];
-}
-}
-
-for (i=0;i<[files count];i++)
-{
-if ([[theme objectForKey:KWSelectionModeKey] intValue] == 2)
-{
-NSImage *selectionStringsMaskButtonImage  = [[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionStringsImage"]];
-NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsMaskW"] intValue],[[theme objectForKey:@"KWSelectionStringsMaskH"] intValue]);
-
-if (!selectionStringsMaskButtonImage)
-[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionStringsMaskLineWidth"] intValue] onImage:newImage];
-else
-[self drawImage:selectionStringsMaskButtonImage inRect:rect onImage:newImage];
-}
-else
-{
-NSImage *selectionImageMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionImagesImage"]];
-NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionImagesMaskW"] intValue],[[theme objectForKey:@"KWSelectionImagesMaskH"] intValue]);
-
-if (!selectionImageMaskButtonImage)
-[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionImagesMaskLineWidth"] intValue] onImage:newImage];
-else
-[self drawImage:selectionImageMaskButtonImage inRect:rect onImage:newImage];
-}
-
-if ([[theme objectForKey:KWSelectionModeKey] intValue] != 2)
-{
-x = x + [[theme objectForKey:@"KWSelectionImagesMaskSeperationW"] intValue];
-
-if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] intValue]-1)
-{
-y = y - [[theme objectForKey:@"KWSelectionImagesMaskSeperationH"] intValue];
-x = [[theme objectForKey:KWSelectionImagesMaskXKey] intValue];
-newRow = 0;
-}
-else
-{
-newRow += 1;
-}
-}
-else
-{
-y -= [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] intValue];
-}
-}
-
-files = nil;
-
-NSImage *previousMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWPreviousButtonMaskImage"]];
-NSRect rect = NSMakeRect([[theme objectForKey:@"KWPreviousButtonMaskX"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskY"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskW"] intValue],[[theme objectForKey:@"KWPreviousButtonMaskH"] intValue]);
-
-if (!previousMaskButtonImage)
-[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWPreviousButtonMaskLineWidth"] intValue] onImage:newImage];
-else
-[self drawImage:previousMaskButtonImage inRect:rect onImage:newImage];
-
-NSImage *nextMaskButtonImage = [[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonMaskImage"]];
-rect = NSMakeRect([[theme objectForKey:@"KWNextButtonMaskX"] intValue],[[theme objectForKey:@"KWNextButtonMaskY"] intValue],[[theme objectForKey:@"KWNextButtonMaskW"] intValue],[[theme objectForKey:@"KWNextButtonMaskH"] intValue]);
-
-if (!nextMaskButtonImage)
-[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWNextButtonMaskLineWidth"] intValue] onImage:newImage];
-else
-[self drawImage:nextMaskButtonImage inRect:rect onImage:newImage];
-
-return newImage;
-*/
+				if let dat = try? myTheme.resourceNamed(.selectionImagesImageKey, widescreen: isWideScreen),
+					let selectionImageMaskButtonImage = NSImage(data: dat) {
+					draw(selectionImageMaskButtonImage, in: rect, on: newImage)
+				} else {
+					drawBox(in: rect, lineWidth: myTheme.property(withKey: .selectionImagesMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+				}
+			}
+			
+			if myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen) as? Int != 2 {
+				origin.x += myTheme.property(withKey: .selectionImagesMaskSeperationWKey, widescreen: isWideScreen) as? CGFloat ?? 1
+				
+				if newRow == (myTheme.property(withKey: .selectionImagesOnARowKey, widescreen: isWideScreen) as! Int) - 1 {
+					origin.y -= myTheme.property(withKey: .selectionImagesMaskSeperationHKey, widescreen: isWideScreen) as? CGFloat ?? 1
+					origin.x = myTheme.rect(withKey: .selectionImagesMaskRectKey, widescreen: isWideScreen).origin.x
+					newRow = 0
+				} else {
+					newRow += 1
+				}
+			} else {
+				origin.y -= myTheme.property(withKey: .selectionStringsMaskSeperationKey, widescreen: isWideScreen) as? CGFloat ?? 1
+			}
+		}
+		
+		files.removeAll(keepingCapacity: false)
+		
+		var rect = myTheme.rect(withKey: .previousButtonMaskRectKey, widescreen: isWideScreen)
+		
+		if let dat = try? myTheme.resourceNamed(.previousButtonMaskImageKey, widescreen: isWideScreen), let previousMaskButtonImage = NSImage(data: dat) {
+			draw(previousMaskButtonImage, in: rect, on: newImage)
+		} else {
+			drawBox(in: rect, lineWidth: myTheme.property(withKey: .previousButtonMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+		}
+		
+		rect = myTheme.rect(withKey: .nextButtonMaskRectKey, widescreen: isWideScreen)
+		
+		if let dat = try? myTheme.resourceNamed(.nextButtonMaskImageKey, widescreen: isWideScreen), let nextMaskButtonImage = NSImage(data: dat) {
+			draw(nextMaskButtonImage, in: rect, on: newImage)
+		} else {
+			drawBox(in: rect, lineWidth: myTheme.property(withKey: .nextButtonMaskLineWidthKey, widescreen: isWideScreen) as? CGFloat ?? 1, on: newImage)
+		}
+		
 		return newImage
 	}
 

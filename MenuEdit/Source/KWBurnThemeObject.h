@@ -201,6 +201,7 @@ extern KWRectKeys const KWSelectionStringsMaskRectKey;
 extern KWRectKeys const KWTitleSelectionRectKey;
 extern KWRectKeys const KWChapterSelectionRectKey;
 
+extern KWDataKeys const KWSelectionImagesImageKey;
 
 @interface KWBurnThemeObject : NSObject
 

@@ -200,6 +200,7 @@ NSString *const KWSelectionStringsMaskRectKey = @"KWSelectionStringsMaskRect";
 
 KWRectKeys const KWTitleSelectionRectKey = @"KWTitleSelectionRect";
 KWRectKeys const KWChapterSelectionRectKey = @"KWChapterSelectionRect";
+NSString *const KWSelectionImagesImageKey = @"KWSelectionImagesImage";
 
 
 static NSString *const burnVersion = @"2";
@@ -351,6 +352,7 @@ keyWithExt = [[key stringByAppendingString:@"WS"] stringByAppendingPathExtension
 			MigrateResource(KWChapterSelectionOverlayImageKey);
 			MigrateResource(KWSelectionImagesUseImageKey);
 			MigrateResource(KWDefaultImageKey);
+			MigrateResource(KWSelectionImagesImageKey);
 			
 #undef MigrateResource
 			
