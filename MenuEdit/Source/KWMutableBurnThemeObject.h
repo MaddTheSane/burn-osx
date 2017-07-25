@@ -19,12 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly, strong) NSFileWrapper *fileWrapper;
 
-- (void)addResource:(NSData*)res named:(NSString*)resName locale:(nullable NSLocale*)locale;
-- (void)addResource:(NSData*)res named:(NSString*)resName;
 - (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws locale:(nullable NSLocale*)locale forKey:(KWDataKeys)key;
 - (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws forKey:(KWDataKeys)key;
 
-- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key;
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws;
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key locale:(nullable NSLocale*)locale;
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws locale:(nullable NSLocale*)locale;

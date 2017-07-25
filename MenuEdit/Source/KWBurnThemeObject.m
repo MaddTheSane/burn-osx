@@ -269,12 +269,11 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 	}
 	localeWrapper = [[fileWrapper fileWrappers] objectForKey:[_currentLocale localeIdentifier]];
 	if (prop[_currentLocale.localeIdentifier] == nil) {
-		prop[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:100];
+		prop[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:162];
 	}
 	if (propWS[_currentLocale.localeIdentifier] == nil) {
-		propWS[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:100];
+		propWS[_currentLocale.localeIdentifier] = [[NSMutableDictionary alloc] initWithCapacity:162];
 	}
-
 }
 
 - (NSArray<NSString *> *)allLanguages
@@ -309,7 +308,7 @@ static NSString *const themeWideScreenPlist = @"ThemeWS.plist";
 
 	KWBurnThemeObject *newVal = [[KWBurnThemeObject alloc] init];
 	
-	for (NSString *key in keys) {
+	for (NSString *key in keys) @autoreleasepool {
 		if ([[key pathExtension] isEqualTo:@"lproj"]) {
 			NSRect tmpRect;
 			NSString *tmpRectStr;
@@ -460,7 +459,6 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 #undef MigrateSettings
 		}
 	}
-
 	
 	return newVal;
 }
