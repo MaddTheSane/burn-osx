@@ -140,6 +140,9 @@
 /* Class = "NSMenuItem"; title = "Plak en pas stijl aan"; ObjectID = "210"; */
 "210.title" = "Plak en pas stijl aan";
 
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
 /* Class = "NSMenu"; title = "Help"; ObjectID = "8fQ-nM-Mji"; */
 "8fQ-nM-Mji.title" = "Help";
 

@@ -140,6 +140,9 @@
 /* Class = "NSMenuItem"; title = "Einfügen und Stil beibehalten"; ObjectID = "210"; */
 "210.title" = "Einfügen und Stil beibehalten";
 
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
 /* Class = "NSMenu"; title = "Help"; ObjectID = "EYE-Xa-2p6"; */
 "EYE-Xa-2p6.title" = "Help";
 

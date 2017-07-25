@@ -140,6 +140,9 @@
 /* Class = "NSMenuItem"; title = "スタイルをペーストして合わせる"; ObjectID = "210"; */
 "210.title" = "スタイルをペーストして合わせる";
 
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
 /* Class = "NSMenuItem"; title = "Help"; ObjectID = "Uz9-MA-fZP"; */
 "Uz9-MA-fZP.title" = "Help";
 

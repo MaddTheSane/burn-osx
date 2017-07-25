@@ -9,5 +9,8 @@
 import Cocoa
 
 class MEAppDelegate: NSObject, NSApplicationDelegate {
-
+	
+	@IBAction func importBurnThemeV1(_ sender: Any?) {
+		
+	}
 }

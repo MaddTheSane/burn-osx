@@ -140,6 +140,9 @@
 /* Class = "NSMenuItem"; title = "Colar e Aplicar Estilo"; ObjectID = "210"; */
 "210.title" = "Colar e Aplicar Estilo";
 
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
 /* Class = "NSMenu"; title = "Help"; ObjectID = "2Qr-vP-hfS"; */
 "2Qr-vP-hfS.title" = "Help";
 

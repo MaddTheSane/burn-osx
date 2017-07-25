@@ -140,6 +140,9 @@
 /* Class = "NSMenuItem"; title = "Вставить в текущем стиле"; ObjectID = "210"; */
 "210.title" = "Вставить в текущем стиле";
 
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
 /* Class = "NSMenuItem"; title = "MenuEdit Help"; ObjectID = "136-2s-dzQ"; */
 "136-2s-dzQ.title" = "MenuEdit Help";
 
