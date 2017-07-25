@@ -42,7 +42,7 @@
 - (void)updateView:(id)object
 {
 	currentTableView = object;
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *tableData = [controller myDataSource];
 	NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 
@@ -189,7 +189,7 @@
 
 - (void)updateArtWork
 {
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *tableData = [controller myDataSource];
 	NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 
@@ -228,7 +228,7 @@
 	[openPanel beginSheetModalForWindow:[myView window] completionHandler:^(NSInteger returnCode) {
 		if (returnCode == NSOKButton)
 		{
-			KWAudioController *controller = [currentTableView delegate];
+			KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 			NSArray *tableData = [controller myDataSource];
 			NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 			
@@ -274,7 +274,7 @@
 
 - (IBAction)optionsChanged:(id)sender
 {
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *tableData = [controller myDataSource];
 	NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 	
@@ -294,7 +294,7 @@
 
 - (IBAction)removeImage:(id)sender
 {
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *tableData = [controller myDataSource];
 	NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 

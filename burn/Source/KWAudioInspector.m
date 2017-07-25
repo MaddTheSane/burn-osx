@@ -63,7 +63,7 @@
 {
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	currentTableView = object;
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *tableData = [controller myDataSource];
 	NSArray *currentObjects = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:tableData];
 
@@ -200,7 +200,7 @@
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	NSInteger index = [sender tag] - 1;
 	NSString *currentKey = [tagMappings objectAtIndex:index];
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	NSArray *selectedRows = [KWCommonMethods selectedRowsAtRowIndexes:[currentTableView selectedRowIndexes]];
 
 	if (index < 8)
@@ -231,7 +231,7 @@
 	}
 	else
 	{
-		KWAudioController *controller = [currentTableView delegate];
+		KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 		NSArray *selectedTracks = [KWCommonMethods allSelectedItemsInTableView:currentTableView fromArray:[controller myTracks]];
 		
 		NSInteger i;

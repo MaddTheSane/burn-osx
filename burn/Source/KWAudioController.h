@@ -54,8 +54,11 @@
 
 //Disc creation actions
 //Create a track for burning
-- (id)myTrackWithBurner:(KWBurner *)burner errorString:(NSString **)error;
-- (NSInteger)authorizeFolderAtPathIfNeededAtPath:(NSString *)path errorString:(NSString **)error;
+- (id)myTrackWithBurner:(KWBurner *)burner errorString:(NSString **)error DEPRECATED_ATTRIBUTE;
+- (NSInteger)authorizeFolderAtPathIfNeededAtPath:(NSString *)path errorString:(NSString **)error DEPRECATED_ATTRIBUTE;
+
+- (id)myTrackWithBurner:(KWBurner *)burner error:(NSError **)error;
+- (BOOL)authorizeFolderAtPathIfNeededAtPath:(NSString *)path error:(NSError **)error;
 
 //Player actions
 - (IBAction)play:(id)sender;

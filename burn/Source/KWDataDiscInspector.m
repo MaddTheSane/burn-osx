@@ -521,8 +521,11 @@ static NSArray* filesystemNameTagMappings = nil;
 	[openPanel setCanChooseFiles:YES];
 	[openPanel setAllowsMultipleSelection:NO];
 	[openPanel setResolvesAliases:YES];
+	openPanel.allowedFileTypes = [NSArray arrayWithObject:@"icns"];
 
-	[openPanel beginSheetForDirectory:nil file:nil types:[NSArray arrayWithObject:@"icns"] modalForWindow:[myView window] modalDelegate:self didEndSelector:@selector(openFileEnded:returnCode:contextInfo:) contextInfo:nil];
+	[openPanel beginSheetModalForWindow:[myView window] completionHandler:^(NSInteger result) {
+		[self openFileEnded:openPanel returnCode:result contextInfo:NULL];
+	}];
 }
 
 - (void)openFileEnded:(NSOpenPanel*)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo

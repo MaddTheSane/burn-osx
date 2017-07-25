@@ -10,7 +10,12 @@
 #import "KWConverter.h"
 #import "KWBurnThemeObject.h"
 
+NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
+
 @implementation KWDVDAuthorizer
+{
+	BOOL wideScreen;
+}
 
 - (id) init
 {
@@ -53,25 +58,25 @@
 #pragma mark -
 #pragma mark •• DVD-Video without menu
 
-- (NSInteger)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray *)fileArray withSize:(NSNumber *)size errorString:(NSString **)error
+- (BOOL)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSInteger)size error:(NSError **)error
 {
 	BOOL result;
-
-	result = [KWCommonMethods createDirectoryAtPath:path errorString:error];
-
+	
+	result = [KWCommonMethods createDirectoryAtPath:path error:error];
+	
 	//Create a xml file with chapters if there are any
 	if (result)
-		[self createStandardDVDXMLAtPath:path withFileArray:fileArray errorString:error];
-
+		[self createStandardDVDXMLAtPath:path withFileArray:fileArray error:error];
+	
 	progressSize = size;
-
+	
 	//Author the DVD
 	
 	if (result)
-		result = [self authorDVDWithXMLFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] withFileArray:fileArray atPath:path errorString:error];
+		result = [self authorDVDWithXMLFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] withFileArray:fileArray atPath:path error:error];
 	
 	NSInteger succes = 0;
-
+	
 	if (result == NO)
 	{
 		if (userCanceled)
@@ -79,7 +84,7 @@
 		else
 			succes = 1;
 	}
-
+	
 	[KWCommonMethods removeItemAtPath:[path stringByAppendingPathComponent:@"dvdauthor.xml"]];
 	
 	//Create TOC (Table Of Contents)
@@ -87,27 +92,31 @@
 	{
 		NSArray *arguments = [NSArray arrayWithObjects:@"-T", @"-o", path, nil];
 		BOOL status = [KWCommonMethods launchNSTaskAtPath:[[NSBundle mainBundle] pathForResource:@"dvdauthor" ofType:@""] withArguments:arguments outputError:YES outputString:YES output:&*error];
-
+		
 		if (!status)
 			succes = 1;
 	}
-
+	
 	if (succes == 0)
 	{
-		return 0;
+		return YES;
 	}
 	else
 	{
 		[KWCommonMethods removeItemAtPath:path];
-	
-		if (userCanceled)
-			return 2;
-		else
+		
+		if (userCanceled) {
+			if (error) {
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
+			}
+			return NO;
+		} else {
 			return 1;
+		}
 	}
 }
 
-- (void)createStandardDVDXMLAtPath:(NSString *)path withFileArray:(NSArray *)fileArray errorString:(NSString **)error
+- (BOOL)createStandardDVDXMLAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray error:(NSError **)error;
 {
 	NSString *xmlFile = [NSString stringWithFormat:@"<dvdauthor dest=\"%@\">\n<titleset>\n<titles>", path];
 	
@@ -157,7 +166,7 @@
 	
 	xmlFile = [NSString stringWithFormat:@"%@%@</pgc>\n</titles>\n</titleset>\n</dvdauthor>", xmlFile, loopString];
 
-	[KWCommonMethods writeString:xmlFile toFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] errorString:error];
+	return [KWCommonMethods writeString:xmlFile toFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] error:error];
 }
 
 ///////////////
@@ -167,15 +176,16 @@
 #pragma mark -
 #pragma mark •• DVD-Audio
 
-- (NSInteger)createStandardDVDAudioFolderAtPath:(NSString *)path withFiles:(NSArray *)files errorString:(NSString **)error
+- (BOOL)createStandardDVDAudioFolderAtPath:(NSString *)path withFiles:(NSArray<NSString*> *)files error:(NSError **)error;
 {
+	[path retain];
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	fileSize = 0;
 	
 		NSInteger i;
 		for (i = 0; i < [files count]; i ++)
 		{
-			fileSize = fileSize + [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+			fileSize += [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
 		}
 		
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:fileSize]];
@@ -214,24 +224,23 @@
 	[dvdauthor release];
 	dvdauthor = nil;
 
-	if (taskStatus == 0)
-	{
-		return 0;
-	}
-	else
-	{
+	if (taskStatus == 0) {
+		[path release];
+		return YES;
+	} else {
 		[KWCommonMethods removeItemAtPath:path];
+		[path release];
 	
-		if (userCanceled)
-		{
-			return 2;
-		}
-		else
-		{
+		if (userCanceled) {
+			if (error) {
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
+			}
+			return NO;
+		} else {
 			if (![string isEqualTo:@""])
-				*error = string;
+				*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadUnknownError userInfo:@{NSLocalizedFailureReasonErrorKey: string}];
 				
-			return 1;
+			return NO;
 		}
 	}
 }
@@ -262,13 +271,14 @@
 #pragma mark •• DVD-Video with menu
 
 //Create a menu with given files and chapters
-- (NSInteger)createDVDMenuFiles:(NSString *)path withTheme:(NSDictionary *)currentTheme withFileArray:(NSArray *)fileArray withSize:(NSNumber *)size withName:(NSString *)name errorString:(NSString **)error
+- (NSInteger)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSNumber *)size withName:(NSString *)name wideScreen:(BOOL)ws error:(NSError **)error;
 {
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	NSString *themeFolderPath = [path stringByAppendingPathComponent:@"THEME_TS"];
 	NSString *dvdXMLPath = [themeFolderPath stringByAppendingPathComponent:@"dvdauthor.xml"];
 	progressSize = size;
-
+	wideScreen = ws;
+	
 	//Set value for our progress panel
 	[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithDouble:-1]];
 	[defaultCenter postNotificationName:@"KWStatusChanged" object:NSLocalizedString(@"Creating DVD Theme", Localized)];
@@ -279,57 +289,55 @@
 	BOOL succes = YES;
 
 	//Create temp folders
-	succes = [KWCommonMethods createDirectoryAtPath:path errorString:error];
+	succes = [KWCommonMethods createDirectoryAtPath:path error:error];
 	
 	if (succes)
-		succes = [KWCommonMethods createDirectoryAtPath:themeFolderPath errorString:error];
+		succes = [KWCommonMethods createDirectoryAtPath:themeFolderPath error:error];
 	
-	if ([fileArray count] == 1 && [[[fileArray objectAtIndex:0] objectForKey:@"Chapters"] count] > 0)
-	{
+	if ([fileArray count] == 1 && [[[fileArray objectAtIndex:0] objectForKey:@"Chapters"] count] > 0) {
 		//Create Chapter Root Menu
 		if (succes)
-			succes = [self createRootMenu:themeFolderPath withName:name withTitles:NO withSecondButton:YES errorString:error];
+			succes = [self createRootMenu:themeFolderPath withName:name withTitles:NO withSecondButton:YES error:error];
 		
 		//Create Chapter Selection Menu(s)
 		if (succes)
-			succes = [self createSelectionMenus:fileArray withChapters:YES atPath:themeFolderPath errorString:error];
-	}
-	else
-	{
+			succes = [self createSelectionMenus:fileArray withChapters:YES atPath:themeFolderPath error:error];
+	} else {
 		//Create Root Menu
 		if (succes)
-			succes = [self createRootMenu:themeFolderPath withName:name withTitles:YES withSecondButton:([fileArray count] > 1) errorString:error];
+			succes = [self createRootMenu:themeFolderPath withName:name withTitles:YES withSecondButton:([fileArray count] > 1) error:error];
 		
 		//Create Title Selection Menu(s)
 		if (succes)
-			succes = [self createSelectionMenus:fileArray withChapters:NO atPath:themeFolderPath errorString:error];
+			succes = [self createSelectionMenus:fileArray withChapters:NO atPath:themeFolderPath error:error];
 		
 		//Create Chapter Menu
 		if (succes)
-			succes = [self createChapterMenus:themeFolderPath withFileArray:fileArray errorString:error];
+			succes = [self createChapterMenus:themeFolderPath withFileArray:fileArray error:error];
 		
 		//Create Chapter Selection Menu(s)
 		if (succes)
-			succes = [self createSelectionMenus:fileArray withChapters:YES atPath:themeFolderPath errorString:error];
+			succes = [self createSelectionMenus:fileArray withChapters:YES atPath:themeFolderPath error:error];
 	}
 	
 	NSLog(@"Variables: %@", *error);
 	
 	//Create dvdauthor XML file
 	if (succes)
-		succes = [self createDVDXMLAtPath:dvdXMLPath withFileArray:fileArray atFolderPath:path errorString:error];
+		succes = [self createDVDXMLAtPath:dvdXMLPath withFileArray:fileArray atFolderPath:path error:error];
 	
 	NSLog(@"Variables: %@", *error);
 	//Author DVD
 	if (succes)
-		succes = [self authorDVDWithXMLFile:dvdXMLPath withFileArray:fileArray atPath:path errorString:error];
+		succes = [self authorDVDWithXMLFile:dvdXMLPath withFileArray:fileArray atPath:path error:error];
 	
 	if (!succes)
 	{
-		if (userCanceled)
+		if (userCanceled) {
 			return 2;
-		else
+		} else {
 			return 1;
+		}
 	}
 
 	[KWCommonMethods removeItemAtPath:themeFolderPath];
@@ -345,7 +353,7 @@
 #pragma mark •• Main actions
 
 //Create root menu (Start and Titles)
-- (BOOL)createRootMenu:(NSString *)path withName:(NSString *)name withTitles:(BOOL)titles withSecondButton:(BOOL)secondButton errorString:(NSString **)error
+- (BOOL)createRootMenu:(NSString *)path withName:(NSString *)name withTitles:(BOOL)titles withSecondButton:(BOOL)secondButton error:(NSError **)error
 {
 	BOOL succes;
 
@@ -354,20 +362,20 @@
 	NSImage *mask = [self rootMaskWithTitles:titles withSecondButton:secondButton];
 		
 	//Save mask as png
-	succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+	succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 
 	//Create mpg with menu in it
 	if (succes)
-		succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:@"Title Menu.mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+		succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:@"Title Menu.mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 	
 	if (!succes && *error == nil)
-		*error = @"Failed to create root menu";
+		*error = [NSError errorWithDomain:KWDVDAuthorizerErrorDomain code:KWDVDAuthorizerErrorFailedToCreateRootMenu userInfo:nil];//@"Failed to create root menu";
 	
 	return succes;
 }
 
 //Batch create title selection menus
-- (BOOL)createSelectionMenus:(NSArray *)fileArray withChapters:(BOOL)chapters atPath:(NSString *)path errorString:(NSString **)error
+- (BOOL)createSelectionMenus:(NSArray *)fileArray withChapters:(BOOL)chapters atPath:(NSString *)path error:(NSError **)error
 {
 	BOOL succes = YES;
 	NSInteger menuSeries = 1;
@@ -410,14 +418,13 @@
 			if (chapters)
 			{
 				image = [[[NSImage alloc] initWithData:[currentObject objectForKey:@"Image"]] autorelease];
-			}
-			else
-			{
-				image = [KWConverter getImageAtPath:currentPath atTime:[[theme objectForKey:@"KWScreenshotAtTime"] integerValue] isWideScreen:widescreen];
+			} else {
+				image = [KWConverter getImageAtPath:currentPath atTime:[[theme propertyWithKey:KWScreenshotAtTimeKey widescreen:widescreen] integerValue] isWideScreen:widescreen];
 				
 				//Too short movie
-				if (!image)
+				if (!image) {
 					image = [KWConverter getImageAtPath:currentPath atTime:0 isWideScreen:widescreen];
+				}
 			}
 			
 			[images addObject:image];
@@ -431,7 +438,7 @@
 			outputName = @"Title Selection ";
 
 		NSInteger number;
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:NO] integerValue] != 2)
 			number = [[theme objectForKey:@"KWSelectionImagesOnAPage"] integerValue];
 		else
 			number = [[theme objectForKey:@"KWSelectionStringsOnAPage"] integerValue];
@@ -460,10 +467,10 @@
 					NSArray *objectSubArray = [objects subarrayWithRange:range];
 					image = [self selectionMenuWithTitles:(!chapters) withObjects:objectSubArray withImages:[images subarrayWithRange:range] addNext:YES addPrevious:YES];
 					mask = [self selectionMaskWithTitles:(!chapters) withObjects:objectSubArray addNext:YES addPrevious:YES];
-					succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+					succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 				
 					if (succes)
-						succes = [self createDVDMenuFile:[[[path stringByAppendingPathComponent:outputName] stringByAppendingString:[[NSNumber numberWithInteger:i + 1 + numberOfpages] stringValue]] stringByAppendingString:@".mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+						succes = [self createDVDMenuFile:[[[path stringByAppendingPathComponent:outputName] stringByAppendingString:[[NSNumber numberWithInteger:i + 1 + numberOfpages] stringValue]] stringByAppendingString:@".mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 				
 					[innerPool release];
 					innerPool = nil;
@@ -476,10 +483,10 @@
 				NSArray *objectSubArray = [objects subarrayWithRange:range];
 				image = [self selectionMenuWithTitles:(!chapters) withObjects:objectSubArray withImages:[images subarrayWithRange:range] addNext:NO addPrevious:YES];
 				mask = [self selectionMaskWithTitles:(!chapters) withObjects:objectSubArray addNext:NO addPrevious:YES];
-				succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+				succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 			
 				if (succes)
-					succes = [self createDVDMenuFile:[[[path stringByAppendingPathComponent:outputName] stringByAppendingString:[[NSNumber numberWithInteger:pages + numberOfpages] stringValue]] stringByAppendingString:@".mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+					succes = [self createDVDMenuFile:[[[path stringByAppendingPathComponent:outputName] stringByAppendingString:[[NSNumber numberWithInteger:pages + numberOfpages] stringValue]] stringByAppendingString:@".mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 			}
 		}
 		else
@@ -492,10 +499,10 @@
 			NSArray *objectSubArray = [objects subarrayWithRange:firstRange];
 			image = [self selectionMenuWithTitles:(!chapters) withObjects:objectSubArray withImages:[images subarrayWithRange:firstRange] addNext:([objects count] > number) addPrevious:NO];
 			mask = [self selectionMaskWithTitles:(!chapters) withObjects:objectSubArray addNext:([objects count] > number) addPrevious:NO];
-			succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+			succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 		
 			if (succes)
-				succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:[[outputName stringByAppendingString:[[NSNumber numberWithInteger:1 + numberOfpages] stringValue]] stringByAppendingString:@".mpg"]] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+				succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:[[outputName stringByAppendingString:[[NSNumber numberWithInteger:1 + numberOfpages] stringValue]] stringByAppendingString:@".mpg"]] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 		}
 
 		numberOfpages = numberOfpages + pages;
@@ -511,26 +518,19 @@
 	indexes = nil;
 	
 	if (!succes && !*error)
-		*error = @"Failed to create selection menus";
+		*error = [NSError errorWithDomain:KWDVDAuthorizerErrorDomain code: KWDVDAuthorizerErrorFailedToCreateSelectionMenus userInfo:nil];//@"Failed to create selection menus";
 
 	return succes;
 }
 
 //Create a chapter menu (Start and Chapters)
-- (BOOL)createChapterMenus:(NSString *)path withFileArray:(NSArray *)fileArray errorString:(NSString **)error
+- (BOOL)createChapterMenus:(NSString *)path withFileArray:(NSArray<NSDictionary*> *)fileArray error:(NSError **)error
 {
 	BOOL succes = YES;
 
 	//Check if there are any chapters
-	NSInteger i;
-	for (i = 0; i < [fileArray count]; i ++)
-	{
-		NSDictionary *fileDictionary = [fileArray objectAtIndex:i];
-	
-		if ([[fileDictionary objectForKey:@"Chapters"] count] > 0)
-		{
-			NSAutoreleasePool *innerPool = [[NSAutoreleasePool alloc] init];
-		
+	for (NSDictionary *fileDictionary in fileArray) {
+		if ([[fileDictionary objectForKey:@"Chapters"] count] > 0) @autoreleasepool {
 			NSString *name = [[[fileDictionary objectForKey:@"Path"] lastPathComponent] stringByDeletingPathExtension];
 
 			//Create Images
@@ -538,14 +538,11 @@
 			NSImage *mask = [self rootMaskWithTitles:NO withSecondButton:YES];
 		
 			//Save mask as png
-			succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
+			succes = [KWCommonMethods saveImage:mask toPath:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 
 			//Create mpg with menu in it
 			if (succes)
-				succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:[name stringByAppendingString:@".mpg"]] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] errorString:error];
-		
-			[innerPool release];
-			innerPool = nil;
+				succes = [self createDVDMenuFile:[path stringByAppendingPathComponent:[name stringByAppendingString:@".mpg"]] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
 		}
 	}
 	
@@ -562,10 +559,10 @@
 #pragma mark -
 #pragma mark •• DVD actions
 
-- (BOOL)createDVDMenuFile:(NSString *)path withImage:(NSImage *)image withMaskFile:(NSString *)maskFile errorString:(NSString **)error
+- (BOOL)createDVDMenuFile:(NSString *)path withImage:(NSImage *)image withMaskFile:(NSString *)maskFile error:(NSError **)error;
 {
 	NSString *xmlFile = [NSString stringWithFormat:@"<subpictures>\n<stream>\n<spu\nforce=\"yes\"\nstart=\"00:00:00.00\" end=\"00:00:00.00\"\nhighlight=\"%@\"\nautooutline=\"infer\"\noutlinewidth=\"6\"\nautoorder=\"rows\"\n>\n</spu>\n</stream>\n</subpictures>", [maskFile lastPathComponent]];
-	BOOL succes = [KWCommonMethods writeString:xmlFile toFile:[[path stringByDeletingPathExtension] stringByAppendingPathExtension:@"xml"] errorString:error];
+	BOOL succes = [KWCommonMethods writeString:xmlFile toFile:[[path stringByDeletingPathExtension] stringByAppendingPathExtension:@"xml"] error:error];
 	
 	if (succes)
 	{
@@ -599,7 +596,7 @@
 
 		spumux = [[NSTask alloc] init];
 		
-		if (![KWCommonMethods createFileAtPath:path attributes:nil errorString:error])
+		if (![KWCommonMethods createFileAtPath:path attributes:nil error:error])
 			return NO;
 		
 		[spumux setStandardOutput:[NSFileHandle fileHandleForWritingAtPath:path]];
@@ -658,7 +655,11 @@
 		if (!succes)
 		{
 			[KWCommonMethods removeItemAtPath:path];
-			*error = string;
+			if (error) {
+				if (!*error) {
+					*error = [NSError errorWithDomain:KWDVDAuthorizerErrorDomain code:KWDVDAuthorizerErrorSPUMuxFailed userInfo:@{NSLocalizedFailureReasonErrorKey: string}];
+				}
+			}
 		}
 
 		[KWCommonMethods removeItemAtPath:maskFile];
@@ -669,16 +670,15 @@
 }
 
 //Create a xml file for dvdauthor
--(BOOL)createDVDXMLAtPath:(NSString *)path withFileArray:(NSArray *)fileArray atFolderPath:(NSString *)folderPath errorString:(NSString **)error
-{	
+-(BOOL)createDVDXMLAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray atFolderPath:(NSString *)folderPath error:(NSError **)error
+{
 	NSInteger numberOfFiles = [fileArray count];
 	NSString *xmlContent;
 
 	NSString *aspect1 = @"";
 	NSString *aspect2 = @"";
 		
-	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 1)
-	{
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 1) {
 		aspect1 = @" aspect=\"16:9\"";
 		aspect2 = @"<video aspect=\"16:9\"></video>\n";
 	}
@@ -871,11 +871,11 @@
 	[titlesWithChaptersNames release];
 	titlesWithChaptersNames = nil;
 
-	return [KWCommonMethods writeString:xmlContent toFile:path errorString:error];
+	return [KWCommonMethods writeString:xmlContent toFile:path error:error];
 }
 
 //Create DVD folders with dvdauthor
-- (BOOL)authorDVDWithXMLFile:(NSString *)xmlFile withFileArray:(NSArray *)fileArray atPath:(NSString *)path errorString:(NSString **)error
+- (BOOL)authorDVDWithXMLFile:(NSString *)xmlFile withFileArray:(NSArray<NSString*> *)fileArray atPath:(NSString *)path error:(NSError **)error
 {
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
@@ -921,10 +921,8 @@
 	NSMutableString *errorString = [[NSMutableString alloc] initWithString:@""];
 	NSString *string = [[NSString alloc] init];
 
-	while([data = [handle availableData] length])
-	@autoreleasepool {
-		if (string)
-		{
+	while ([data = [handle availableData] length]) @autoreleasepool {
+		if (string) {
 			[string release];
 			string = nil;
 		}
@@ -982,8 +980,13 @@
 	[errorString appendString:[[[NSString alloc] initWithData:[handle2 readDataToEndOfFile] encoding:NSUTF8StringEncoding] autorelease]];
 	errorString = [errorString autorelease];
 	
-	if (!returnCode)
-		*error = [NSString stringWithFormat:@"KWConsole:\nTask: dvdauthor\n%@", errorString];
+	if (error && userCanceled) {
+		*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
+	} else if (!returnCode) {
+		if (error) {
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:dvdauthor.terminationStatus userInfo:@{NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:@"KWConsole:\nTask: dvdauthor\n%@", errorString]}];
+		}
+	}
 	
 	[string release];
 	string = nil;
@@ -1437,15 +1440,17 @@
 				[self drawImage:previousMaskButtonImage inRect:rect onImage:newImage];
 		}
 	
-		if (next)
-		{
+		if (next) {
 			NSImage *nextMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonMaskImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWNextButtonMaskX"] integerValue],[[theme objectForKey:@"KWNextButtonMaskY"] integerValue] * factor,[[theme objectForKey:@"KWNextButtonMaskW"] integerValue],[[theme objectForKey:@"KWNextButtonMaskH"] integerValue] * factor);
+			NSRect rect = [theme rectWithKey:KWNextButtonMaskRectKey widescreen:YES];
+			rect.origin.y *= factor;
+			rect.size.height *= factor;
 	
-			if (!nextMaskButtonImage)
+			if (!nextMaskButtonImage) {
 				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWNextButtonMaskLineWidth"] integerValue] onImage:newImage];
-			else
+			} else {
 				[self drawImage:nextMaskButtonImage inRect:rect onImage:newImage];
+			}
 		}
 		
 	return newImage;
@@ -1458,7 +1463,7 @@
 #pragma mark -
 #pragma mark •• Other actions
 
-- (NSImage *)getPreviewImageFromTheme:(NSDictionary *)currentTheme ofType:(NSInteger)type
+- (NSImage *)getPreviewImageFromTheme:(KWBurnThemeObject *)currentTheme ofType:(NSInteger)type
 {
 	theme = currentTheme;
 	NSImage *image;
@@ -1507,7 +1512,6 @@
 	
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 1)
 	{
-		[image setScalesWhenResized:YES];
 		[image setSize:NSMakeSize(720,404)];
 	}
 	
@@ -1574,7 +1578,7 @@
 	return resizedImage;
 }
 
-- (NSImage *)imageForAudioTrackWithName:(NSString *)name withTheme:(NSDictionary *)currentTheme
+- (NSImage *)imageForAudioTrackWithName:(NSString *)name withTheme:(KWBurnThemeObject *)currentTheme
 {
 	theme = currentTheme;
 
@@ -1593,5 +1597,104 @@
 	
 	return newImage;//[self resizeImage:newImage];
 }
+
+@end
+
+@implementation KWDVDAuthorizer (Unavailable)
+
+-(BOOL)createDVDXMLAtPath:(NSString *)path withFileArray:(NSArray *)fileArray atFolderPath:(NSString *)folderPath errorString:(NSString **)error
+{
+	return NO;
+}
+
+- (BOOL)createDVDMenuFile:(NSString *)path withImage:(NSImage *)image withMaskFile:(NSString *)maskFile errorString:(NSString **)error
+{
+	return NO;
+}
+
+- (NSInteger)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray *)fileArray withSize:(NSNumber *)size errorString:(NSString **)error
+{
+	BOOL result;
+	
+	result = [KWCommonMethods createDirectoryAtPath:path errorString:error];
+	
+	//Create a xml file with chapters if there are any
+	if (result)
+		[self createStandardDVDXMLAtPath:path withFileArray:fileArray errorString:error];
+	
+	progressSize = size;
+	
+	//Author the DVD
+	
+	if (result)
+		result = [self authorDVDWithXMLFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] withFileArray:fileArray atPath:path error:error];
+	
+	NSInteger succes = 0;
+	
+	if (result == NO)
+	{
+		if (userCanceled)
+			succes = 2;
+		else
+			succes = 1;
+	}
+	
+	[KWCommonMethods removeItemAtPath:[path stringByAppendingPathComponent:@"dvdauthor.xml"]];
+	
+	//Create TOC (Table Of Contents)
+	if (succes == 0)
+	{
+		NSArray *arguments = [NSArray arrayWithObjects:@"-T", @"-o", path, nil];
+		BOOL status = [KWCommonMethods launchNSTaskAtPath:[[NSBundle mainBundle] pathForResource:@"dvdauthor" ofType:@""] withArguments:arguments outputError:YES outputString:YES output:&*error];
+		
+		if (!status)
+			succes = 1;
+	}
+	
+	if (succes == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		[KWCommonMethods removeItemAtPath:path];
+		
+		if (userCanceled)
+			return 2;
+		else
+			return 1;
+	}
+}
+
+- (void)createStandardDVDXMLAtPath:(NSString *)path withFileArray:(NSArray *)fileArray errorString:(NSString **)error
+{
+	
+}
+
+- (NSInteger)createStandardDVDAudioFolderAtPath:(NSString *)path withFiles:(NSArray<NSDictionary<NSString*,id>*> *)files errorString:(NSString **)error
+{
+	return 1;
+}
+
+- (BOOL)authorDVDWithXMLFile:(NSString *)xmlFile withFileArray:(NSArray *)fileArray atPath:(NSString *)path errorString:(NSString **)error
+{
+	return NO;
+}
+
+- (BOOL)createRootMenu:(NSString *)path withName:(NSString *)name withTitles:(BOOL)titles withSecondButton:(BOOL)secondButton errorString:(NSString **)error
+{
+	return NO;
+}
+
+- (BOOL)createSelectionMenus:(NSArray *)fileArray withChapters:(BOOL)chapters atPath:(NSString *)path errorString:(NSString **)error
+{
+	return NO;
+}
+
+- (NSInteger)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray *)fileArray withSize:(NSNumber *)size withName:(NSString *)name errorString:(NSString **)error
+{
+	return 1;
+}
+
 
 @end
