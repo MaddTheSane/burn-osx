@@ -259,7 +259,7 @@ class BurnThemeDocument: NSDocument {
 	
 	// MARK: Variables
 
-	var myTheme: KWBurnThemeObject = try! KWBurnThemeObject(url: Bundle.main.url(forResource: "default", withExtension: "burnTheme")!)
+	var myTheme: KWBurnThemeObject = try! KWBurnThemeObject(url: Bundle.main.url(forResource: "Default", withExtension: "burnTheme")!)
 	private weak var fontObject: NSView? = nil
 	private var currentFont: NSFont? = nil
 	
@@ -295,7 +295,7 @@ class BurnThemeDocument: NSDocument {
 		
 		localizationPopup.removeAllItems()
 		
-		let keys = myTheme.allLanguages
+		let keys = myTheme.allLanguages.sorted()
 		for lang in keys {
 			localizationPopup.addItem(withTitle: lang)
 		}
@@ -310,6 +310,7 @@ class BurnThemeDocument: NSDocument {
 				localizationPopup.selectItem(withTitle: preferredLanguage)
 			}
 		}
+		myTheme.currentLocale = Locale(identifier: preferredLanguage)
 		
 		themeNameField.stringValue = myTheme.property(withKey: .themeTitleKey, widescreen: false) as! String
 		
@@ -319,7 +320,7 @@ class BurnThemeDocument: NSDocument {
 	}
 
 	override func fileWrapper(ofType typeName: String) throws -> FileWrapper {
-		if typeName == "burnTheme" {
+		if typeName == "Burn Theme" {
 			myTheme.updateLocales()
 			return myTheme.fileWrapper
 		} else {
@@ -329,11 +330,13 @@ class BurnThemeDocument: NSDocument {
 	
 	override func read(from fileWrapper: FileWrapper, ofType typeName: String) throws {
 		switch typeName {
-		case "burnTheme":
+		case "Burn Theme":
 			myTheme = try KWBurnThemeObject(fileWrapper: fileWrapper)
 			
 		case "oldBurnTheme":
 			myTheme = try KWBurnThemeObject.migrageOldBurnTheme(from: fileWrapper)
+			fileURL = nil
+			fileType = "Burn Theme"
 
 		default:
 			throw NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: nil)
@@ -1175,7 +1178,7 @@ class BurnThemeDocument: NSDocument {
 		let labelFont = NSFont(name: fontName, size: size)
 		let centeredStyle = NSMutableParagraphStyle()
 		centeredStyle.alignment = alignment
-		var attsDict: [String: Any] = [NSParagraphStyleAttributeName: centeredStyle, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleNone, NSForegroundColorAttributeName: color]
+		var attsDict: [String: Any] = [NSParagraphStyleAttributeName: centeredStyle, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleNone.rawValue, NSForegroundColorAttributeName: color]
 		attsDict[NSFontAttributeName] = labelFont
 		
 		image.lockFocus()

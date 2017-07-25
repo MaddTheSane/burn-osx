@@ -729,7 +729,8 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		lang = [_currentLocale localeIdentifier];
 	}
 	NSDictionary<NSString*,NSDictionary<NSString*,id>*> *dictToGet = ws ? propWS : prop;
-	return dictToGet[lang][key];
+	id whut = dictToGet[lang][key];
+	return whut;
 }
 
 - (NSRect)rectWithKey:(KWRectKeys)key widescreen:(BOOL)ws

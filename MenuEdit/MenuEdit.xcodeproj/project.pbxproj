@@ -18,7 +18,6 @@
 		FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */ = {isa = PBXBuildFile; fileRef = FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */; };
 		FE4529260B468E050000A2CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4529240B468E050000A2CC /* MainMenu.xib */; };
 		FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */; };
-		FECFB2560F06AD3000933318 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = FECFB2540F06AD3000933318 /* MyDocument.m */; };
 		FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F7E0E63123B00379454 /* MenuEdit.icns */; };
 		FEF03F830E63123B00379454 /* Theme document.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F800E63123B00379454 /* Theme document.icns */; };
 /* End PBXBuildFile section */
@@ -330,7 +329,6 @@
 				55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */,
 				55B181B91F27D48200D767DB /* MEAppDelegate.swift in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				FECFB2560F06AD3000933318 /* MyDocument.m in Sources */,
 				55FB77141F1D6F9D00959AE1 /* BurnThemeDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
