@@ -417,10 +417,64 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	func setViewOptions(_ views: [AnyObject]!, with themeObject: KWBurnThemeObject) {
-		
+		for tmpview in views {
+			var property: Any? = nil
+			let currentView: NSView
+			if let tmpView = tmpview as? NSView {
+				currentView = tmpView
+			} else {
+				guard let view1 = (tmpview as? NSViewController)?.view else {
+					continue
+				}
+				currentView = view1
+			}
+			for cntl in currentView.subviews {
+				if let cntl = cntl as? NSTabView {
+					setViewOptions(cntl.tabViewItems, with: themeObject)
+				}
+				
+				let index = cntl.tag - 1
+				var mapping: KeyMapping?
+				if index > -1 && index < 162 {
+					mapping = getMapping(withTag: index)
+					property = getValue(fromMapping: mapping!)
+				}
+				
+				if let property = property {
+					if mapping!.key.rawValue.range(of: "Size") == nil, let cntl = cntl as? NSControl {
+						cntl.objectValue = property
+						check(forExceptions: cntl)
+					}
+					
+					if mapping!.key.rawValue.range(of: "Image") != nil, let cntl = cntl as? NSControl {
+						if let imgData = try? themeObject.resourceNamed(KWDataKeys(rawValue: mapping!.key), widescreen: isWideScreen),
+							let _ = NSImage(data: imgData) {
+							cntl.objectValue = true
+						} else {
+							cntl.objectValue = false
+						}
+					}
+				}
+				
+				if let cntl = cntl as? NSMatrix {
+					let propIntVal = property as? Int ?? 0
+					cntl.cells[0].objectValue = propIntVal == 0
+					cntl.cells[1].objectValue = propIntVal == 1
+					cntl.cells[2].objectValue = propIntVal == 2
+					
+					if propIntVal == 2 {
+						selectionModeTabView.selectFirstTabViewItem(self)
+					} else {
+						selectionModeTabView.selectLastTabViewItem(self)
+					}
+				}
+				
+				property = nil
+			}
+		}
 	}
 	
-	func check(forExceptions control: NSButton!) {
+	func check(forExceptions control: NSControl!) {
 		switch control.tag {
 		case 2, 10, 19, 35, 51, 71, 81, 91, 107, 121, 139:
 			let hi = getMapping(withTag: control.tag - 1)!.key
@@ -435,6 +489,8 @@ class BurnThemeDocument: NSDocument {
 				} else if let strVal2 = aStrVal2 as? CGFloat {
 					aStrVal += "\(strVal2)"
 				} else if let strVal2 = aStrVal2 as? Double {
+					aStrVal += "\(strVal2)"
+				} else if let strVal2 = aStrVal2 as? Bool {
 					aStrVal += "\(strVal2)"
 				} else {
 					aStrVal += "(nil)"
