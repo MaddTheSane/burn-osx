@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55B181B91F27D48200D767DB /* MEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B181B81F27D48200D767DB /* MEAppDelegate.swift */; };
 		55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
 		55E8BC341EE7CDAC00BBE4F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E8BC331EE7CDAC00BBE4F6 /* main.m */; };
 		55E8BC381EE7CDC900BBE4F6 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
@@ -41,6 +42,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
+		55B181B81F27D48200D767DB /* MEAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEAppDelegate.swift; sourceTree = "<group>"; };
 		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBurnThemeObject.h; sourceTree = "<group>"; };
 		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBurnThemeObject.m; sourceTree = "<group>"; };
 		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				55C378991EE350190045DDD5 /* KWBurnThemeObject.h */,
 				55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */,
 				55FB77131F1D6F9D00959AE1 /* BurnThemeDocument.swift */,
+				55B181B81F27D48200D767DB /* MEAppDelegate.swift */,
 			);
 			name = Classes;
 			path = Source;
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */,
+				55B181B91F27D48200D767DB /* MEAppDelegate.swift in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				FECFB2560F06AD3000933318 /* MyDocument.m in Sources */,
 				55FB77141F1D6F9D00959AE1 /* BurnThemeDocument.swift in Sources */,
