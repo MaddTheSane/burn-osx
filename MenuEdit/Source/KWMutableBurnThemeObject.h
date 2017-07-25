@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addResource:(NSData*)res named:(NSString*)resName wideScreen:(BOOL)ws forKey:(KWDataKeys)key;
 
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws;
-- (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key locale:(nullable NSLocale*)locale;
 - (void)setPropertyValue:(id)val forKey:(KWResourceKeys)key wideScreen:(BOOL)ws locale:(nullable NSLocale*)locale;
 
 - (void)setRectValue:(NSRect)val forKey:(KWRectKeys)key wideScreen:(BOOL)ws;

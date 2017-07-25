@@ -177,8 +177,9 @@ extern KWResourceKeys const KWSelectionModeKey;
 extern KWResourceKeys const KWScreenshotAtTimeKey;
 extern KWDataKeys const KWSelectionImagesUseImageKey;
 extern KWDataKeys const KWDefaultImageKey;
+extern KWDataKeys const KWSelectionImagesImageKey;
 
-extern NSString *const KWThemeTitleKey;
+extern KWResourceKeys const KWThemeTitleKey;
 
 
 extern KWRectKeys const KWDVDNameRectKey;
@@ -197,11 +198,8 @@ extern KWRectKeys const KWSelectionImagesRectKey;
 extern KWRectKeys const KWSelectionImagesMaskRectKey;
 extern KWRectKeys const KWSelectionStringsRectKey;
 extern KWRectKeys const KWSelectionStringsMaskRectKey;
-
 extern KWRectKeys const KWTitleSelectionRectKey;
 extern KWRectKeys const KWChapterSelectionRectKey;
-
-extern KWDataKeys const KWSelectionImagesImageKey;
 
 @interface KWBurnThemeObject : NSObject
 

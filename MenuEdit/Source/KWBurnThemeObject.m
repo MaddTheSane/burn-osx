@@ -455,6 +455,7 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 			MigrateSettings(KWSelectionStringsOnAPageKey);
 			MigrateSettings(KWSelectionModeKey);
 			MigrateSettings(KWScreenshotAtTimeKey);
+			[newVal setPropertyValue:[oldDict[0] objectForKey:KWThemeTitleKey] forKey:KWThemeTitleKey wideScreen:NO];
 
 #undef MigrateSettings
 		}

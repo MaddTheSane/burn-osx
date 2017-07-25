@@ -15,6 +15,8 @@ private enum OldKeySide {
 	case height
 }
 
+private typealias KeyMapping = (key: KWResourceKeys, side: OldKeySide?)
+
 private let keyMappings: [Int: KWResourceKeys] = {
 	var km = [Int: KWResourceKeys]()
 	km[1] = KWResourceKeys.KWDVDNameDisableTextKey
@@ -229,6 +231,16 @@ private let oldKeyMappings: [Int: (key: KWRectKeys, side: OldKeySide)] = {
 	return okm
 }()
 
+private func getMapping(withTag tag: Int) -> KeyMapping? {
+	if let km = keyMappings[tag] {
+		return (km, nil)
+	} else if let (km, side) = oldKeyMappings[tag] {
+		return (km.rawValue, side)
+	} else {
+		return nil
+	}
+}
+
 class BurnThemeDocument: NSDocument {
 	//Interface outlets
 	@IBOutlet weak var localizationPopup: NSPopUpButton!
@@ -245,8 +257,26 @@ class BurnThemeDocument: NSDocument {
 	@IBOutlet weak var previewImageView: NSImageView!
 	@IBOutlet weak var selectionModeTabView: NSTabView!
 	
-	var myTheme: KWBurnThemeObject = KWBurnThemeObject()
-
+	var myTheme: KWBurnThemeObject = try! KWBurnThemeObject(url: Bundle.main.url(forResource: "default", withExtension: "burnTheme")!)
+	
+	private func getValue(fromMapping: KeyMapping) -> Any? {
+		if let side = fromMapping.side {
+			let betterKey = KWRectKeys(rawValue: fromMapping.key)
+			let aRect = myTheme.rect(withKey: betterKey, widescreen: isWideScreen)
+			switch side {
+			case .height:
+				return aRect.size.height
+			case .width:
+				return aRect.size.width
+			case .x:
+				return aRect.origin.x
+			case .y:
+				return aRect.origin.y
+			}
+		}
+		return myTheme.property(withKey: fromMapping.key, widescreen: isWideScreen)
+	}
+	
     override var windowNibName: String? {
         return "MyDocument"
     }
@@ -255,13 +285,41 @@ class BurnThemeDocument: NSDocument {
 		aController.shouldCascadeWindows = true
         super.windowControllerDidLoadNib(aController)
     }
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		localizationPopup.removeAllItems()
+		
+		let keys = myTheme.allLanguages
+		for lang in keys {
+			localizationPopup.addItem(withTitle: lang)
+		}
+		
+		var preferredLanguage = Bundle.main.preferredLocalizations[0]
+		
+		if localizationPopup.itemTitles.contains(preferredLanguage) {
+			localizationPopup.selectItem(withTitle: preferredLanguage)
+		} else {
+			preferredLanguage = Locale.canonicalIdentifier(from: preferredLanguage)
+			if localizationPopup.itemTitles.contains(preferredLanguage) {
+				localizationPopup.selectItem(withTitle: preferredLanguage)
+			}
+		}
+		
+		themeNameField.stringValue = myTheme.property(withKey: .themeTitleKey, widescreen: false) as! String
+		
+		setViewOptions([mainWindow.contentView!], with: myTheme)
+		updateChangeCount(.changeCleared)
+		loadPreview()
+	}
 
 	override func fileWrapper(ofType typeName: String) throws -> FileWrapper {
 		if typeName == "burnTheme" {
 			myTheme.updateLocales()
 			return myTheme.fileWrapper
 		} else {
-			throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+			throw NSError(domain: NSCocoaErrorDomain, code: NSFileWriteUnknownError, userInfo: nil)
 		}
 	}
 	
@@ -283,10 +341,18 @@ class BurnThemeDocument: NSDocument {
     }
 
 	// MARK: Interface actions
-	@IBAction func changeEditMode(_ sender: Any!) {
+	@IBAction func changeEditMode(_ sender: AnyObject!) {
+		if sender.indexOfSelectedItem() == 0 || sender.indexOfSelectedItem() == 3 {
+			setViewOptions([mainWindow.contentView!], with: myTheme)
+			editTabView.selectTabViewItem(at: 0)
+		} else if sender.indexOfSelectedItem() == 1 || sender.indexOfSelectedItem() == 4 {
+			setViewOptions([mainWindow.contentView!], with: myTheme)
+			editTabView.selectTabViewItem(at: 1)
+		}
 		
+		loadPreview()
 	}
-	
+
 	@IBAction func changeSelectionMode(_ sender: Any!) {
 		loadPreview()
 	}
@@ -296,18 +362,49 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	@IBAction func openPreviewWindow(_ sender: Any!) {
-		
+		previewImageView.image = previewView.image
+		var tmpFrame = previewWindow.frame
+		tmpFrame.size = previewImageView.image?.size ?? .zero
+		tmpFrame.size.height += 22
+		previewWindow.setFrame(tmpFrame, display: true)
+		previewWindow.makeKeyAndOrderFront(self)
 	}
 	
 	
 	// MARK: - Theme actions
 	// MARK: General
-	@IBAction func setOption(_ sender: Any!) {
+	@IBAction func setOption(_ sender: NSControl!) {
+		if let sender = sender as? NSMatrix {
+			let row = sender.selectedRow
+			
+			if row == 2 {
+				selectionModeTabView.selectFirstTabViewItem(self)
+			} else {
+				selectionModeTabView.selectLastTabViewItem(self)
+			}
+			
+			myTheme.setPropertyValue(row, forKey: getMapping(withTag: sender.tag - 1)!.key, wideScreen: isWideScreen)
+		} else {
+			if let sov = sender.objectValue {
+				myTheme.setPropertyValue(sov, forKey: getMapping(withTag: sender.tag - 1)!.key, wideScreen: isWideScreen)
+			}
+
+			if let sender = sender as? NSButton {
+				check(forExceptions: sender)
+			}
+		}
 		
+		loadPreview()
+		updateChangeCount(.changeDone)
 	}
-	
-	@IBAction func setThemeTitle(_ sender: Any!) {
+
+	@IBAction func setThemeTitle(_ sender: NSControl!) {
+		if let sov = sender.objectValue {
+			myTheme.setPropertyValue(sov, forKey: .themeTitleKey, wideScreen: false)
+		}
 		
+		loadPreview()
+		updateChangeCount(.changeDone)
 	}
 	
 	// MARK: Loading
@@ -323,8 +420,36 @@ class BurnThemeDocument: NSDocument {
 		
 	}
 	
-	func check(forExceptions control: Any!) {
-		
+	func check(forExceptions control: NSButton!) {
+		switch control.tag {
+		case 2, 10, 19, 35, 51, 71, 81, 91, 107, 121, 139:
+			let hi = getMapping(withTag: control.tag - 1)!.key
+			
+			var aStrVal = myTheme.property(withKey: hi, widescreen: isWideScreen) as! String
+			aStrVal += " "
+			if let aStrVal2 = getValue(fromMapping: getMapping(withTag: control.tag)!) {
+				if let strVal2 = aStrVal2 as? String {
+					aStrVal += strVal2
+				} else if let strVal2 = aStrVal2 as? Int {
+					aStrVal += "\(strVal2)"
+				} else if let strVal2 = aStrVal2 as? CGFloat {
+					aStrVal += "\(strVal2)"
+				} else if let strVal2 = aStrVal2 as? Double {
+					aStrVal += "\(strVal2)"
+				} else {
+					aStrVal += "(nil)"
+				}
+			}
+			control.stringValue = aStrVal
+			if let aStrVal2 = getValue(fromMapping: getMapping(withTag: control.tag + 1)!) as? Data,
+				let col = NSUnarchiver.unarchiveObject(with: aStrVal2) as? NSColor {
+				(control.superview?.viewWithTag(control.tag + 2) as? NSColorWell)?.color = col
+			} else {
+				(control.superview?.viewWithTag(control.tag + 2) as? NSColorWell)?.color = NSColor.white
+			}
+		default:
+			break
+		}
 	}
 	
 	// MARK: Localization
@@ -365,26 +490,26 @@ class BurnThemeDocument: NSDocument {
 		
 		if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 3 {
 			if let rootMenu = self.rootMenu(withTitles: titles) {
-			if selection {
-				draw(rootMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
-			}
-			
-			previewView.image = rootMenu
-			if previewWindow.isVisible {
-				previewImageView.image = rootMenu
-			}
+				if selection {
+					draw(rootMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
+				}
+				
+				previewView.image = rootMenu
+				if previewWindow.isVisible {
+					previewImageView.image = rootMenu
+				}
 			}
 		} else {
 			if let rootMenu = selectionMenu(withTitles: titles) {
-			
-			if selection {
-				draw(selectionMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
-			}
-			
-			previewView.image = rootMenu
-			if previewWindow.isVisible {
-				previewImageView.image = rootMenu
-			}
+				
+				if selection {
+					draw(selectionMask(withTitles: titles), in: NSRect(origin: .zero, size: rootMenu.size), on: rootMenu)
+				}
+				
+				previewView.image = rootMenu
+				if previewWindow.isVisible {
+					previewImageView.image = rootMenu
+				}
 			}
 		}
 	}
