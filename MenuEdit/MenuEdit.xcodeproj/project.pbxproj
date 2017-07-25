@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55B181B91F27D48200D767DB /* MEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B181B81F27D48200D767DB /* MEAppDelegate.swift */; };
+		55B181D11F27F0F400D767DB /* Default.burnTheme in Resources */ = {isa = PBXBuildFile; fileRef = 55B181CF1F27F05B00D767DB /* Default.burnTheme */; };
 		55C3789B1EE350190045DDD5 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
 		55E8BC341EE7CDAC00BBE4F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E8BC331EE7CDAC00BBE4F6 /* main.m */; };
 		55E8BC381EE7CDC900BBE4F6 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */; };
@@ -15,7 +16,6 @@
 		8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MyDocument.xib */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */ = {isa = PBXBuildFile; fileRef = FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */; };
 		FE4529260B468E050000A2CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE4529240B468E050000A2CC /* MainMenu.xib */; };
 		FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */; };
 		FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEF03F7E0E63123B00379454 /* MenuEdit.icns */; };
@@ -42,6 +42,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Burn Menu Creator_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Burn Menu Creator_Prefix.pch"; sourceTree = "<group>"; };
 		55B181B81F27D48200D767DB /* MEAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEAppDelegate.swift; sourceTree = "<group>"; };
+		55B181CF1F27F05B00D767DB /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Default.burnTheme; path = ../burn/Themes/Default.burnTheme; sourceTree = "<group>"; };
 		55C378991EE350190045DDD5 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBurnThemeObject.h; sourceTree = "<group>"; };
 		55C3789A1EE350190045DDD5 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBurnThemeObject.m; sourceTree = "<group>"; };
 		55C3789C1EE357E70045DDD5 /* KWMutableBurnThemeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KWMutableBurnThemeObject.h; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		55FB77261F1D75C600959AE1 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = pt_BR.lproj/MyDocument.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MenuEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Default.burnTheme; sourceTree = "<group>"; };
 		FE28BDA80F11A0DD00CC3B49 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE38A8670F2F1ED700594CBB /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE38A8690F2F1ED700594CBB /* de */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = de; path = de.lproj/MenuEdit.icns; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FE67A48B0F0FFD19006DB5F7 /* InfoPlist.strings */,
-				FE0E1D9B0F091BF400BFAE6A /* Default.burnTheme */,
+				55B181CF1F27F05B00D767DB /* Default.burnTheme */,
 				FEF03F7E0E63123B00379454 /* MenuEdit.icns */,
 				FEF03F800E63123B00379454 /* Theme document.icns */,
 				FE4529240B468E050000A2CC /* MainMenu.xib */,
@@ -285,6 +285,15 @@
 				cs,
 				pt_BR,
 				Base,
+				Dutch,
+				English,
+				French,
+				German,
+				Greek,
+				Italian,
+				Japanese,
+				Spanish,
+				zh_TW,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Burn Menu Creator */;
 			projectDirPath = "";
@@ -301,11 +310,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B181D11F27F0F400D767DB /* Default.burnTheme in Resources */,
 				8D11072A0486CEB800E47090 /* MyDocument.xib in Resources */,
 				FE4529260B468E050000A2CC /* MainMenu.xib in Resources */,
 				FEF03F820E63123B00379454 /* MenuEdit.icns in Resources */,
 				FEF03F830E63123B00379454 /* Theme document.icns in Resources */,
-				FE0E1DA70F091BF400BFAE6A /* Default.burnTheme in Resources */,
 				FE67A48D0F0FFD19006DB5F7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
