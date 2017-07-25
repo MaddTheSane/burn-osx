@@ -461,6 +461,10 @@ tmpRectStr = NSStringFromRect(tmpRect); \
 		}
 	}
 	
+	if ([newVal->prop[NSLocale.currentLocale.localeIdentifier] count] == 0) {
+		[newVal removeLocale:NSLocale.currentLocale];
+	}
+	
 	return newVal;
 }
 
