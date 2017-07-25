@@ -242,7 +242,7 @@ private func getMapping(withTag tag: Int) -> KeyMapping? {
 }
 
 class BurnThemeDocument: NSDocument {
-	//Interface outlets
+	// MARK: Interface outlets
 	@IBOutlet weak var localizationPopup: NSPopUpButton!
 	@IBOutlet weak var previewView: NSImageView!
 	@IBOutlet weak var selectionPopup: NSPopUpButton!
@@ -257,7 +257,11 @@ class BurnThemeDocument: NSDocument {
 	@IBOutlet weak var previewImageView: NSImageView!
 	@IBOutlet weak var selectionModeTabView: NSTabView!
 	
+	// MARK: Variables
+
 	var myTheme: KWBurnThemeObject = try! KWBurnThemeObject(url: Bundle.main.url(forResource: "default", withExtension: "burnTheme")!)
+	private weak var fontObject: NSView? = nil
+	private var currentFont: NSFont? = nil
 	
 	private func getValue(fromMapping: KeyMapping) -> Any? {
 		if let side = fromMapping.side {
@@ -516,6 +520,7 @@ class BurnThemeDocument: NSDocument {
 	@IBAction func cancelAddLocalization(_ sender: Any!) {
 		NSApp.endSheet(localizationSheet)
 		localizationSheet.orderOut(self)
+		localizationText.stringValue = ""
 	}
 	
 	@IBAction func add(_ sender: Any!) {
@@ -547,20 +552,98 @@ class BurnThemeDocument: NSDocument {
 	}
 	
 	@IBAction func selectLocalization(_ sender: Any!) {
-		
+		let localized = localizationPopup.titleOfSelectedItem!
+		myTheme.currentLocale = Locale(identifier: localized)
+		setViewOptions([mainWindow.contentView!], with: myTheme)
+		themeNameField.stringValue = myTheme.property(withKey: .themeTitleKey, widescreen: false) as! String
+		loadPreview()
 	}
 	
 	// MARK: Appearance
-	@IBAction func changeFontAndSize(_ sender: Any!) {
+	@IBAction func changeFontAndSize(_ sender: NSControl!) {
+		mainWindow.makeFirstResponder(sender.superview!.viewWithTag(sender.tag - 1))
+		currentFont = nil
 		
+		let fontName = getValue(fromMapping: getMapping(withTag: sender.tag - 2)!) as? String ?? "Courier"
+		let fontSize = getValue(fromMapping: getMapping(withTag: sender.tag - 1)!) as? CGFloat ?? 8
+		currentFont = NSFont(name: fontName, size: fontSize)
+		fontObject = sender.superview?.viewWithTag(sender.tag - 1)
+		
+		if let font = currentFont {
+			NSFontManager.shared().setSelectedFont(font, isMultiple: false)
+		}
+		NSFontManager.shared().orderFrontFontPanel(self)
 	}
 	
-	@IBAction func changeFontColor(_ sender: Any!) {
+	override func changeFont(_ sender: Any?) {
+		guard let sender = sender as? NSFontManager,
+		let currentFont = currentFont,
+		let fontObject = fontObject as? NSControl else {
+			return
+		}
+		let newFont = sender.convert(currentFont)
+		myTheme.setPropertyValue(newFont.fontName, forKey: getMapping(withTag: fontObject.tag - 1)!.key, wideScreen: isWideScreen)
+		myTheme.setPropertyValue(newFont.pointSize, forKey: getMapping(withTag: fontObject.tag)!.key, wideScreen: isWideScreen)
+		fontObject.stringValue = "\(newFont.displayName ?? newFont.fontName) \(newFont.pointSize)"
 		
+		loadPreview()
+		updateChangeCount(.changeDone)
+	}
+
+	@IBAction func changeFontColor(_ sender: NSColorWell!) {
+		let data = NSArchiver.archivedData(withRootObject: sender.color)
+		let key = getMapping(withTag: sender.tag - 1)!.key
+		
+		myTheme.setPropertyValue(data, forKey: key, wideScreen: isWideScreen)
+		
+		loadPreview()
+		updateChangeCount(.changeDone)
 	}
 	
 	@IBAction func useImage(_ sender: NSButton!) {
-		
+		let ws = isWideScreen
+		if sender.state == NSOnState || sender.tag == 162 {
+			let theTheme = myTheme
+			let sheet = NSOpenPanel()
+			sheet.allowsMultipleSelection = false
+			sheet.allowedFileTypes = NSImage.imageFileTypes()
+			sheet.beginSheetModal(for: mainWindow, completionHandler: { (returnCode) in
+				if returnCode == NSFileHandlingPanelOKButton {
+					let newImage: NSBitmapImageRep
+					if ws {
+						newImage = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: 720, pixelsHigh: 384, bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false, colorSpaceName: NSCalibratedRGBColorSpace, bitmapFormat: [], bytesPerRow: 2880, bitsPerPixel: 32)!
+						newImage.size = NSSize(width: 720, height: 384)
+					} else {
+						newImage = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: 720, pixelsHigh: 576, bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false, colorSpaceName: NSCalibratedRGBColorSpace, bitmapFormat: [], bytesPerRow: 2880, bitsPerPixel: 32)!
+						newImage.size = NSSize(width: 720, height: 576)
+					}
+					
+					
+					NSGraphicsContext.saveGraphicsState()
+					let ctx = NSGraphicsContext(bitmapImageRep: newImage)
+					NSGraphicsContext.setCurrent(ctx)
+					NSImage(contentsOf: sheet.url!)?.draw(in: NSRect(origin: .zero, size: newImage.size), from: .zero, operation: .sourceOver, fraction: 1)
+					ctx?.flushGraphics()
+					NSGraphicsContext.restoreGraphicsState()
+					
+					if let newImgDat = newImage.representation(using: .PNG, properties: [:]) {
+						let key = getMapping(withTag: sender.tag - 1)!.key
+						theTheme.addResource(newImgDat, named: key._rawValue.appendingPathExtension("png") ?? key.rawValue + ".png", wideScreen: ws, locale: theTheme.currentLocale, forKey: KWDataKeys(rawValue: key))
+					}
+					
+					self.loadPreview()
+					self.updateChangeCount(.changeDone)
+				} else {
+					sender.state = NSOffState
+				}
+			})
+		} else {
+			let key = getMapping(withTag: sender.tag - 1)!.key
+			myTheme.addResource(Data(), named: key.rawValue, wideScreen: ws, forKey: KWDataKeys(rawValue: key))
+			
+			loadPreview()
+			updateChangeCount(.changeDone)
+		}
 	}
 	
 	

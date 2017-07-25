@@ -20,7 +20,7 @@
 			<key>LSTypeIsPackage</key>
 			<true/>
 			<key>NSDocumentClass</key>
-			<string>BurnThemeDocument</string>
+			<string>$(PRODUCT_MODULE_NAME).BurnThemeDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>XML</string>
 		</dict>
