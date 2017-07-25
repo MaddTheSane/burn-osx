@@ -510,15 +510,40 @@ class BurnThemeDocument: NSDocument {
 	
 	// MARK: Localization
 	@IBAction func addLocalization(_ sender: Any!) {
-		
+		NSApp.beginSheet(localizationSheet, modalFor: mainWindow, modalDelegate: self, didEnd: nil, contextInfo: nil)
+	}
+	
+	@IBAction func cancelAddLocalization(_ sender: Any!) {
+		NSApp.endSheet(localizationSheet)
+		localizationSheet.orderOut(self)
 	}
 	
 	@IBAction func add(_ sender: Any!) {
-		
+		if localizationText.stringValue != "" {
+			NSApp.endSheet(localizationSheet)
+			localizationSheet.orderOut(self)
+			let locStr = Locale.canonicalIdentifier(from: localizationText.stringValue)
+			myTheme.currentLocale = Locale(identifier: locStr)
+			localizationPopup.addItem(withTitle: locStr)
+			localizationPopup.selectItem(withTitle: locStr)
+			
+			updateChangeCount(.changeDone)
+		} else {
+			NSBeep()
+		}		
 	}
 	
 	@IBAction func deleteLocalization(_ sender: Any!) {
+		if localizationPopup.numberOfItems > 1 {
+			myTheme.remove(Locale(identifier: localizationPopup.title))
+			localizationPopup.removeItem(withTitle: localizationPopup.title)
+			self.selectLocalization(self)
+		} else {
+			NSBeep()
+		}
 		
+		loadPreview()
+		updateChangeCount(.changeDone)
 	}
 	
 	@IBAction func selectLocalization(_ sender: Any!) {
@@ -676,11 +701,11 @@ class BurnThemeDocument: NSDocument {
 		var overlay: NSImage?
 		
 		if titles {
-			if let dat = try? myTheme.resourceNamed(.rootOverlayImageKey, widescreen: isWideScreen, locale: myTheme.currentLocale) {
+			if let dat = try? myTheme.resourceNamed(.rootOverlayImageKey, widescreen: isWideScreen) {
 				overlay = NSImage(data: dat)
 			}
 		} else {
-			if let dat = try? myTheme.resourceNamed(.chapterOverlayImageKey, widescreen: isWideScreen, locale: myTheme.currentLocale) {
+			if let dat = try? myTheme.resourceNamed(.chapterOverlayImageKey, widescreen: isWideScreen) {
 				overlay = NSImage(data: dat)
 			}
 		}
@@ -697,9 +722,9 @@ class BurnThemeDocument: NSDocument {
 		let newImage: NSImage
 		
 		if isWideScreen {
-			newImage = NSImage(size: NSSize(width: 720, height: 576))
-		} else {
 			newImage = NSImage(size: NSSize(width: 720, height: 384))
+		} else {
+			newImage = NSImage(size: NSSize(width: 720, height: 576))
 		}
 		
 		let y = myTheme.rect(withKey: .startButtonMaskRectKey, widescreen: isWideScreen).origin.y
@@ -785,10 +810,10 @@ class BurnThemeDocument: NSDocument {
 			}
 			
 			if myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.y == -1 {
-				if editPopup.indexOfSelectedItem == 0 || editPopup.indexOfSelectedItem == 1 {
-					aRect.origin.y = 576 - CGFloat((576 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen) as! Int)) / 2)
+				if !isWideScreen {
+					aRect.origin.y = 576 - CGFloat((576 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: false) as! Int)) / 2)
 				} else {
-					aRect.origin.y = 384 - CGFloat((384 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: isWideScreen) as! Int)) / 2)
+					aRect.origin.y = 384 - CGFloat((384 - files.count * (myTheme.property(withKey: .selectionStringsSeperationKey, widescreen: true) as! Int)) / 2)
 				}
 			} else {
 				aRect.origin.y = myTheme.rect(withKey: KWRectKeys.selectionStringsRectKey, widescreen: isWideScreen).origin.y
@@ -807,7 +832,7 @@ class BurnThemeDocument: NSDocument {
 				} else {
 					color = NSColor.black
 				}
-				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height ), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
+				draw(file, in: NSRect(x: aRect.origin.x, y: aRect.origin.y - imagesRect.size.height, width: imagesRect.size.width, height: imagesRect.size.height), on: newImage, withFontName: myTheme.property(withKey: .selectionImagesFontKey, widescreen: isWideScreen) as? String ?? "Courier", withSize: myTheme.property(withKey: .selectionImagesFontSizeKey, widescreen: isWideScreen) as? CGFloat ?? 8, with: color, use: .center)
 			} else if let selmodeKey = myTheme.property(withKey: .selectionModeKey, widescreen: isWideScreen, locale: myTheme.currentLocale) as? Int, selmodeKey == 2 {
 				let alignment: NSTextAlignment
 				if myTheme.rect(withKey: .selectionStringsRectKey, widescreen: isWideScreen, locale: myTheme.currentLocale).origin.x == -1 {
@@ -844,15 +869,9 @@ class BurnThemeDocument: NSDocument {
 		files.removeAll(keepingCapacity: false)
 
 		if !(myTheme.property(withKey: .previousButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
-			let previousButtonImage: NSImage?
 			let rect = myTheme.rect(withKey: .previousButtonRectKey, widescreen: isWideScreen)
-			if let dat = try? myTheme.resourceNamed(.previousButtonImageKey, widescreen: isWideScreen) {
-				previousButtonImage = NSImage(data: dat)
-			} else {
-				previousButtonImage = nil
-			}
-			
-			if let previousButtonImage = previousButtonImage {
+			if let dat = try? myTheme.resourceNamed(.previousButtonImageKey, widescreen: isWideScreen),
+				let previousButtonImage = NSImage(data: dat) {
 				draw(previousButtonImage, in: rect, on: newImage)
 			} else {
 				let color: NSColor
@@ -867,16 +886,10 @@ class BurnThemeDocument: NSDocument {
 		}
 		
 		if !(myTheme.property(withKey: .nextButtonDisableKey, widescreen: isWideScreen) as? Bool ?? false) {
-			let nextButtonImage: NSImage?
 			let rect = myTheme.rect(withKey: .nextButtonRectKey, widescreen: isWideScreen)
-			if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen) {
-				nextButtonImage = NSImage(data: dat)
-			} else {
-				nextButtonImage = nil
-			}
-			
-			if let previousButtonImage = nextButtonImage {
-				draw(previousButtonImage, in: rect, on: newImage)
+			if let dat = try? myTheme.resourceNamed(.nextButtonImageKey, widescreen: isWideScreen),
+				let nextButtonImage = NSImage(data: dat) {
+				draw(nextButtonImage, in: rect, on: newImage)
 			} else {
 				let color: NSColor
 				if let colorData = myTheme.property(withKey: .nextButtonFontColorKey, widescreen: isWideScreen) as? Data, let colorA = NSUnarchiver.unarchiveObject(with: colorData) as? NSColor {
@@ -961,9 +974,9 @@ class BurnThemeDocument: NSDocument {
 		let newImage: NSImage
 		
 		if isWideScreen {
-			newImage = NSImage(size: NSSize(width: 720, height: 576))
-		} else {
 			newImage = NSImage(size: NSSize(width: 720, height: 384))
+		} else {
+			newImage = NSImage(size: NSSize(width: 720, height: 576))
 		}
 		
 		var newRow = 0

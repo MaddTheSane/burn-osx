@@ -730,3 +730,6 @@
 
 /* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2898"; */
 "2898.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "3Kl-CN-46c"; */
+"3Kl-CN-46c.title" = "Cancel";
