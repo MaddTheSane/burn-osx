@@ -276,6 +276,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				Base,
 				en,
 				ja,
 				fr,
@@ -284,16 +285,6 @@
 				ru,
 				cs,
 				pt_BR,
-				Base,
-				Dutch,
-				English,
-				French,
-				German,
-				Greek,
-				Italian,
-				Japanese,
-				Spanish,
-				zh_TW,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Burn Menu Creator */;
 			projectDirPath = "";

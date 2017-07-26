@@ -143,11 +143,11 @@
 /* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
 "98N-Hf-cbN.title" = "Import…";
 
-/* Class = "NSMenu"; title = "Help"; ObjectID = "2Qr-vP-hfS"; */
-"2Qr-vP-hfS.title" = "Help";
+/* Class = "NSMenuItem"; title = "MenuEdit Help"; ObjectID = "R75-VK-0AL"; */
+"R75-VK-0AL.title" = "MenuEdit Help";
 
-/* Class = "NSMenuItem"; title = "MenuEdit Help"; ObjectID = "Xjf-8J-NHc"; */
-"Xjf-8J-NHc.title" = "MenuEdit Help";
+/* Class = "NSMenu"; title = "Help"; ObjectID = "nEV-hW-E7W"; */
+"nEV-hW-E7W.title" = "Help";
 
-/* Class = "NSMenuItem"; title = "Help"; ObjectID = "XpX-Uc-nJe"; */
-"XpX-Uc-nJe.title" = "Help";
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "nZ8-ko-Q2b"; */
+"nZ8-ko-Q2b.title" = "Help";
