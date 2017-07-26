@@ -702,22 +702,18 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSInteger chapterMenu = numberOfMenus + 1;
 	NSInteger menuItem = 0;
 
-	if (numberOfFiles == 1)
-	{
+	if (numberOfFiles == 1) {
 		numberOfMenus = 0;
 		chapterMenu = 1;
 	}
 
-	for (NSInteger i = 0; i < numberOfMenus; i ++)
-	{
+	for (NSInteger i = 0; i < numberOfMenus; i ++) {
 		menuItem = menuItem + 1;
 		xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Title Selection %li.mpg\"></vob>\n", xmlContent, (long)i + 1];
 		
 		NSInteger o;
-		for (o = 0; o < number; o ++)
-		{
-			if (numberOfFiles > i * number + o)
-			{
+		for (o = 0; o < number; o ++) {
+			if (numberOfFiles > i * number + o) {
 				NSInteger jumpNumber = o + 1 + i * number;
 				NSString *jumpKind;
 				
@@ -733,9 +729,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 						chapterMenuCount = chapterMenuCount + 1;
 					
 					chapterMenu = chapterMenu + chapterMenuCount;
-				}
-				else
-				{
+				} else {
 					jumpKind = @"title";
 				}
 				
@@ -754,87 +748,77 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	NSMutableArray *titlesWithChapters = [[NSMutableArray alloc] init];
 	NSMutableArray *titlesWithChaptersNames = [[NSMutableArray alloc] init];
-	for (NSInteger i = 0; i < [fileArray count]; i ++)
-	{
+	for (NSInteger i = 0; i < [fileArray count]; i ++) {
 		NSDictionary *fileDictionary = [fileArray objectAtIndex:i];
 		NSArray *chapters = [fileDictionary objectForKey:@"Chapters"];
 	
-		if ([chapters count] > 0)
-		{
+		if ([chapters count] > 0) {
 			[titlesWithChapters addObject:[NSNumber numberWithInteger:i]];
 			[titlesWithChaptersNames addObject:[[[fileDictionary objectForKey:@"Path"] lastPathComponent] stringByDeletingPathExtension]];
 		}
 	}
 
 	NSInteger chapterSelection = 1;
-	for (NSInteger i = 0; i < [titlesWithChapters count]; i ++)
-	{
+	for (NSInteger i = 0; i < [titlesWithChapters count]; i ++) {
 		NSArray *chapters = [[fileArray objectAtIndex:[[titlesWithChapters objectAtIndex:i] integerValue]] objectForKey:@"Chapters"];
 		NSInteger numberOfChapters = [chapters count];
 		NSInteger numberOfMenus = numberOfChapters / number;
-
+		
 		if (numberOfChapters - numberOfMenus * number > 0)
 			numberOfMenus = numberOfMenus + 1;
-
-		for (NSInteger y = 0; y < numberOfMenus; y ++)
-		{
+		
+		for (NSInteger y = 0; y < numberOfMenus; y ++) {
 			menuItem = menuItem + 1;
 			
 			xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"Chapter Selection %li.mpg\"></vob>\n", xmlContent, (long)chapterSelection];
 			
 			chapterSelection = chapterSelection + 1;
-		
-			for (NSInteger o = 0; o < number; o ++)
-			{
+			
+			for (NSInteger o = 0; o < number; o ++) {
 				NSInteger addNumber;
 				if ([[[chapters objectAtIndex:0] objectForKey:@"RealTime"] integerValue] == 0)
 					addNumber = 1;
 				else
 					addNumber = 2;
-			
+				
 				if (numberOfChapters > y * number + o)
 					xmlContent = [NSString stringWithFormat:@"%@<button>jump title %li chapter %li;</button>\n", xmlContent, (long)[[titlesWithChapters objectAtIndex:i] integerValue] + 1, y * number + o + addNumber];
 			}
-		
-		if (y > 0)
-		{
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem - 1];
-		}
-		
-		if (y < numberOfMenus - 1)
-		{
-			xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem + 1];
-		}
-		
+			
+			if (y > 0) {
+				xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem - 1];
+			}
+			
+			if (y < numberOfMenus - 1) {
+				xmlContent = [NSString stringWithFormat:@"%@<button>jump menu %li;</button>\n", xmlContent, (long)menuItem + 1];
+			}
+			
 			xmlContent = [NSString stringWithFormat:@"%@</pgc>\n", xmlContent];
 		}
 	}
-		
-		xmlContent = [NSString stringWithFormat:@"%@</menus>\n<titles>\n", xmlContent];
 	
-	for (NSInteger i = 0; i < [fileArray count]; i ++)
-	{
+	xmlContent = [NSString stringWithFormat:@"%@</menus>\n<titles>\n", xmlContent];
+	
+	for (NSInteger i = 0; i < [fileArray count]; i ++) {
 		NSDictionary *fileDictionary = [fileArray objectAtIndex:i];
 		NSArray *chapters = [[fileArray objectAtIndex:i] objectForKey:@"Chapters"];
 	
 		xmlContent = [NSString stringWithFormat:@"%@<pgc>\n<vob file=\"%@\"", xmlContent, [fileDictionary objectForKey:@"Path"]];
 	
-		if ([chapters count] > 0)
-		{
+		if ([chapters count] > 0) {
 			xmlContent = [NSString stringWithFormat:@"%@ chapters=\"00:00:00,", xmlContent];
 			
-			for (NSInteger x = 0; x < [chapters count]; x ++)
-			{
+			for (NSInteger x = 0; x < [chapters count]; x ++) {
 				NSDictionary *currentChapter = [chapters objectAtIndex:x];
 				CGFloat time = [[currentChapter objectForKey:@"RealTime"] cgfloatValue];
 				
-				if (time > 0)
-				{
+				if (time > 0) {
 					NSString *endString;
-					if (x + 1 < [chapters count])
+					if (x + 1 < [chapters count]) {
 						endString = @",";
-					else
+					} else {
 						endString = @"\"";
+					}
 					
 					xmlContent = [NSString stringWithFormat:@"%@%@%@", xmlContent, [KWCommonMethods formatTime:time withFrames:YES], endString];
 				}
@@ -843,8 +827,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 		xmlContent = [NSString stringWithFormat:@"%@></vob>\n", xmlContent];
 
-		if (i + 1 < [fileArray count] | [[NSUserDefaults standardUserDefaults] boolForKey:@"KWLoopDVD"] == YES)
-		{
+		if (i + 1 < [fileArray count] | [[NSUserDefaults standardUserDefaults] boolForKey:@"KWLoopDVD"] == YES) {
 			NSInteger title;
 			if (i + 1 < [fileArray count])
 				title = i + 2;
@@ -852,9 +835,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				title = 1;
 				
 			xmlContent = [NSString stringWithFormat:@"%@<post>jump title %li;</post>", xmlContent, (long)title];
-		}
-		else
-		{
+		} else {
 			xmlContent = [NSString stringWithFormat:@"%@<post>call vmgm menu;</post>", xmlContent];
 		}
 
@@ -1097,10 +1078,11 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *newImage = [[[NSImage alloc] initWithSize: NSMakeSize(720,576)] autorelease]; 
 	
 	CGFloat factor;
-	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0) {
 		factor = 1;
-	else
-		factor = 1.5; 
+	} else {
+		factor = 1.5;
+	}
 
 	NSInteger y = [theme rectWithKey:KWStartButtonMaskRectKey widescreen:wideScreen].origin.y * factor;
 
@@ -1109,15 +1091,14 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	rect.size.height *= factor;
 	rect.origin.y = y - 5;
 
-	if (!startMaskButtonImage)
+	if (!startMaskButtonImage) {
 		[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWStartButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
-	else
+	} else {
 		[self drawImage:startMaskButtonImage inRect:rect onImage:newImage];
+	}
 
-	if (titles)
-	{
-		if (secondButton)
-		{
+	if (titles) {
+		if (secondButton) {
 			NSImage *titleMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
 			NSRect rect = [theme rectWithKey:KWTitleButtonMaskRectKey widescreen:wideScreen];
 			rect.origin.y *= factor;
@@ -1128,18 +1109,17 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			else
 				[self drawImage:titleMaskButtonImage inRect:rect onImage:newImage];
 		}
-	}
-	else
-	{
+	} else {
 		NSImage *chapterMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
 		NSRect rect = [theme rectWithKey:KWChapterButtonMaskRectKey widescreen:wideScreen];
 		rect.origin.y *= factor;
 		rect.size.height *= factor;
 	
-		if (!chapterMaskButtonImage)
+		if (!chapterMaskButtonImage) {
 			[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWChapterButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
-		else
+		} else {
 			[self drawImage:chapterMaskButtonImage inRect:rect onImage:newImage];
+		}
 	}
 
 	return newImage;
@@ -1232,7 +1212,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			}
 
 			NSRect rect = NSMakeRect(x, y - [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height, [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width, [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height);
-			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWSelectionImagesFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWSelectionImagesFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWSelectionImagesFontColor" widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWSelectionImagesFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWSelectionImagesFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWSelectionImagesFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 		} else if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2) {
 			NSTextAlignment alignment;
 			
@@ -1248,7 +1228,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				name = [[objects objectAtIndex:i] objectForKey:@"Title"];
 
 			NSRect rect = (NSRect){{x,y}, [theme rectWithKey:KWSelectionStringsRectKey widescreen:wideScreen].size };
-			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWSelectionStringsFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWSelectionStringsFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWSelectionStringsFontColor" widescreen:wideScreen]] useAlignment:alignment];
+			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWSelectionStringsFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWSelectionStringsFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWSelectionStringsFontColorKey widescreen:wideScreen]] useAlignment:alignment];
 		}
 	
 		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
@@ -1352,95 +1332,84 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	else
 		pageKey = KWSelectionImagesOnAPageKey;
 
-	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
-	{
-		x = [[theme objectForKey:@"KWSelectionImagesMaskX"] integerValue];
-		y = [[theme objectForKey:@"KWSelectionImagesMaskY"] integerValue] * factor;
-	}
-	else
-	{
-		if ([[theme objectForKey:@"KWSelectionStringsMaskX"] integerValue] == -1)
-			x = (720 - [[theme objectForKey:@"KWSelectionStringsMaskW"] integerValue]) / 2;
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
+		x = [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].origin.x;
+		y = [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].origin.y * factor;
+	} else {
+		if ([theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].origin.x == -1)
+			x = (720 - [theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].size.width) / 2;
 		else
-			x = [[theme objectForKey:@"KWSelectionStringsMaskX"] integerValue];
+			x = [theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].origin.x;
 	
-		if ([[theme objectForKey:@"KWSelectionStringsMaskY"] integerValue] == -1)
-		{
+		if ([theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].origin.y == -1) {
 			//if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
-			y = 576 - (576 - [objects count] * ([[theme objectForKey:@"KWSelectionStringsMaskSeperation"] integerValue] * factor)) / 2;
+			y = 576 - (576 - [objects count] * ([[theme propertyWithKey:KWSelectionStringsMaskSeperationKey widescreen:wideScreen] integerValue] * factor)) / 2;
 			//else
 			//y = 384 - (384 - [objects count] * ([[theme objectForKey:@"KWSelectionStringsMaskSeperation"] integerValue] * factor)) / 2;
-		}
-		else
-		{
-			y = [[theme objectForKey:@"KWSelectionImagesMaskY"] integerValue] * factor;
+		} else {
+			y = [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].origin.y * factor;
 		}
 	}
 	
 	NSInteger i;
-	for (i=0;i<[objects count];i++)
-	{
+	for (i=0;i<[objects count];i++) {
 		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
 		{
-			NSImage *selectionStringsMaskButtonImage  = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionStringsImage"]] autorelease];
-			NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsMaskW"] integerValue],[[theme objectForKey:@"KWSelectionStringsMaskH"] integerValue] * factor);
+			NSImage *selectionStringsMaskButtonImage  = [[[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionStringsImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = NSMakeRect(x,y,[theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].size.width,[theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].size.height * factor);
 		
-			if (!selectionStringsMaskButtonImage)
-				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionStringsMaskLineWidth"] integerValue] onImage:newImage];
-			else
+			if (!selectionStringsMaskButtonImage) {
+				[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWSelectionStringsMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
+			} else {
 				[self drawImage:selectionStringsMaskButtonImage inRect:rect onImage:newImage];
-		}
-		else
-		{
-			NSImage *selectionImageMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionImagesImage"]] autorelease];
-			NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionImagesMaskW"] integerValue],[[theme objectForKey:@"KWSelectionImagesMaskH"] integerValue] * factor);
-		
-			if (!selectionImageMaskButtonImage)
-				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWSelectionImagesMaskLineWidth"] integerValue] onImage:newImage];
-			else
-				[self drawImage:selectionImageMaskButtonImage inRect:rect onImage:newImage];
-		}
-	
-		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
-		{
-			x = x + [[theme objectForKey:@"KWSelectionImagesMaskSeperationW"] integerValue];
-	
-			if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] integerValue]-1)
-			{
-				y = y - [[theme objectForKey:@"KWSelectionImagesMaskSeperationH"] integerValue] * factor;
-				x = [[theme objectForKey:@"KWSelectionImagesMaskX"] integerValue];
-				newRow = 0;
 			}
-			else
-			{
+		} else {
+			NSImage *selectionImageMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionImagesImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = NSMakeRect(x, y, [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].size.width, [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].size.height * factor);
+		
+			if (!selectionImageMaskButtonImage) {
+				[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWSelectionImagesMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
+			} else {
+				[self drawImage:selectionImageMaskButtonImage inRect:rect onImage:newImage];
+			}
+		}
+	
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
+			x += [[theme propertyWithKey:KWSelectionImagesMaskSeperationWKey widescreen:wideScreen] integerValue];
+	
+			if (newRow == [[theme propertyWithKey:KWSelectionImagesOnARowKey widescreen:wideScreen] integerValue] - 1) {
+				y -= [[theme propertyWithKey:KWSelectionImagesMaskSeperationHKey widescreen:wideScreen] integerValue] * factor;
+				x = [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].origin.x;
+				newRow = 0;
+			} else {
 				newRow = newRow + 1;
 			}
-		}
-		else
-		{
-			y = y - [[theme objectForKey:@"KWSelectionStringsMaskSeperation"] integerValue] * factor;
+		} else {
+			y -= [[theme propertyWithKey:KWSelectionStringsMaskSeperationKey widescreen:wideScreen] integerValue] * factor;
 		}
 	}
 	
-		if (previous)
-		{
-			NSImage *previousMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWPreviousButtonMaskImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWPreviousButtonMaskX"] integerValue],[[theme objectForKey:@"KWPreviousButtonMaskY"] integerValue] * factor,[[theme objectForKey:@"KWPreviousButtonMaskW"] integerValue],[[theme objectForKey:@"KWPreviousButtonMaskH"] integerValue] * factor);
+		if (previous) {
+			NSImage *previousMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = [theme rectWithKey:KWPreviousButtonMaskRectKey widescreen:wideScreen];
+			rect.origin.y *= factor;
+			rect.size.height *= factor;
 	
-			if (!previousMaskButtonImage)
-				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWPreviousButtonMaskLineWidth"] integerValue] onImage:newImage];
-			else
+			if (!previousMaskButtonImage) {
+				[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWPreviousButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
+			} else {
 				[self drawImage:previousMaskButtonImage inRect:rect onImage:newImage];
+			}
 		}
 	
 		if (next) {
-			NSImage *nextMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonMaskImage"]] autorelease];
+			NSImage *nextMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
 			NSRect rect = [theme rectWithKey:KWNextButtonMaskRectKey widescreen:YES];
 			rect.origin.y *= factor;
 			rect.size.height *= factor;
 	
 			if (!nextMaskButtonImage) {
-				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWNextButtonMaskLineWidth"] integerValue] onImage:newImage];
+				[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWNextButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
 			} else {
 				[self drawImage:nextMaskButtonImage inRect:rect onImage:newImage];
 			}
