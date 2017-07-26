@@ -182,12 +182,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	fileSize = 0;
 	
-		NSInteger i;
-		for (i = 0; i < [files count]; i ++)
-		{
-			fileSize += [[[defaultManager fileAttributesAtPath:[files objectAtIndex:i] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
-		}
-		
+	for (NSString *file in files) {
+		fileSize += [[[defaultManager fileAttributesAtPath:file traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
+	}
+	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"KWMaximumValueChanged" object:[NSNumber numberWithCGFloat:fileSize]];
 	
 	NSPipe *pipe = [[NSPipe alloc] init];
@@ -256,9 +254,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	CGFloat currentSize = [[[[NSFileManager defaultManager] fileAttributesAtPath:[theTimer userInfo] traverseLink:YES] objectForKey:NSFileSize] cgfloatValue] / 2048;
 	CGFloat percent = currentSize / fileSize * 100;
-		
-		if (percent < 101)
+	
+	if (percent < 101) {
 		[defaultCenter postNotificationName:@"KWStatusByAddingPercentChanged" object:[NSString stringWithFormat:@" (%.0f%@)", percent, @"%"]];
+	}
 
 	[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithCGFloat:currentSize]];
 }
@@ -271,7 +270,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 #pragma mark •• DVD-Video with menu
 
 //Create a menu with given files and chapters
-- (NSInteger)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSNumber *)size withName:(NSString *)name wideScreen:(BOOL)ws error:(NSError **)error;
+- (BOOL)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSNumber *)size withName:(NSString *)name wideScreen:(BOOL)ws error:(NSError **)error;
 {
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	NSString *themeFolderPath = [path stringByAppendingPathComponent:@"THEME_TS"];
@@ -331,18 +330,16 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	if (succes)
 		succes = [self authorDVDWithXMLFile:dvdXMLPath withFileArray:fileArray atPath:path error:error];
 	
-	if (!succes)
-	{
-		if (userCanceled) {
-			return 2;
-		} else {
-			return 1;
+	if (!succes) {
+		if (userCanceled && error) {
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
 		}
+		return NO;
 	}
 
 	[KWCommonMethods removeItemAtPath:themeFolderPath];
 
-	return 0;
+	return YES;
 }
 
 //////////////////
@@ -438,10 +435,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			outputName = @"Title Selection ";
 
 		NSInteger number;
-		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:NO] integerValue] != 2)
-			number = [[theme objectForKey:@"KWSelectionImagesOnAPage"] integerValue];
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
+			number = [[theme propertyWithKey:KWSelectionImagesOnAPageKey widescreen:wideScreen] integerValue];
 		else
-			number = [[theme objectForKey:@"KWSelectionStringsOnAPage"] integerValue];
+			number = [[theme propertyWithKey:KWSelectionStringsOnAPageKey widescreen:wideScreen] integerValue];
 
 		NSInteger pages = [objects count] / number;
 
@@ -546,8 +543,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		}
 	}
 	
-	if (!succes && !*error)
-		*error = @"Failed to create chapter menus";
+	if (!succes && error && !*error) {
+		*error = [NSError errorWithDomain:KWDVDAuthorizerErrorDomain code:KWDVDAuthorizerErrorFailedToCreateChapterMenus userInfo:@{NSLocalizedDescriptionKey: @"Failed to create chapter menus"}];
+	}
 	
 	return succes;
 }
@@ -691,10 +689,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	xmlContent = [NSString stringWithFormat:@"<dvdauthor dest=\"../\" jumppad=\"1\">\n<vmgm>\n<menus>\n<video %@></video>\n<pgc entry=\"title\">\n<vob file=\"Title Menu.mpg\"></vob>\n<button>jump titleset 1 title 1;</button>\n%@</pgc>\n</menus>\n</vmgm>\n<titleset>\n<menus>\n%@", aspect1, titleset, aspect2];
 
 	NSInteger number;
-	if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
-		number = [[theme objectForKey:@"KWSelectionImagesOnAPage"] integerValue];
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
+		number = [[theme propertyWithKey:KWSelectionImagesOnAPageKey widescreen:wideScreen] integerValue];
 	else
-		number = [[theme objectForKey:@"KWSelectionStringsOnAPage"] integerValue];
+		number = [[theme propertyWithKey:KWSelectionStringsOnAPageKey widescreen:wideScreen] integerValue];
 
 	NSInteger numberOfMenus = [fileArray count] / number;
 
@@ -901,11 +899,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	if ([defaultManager fileExistsAtPath:[path stringByAppendingPathComponent:@"THEME_TS"]])
 	{
-		totalSize = totalSize + [KWCommonMethods calculateRealFolderSize:[path stringByAppendingPathComponent:@"THEME_TS"]];
+		totalSize += [KWCommonMethods calculateRealFolderSize:[path stringByAppendingPathComponent:@"THEME_TS"]];
 	}
 
-	for (NSDictionary *path in fileArray)
-	{
+	for (NSDictionary *path in fileArray) {
 		NSDictionary *attrib = [defaultManager fileAttributesAtPath:[path objectForKey:@"Path"] traverseLink:YES];
 		totalSize += ([[attrib objectForKey:NSFileSize] cgfloatValue]);
 	}
@@ -1016,61 +1013,65 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *newImage = nil;
 	
 	if (titles)
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWAltRootImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltRootImageKey widescreen:wideScreen error:NULL]] autorelease];
 	else
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWAltChapterImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterImageKey widescreen:wideScreen error:NULL]] autorelease];
 
 	if (!newImage)
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWDefaultImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
 	
-	NSInteger y = [[theme objectForKey:@"KWStartButtonY"] integerValue];
+	NSInteger y = [theme rectWithKey:KWStartButtonRectKey widescreen:wideScreen].origin.y;
 
-	if (titles)
-	{
-		if (![[theme objectForKey:@"KWDVDNameDisableText"] boolValue])
-			[self drawString:name inRect:NSMakeRect([[theme objectForKey:@"KWDVDNameX"] integerValue],[[theme objectForKey:@"KWDVDNameY"] integerValue],[[theme objectForKey:@"KWDVDNameW"] integerValue],[[theme objectForKey:@"KWDVDNameH"] integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWDVDNameFont"] withSize:[[theme objectForKey:@"KWDVDNameFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWDVDNameFontColor"]] useAlignment:NSCenterTextAlignment];
-	}
-	else
-	{
-		if (![[theme objectForKey:@"KWVideoNameDisableText"] boolValue])
-			[self drawString:name inRect:NSMakeRect([[theme objectForKey:@"KWVideoNameX"] integerValue],[[theme objectForKey:@"KWVideoNameY"] integerValue],[[theme objectForKey:@"KWVideoNameW"]  integerValue],[[theme objectForKey:@"KWVideoNameH"]  integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWVideoNameFont"] withSize:[[theme objectForKey:@"KWVideoNameFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWVideoNameFontColor"]] useAlignment:NSCenterTextAlignment];
+	if (titles) {
+		if (![[theme propertyWithKey:KWDVDNameDisableTextKey widescreen:wideScreen] boolValue]) {
+			NSRect aRect = [theme rectWithKey:KWDVDNameRectKey widescreen:wideScreen];
+			[self drawString:name inRect:aRect onImage:newImage withFontName:[theme propertyWithKey:KWDVDNameFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWDVDNameFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWDVDNameFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		}
+	} else {
+		if (![[theme propertyWithKey:KWVideoNameDisableTextKey widescreen:wideScreen] boolValue]) {
+			NSRect aRect = [theme rectWithKey:KWVideoNameRectKey widescreen:wideScreen];
+			[self drawString:name inRect:aRect onImage:newImage withFontName:[theme propertyWithKey:KWVideoNameFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWVideoNameFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWVideoNameFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		}
 	}
 	
-	if (![[theme objectForKey:@"KWStartButtonDisable"] boolValue])
+	if (![[theme propertyWithKey:KWStartButtonDisableKey widescreen:wideScreen] boolValue])
 	{
-		NSImage *startButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWStartButtonImage"]] autorelease];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWStartButtonX"] integerValue],y,[[theme objectForKey:@"KWStartButtonW"]  integerValue],[[theme objectForKey:@"KWStartButtonH"] integerValue]);
+		NSImage *startButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSRect rect = [theme rectWithKey:KWStartButtonRectKey widescreen:wideScreen];
+		rect.origin.y = y;
 
-		if (!startButtonImage)
-			[self drawString:[theme objectForKey:@"KWStartButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWStartButtonFont"] withSize:[[theme objectForKey:@"KWStartButtonFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWStartButtonFontColor"]] useAlignment:NSCenterTextAlignment];
-		else
+		if (!startButtonImage) {
+			[self drawString:[theme propertyWithKey:KWStartButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWStartButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWStartButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWStartButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		} else {
 			[self drawImage:startButtonImage inRect:rect onImage:newImage];
+		}
 	}
 
 	//Draw titles if needed
 	if (titles)
 	{
-		if (![[theme objectForKey:@"KWTitleButtonDisable"] boolValue] && secondButton)
+		if (![[theme propertyWithKey:KWTitleButtonDisableKey widescreen:wideScreen] boolValue] && secondButton)
 		{
-			NSImage *titleButonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleButtonImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWTitleButtonX"] integerValue],[[theme objectForKey:@"KWTitleButtonY"] integerValue],[[theme objectForKey:@"KWTitleButtonW"] integerValue],[[theme objectForKey:@"KWTitleButtonH"] integerValue]);
+			NSImage *titleButonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = [theme rectWithKey:KWTitleButtonRectKey widescreen:wideScreen];
 
-			if (!titleButonImage)
-				[self drawString:[theme objectForKey:@"KWTitleButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWTitleButtonFont"] withSize:[[theme objectForKey:@"KWTitleButtonFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWTitleButtonFontColor"]] useAlignment:NSCenterTextAlignment];
-			else
+			if (!titleButonImage) {
+				[self drawString:[theme propertyWithKey:KWTitleButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWTitleButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWTitleButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWTitleButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+			} else {
 				[self drawImage:titleButonImage inRect:rect onImage:newImage];
+			}
 		}
 	}
 	//Draw chapters if needed
 	else
 	{
-		if (![[theme objectForKey:@"KWChapterButtonDisable"] boolValue])
+		if (![[theme propertyWithKey:KWChapterButtonDisableKey widescreen:wideScreen] boolValue])
 		{
-			NSImage *chapterButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterButtonImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWChapterButtonX"] integerValue],[[theme objectForKey:@"KWChapterButtonY"] integerValue],[[theme objectForKey:@"KWChapterButtonW"] integerValue],[[theme objectForKey:@"KWChapterButtonH"] integerValue]);
+			NSImage *chapterButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = [theme rectWithKey:KWChapterButtonRectKey widescreen:wideScreen];
 
 			if (!chapterButtonImage)
-				[self drawString:[theme objectForKey:@"KWChapterButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWChapterButtonFont"] withSize:[[theme objectForKey:@"KWChapterButtonFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWChapterButtonFontColor"]] useAlignment:NSCenterTextAlignment];
+				[self drawString:[theme propertyWithKey:KWChapterButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWChapterButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWChapterButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWChapterButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 			else
 				[self drawImage:chapterButtonImage inRect:rect onImage:newImage];
 		}
@@ -1078,10 +1079,11 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	NSImage *overlay = nil;
 	
-		if (titles)
-			overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWRootOverlayImage"]] autorelease];
-		else
-			overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterOverlayImage"]] autorelease];
+	if (titles) {
+		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWRootOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+	} else {
+		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+	}
 
 	if (overlay)
 		[self drawImage:overlay inRect:NSMakeRect(0,0,[newImage size].width,[newImage size].height) onImage:newImage];
@@ -1100,13 +1102,15 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	else
 		factor = 1.5; 
 
-	NSInteger y = [[theme objectForKey:@"KWStartButtonMaskY"] integerValue] * factor;
+	NSInteger y = [theme rectWithKey:KWStartButtonMaskRectKey widescreen:wideScreen].origin.y * factor;
 
-	NSImage *startMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWStartButtonMaskImage"]] autorelease];
-	NSRect rect = NSMakeRect([[theme objectForKey:@"KWStartButtonMaskX"] integerValue],y-5,[[theme objectForKey:@"KWStartButtonMaskW"] integerValue],[[theme objectForKey:@"KWStartButtonMaskH"] integerValue] * factor);
+	NSImage *startMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+	NSRect rect = [theme rectWithKey:KWStartButtonMaskRectKey widescreen:wideScreen];
+	rect.size.height *= factor;
+	rect.origin.y = y - 5;
 
 	if (!startMaskButtonImage)
-		[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWStartButtonMaskLineWidth"] integerValue] onImage:newImage];
+		[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWStartButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
 	else
 		[self drawImage:startMaskButtonImage inRect:rect onImage:newImage];
 
@@ -1114,22 +1118,26 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	{
 		if (secondButton)
 		{
-			NSImage *titleMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleButtonMaskImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWTitleButtonMaskX"] integerValue],[[theme objectForKey:@"KWTitleButtonMaskY"] integerValue] * factor,[[theme objectForKey:@"KWTitleButtonMaskW"] integerValue],[[theme objectForKey:@"KWTitleButtonMaskH"] integerValue] * factor);
+			NSImage *titleMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = [theme rectWithKey:KWTitleButtonMaskRectKey widescreen:wideScreen];
+			rect.origin.y *= factor;
+			rect.size.height *= factor;
 
 			if (!titleMaskButtonImage)
-				[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWTitleButtonMaskLineWidth"] integerValue] onImage:newImage];
+				[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWTitleButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
 			else
 				[self drawImage:titleMaskButtonImage inRect:rect onImage:newImage];
 		}
 	}
 	else
 	{
-		NSImage *chapterMaskButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterButtonMaskImage"]] autorelease];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWChapterButtonMaskX"] integerValue],[[theme objectForKey:@"KWChapterButtonMaskY"] integerValue] * factor,[[theme objectForKey:@"KWChapterButtonMaskW"] integerValue],[[theme objectForKey:@"KWChapterButtonMaskH"] integerValue] * factor);
+		NSImage *chapterMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSRect rect = [theme rectWithKey:KWChapterButtonMaskRectKey widescreen:wideScreen];
+		rect.origin.y *= factor;
+		rect.size.height *= factor;
 	
 		if (!chapterMaskButtonImage)
-			[self drawBoxInRect:rect lineWidth:[[theme objectForKey:@"KWChapterButtonMaskLineWidth"] integerValue] onImage:newImage];
+			[self drawBoxInRect:rect lineWidth:[[theme propertyWithKey:KWChapterButtonMaskLineWidthKey widescreen:wideScreen] integerValue] onImage:newImage];
 		else
 			[self drawImage:chapterMaskButtonImage inRect:rect onImage:newImage];
 	}
@@ -1138,29 +1146,29 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 }
 
 //Create menu image
-- (NSImage *)selectionMenuWithTitles:(BOOL)titles withObjects:(NSArray *)objects withImages:(NSArray *)images addNext:(BOOL)next addPrevious:(BOOL)previous
+- (NSImage *)selectionMenuWithTitles:(BOOL)titles withObjects:(NSArray<NSDictionary<NSString*,id>*> *)objects withImages:(NSArray<NSImage*> *)images addNext:(BOOL)next addPrevious:(BOOL)previous
 {
 	NSImage *newImage = nil;
 
 	if (titles)
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWAltTitleSelectionImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltTitleSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
 	else
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWAltChapterSelectionImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
 	
 	if (!newImage)
-		newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWDefaultImage"]] autorelease];
+		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
 
 	NSInteger x;
 	NSInteger y;
 	NSInteger newRow = 0;
-	NSString *pageKey;
+	KWResourceKeys pageKey;
 
-	if ([[theme objectForKey:@"KWSelectionMode"] integerValue] == 2)
-		pageKey = @"KWSelectionStringsOnAPage";
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
+		pageKey = KWSelectionStringsOnAPageKey;
 	else
-		pageKey = @"KWSelectionImagesOnAPage";
+		pageKey = KWSelectionImagesOnAPageKey;
 
-	if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
 	{
 		x = [[theme objectForKey:@"KWSelectionImagesX"] integerValue];
 		y = [[theme objectForKey:@"KWSelectionImagesY"] integerValue];
@@ -1175,9 +1183,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		if ([[theme objectForKey:@"KWSelectionStringsY"] integerValue] == -1)
 		{
 			if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
-				y = 576 - (576 - [objects count] * [[theme objectForKey:@"KWSelectionStringsSeperation"] integerValue]) / 2;
+				y = 576 - (576 - [objects count] * [[theme propertyWithKey:KWSelectionStringsSeperationKey widescreen:wideScreen] integerValue]) / 2;
 			else
-				y = 384 - (384 - [objects count] * [[theme objectForKey:@"KWSelectionStringsSeperation"] integerValue]) / 2;
+				y = 384 - (384 - [objects count] * [[theme propertyWithKey:KWSelectionStringsSeperationKey widescreen:wideScreen] integerValue]) / 2;
 		}
 		else
 		{
@@ -1188,7 +1196,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSInteger i;
 	for (i=0;i<[objects count];i++)
 	{
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
 		{
 			NSImage *previewImage = [images objectAtIndex:i];
 			CGFloat width;
@@ -1219,7 +1227,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			[newImage unlockFocus];
 		}
 		
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] == 0)
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 0)
 		{
 			NSString *name;
 		
@@ -1230,7 +1238,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 			[self drawString:name inRect:NSMakeRect(x,y-[[theme objectForKey:@"KWSelectionImagesH"] integerValue],[[theme objectForKey:@"KWSelectionImagesW"] integerValue],[[theme objectForKey:@"KWSelectionImagesH"] integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWSelectionImagesFont"] withSize:[[theme objectForKey:@"KWSelectionImagesFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWSelectionImagesFontColor"]] useAlignment:NSCenterTextAlignment];
 		}
-		else if ([[theme objectForKey:@"KWSelectionMode"] integerValue] == 2)
+		else if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
 		{
 			NSTextAlignment alignment;
 			
@@ -1248,69 +1256,62 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			[self drawString:name inRect:NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsW"] integerValue],[[theme objectForKey:@"KWSelectionStringsH"] integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWSelectionStringsFont"] withSize:[[theme objectForKey:@"KWSelectionStringsFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWSelectionStringsFontColor"]] useAlignment:alignment];
 		}
 	
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
-		{
-			x = x + [[theme objectForKey:@"KWSelectionImagesSeperationW"] integerValue];
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
+			x += [[theme propertyWithKey:KWSelectionImagesSeperationWKey widescreen:wideScreen] integerValue];
 		
-			if (newRow == [[theme objectForKey:@"KWSelectionImagesOnARow"] integerValue]-1)
-			{
-				y = y - [[theme objectForKey:@"KWSelectionImagesSeperationH"] integerValue];
+			if (newRow == [[theme propertyWithKey:KWSelectionImagesOnARowKey widescreen:wideScreen] integerValue] - 1) {
+				y -= [[theme propertyWithKey:KWSelectionImagesSeperationHKey widescreen:wideScreen] integerValue];
 				x = [[theme objectForKey:@"KWSelectionImagesX"] integerValue];
 				newRow = 0;
-			}
-			else
-			{
+			} else {
 				newRow = newRow + 1;
 			}
 		
-		}
-		else
-		{
-			y = y - [[theme objectForKey:@"KWSelectionStringsSeperation"] integerValue];
+		} else {
+			y -= [[theme propertyWithKey:KWSelectionStringsSeperationKey widescreen:wideScreen] integerValue];
 		}
 	}
 	
-	if (![[theme objectForKey:@"KWPreviousButtonDisable"] boolValue] && previous)
-	{
-		NSImage *previousButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWPreviousButtonImage"]] autorelease];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWPreviousButtonX"] integerValue],[[theme objectForKey:@"KWPreviousButtonY"] integerValue],[[theme objectForKey:@"KWPreviousButtonW"] integerValue],[[theme objectForKey:@"KWPreviousButtonH"] integerValue]);
+	if (![[theme propertyWithKey:KWPreviousButtonDisableKey widescreen:wideScreen] boolValue] && previous) {
+		NSImage *previousButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSRect rect = [theme rectWithKey:KWPreviousButtonRectKey widescreen:wideScreen];
 
 		if (!previousButtonImage)
-			[self drawString:[theme objectForKey:@"KWPreviousButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWPreviousButtonFont"] withSize:[[theme objectForKey:@"KWPreviousButtonFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWPreviousButtonFontColor"]] useAlignment:NSCenterTextAlignment];
+			[self drawString:[theme propertyWithKey:KWPreviousButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWPreviousButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWPreviousButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWPreviousButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 		else
 			[self drawImage:previousButtonImage inRect:rect onImage:newImage];
 	}
 
-	if (![[theme objectForKey:@"KWNextButtonDisable"] boolValue] && next)
+	if (![[theme propertyWithKey:KWNextButtonDisableKey widescreen:wideScreen] boolValue] && next)
 	{
-		NSImage *nextButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWNextButtonImage"]] autorelease];
-		NSRect rect = NSMakeRect([[theme objectForKey:@"KWNextButtonX"] integerValue],[[theme objectForKey:@"KWNextButtonY"] integerValue],[[theme objectForKey:@"KWNextButtonW"] integerValue],[[theme objectForKey:@"KWNextButtonH"] integerValue]);
+		NSImage *nextButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSRect rect = [theme rectWithKey:KWNextButtonRectKey widescreen:wideScreen];
 
 		if (!nextButtonImage)
-			[self drawString:[theme objectForKey:@"KWNextButtonString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWNextButtonFont"] withSize:[[theme objectForKey:@"KWNextButtonFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWNextButtonFontColor"]] useAlignment:NSCenterTextAlignment];
+			[self drawString:[theme propertyWithKey:KWNextButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWNextButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWNextButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWNextButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 		else
 			[self drawImage:nextButtonImage inRect:rect onImage:newImage];
 	}
 
 	if (!titles)
 	{
-		if (![[theme objectForKey:@"KWChapterSelectionDisable"] boolValue])
+		if (![[theme propertyWithKey:@"KWChapterSelectionDisable" widescreen:wideScreen] boolValue])
 		{
 			NSImage *chapterSelectionButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWChapterSelectionX"] integerValue],[[theme objectForKey:@"KWChapterSelectionY"] integerValue],[[theme objectForKey:@"KWChapterSelectionW"] integerValue],[[theme objectForKey:@"KWChapterSelectionH"] integerValue]);
+			NSRect rect = [theme rectWithKey:KWChapterSelectionRectKey widescreen:wideScreen];
 
 			if (!chapterSelectionButtonImage)
-				[self drawString:[theme objectForKey:@"KWChapterSelectionString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWChapterSelectionFont"] withSize:[[theme objectForKey:@"KWChapterSelectionFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWChapterSelectionFontColor"]] useAlignment:NSCenterTextAlignment];
+				[self drawString:[theme propertyWithKey:@"KWChapterSelectionString" widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWChapterSelectionFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWChapterSelectionFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWChapterSelectionFontColor" widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 			else
 				[self drawImage:chapterSelectionButtonImage inRect:rect onImage:newImage];
 		}
 	}
 	else
 	{
-		if (![[theme objectForKey:@"KWTitleSelectionDisable"] boolValue])
+		if (![[theme propertyWithKey:@"KWTitleSelectionDisable" widescreen:wideScreen] boolValue])
 		{
 			NSImage *titleSelectionButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionImage"]] autorelease];
-			NSRect rect = NSMakeRect([[theme objectForKey:@"KWTitleSelectionX"] integerValue],[[theme objectForKey:@"KWTitleSelectionY"] integerValue],[[theme objectForKey:@"KWTitleSelectionW"] integerValue],[[theme objectForKey:@"KWTitleSelectionH"] integerValue]);
+			NSRect rect = [theme rectWithKey:KWTitleSelectionRectKey widescreen:wideScreen];
 
 			if (!titleSelectionButtonImage)
 				[self drawString:[theme objectForKey:@"KWTitleSelectionString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWTitleSelectionFont"] withSize:[[theme objectForKey:@"KWTitleSelectionFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWTitleSelectionFontColor"]] useAlignment:NSCenterTextAlignment];
@@ -1321,10 +1322,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	NSImage *overlay = nil;
 	
-		if (titles)
-			overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionOverlayImage"]] autorelease];
-		else
-			overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionOverlayImage"]] autorelease];
+	if (titles)
+		overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionOverlayImage"]] autorelease];
+	else
+		overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionOverlayImage"]] autorelease];
 
 	if (overlay)
 		[self drawImage:overlay inRect:NSMakeRect(0,0,[newImage size].width,[newImage size].height) onImage:newImage];
@@ -1352,14 +1353,14 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSInteger x;
 	NSInteger y;
 
-	NSString *pageKey;
+	KWResourceKeys pageKey;
 
-	if ([[theme objectForKey:@"KWSelectionMode"] integerValue] == 2)
-		pageKey = @"KWSelectionStringsOnAPage";
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
+		pageKey = KWSelectionStringsOnAPageKey;
 	else
-		pageKey = @"KWSelectionImagesOnAPage";
+		pageKey = KWSelectionImagesOnAPageKey;
 
-	if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
 	{
 		x = [[theme objectForKey:@"KWSelectionImagesMaskX"] integerValue];
 		y = [[theme objectForKey:@"KWSelectionImagesMaskY"] integerValue] * factor;
@@ -1387,7 +1388,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSInteger i;
 	for (i=0;i<[objects count];i++)
 	{
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] == 2)
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
 		{
 			NSImage *selectionStringsMaskButtonImage  = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWSelectionStringsImage"]] autorelease];
 			NSRect rect = NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsMaskW"] integerValue],[[theme objectForKey:@"KWSelectionStringsMaskH"] integerValue] * factor);
@@ -1408,7 +1409,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				[self drawImage:selectionImageMaskButtonImage inRect:rect onImage:newImage];
 		}
 	
-		if ([[theme objectForKey:@"KWSelectionMode"] integerValue] != 2)
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
 		{
 			x = x + [[theme objectForKey:@"KWSelectionImagesMaskSeperationW"] integerValue];
 	
@@ -1479,10 +1480,10 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	else if (type == 2 | type == 3)
 	{
 		NSInteger number;
-		if ([[currentTheme objectForKey:@"KWSelectionMode"] integerValue] != 2)
-			number = [[currentTheme objectForKey:@"KWSelectionImagesOnAPage"] integerValue];
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
+			number = [[theme propertyWithKey:KWSelectionImagesOnAPageKey widescreen:wideScreen] integerValue];
 		else
-			number = [[currentTheme objectForKey:@"KWSelectionStringsOnAPage"] integerValue];
+			number = [[theme propertyWithKey:KWSelectionStringsOnAPageKey widescreen:wideScreen] integerValue];
 	
 		NSMutableArray *images = [NSMutableArray array];
 		NSMutableArray *nameArray = [NSMutableArray array];
@@ -1582,17 +1583,17 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 {
 	theme = currentTheme;
 
-	NSImage *newImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWDefaultImage"]] autorelease];
+	NSImage *newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
 	
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
 	{
-		[self drawString:@"♫" inRect:NSMakeRect(20, ((NSInteger)[newImage size].height - 600) / 2 , (NSInteger)[newImage size].width - 40, 600) onImage:newImage withFontName:[theme objectForKey:@"KWDVDNameFont"] withSize:400 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWDVDNameFontColor"]] useAlignment:NSCenterTextAlignment];
-		[self drawString:name inRect:NSMakeRect(62, 56, 720, 30) onImage:newImage withFontName:[theme objectForKey:@"KWDVDNameFont"] withSize:24 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWDVDNameFontColor"]] useAlignment:NSLeftTextAlignment];
+		[self drawString:@"♫" inRect:NSMakeRect(20, ((NSInteger)[newImage size].height - 600) / 2 , (NSInteger)[newImage size].width - 40, 600) onImage:newImage withFontName:[theme propertyWithKey:KWDVDNameFontKey widescreen:wideScreen] withSize:400 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWDVDNameFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		[self drawString:name inRect:NSMakeRect(62, 56, 720, 30) onImage:newImage withFontName:[theme propertyWithKey:KWDVDNameFontKey widescreen:wideScreen] withSize:24 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWDVDNameFontColorKey widescreen:wideScreen]] useAlignment:NSLeftTextAlignment];
 	}
 	else
 	{
-		[self drawString:@"♫" inRect:NSMakeRect(20, ((NSInteger)[newImage size].height - 420) / 2 , (NSInteger)[newImage size].width - 40, 420) onImage:newImage withFontName:[theme objectForKey:@"KWDVDNameFont"] withSize:300 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWDVDNameFontColor"]] useAlignment:NSCenterTextAlignment];
-		[self drawString:name inRect:NSMakeRect(42, 38, 720, 24) onImage:newImage withFontName:[theme objectForKey:@"KWDVDNameFont"] withSize:16 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWDVDNameFontColor"]] useAlignment:NSLeftTextAlignment];
+		[self drawString:@"♫" inRect:NSMakeRect(20, ((NSInteger)[newImage size].height - 420) / 2 , (NSInteger)[newImage size].width - 40, 420) onImage:newImage withFontName:[theme propertyWithKey:KWDVDNameFontKey widescreen:wideScreen] withSize:300 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWDVDNameFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		[self drawString:name inRect:NSMakeRect(42, 38, 720, 24) onImage:newImage withFontName:[theme propertyWithKey:KWDVDNameFontKey widescreen:wideScreen] withSize:16 withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWDVDNameFontColorKey widescreen:wideScreen]] useAlignment:NSLeftTextAlignment];
 	}
 	
 	return newImage;//[self resizeImage:newImage];
@@ -1614,56 +1615,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 - (NSInteger)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray *)fileArray withSize:(NSNumber *)size errorString:(NSString **)error
 {
-	BOOL result;
-	
-	result = [KWCommonMethods createDirectoryAtPath:path errorString:error];
-	
-	//Create a xml file with chapters if there are any
-	if (result)
-		[self createStandardDVDXMLAtPath:path withFileArray:fileArray errorString:error];
-	
-	progressSize = size;
-	
-	//Author the DVD
-	
-	if (result)
-		result = [self authorDVDWithXMLFile:[path stringByAppendingPathComponent:@"dvdauthor.xml"] withFileArray:fileArray atPath:path error:error];
-	
-	NSInteger succes = 0;
-	
-	if (result == NO)
-	{
-		if (userCanceled)
-			succes = 2;
-		else
-			succes = 1;
-	}
-	
-	[KWCommonMethods removeItemAtPath:[path stringByAppendingPathComponent:@"dvdauthor.xml"]];
-	
-	//Create TOC (Table Of Contents)
-	if (succes == 0)
-	{
-		NSArray *arguments = [NSArray arrayWithObjects:@"-T", @"-o", path, nil];
-		BOOL status = [KWCommonMethods launchNSTaskAtPath:[[NSBundle mainBundle] pathForResource:@"dvdauthor" ofType:@""] withArguments:arguments outputError:YES outputString:YES output:&*error];
-		
-		if (!status)
-			succes = 1;
-	}
-	
-	if (succes == 0)
-	{
-		return 0;
-	}
-	else
-	{
-		[KWCommonMethods removeItemAtPath:path];
-		
-		if (userCanceled)
-			return 2;
-		else
-			return 1;
-	}
+	return 1;
 }
 
 - (void)createStandardDVDXMLAtPath:(NSString *)path withFileArray:(NSArray *)fileArray errorString:(NSString **)error

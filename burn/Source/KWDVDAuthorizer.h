@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, KWDVDAuthorizerError) {
 	KWDVDAuthorizerErrorFailedToCreateRootMenu,
 	KWDVDAuthorizerErrorFailedToCreateSelectionMenus,
+	KWDVDAuthorizerErrorFailedToCreateChapterMenus,
 	KWDVDAuthorizerErrorSPUMuxFailed,
 };
 
@@ -27,7 +28,7 @@ extern NSErrorDomain const KWDVDAuthorizerErrorDomain;
 	NSTask *ffmpeg;
 	NSTask *spumux;
 	
-	KWBurnThemeObject *theme;
+	__unsafe_unretained KWBurnThemeObject *theme;
 	
 	NSNumber *progressSize;
 	NSInteger fileSize;
@@ -44,7 +45,7 @@ extern NSErrorDomain const KWDVDAuthorizerErrorDomain;
 
 //DVD-Video with menu
 //! Create a menu with given files and chapters
-- (NSInteger)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSNumber *)size withName:(NSString *)name wideScreen:(BOOL)ws error:(NSError **)error;
+- (BOOL)createDVDMenuFiles:(NSString *)path withTheme:(KWBurnThemeObject *)currentTheme withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSNumber *)size withName:(NSString *)name wideScreen:(BOOL)ws error:(NSError **)error;
 
 #pragma mark Main actions
 //! Create root menu (Start and Titles)
@@ -67,9 +68,9 @@ extern NSErrorDomain const KWDVDAuthorizerErrorDomain;
 //! Create menu image mask with titles or chapters
 - (NSImage *)rootMaskWithTitles:(BOOL)titles withSecondButton:(BOOL)secondButton;
 //! Create menu image
-- (NSImage *)selectionMenuWithTitles:(BOOL)titles withObjects:(NSArray *)objects withImages:(NSArray *)images addNext:(BOOL)next addPrevious:(BOOL)previous;
+- (NSImage *)selectionMenuWithTitles:(BOOL)titles withObjects:(NSArray<NSDictionary<NSString*,id>*> *)objects withImages:(NSArray<NSImage*> *)images addNext:(BOOL)next addPrevious:(BOOL)previous;
 //! Create menu mask
-- (NSImage *)selectionMaskWithTitles:(BOOL)titles withObjects:(NSArray *)objects addNext:(BOOL)next addPrevious:(BOOL)previous;
+- (NSImage *)selectionMaskWithTitles:(BOOL)titles withObjects:(NSArray<NSString*> *)objects addNext:(BOOL)next addPrevious:(BOOL)previous;
 
 #pragma mark Other actions
 - (NSImage *)getPreviewImageFromTheme:(KWBurnThemeObject *)currentTheme ofType:(NSInteger)type;
