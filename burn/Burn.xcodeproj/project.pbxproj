@@ -530,12 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				552CBF3E1ED8A31800A9A82D /* MultiTag.xcodeproj */,
-				FE32F84F0E51970000C99F32 /* Sounds */,
-				FEEF6F130B92E8AF00ED64A9 /* Images */,
-				FEEF72460B92FCAF00ED64A9 /* Binaries */,
-				FE0F52D00BA1CAF000D9D56B /* Source */,
-				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
-				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				559F6EFA1F283C6F007DFAE2 /* Burn */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 			);
@@ -582,6 +577,19 @@
 				552CBF521ED8A31900A9A82D /* MultiTag.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		559F6EFA1F283C6F007DFAE2 /* Burn */ = {
+			isa = PBXGroup;
+			children = (
+				FE32F84F0E51970000C99F32 /* Sounds */,
+				FEEF6F130B92E8AF00ED64A9 /* Images */,
+				FEEF72460B92FCAF00ED64A9 /* Binaries */,
+				FE0F52D00BA1CAF000D9D56B /* Source */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+			);
+			name = Burn;
 			sourceTree = "<group>";
 		};
 		55CD19B71EDA2B550011321D /* Libs */ = {
