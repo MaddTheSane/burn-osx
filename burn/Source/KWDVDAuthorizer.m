@@ -33,8 +33,6 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-
-	[super dealloc];
 }
 
 - (void)cancelAuthoring
@@ -58,7 +56,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 #pragma mark -
 #pragma mark •• DVD-Video without menu
 
-- (BOOL)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSInteger)size error:(NSError **)error
+- (BOOL)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(long long)size error:(NSError **)error
 {
 	BOOL result;
 	
@@ -178,7 +176,6 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 - (BOOL)createStandardDVDAudioFolderAtPath:(NSString *)path withFiles:(NSArray<NSString*> *)files error:(NSError **)error;
 {
-	[path retain];
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	fileSize = 0;
 	
@@ -206,7 +203,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 	[KWCommonMethods logCommandIfNeeded:dvdauthor];
 	[dvdauthor launch];
-	NSString *string = [[[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding] autorelease];
+	NSString *string = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"KWDebug"])
 		NSLog(@"%@", string);
@@ -216,18 +213,14 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	NSInteger taskStatus = [dvdauthor terminationStatus];
 	
-	[pipe release];
 	pipe = nil;
 	
-	[dvdauthor release];
 	dvdauthor = nil;
 
 	if (taskStatus == 0) {
-		[path release];
 		return YES;
 	} else {
 		[KWCommonMethods removeItemAtPath:path];
-		[path release];
 	
 		if (userCanceled) {
 			if (error) {
@@ -414,7 +407,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 			if (chapters)
 			{
-				image = [[[NSImage alloc] initWithData:[currentObject objectForKey:@"Image"]] autorelease];
+				image = [[NSImage alloc] initWithData:[currentObject objectForKey:@"Image"]];
 			} else {
 				image = [KWConverter getImageAtPath:currentPath atTime:[[theme propertyWithKey:KWScreenshotAtTimeKey widescreen:widescreen] integerValue] isWideScreen:widescreen];
 				
@@ -454,12 +447,8 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			//Create first page range
 			firstRange = NSMakeRange(0,number);
 
-			for (NSInteger i = 1; i < pages - 1; i ++)
-			{
-				if (succes)
-				{
-					NSAutoreleasePool *innerPool = [[NSAutoreleasePool alloc] init];
-
+			for (NSInteger i = 1; i < pages - 1; i ++) {
+				if (succes) @autoreleasepool {
 					NSRange range = NSMakeRange(number * i,number);
 					NSArray *objectSubArray = [objects subarrayWithRange:range];
 					image = [self selectionMenuWithTitles:(!chapters) withObjects:objectSubArray withImages:[images subarrayWithRange:range] addNext:YES addPrevious:YES];
@@ -468,9 +457,6 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				
 					if (succes)
 						succes = [self createDVDMenuFile:[[[path stringByAppendingPathComponent:outputName] stringByAppendingString:[[NSNumber numberWithInteger:i + 1 + numberOfpages] stringValue]] stringByAppendingString:@".mpg"] withImage:image withMaskFile:[path stringByAppendingPathComponent:@"Mask.png"] error:error];
-				
-					[innerPool release];
-					innerPool = nil;
 				}
 			}
 
@@ -504,17 +490,14 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 		numberOfpages = numberOfpages + pages;
 		
-		[images release];
 		images = nil;
 	}
 	
-	[titlesWithChapters release];
 	titlesWithChapters = nil;
 	
-	[indexes release];
 	indexes = nil;
 	
-	if (!succes && !*error)
+	if (!succes && error && !*error)
 		*error = [NSError errorWithDomain:KWDVDAuthorizerErrorDomain code: KWDVDAuthorizerErrorFailedToCreateSelectionMenus userInfo:nil];//@"Failed to create selection menus";
 
 	return succes;
@@ -626,16 +609,13 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		[myHandle closeFile];
 
 		[ffmpeg waitUntilExit];
-		[ffmpeg release];
 		ffmpeg = nil;
 	
-		[pipe release];
 		pipe = nil;
 		
-		[pipe2 release];
 		pipe2 = nil;
 
-		NSString *string = [[[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding] autorelease];
+		NSString *string = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 	
 		if ([standardUserDefaults boolForKey:@"KWDebug"])
 			NSLog(@"%@", string);
@@ -644,10 +624,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 		succes = ([spumux terminationStatus] == 0);
 
-		[spumux release];
 		spumux = nil;
-		
-		[errorPipe release];
 		errorPipe = nil;
 		
 		if (!succes)
@@ -844,10 +821,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 	xmlContent = [NSString stringWithFormat:@"%@</titles>\n</titleset>\n</dvdauthor>", xmlContent];
 
-	[titlesWithChapters release];
 	titlesWithChapters = nil;
-	
-	[titlesWithChaptersNames release];
 	titlesWithChaptersNames = nil;
 
 	return [KWCommonMethods writeString:xmlContent toFile:path error:error];
@@ -901,7 +875,6 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	while ([data = [handle availableData] length]) @autoreleasepool {
 		if (string) {
-			[string release];
 			string = nil;
 		}
 	
@@ -934,7 +907,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			if (currentProcces == 1)
 			{
 				progressValue = [[[[[string componentsSeparatedByString:@"MB"] objectAtIndex:0] componentsSeparatedByString:@"at "] objectAtIndex:1] cgfloatValue] / totalSize * 100;
-				[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithInteger:(([progressSize cgfloatValue] / 100) * progressValue)]];
+				[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithInteger:((progressSize / 100) * progressValue)]];
 			}
 			else
 			{
@@ -942,7 +915,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 				if (progressValue > 0 && progressValue < 101)
 				{
-					[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithInteger:([progressSize cgfloatValue])+(([progressSize cgfloatValue] / 100) * progressValue)]];
+					[defaultCenter postNotificationName:@"KWValueChanged" object:[NSNumber numberWithInteger:(progressSize)+((progressSize / 100) * progressValue)]];
 					[defaultCenter postNotificationName:@"KWStatusChanged" object:[NSString stringWithFormat:NSLocalizedString(@"Generating DVD folder: (%.0f%@)", nil), progressValue, @"%"]];
 				}
 			}
@@ -955,8 +928,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 	returnCode = ([dvdauthor terminationStatus] == 0 && userCanceled == NO);
 	
-	[errorString appendString:[[[NSString alloc] initWithData:[handle2 readDataToEndOfFile] encoding:NSUTF8StringEncoding] autorelease]];
-	errorString = [errorString autorelease];
+	[errorString appendString:[[NSString alloc] initWithData:[handle2 readDataToEndOfFile] encoding:NSUTF8StringEncoding]];
 	
 	if (error && userCanceled) {
 		*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
@@ -966,16 +938,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		}
 	}
 	
-	[string release];
 	string = nil;
-	
-	[pipe release];
 	pipe = nil;
-	
-	[pipe2 release];
 	pipe2 = nil;
-	
-	[dvdauthor release];
 	dvdauthor = nil;
 
 	return returnCode;
@@ -994,12 +959,12 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *newImage = nil;
 	
 	if (titles)
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltRootImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWAltRootImageKey widescreen:wideScreen error:NULL]];
 	else
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterImageKey widescreen:wideScreen error:NULL]];
 
 	if (!newImage)
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]];
 	
 	NSInteger y = [theme rectWithKey:KWStartButtonRectKey widescreen:wideScreen].origin.y;
 
@@ -1017,7 +982,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 	if (![[theme propertyWithKey:KWStartButtonDisableKey widescreen:wideScreen] boolValue])
 	{
-		NSImage *startButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSImage *startButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonImageKey widescreen:wideScreen error:NULL]];
 		NSRect rect = [theme rectWithKey:KWStartButtonRectKey widescreen:wideScreen];
 		rect.origin.y = y;
 
@@ -1033,7 +998,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	{
 		if (![[theme propertyWithKey:KWTitleButtonDisableKey widescreen:wideScreen] boolValue] && secondButton)
 		{
-			NSImage *titleButonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *titleButonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWTitleButtonRectKey widescreen:wideScreen];
 
 			if (!titleButonImage) {
@@ -1048,7 +1013,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	{
 		if (![[theme propertyWithKey:KWChapterButtonDisableKey widescreen:wideScreen] boolValue])
 		{
-			NSImage *chapterButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *chapterButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWChapterButtonRectKey widescreen:wideScreen];
 
 			if (!chapterButtonImage)
@@ -1061,9 +1026,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *overlay = nil;
 	
 	if (titles) {
-		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWRootOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+		overlay = [[NSImage alloc] initWithData:[theme resourceNamed:KWRootOverlayImageKey widescreen:wideScreen error:NULL]];
 	} else {
-		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+		overlay = [[NSImage alloc] initWithData:[theme resourceNamed:KWChapterOverlayImageKey widescreen:wideScreen error:NULL]];
 	}
 
 	if (overlay)
@@ -1075,7 +1040,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 //Create menu image mask with titles or chapters
 - (NSImage *)rootMaskWithTitles:(BOOL)titles withSecondButton:(BOOL)secondButton
 {
-	NSImage *newImage = [[[NSImage alloc] initWithSize: NSMakeSize(720,576)] autorelease]; 
+	NSImage *newImage = [[NSImage alloc] initWithSize: NSMakeSize(720,576)];
 	
 	CGFloat factor;
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0) {
@@ -1086,7 +1051,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	NSInteger y = [theme rectWithKey:KWStartButtonMaskRectKey widescreen:wideScreen].origin.y * factor;
 
-	NSImage *startMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+	NSImage *startMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWStartButtonMaskImageKey widescreen:wideScreen error:NULL]];
 	NSRect rect = [theme rectWithKey:KWStartButtonMaskRectKey widescreen:wideScreen];
 	rect.size.height *= factor;
 	rect.origin.y = y - 5;
@@ -1099,7 +1064,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	if (titles) {
 		if (secondButton) {
-			NSImage *titleMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *titleMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWTitleButtonMaskImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWTitleButtonMaskRectKey widescreen:wideScreen];
 			rect.origin.y *= factor;
 			rect.size.height *= factor;
@@ -1110,7 +1075,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				[self drawImage:titleMaskButtonImage inRect:rect onImage:newImage];
 		}
 	} else {
-		NSImage *chapterMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSImage *chapterMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWChapterButtonMaskImageKey widescreen:wideScreen error:NULL]];
 		NSRect rect = [theme rectWithKey:KWChapterButtonMaskRectKey widescreen:wideScreen];
 		rect.origin.y *= factor;
 		rect.size.height *= factor;
@@ -1131,12 +1096,12 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *newImage = nil;
 
 	if (titles)
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltTitleSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWAltTitleSelectionImageKey widescreen:wideScreen error:NULL]];
 	else
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWAltChapterSelectionImageKey widescreen:wideScreen error:NULL]];
 	
 	if (!newImage)
-		newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
+		newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]];
 
 	NSInteger x;
 	NSInteger y;
@@ -1169,10 +1134,8 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	}
 	
 	NSInteger i;
-	for (i=0;i<[objects count];i++)
-	{
-		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
-		{
+	for (i=0;i<[objects count];i++) {
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
 			NSImage *previewImage = [images objectAtIndex:i];
 			CGFloat width;
 			CGFloat height;
@@ -1181,16 +1144,12 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			{
 				height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height;
 				width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height * ([previewImage size].width / [previewImage size].height);
-			}
-			else
-			{
+			} else {
 				if ([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width / ([previewImage size].width / [previewImage size].height) <= [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height)
 				{
 					width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width;
 					height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width / ([previewImage size].width / [previewImage size].height);
-				}
-				else
-				{
+				} else {
 					height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height;
 					width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height * ([previewImage size].width / [previewImage size].height);
 				}
@@ -1248,7 +1207,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	}
 	
 	if (![[theme propertyWithKey:KWPreviousButtonDisableKey widescreen:wideScreen] boolValue] && previous) {
-		NSImage *previousButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSImage *previousButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonImageKey widescreen:wideScreen error:NULL]];
 		NSRect rect = [theme rectWithKey:KWPreviousButtonRectKey widescreen:wideScreen];
 
 		if (!previousButtonImage) {
@@ -1259,7 +1218,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	}
 
 	if (![[theme propertyWithKey:KWNextButtonDisableKey widescreen:wideScreen] boolValue] && next) {
-		NSImage *nextButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
+		NSImage *nextButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonImageKey widescreen:wideScreen error:NULL]];
 		NSRect rect = [theme rectWithKey:KWNextButtonRectKey widescreen:wideScreen];
 
 		if (!nextButtonImage) {
@@ -1271,7 +1230,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 	if (!titles) {
 		if (![[theme propertyWithKey:KWChapterSelectionDisableKey widescreen:wideScreen] boolValue]) {
-			NSImage *chapterSelectionButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *chapterSelectionButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWChapterSelectionRectKey widescreen:wideScreen];
 
 			if (!chapterSelectionButtonImage) {
@@ -1282,7 +1241,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		}
 	} else {
 		if (![[theme propertyWithKey:KWTitleSelectionDisableKey widescreen:wideScreen] boolValue]) {
-			NSImage *titleSelectionButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *titleSelectionButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWTitleSelectionRectKey widescreen:wideScreen];
 
 			if (!titleSelectionButtonImage)
@@ -1295,9 +1254,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *overlay = nil;
 	
 	if (titles)
-		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+		overlay = [[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionOverlayImageKey widescreen:wideScreen error:NULL]];
 	else
-		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
+		overlay = [[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionOverlayImageKey widescreen:wideScreen error:NULL]];
 
 	if (overlay)
 		[self drawImage:overlay inRect:NSMakeRect(0,0,[newImage size].width,[newImage size].height) onImage:newImage];
@@ -1311,7 +1270,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *newImage;
 
 	//if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
-		newImage = [[[NSImage alloc] initWithSize: NSMakeSize(720,576)] autorelease];
+		newImage = [[NSImage alloc] initWithSize: NSMakeSize(720,576)];
 	//else
 	//newImage = [[[NSImage alloc] initWithSize: NSMakeSize(720,384)] autorelease];
 	
@@ -1353,9 +1312,8 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 	NSInteger i;
 	for (i=0;i<[objects count];i++) {
-		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
-		{
-			NSImage *selectionStringsMaskButtonImage  = [[[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionStringsImageKey widescreen:wideScreen error:NULL]] autorelease];
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2) {
+			NSImage *selectionStringsMaskButtonImage  = [[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionStringsImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = NSMakeRect(x,y,[theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].size.width,[theme rectWithKey:KWSelectionStringsMaskRectKey widescreen:wideScreen].size.height * factor);
 		
 			if (!selectionStringsMaskButtonImage) {
@@ -1364,7 +1322,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 				[self drawImage:selectionStringsMaskButtonImage inRect:rect onImage:newImage];
 			}
 		} else {
-			NSImage *selectionImageMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionImagesImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *selectionImageMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWSelectionImagesImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = NSMakeRect(x, y, [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].size.width, [theme rectWithKey:KWSelectionImagesMaskRectKey widescreen:wideScreen].size.height * factor);
 		
 			if (!selectionImageMaskButtonImage) {
@@ -1390,7 +1348,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	}
 	
 		if (previous) {
-			NSImage *previousMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *previousMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonMaskImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWPreviousButtonMaskRectKey widescreen:wideScreen];
 			rect.origin.y *= factor;
 			rect.size.height *= factor;
@@ -1403,7 +1361,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		}
 	
 		if (next) {
-			NSImage *nextMaskButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonMaskImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSImage *nextMaskButtonImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonMaskImageKey widescreen:wideScreen error:NULL]];
 			NSRect rect = [theme rectWithKey:KWNextButtonMaskRectKey widescreen:YES];
 			rect.origin.y *= factor;
 			rect.size.height *= factor;
@@ -1482,7 +1440,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 - (NSImage *)previewImage
 {
-	NSImage *newImage = [[[NSImage alloc] initWithSize: NSMakeSize(320,240)] autorelease];
+	NSImage *newImage = [[NSImage alloc] initWithSize: NSMakeSize(320,240)];
 
 	[newImage lockFocus];
 	[[NSColor whiteColor] set];
@@ -1501,9 +1459,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSMutableParagraphStyle *centeredStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[centeredStyle setAlignment:alignment];
 	NSDictionary *attsDict = [NSDictionary dictionaryWithObjectsAndKeys:centeredStyle, NSParagraphStyleAttributeName,color, NSForegroundColorAttributeName, labelFont, NSFontAttributeName, @(NSUnderlineStyleNone), NSUnderlineStyleAttributeName, nil];
-	[centeredStyle release];
-	centeredStyle = nil;
-		
+	
 	[image lockFocus];
 	[string drawInRect:rect withAttributes:attsDict]; 
 	[image unlockFocus];
@@ -1529,7 +1485,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 
 - (NSImage *)resizeImage:(NSImage *)image
 {
-	NSImage *resizedImage = [[[NSImage alloc] initWithSize: NSMakeSize(720, 576)] autorelease];
+	NSImage *resizedImage = [[NSImage alloc] initWithSize: NSMakeSize(720, 576)];
 
 	NSSize originalSize = [image size];
 
@@ -1544,7 +1500,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 {
 	theme = currentTheme;
 
-	NSImage *newImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]] autorelease];
+	NSImage *newImage = [[NSImage alloc] initWithData:[theme resourceNamed:KWDefaultImageKey widescreen:wideScreen error:NULL]];
 	
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
 	{

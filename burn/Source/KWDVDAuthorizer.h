@@ -30,12 +30,12 @@ extern NSErrorDomain const KWDVDAuthorizerErrorDomain;
 	
 	__unsafe_unretained KWBurnThemeObject *theme;
 	
-	NSNumber *progressSize;
+	long long progressSize;
 	NSInteger fileSize;
 }
 
 //Standard DVD-Video
-- (BOOL)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(NSInteger)size error:(NSError **)error;
+- (BOOL)createStandardDVDFolderAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray withSize:(long long)size error:(NSError **)error;
 - (BOOL)createStandardDVDXMLAtPath:(NSString *)path withFileArray:(NSArray<NSDictionary<NSString*,id>*> *)fileArray error:(NSError **)error;
 
 //!Standard DVD-Audio
