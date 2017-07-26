@@ -1,0 +1,735 @@
+
+/* Class = "NSWindow"; title = "Окно"; ObjectID = "742"; */
+"742.title" = "Окно";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "858"; */
+"858.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Корневое меню 4:3"; ObjectID = "859"; */
+"859.title" = "Корневое меню 4:3";
+
+/* Class = "NSMenuItem"; title = "Меню сцен 4:3"; ObjectID = "861"; */
+"861.title" = "Меню сцен 4:3";
+
+/* Class = "NSTabViewItem"; label = "2"; ObjectID = "1080"; */
+"1080.label" = "2";
+
+/* Class = "NSTabViewItem"; label = "1"; ObjectID = "1082"; */
+"1082.label" = "1";
+
+/* Class = "NSTabViewItem"; label = "Старт"; ObjectID = "1085"; */
+"1085.label" = "Старт";
+
+/* Class = "NSTabViewItem"; label = "Глава"; ObjectID = "1121"; */
+"1121.label" = "Глава";
+
+/* Class = "NSTabViewItem"; label = "Название"; ObjectID = "1157"; */
+"1157.label" = "Название";
+
+/* Class = "NSTabViewItem"; label = "Название"; ObjectID = "1194"; */
+"1194.label" = "Название";
+
+/* Class = "NSTabViewItem"; label = "Дальше"; ObjectID = "1234"; */
+"1234.label" = "Дальше";
+
+/* Class = "NSTabViewItem"; label = "Выбор"; ObjectID = "1312"; */
+"1312.label" = "Выбор";
+
+/* Class = "NSTabViewItem"; label = "Назад"; ObjectID = "1358"; */
+"1358.label" = "Назад";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1395"; */
+"1395.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Титул"; ObjectID = "1397"; */
+"1397.title" = "Титул";
+
+/* Class = "NSMenuItem"; title = "Эпизоды"; ObjectID = "1398"; */
+"1398.title" = "Эпизоды";
+
+/* Class = "NSButtonCell"; title = "Изображения и текст"; ObjectID = "1411"; */
+"1411.title" = "Изображения и текст";
+
+/* Class = "NSButtonCell"; title = "Только изображения"; ObjectID = "1412"; */
+"1412.title" = "Только изображения";
+
+/* Class = "NSButtonCell"; title = "Только текст"; ObjectID = "1413"; */
+"1413.title" = "Только текст";
+
+/* Class = "NSMenuItem"; title = "Корневое меню 16:9"; ObjectID = "1432"; */
+"1432.title" = "Корневое меню 16:9";
+
+/* Class = "NSMenuItem"; title = "Меню сцен 16:9"; ObjectID = "1433"; */
+"1433.title" = "Меню сцен 16:9";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "1847"; */
+"1847.title" = "Box";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1850"; */
+"1850.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Скрыть"; ObjectID = "1851"; */
+"1851.title" = "Скрыть";
+
+/* Class = "NSMenuItem"; title = "Показать"; ObjectID = "1852"; */
+"1852.title" = "Показать";
+
+/* Class = "NSWindow"; title = "Просмотр"; ObjectID = "1857"; */
+"1857.title" = "Просмотр";
+
+/* Class = "NSTabViewItem"; label = "Дополнительно"; ObjectID = "1957"; */
+"1957.label" = "Дополнительно";
+
+/* Class = "NSTabViewItem"; label = "Дополнительно"; ObjectID = "1959"; */
+"1959.label" = "Дополнительно";
+
+/* Class = "NSTabViewItem"; label = "Strings"; ObjectID = "2111"; */
+"2111.label" = "Strings";
+
+/* Class = "NSTabViewItem"; label = "Images"; ObjectID = "2149"; */
+"2149.label" = "Images";
+
+/* Class = "NSTabViewItem"; label = "Имя"; ObjectID = "2272"; */
+"2272.label" = "Имя";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "2338"; */
+"2338.title" = "OtherViews";
+
+/* Class = "NSWindow"; title = "Panel"; ObjectID = "2524"; */
+"2524.title" = "Panel";
+
+/* Class = "NSMenuItem"; title = " "; ObjectID = "2538"; */
+"2538.title" = " ";
+
+/* Class = "NSTextFieldCell"; title = "Экран:"; ObjectID = "2555"; */
+"2555.title" = "Экран:";
+
+/* Class = "NSTextFieldCell"; title = "Просмотр:"; ObjectID = "2558"; */
+"2558.title" = "Просмотр:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2560"; */
+"2560.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Строка выбора заголовка:"; ObjectID = "2561"; */
+"2561.title" = "Строка выбора заголовка:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2562"; */
+"2562.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Строка выбора главы:"; ObjectID = "2563"; */
+"2563.title" = "Строка выбора главы:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2564"; */
+"2564.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2565"; */
+"2565.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2566"; */
+"2566.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2567"; */
+"2567.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2571"; */
+"2571.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2573"; */
+"2573.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2574"; */
+"2574.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2575"; */
+"2575.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2577"; */
+"2577.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2578"; */
+"2578.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2579"; */
+"2579.title" = "Размер Ш:";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2580"; */
+"2580.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2582"; */
+"2582.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2584"; */
+"2584.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2585"; */
+"2585.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2587"; */
+"2587.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Отключить строку выбора заголовка"; ObjectID = "2589"; */
+"2589.title" = "Отключить строку выбора заголовка";
+
+/* Class = "NSButtonCell"; title = "Отключить строку выбора главы"; ObjectID = "2590"; */
+"2590.title" = "Отключить строку выбора главы";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2591"; */
+"2591.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2592"; */
+"2592.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2594"; */
+"2594.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2595"; */
+"2595.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2597"; */
+"2597.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2599"; */
+"2599.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2600"; */
+"2600.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2604"; */
+"2604.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2605"; */
+"2605.title" = "Положение X:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2606"; */
+"2606.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2607"; */
+"2607.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2608"; */
+"2608.title" = "Использовать изображение";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2609"; */
+"2609.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2611"; */
+"2611.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2613"; */
+"2613.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Маска кнопки «Дальше»:"; ObjectID = "2614"; */
+"2614.title" = "Маска кнопки «Дальше»:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2617"; */
+"2617.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2618"; */
+"2618.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Кнопка «Дальше»:"; ObjectID = "2619"; */
+"2619.title" = "Кнопка «Дальше»:";
+
+/* Class = "NSButtonCell"; title = "Отключить кнопку «Дальше»"; ObjectID = "2620"; */
+"2620.title" = "Отключить кнопку «Дальше»";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2621"; */
+"2621.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "Дополнительно:"; ObjectID = "2622"; */
+"2622.title" = "Дополнительно:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2623"; */
+"2623.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2624"; */
+"2624.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Разделение В:"; ObjectID = "2627"; */
+"2627.title" = "Разделение В:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2628"; */
+"2628.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Маска строк выбора:"; ObjectID = "2629"; */
+"2629.title" = "Маска строк выбора:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2630"; */
+"2630.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2631"; */
+"2631.title" = "Толщина линии:";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2632"; */
+"2632.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2633"; */
+"2633.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Элементов на страницу:"; ObjectID = "2634"; */
+"2634.title" = "Элементов на страницу:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2635"; */
+"2635.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2636"; */
+"2636.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2638"; */
+"2638.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Разделение В:"; ObjectID = "2642"; */
+"2642.title" = "Разделение В:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2648"; */
+"2648.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2649"; */
+"2649.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Строки выбора:"; ObjectID = "2651"; */
+"2651.title" = "Строки выбора:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2652"; */
+"2652.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2653"; */
+"2653.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "Дополнительно:"; ObjectID = "2658"; */
+"2658.title" = "Дополнительно:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2659"; */
+"2659.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2660"; */
+"2660.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2661"; */
+"2661.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2662"; */
+"2662.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2663"; */
+"2663.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Разделение Ш:"; ObjectID = "2666"; */
+"2666.title" = "Разделение Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Кадры эпизодов:"; ObjectID = "2668"; */
+"2668.title" = "Кадры эпизодов:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2669"; */
+"2669.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2670"; */
+"2670.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Разделение Ш:"; ObjectID = "2672"; */
+"2672.title" = "Разделение Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2677"; */
+"2677.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Элементов на страницу:"; ObjectID = "2679"; */
+"2679.title" = "Элементов на страницу:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2680"; */
+"2680.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2681"; */
+"2681.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Элементов в строке:"; ObjectID = "2682"; */
+"2682.title" = "Элементов в строке:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2683"; */
+"2683.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Маска кадров:"; ObjectID = "2684"; */
+"2684.title" = "Маска кадров:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2685"; */
+"2685.title" = "Положение X:";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2686"; */
+"2686.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2687"; */
+"2687.title" = "Размер Ш:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2690"; */
+"2690.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2691"; */
+"2691.title" = "Шрифт:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2692"; */
+"2692.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Маска кнопки «Назад»:"; ObjectID = "2693"; */
+"2693.title" = "Маска кнопки «Назад»:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2694"; */
+"2694.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2696"; */
+"2696.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2697"; */
+"2697.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2700"; */
+"2700.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2701"; */
+"2701.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2702"; */
+"2702.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2704"; */
+"2704.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2706"; */
+"2706.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2707"; */
+"2707.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2708"; */
+"2708.title" = "Y:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2711"; */
+"2711.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2714"; */
+"2714.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Кнопка «Назад»:"; ObjectID = "2715"; */
+"2715.title" = "Кнопка «Назад»:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2717"; */
+"2717.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2718"; */
+"2718.title" = "Y:";
+
+/* Class = "NSButtonCell"; title = "Отключить кнопку «Назад»"; ObjectID = "2719"; */
+"2719.title" = "Отключить кнопку «Назад»";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2720"; */
+"2720.title" = "Шрифт:";
+
+/* Class = "NSButtonCell"; title = "Альтернативное изображение выбора заголовка"; ObjectID = "2721"; */
+"2721.title" = "Альтернативное изображение выбора заголовка";
+
+/* Class = "NSButtonCell"; title = "Альтернативное изображение выбора главы"; ObjectID = "2722"; */
+"2722.title" = "Альтернативное изображение выбора главы";
+
+/* Class = "NSButtonCell"; title = "Перекрывающее изображение выбора заголовка"; ObjectID = "2723"; */
+"2723.title" = "Перекрывающее изображение выбора заголовка";
+
+/* Class = "NSButtonCell"; title = "Перекрывающее изображение выбора главы"; ObjectID = "2724"; */
+"2724.title" = "Перекрывающее изображение выбора главы";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2725"; */
+"2725.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2726"; */
+"2726.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2727"; */
+"2727.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2728"; */
+"2728.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Маска кнопки «Старт»:"; ObjectID = "2732"; */
+"2732.title" = "Маска кнопки «Старт»:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2733"; */
+"2733.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2736"; */
+"2736.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2737"; */
+"2737.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2739"; */
+"2739.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2740"; */
+"2740.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2741"; */
+"2741.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2744"; */
+"2744.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2745"; */
+"2745.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2746"; */
+"2746.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2747"; */
+"2747.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Кнопка «Старт»:"; ObjectID = "2749"; */
+"2749.title" = "Кнопка «Старт»:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2750"; */
+"2750.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Отключить кнопку «Старт»"; ObjectID = "2752"; */
+"2752.title" = "Отключить кнопку «Старт»";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2753"; */
+"2753.title" = "Шрифт:";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2754"; */
+"2754.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2755"; */
+"2755.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2757"; */
+"2757.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2758"; */
+"2758.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2763"; */
+"2763.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2764"; */
+"2764.title" = "Строка:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2765"; */
+"2765.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2766"; */
+"2766.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2768"; */
+"2768.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2769"; */
+"2769.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2770"; */
+"2770.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2771"; */
+"2771.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Маска кнопки главы:"; ObjectID = "2772"; */
+"2772.title" = "Маска кнопки главы:";
+
+/* Class = "NSTextFieldCell"; title = "Кнопка главы:"; ObjectID = "2773"; */
+"2773.title" = "Кнопка главы:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2774"; */
+"2774.title" = "В:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2777"; */
+"2777.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2778"; */
+"2778.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Отключить кнопку главы"; ObjectID = "2781"; */
+"2781.title" = "Отключить кнопку главы";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2782"; */
+"2782.title" = "Шрифт:";
+
+/* Class = "NSButtonCell"; title = "Выбрать..."; ObjectID = "2783"; */
+"2783.title" = "Выбрать...";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2787"; */
+"2787.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Маска кнопки заголовка:"; ObjectID = "2788"; */
+"2788.title" = "Маска кнопки заголовка:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2791"; */
+"2791.title" = "Положение X:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2793"; */
+"2793.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2795"; */
+"2795.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "Толщина линии:"; ObjectID = "2796"; */
+"2796.title" = "Толщина линии:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2797"; */
+"2797.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2798"; */
+"2798.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Кнопка заголовка:"; ObjectID = "2799"; */
+"2799.title" = "Кнопка заголовка:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2801"; */
+"2801.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2802"; */
+"2802.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2804"; */
+"2804.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Строка:"; ObjectID = "2805"; */
+"2805.title" = "Строка:";
+
+/* Class = "NSButtonCell"; title = "Использовать изображение"; ObjectID = "2807"; */
+"2807.title" = "Использовать изображение";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2808"; */
+"2808.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2809"; */
+"2809.title" = "Размер Ш:";
+
+/* Class = "NSButtonCell"; title = "Отключить кнопку заголовка"; ObjectID = "2810"; */
+"2810.title" = "Отключить кнопку заголовка";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2811"; */
+"2811.title" = "Шрифт:";
+
+/* Class = "NSButtonCell"; title = "Альтернативное изображение корневого меню"; ObjectID = "2812"; */
+"2812.title" = "Альтернативное изображение корневого меню";
+
+/* Class = "NSButtonCell"; title = "Альтернативное изображение меню глав"; ObjectID = "2813"; */
+"2813.title" = "Альтернативное изображение меню глав";
+
+/* Class = "NSButtonCell"; title = "Перекрывающее изображение корневого меню"; ObjectID = "2814"; */
+"2814.title" = "Перекрывающее изображение корневого меню";
+
+/* Class = "NSButtonCell"; title = "Перекрывающее изображение меню глав"; ObjectID = "2815"; */
+"2815.title" = "Перекрывающее изображение меню глав";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2816"; */
+"2816.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2817"; */
+"2817.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2818"; */
+"2818.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2820"; */
+"2820.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2821"; */
+"2821.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2823"; */
+"2823.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2825"; */
+"2825.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Текст — название DVD:"; ObjectID = "2827"; */
+"2827.title" = "Текст — название DVD:";
+
+/* Class = "NSButtonCell"; title = "Скрыть название DVD"; ObjectID = "2828"; */
+"2828.title" = "Скрыть название DVD";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2829"; */
+"2829.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2830"; */
+"2830.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Цвет текста:"; ObjectID = "2831"; */
+"2831.title" = "Цвет текста:";
+
+/* Class = "NSTextFieldCell"; title = "Положение X:"; ObjectID = "2833"; */
+"2833.title" = "Положение X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "2834"; */
+"2834.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Размер Ш:"; ObjectID = "2836"; */
+"2836.title" = "Размер Ш:";
+
+/* Class = "NSTextFieldCell"; title = "В:"; ObjectID = "2838"; */
+"2838.title" = "В:";
+
+/* Class = "NSTextFieldCell"; title = "Текст — название фильма:"; ObjectID = "2840"; */
+"2840.title" = "Текст — название фильма:";
+
+/* Class = "NSButtonCell"; title = "Скрыть название фильма"; ObjectID = "2841"; */
+"2841.title" = "Скрыть название фильма";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2842"; */
+"2842.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "Шрифт:"; ObjectID = "2843"; */
+"2843.title" = "Шрифт:";
+
+/* Class = "NSTextFieldCell"; title = "Вид:"; ObjectID = "2845"; */
+"2845.title" = "Вид:";
+
+/* Class = "NSTextFieldCell"; title = "Параметры:"; ObjectID = "2846"; */
+"2846.title" = "Параметры:";
+
+/* Class = "NSTextFieldCell"; title = "Как показывать меню выбора заголовков/глав"; ObjectID = "2847"; */
+"2847.title" = "Как показывать меню выбора заголовков/глав";
+
+/* Class = "NSTextFieldCell"; title = "Сделать снимок экрана в:"; ObjectID = "2848"; */
+"2848.title" = "Сделать снимок экрана в:";
+
+/* Class = "NSTextFieldCell"; title = "с"; ObjectID = "2850"; */
+"2850.title" = "с";
+
+/* Class = "NSTextFieldCell"; title = "Выбор:"; ObjectID = "2852"; */
+"2852.title" = "Выбор:";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "2853"; */
+"2853.title" = "Button";
+
+/* Class = "NSTextFieldCell"; title = "Щелкните, чтобы открыть в новом окне"; ObjectID = "2854"; */
+"2854.title" = "Щелкните, чтобы открыть в новом окне";
+
+/* Class = "NSButtonCell"; title = "Выбрать…"; ObjectID = "2855"; */
+"2855.title" = "Выбрать…";
+
+/* Class = "NSTextFieldCell"; title = "Основное фоновое изображение:"; ObjectID = "2856"; */
+"2856.title" = "Основное фоновое изображение:";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "2858"; */
+"2858.title" = "+";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "2859"; */
+"2859.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "Локализация:"; ObjectID = "2860"; */
+"2860.title" = "Локализация:";
+
+/* Class = "NSTextFieldCell"; title = "Тема:"; ObjectID = "2861"; */
+"2861.title" = "Тема:";
+
+/* Class = "NSTextFieldCell"; title = "Untitled"; ObjectID = "2862"; */
+"2862.title" = "Untitled";
+
+/* Class = "NSTextFieldCell"; title = "Локализация:"; ObjectID = "2865"; */
+"2865.title" = "Локализация:";
+
+/* Class = "NSButtonCell"; title = "Добавить"; ObjectID = "2866"; */
+"2866.title" = "Добавить";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2867"; */
+"2867.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "3Kl-CN-46c"; */
+"3Kl-CN-46c.title" = "Cancel";

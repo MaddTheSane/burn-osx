@@ -2,6 +2,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class KWBurnThemeObject;
+
 @interface MyDocument : NSDocument
 {
     //Interface outlets
@@ -20,7 +22,7 @@
 	IBOutlet NSTabView		*selectionModeTabView;
 	
 	//Variables
-	NSMutableDictionary<NSString*,id> *myTheme;
+	KWBurnThemeObject *myTheme;
 	NSArray<NSString*> *keyMappings;
 	__unsafe_unretained id fontObject;
 	NSFont *currentFont;
@@ -36,9 +38,8 @@
 - (IBAction)setOption:(id)sender;
 - (IBAction)setThemeTitle:(id)sender;
 //Loading
-- (void)loadThemeFromFileWrapper:(NSFileWrapper *)fileWrapper;
-- (NSMutableDictionary *)getCurrentThemeObject;
-- (void)setViewOptions:(NSArray *)views withThemeObject:(NSDictionary *)themeObject;
+- (BOOL)isWideScreen;
+- (void)setViewOptions:(NSArray *)views withThemeObject:(KWBurnThemeObject *)themeObject;
 - (void)checkForExceptions:(id)control;
 //Localization
 - (IBAction)addLocalization:(id)sender;
@@ -46,7 +47,7 @@
 - (IBAction)deleteLocalization:(id)sender;
 - (IBAction)selectLocalization:(id)sender;
 //Appearance
-- (IBAction)changeFontAnSize:(id)sender;
+- (IBAction)changeFontAndSize:(id)sender;
 - (IBAction)changeFontColor:(id)sender;
 - (IBAction)useImage:(id)sender;
 

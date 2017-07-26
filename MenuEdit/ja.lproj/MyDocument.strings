@@ -1,0 +1,735 @@
+
+/* Class = "NSWindow"; title = "ウインドウ"; ObjectID = "742"; */
+"742.title" = "ウインドウ";
+
+/* Class = "NSMenu"; title = "他のビュー"; ObjectID = "858"; */
+"858.title" = "他のビュー";
+
+/* Class = "NSMenuItem"; title = "ルートメニュー 4:3"; ObjectID = "859"; */
+"859.title" = "ルートメニュー 4:3";
+
+/* Class = "NSMenuItem"; title = "選択メニュー 4:3"; ObjectID = "861"; */
+"861.title" = "選択メニュー 4:3";
+
+/* Class = "NSTabViewItem"; label = "2"; ObjectID = "1080"; */
+"1080.label" = "2";
+
+/* Class = "NSTabViewItem"; label = "1"; ObjectID = "1082"; */
+"1082.label" = "1";
+
+/* Class = "NSTabViewItem"; label = "スタート"; ObjectID = "1085"; */
+"1085.label" = "スタート";
+
+/* Class = "NSTabViewItem"; label = "見出し"; ObjectID = "1121"; */
+"1121.label" = "見出し";
+
+/* Class = "NSTabViewItem"; label = "タイトル"; ObjectID = "1157"; */
+"1157.label" = "タイトル";
+
+/* Class = "NSTabViewItem"; label = "タイトル"; ObjectID = "1194"; */
+"1194.label" = "タイトル";
+
+/* Class = "NSTabViewItem"; label = "次"; ObjectID = "1234"; */
+"1234.label" = "次";
+
+/* Class = "NSTabViewItem"; label = "選定"; ObjectID = "1312"; */
+"1312.label" = "選定";
+
+/* Class = "NSTabViewItem"; label = "前"; ObjectID = "1358"; */
+"1358.label" = "前";
+
+/* Class = "NSMenu"; title = "他のビュー"; ObjectID = "1395"; */
+"1395.title" = "他のビュー";
+
+/* Class = "NSMenuItem"; title = "タイトル"; ObjectID = "1397"; */
+"1397.title" = "タイトル";
+
+/* Class = "NSMenuItem"; title = "見出し"; ObjectID = "1398"; */
+"1398.title" = "見出し";
+
+/* Class = "NSButtonCell"; title = "画像と文字列"; ObjectID = "1411"; */
+"1411.title" = "画像と文字列";
+
+/* Class = "NSButtonCell"; title = "画像のみ"; ObjectID = "1412"; */
+"1412.title" = "画像のみ";
+
+/* Class = "NSButtonCell"; title = "文字列のみ"; ObjectID = "1413"; */
+"1413.title" = "文字列のみ";
+
+/* Class = "NSMenuItem"; title = "ルートメニュー 16:9"; ObjectID = "1432"; */
+"1432.title" = "ルートメニュー 16:9";
+
+/* Class = "NSMenuItem"; title = "選択メニュー 16:9"; ObjectID = "1433"; */
+"1433.title" = "選択メニュー 16:9";
+
+/* Class = "NSBox"; title = "ボックス"; ObjectID = "1847"; */
+"1847.title" = "ボックス";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "1850"; */
+"1850.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "隠す"; ObjectID = "1851"; */
+"1851.title" = "隠す";
+
+/* Class = "NSMenuItem"; title = "表示"; ObjectID = "1852"; */
+"1852.title" = "表示";
+
+/* Class = "NSWindow"; title = "プレビュー"; ObjectID = "1857"; */
+"1857.title" = "プレビュー";
+
+/* Class = "NSTabViewItem"; label = "エクストラ"; ObjectID = "1957"; */
+"1957.label" = "エクストラ";
+
+/* Class = "NSTabViewItem"; label = "エクストラ"; ObjectID = "1959"; */
+"1959.label" = "エクストラ";
+
+/* Class = "NSTabViewItem"; label = "文字列"; ObjectID = "2111"; */
+"2111.label" = "文字列";
+
+/* Class = "NSTabViewItem"; label = "イメージ"; ObjectID = "2149"; */
+"2149.label" = "イメージ";
+
+/* Class = "NSTabViewItem"; label = "名前"; ObjectID = "2272"; */
+"2272.label" = "名前";
+
+/* Class = "NSMenu"; title = "他のビュー"; ObjectID = "2338"; */
+"2338.title" = "他のビュー";
+
+/* Class = "NSWindow"; title = "パネル"; ObjectID = "2524"; */
+"2524.title" = "パネル";
+
+/* Class = "NSMenuItem"; title = " "; ObjectID = "2538"; */
+"2538.title" = " ";
+
+/* Class = "NSTextFieldCell"; title = "編集:"; ObjectID = "2555"; */
+"2555.title" = "編集:";
+
+/* Class = "NSTextFieldCell"; title = "プレビュー:"; ObjectID = "2558"; */
+"2558.title" = "プレビュー:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2560"; */
+"2560.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "タイトル選定文字列:"; ObjectID = "2561"; */
+"2561.title" = "タイトル選定文字列:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2562"; */
+"2562.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "見出し選定文字列:"; ObjectID = "2563"; */
+"2563.title" = "見出し選定文字列:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2564"; */
+"2564.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2565"; */
+"2565.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2566"; */
+"2566.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2567"; */
+"2567.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2571"; */
+"2571.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2573"; */
+"2573.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2574"; */
+"2574.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2575"; */
+"2575.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2577"; */
+"2577.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2578"; */
+"2578.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2579"; */
+"2579.title" = "サイズ w:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2580"; */
+"2580.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2582"; */
+"2582.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2584"; */
+"2584.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2585"; */
+"2585.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2587"; */
+"2587.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "タイトル選定文字列を使用不可にする"; ObjectID = "2589"; */
+"2589.title" = "タイトル選定文字列を使用不可にする";
+
+/* Class = "NSButtonCell"; title = "チャプター選定文字列を使用不可にする"; ObjectID = "2590"; */
+"2590.title" = "チャプター選定文字列を使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2591"; */
+"2591.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2592"; */
+"2592.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2594"; */
+"2594.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2595"; */
+"2595.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2597"; */
+"2597.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2599"; */
+"2599.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2600"; */
+"2600.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2604"; */
+"2604.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2605"; */
+"2605.title" = "位置 x:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2606"; */
+"2606.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2607"; */
+"2607.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2608"; */
+"2608.title" = "代わりにイメージを使用する";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2609"; */
+"2609.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2611"; */
+"2611.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2613"; */
+"2613.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "次 ボタン マスク:"; ObjectID = "2614"; */
+"2614.title" = "次 ボタン マスク:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2617"; */
+"2617.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2618"; */
+"2618.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "次 ボタン:"; ObjectID = "2619"; */
+"2619.title" = "次 ボタン:";
+
+/* Class = "NSButtonCell"; title = "次ボタンを使用不可にする"; ObjectID = "2620"; */
+"2620.title" = "次ボタンを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2621"; */
+"2621.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "エキストラ:"; ObjectID = "2622"; */
+"2622.title" = "エキストラ:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2623"; */
+"2623.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2624"; */
+"2624.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "分離 h:"; ObjectID = "2627"; */
+"2627.title" = "分離 h:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2628"; */
+"2628.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "選択 文字列 マスク:"; ObjectID = "2629"; */
+"2629.title" = "選択 文字列 マスク:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2630"; */
+"2630.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2631"; */
+"2631.title" = "線幅:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2632"; */
+"2632.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2633"; */
+"2633.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "Number of items per page:"; ObjectID = "2634"; */
+"2634.title" = "Number of items per page:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2635"; */
+"2635.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2636"; */
+"2636.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2638"; */
+"2638.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "分離 h:"; ObjectID = "2642"; */
+"2642.title" = "分離 h:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2648"; */
+"2648.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2649"; */
+"2649.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "Selection Strings:"; ObjectID = "2651"; */
+"2651.title" = "Selection Strings:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2652"; */
+"2652.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2653"; */
+"2653.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "エクストラ:"; ObjectID = "2658"; */
+"2658.title" = "エクストラ:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2659"; */
+"2659.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2660"; */
+"2660.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2661"; */
+"2661.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2662"; */
+"2662.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2663"; */
+"2663.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "分離 w:"; ObjectID = "2666"; */
+"2666.title" = "分離 w:";
+
+/* Class = "NSTextFieldCell"; title = "選定イメージ:"; ObjectID = "2668"; */
+"2668.title" = "選定イメージ:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2669"; */
+"2669.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2670"; */
+"2670.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "分離 w:"; ObjectID = "2672"; */
+"2672.title" = "分離 w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2677"; */
+"2677.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "1ページ当りの項目数:"; ObjectID = "2679"; */
+"2679.title" = "1ページ当りの項目数:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2680"; */
+"2680.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2681"; */
+"2681.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "1行当りの項目数:"; ObjectID = "2682"; */
+"2682.title" = "1行当りの項目数:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2683"; */
+"2683.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "選定イメージのマスク:"; ObjectID = "2684"; */
+"2684.title" = "選定イメージのマスク:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2685"; */
+"2685.title" = "位置 x:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2686"; */
+"2686.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2687"; */
+"2687.title" = "サイズ w:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2690"; */
+"2690.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2691"; */
+"2691.title" = "フォント:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2692"; */
+"2692.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "前 ボタン マスク:"; ObjectID = "2693"; */
+"2693.title" = "前 ボタン マスク:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2694"; */
+"2694.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2696"; */
+"2696.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2697"; */
+"2697.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2700"; */
+"2700.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2701"; */
+"2701.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2702"; */
+"2702.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2704"; */
+"2704.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2706"; */
+"2706.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2707"; */
+"2707.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2708"; */
+"2708.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2711"; */
+"2711.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2714"; */
+"2714.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "前ボタン:"; ObjectID = "2715"; */
+"2715.title" = "前ボタン:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2717"; */
+"2717.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2718"; */
+"2718.title" = "y:";
+
+/* Class = "NSButtonCell"; title = "前ボタンを使用不可にする"; ObjectID = "2719"; */
+"2719.title" = "前ボタンを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2720"; */
+"2720.title" = "フォント:";
+
+/* Class = "NSButtonCell"; title = "タイトル選定へ背景を使用する"; ObjectID = "2721"; */
+"2721.title" = "タイトル選定へ背景を使用する";
+
+/* Class = "NSButtonCell"; title = "チャプター選定へ背景を使用する"; ObjectID = "2722"; */
+"2722.title" = "チャプター選定へ背景を使用する";
+
+/* Class = "NSButtonCell"; title = "タイトル選定へイメージをオーバーレイする"; ObjectID = "2723"; */
+"2723.title" = "タイトル選定へイメージをオーバーレイする";
+
+/* Class = "NSButtonCell"; title = "チャプター選定へイメージをオーバーレイする"; ObjectID = "2724"; */
+"2724.title" = "チャプター選定へイメージをオーバーレイする";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2725"; */
+"2725.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2726"; */
+"2726.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2727"; */
+"2727.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2728"; */
+"2728.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "スタート ボタン マスク:"; ObjectID = "2732"; */
+"2732.title" = "スタート ボタン マスク:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2733"; */
+"2733.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2736"; */
+"2736.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2737"; */
+"2737.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2739"; */
+"2739.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2740"; */
+"2740.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2741"; */
+"2741.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2744"; */
+"2744.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2745"; */
+"2745.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2746"; */
+"2746.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2747"; */
+"2747.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "スタートボタン:"; ObjectID = "2749"; */
+"2749.title" = "スタートボタン:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2750"; */
+"2750.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "スタートボタンを使用不可にする"; ObjectID = "2752"; */
+"2752.title" = "スタートボタンを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2753"; */
+"2753.title" = "フォント:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2754"; */
+"2754.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2755"; */
+"2755.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2757"; */
+"2757.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2758"; */
+"2758.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2763"; */
+"2763.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2764"; */
+"2764.title" = "文字列:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2765"; */
+"2765.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2766"; */
+"2766.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2768"; */
+"2768.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2769"; */
+"2769.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2770"; */
+"2770.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2771"; */
+"2771.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "見出し ボタン マスク:"; ObjectID = "2772"; */
+"2772.title" = "見出し ボタン マスク:";
+
+/* Class = "NSTextFieldCell"; title = "見出し ボタン:"; ObjectID = "2773"; */
+"2773.title" = "見出し ボタン:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2774"; */
+"2774.title" = "h:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2777"; */
+"2777.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2778"; */
+"2778.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "見出しボタンを使用不可にする"; ObjectID = "2781"; */
+"2781.title" = "見出しボタンを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2782"; */
+"2782.title" = "フォント:";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2783"; */
+"2783.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2787"; */
+"2787.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "タイトル ボタン マスク:"; ObjectID = "2788"; */
+"2788.title" = "タイトル ボタン マスク:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2791"; */
+"2791.title" = "位置 x:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2793"; */
+"2793.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2795"; */
+"2795.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "線幅:"; ObjectID = "2796"; */
+"2796.title" = "線幅:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2797"; */
+"2797.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2798"; */
+"2798.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "タイトル ボタン:"; ObjectID = "2799"; */
+"2799.title" = "タイトル ボタン:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2801"; */
+"2801.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2802"; */
+"2802.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2804"; */
+"2804.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "文字列:"; ObjectID = "2805"; */
+"2805.title" = "文字列:";
+
+/* Class = "NSButtonCell"; title = "代わりにイメージを使用する"; ObjectID = "2807"; */
+"2807.title" = "代わりにイメージを使用する";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2808"; */
+"2808.title" = "Lucida Grande Bold12";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2809"; */
+"2809.title" = "サイズ w:";
+
+/* Class = "NSButtonCell"; title = "タイトルボタンを使用不可にする"; ObjectID = "2810"; */
+"2810.title" = "タイトルボタンを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2811"; */
+"2811.title" = "フォント:";
+
+/* Class = "NSButtonCell"; title = "タイトルメニューへ背景を使う"; ObjectID = "2812"; */
+"2812.title" = "タイトルメニューへ背景を使う";
+
+/* Class = "NSButtonCell"; title = "チャプターメニューへ背景を使う"; ObjectID = "2813"; */
+"2813.title" = "チャプターメニューへ背景を使う";
+
+/* Class = "NSButtonCell"; title = "タイトルメニューへイメージをオーバーレイする"; ObjectID = "2814"; */
+"2814.title" = "タイトルメニューへイメージをオーバーレイする";
+
+/* Class = "NSButtonCell"; title = "チャプターメニューへイメージをオーバーレイする"; ObjectID = "2815"; */
+"2815.title" = "チャプターメニューへイメージをオーバーレイする";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2816"; */
+"2816.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2817"; */
+"2817.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2818"; */
+"2818.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2820"; */
+"2820.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2821"; */
+"2821.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2823"; */
+"2823.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2825"; */
+"2825.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "DVD名テキスト:"; ObjectID = "2827"; */
+"2827.title" = "DVD名テキスト:";
+
+/* Class = "NSButtonCell"; title = "DVD名テキストを使用不可にする"; ObjectID = "2828"; */
+"2828.title" = "DVD名テキストを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "Lucida Grande Bold12"; ObjectID = "2829"; */
+"2829.title" = "Lucida Grande Bold12";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2830"; */
+"2830.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "文字色:"; ObjectID = "2831"; */
+"2831.title" = "文字色:";
+
+/* Class = "NSTextFieldCell"; title = "位置 x:"; ObjectID = "2833"; */
+"2833.title" = "位置 x:";
+
+/* Class = "NSTextFieldCell"; title = "y:"; ObjectID = "2834"; */
+"2834.title" = "y:";
+
+/* Class = "NSTextFieldCell"; title = "サイズ w:"; ObjectID = "2836"; */
+"2836.title" = "サイズ w:";
+
+/* Class = "NSTextFieldCell"; title = "h:"; ObjectID = "2838"; */
+"2838.title" = "h:";
+
+/* Class = "NSTextFieldCell"; title = "ビデオ名テキスト:"; ObjectID = "2840"; */
+"2840.title" = "ビデオ名テキスト:";
+
+/* Class = "NSButtonCell"; title = "ビデオ名テキストを使用不可にする"; ObjectID = "2841"; */
+"2841.title" = "ビデオ名テキストを使用不可にする";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2842"; */
+"2842.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "フォント:"; ObjectID = "2843"; */
+"2843.title" = "フォント:";
+
+/* Class = "NSTextFieldCell"; title = "ビュー:"; ObjectID = "2845"; */
+"2845.title" = "ビュー:";
+
+/* Class = "NSTextFieldCell"; title = "オプション:"; ObjectID = "2846"; */
+"2846.title" = "オプション:";
+
+/* Class = "NSTextFieldCell"; title = "タイトル/チャプター選定メニューを表示する方法"; ObjectID = "2847"; */
+"2847.title" = "タイトル/チャプター選定メニューを表示する方法";
+
+/* Class = "NSTextFieldCell"; title = "スクリーンショットを取る時間:"; ObjectID = "2848"; */
+"2848.title" = "スクリーンショットを取る時間:";
+
+/* Class = "NSTextFieldCell"; title = "秒"; ObjectID = "2850"; */
+"2850.title" = "秒";
+
+/* Class = "NSTextFieldCell"; title = "選定:"; ObjectID = "2852"; */
+"2852.title" = "選定:";
+
+/* Class = "NSButtonCell"; title = "ボタン"; ObjectID = "2853"; */
+"2853.title" = "ボタン";
+
+/* Class = "NSTextFieldCell"; title = "クリックすると新しいフルサイズウィンドウが開きます"; ObjectID = "2854"; */
+"2854.title" = "クリックすると新しいフルサイズウィンドウが開きます";
+
+/* Class = "NSButtonCell"; title = "参照..."; ObjectID = "2855"; */
+"2855.title" = "参照...";
+
+/* Class = "NSTextFieldCell"; title = "一般的な背景イメージ:"; ObjectID = "2856"; */
+"2856.title" = "一般的な背景イメージ:";
+
+/* Class = "NSButtonCell"; title = "+"; ObjectID = "2858"; */
+"2858.title" = "+";
+
+/* Class = "NSButtonCell"; title = "-"; ObjectID = "2859"; */
+"2859.title" = "-";
+
+/* Class = "NSTextFieldCell"; title = "言語:"; ObjectID = "2860"; */
+"2860.title" = "言語:";
+
+/* Class = "NSTextFieldCell"; title = "テーマ名:"; ObjectID = "2861"; */
+"2861.title" = "テーマ名:";
+
+/* Class = "NSTextFieldCell"; title = "名称未設定"; ObjectID = "2862"; */
+"2862.title" = "名称未設定";
+
+/* Class = "NSTextFieldCell"; title = "ローカライズ:"; ObjectID = "2865"; */
+"2865.title" = "ローカライズ:";
+
+/* Class = "NSButtonCell"; title = "追加"; ObjectID = "2866"; */
+"2866.title" = "追加";
+
+/* Class = "NSButtonCell"; title = "ラジオ"; ObjectID = "2867"; */
+"2867.title" = "ラジオ";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "3Kl-CN-46c"; */
+"3Kl-CN-46c.title" = "Cancel";

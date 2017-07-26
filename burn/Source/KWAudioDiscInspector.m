@@ -40,7 +40,7 @@
 {
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	currentTableView = object;
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	DRCDTextBlock *currentCDTextBlock;
 	
 	[timeField setStringValue:[controller totalTime]];
@@ -91,7 +91,7 @@
 - (IBAction)optionsChanged:(id)sender
 {
 	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
-	KWAudioController *controller = [currentTableView delegate];
+	KWAudioController *controller = (KWAudioController*)[currentTableView delegate];
 	DRCDTextBlock *currentCDTextBlock = [controller myTextBlock];
 	id property = [sender objectValue];
 	NSString *currentKey = [tagMappings objectAtIndex:[sender tag] - 1];

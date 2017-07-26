@@ -11,6 +11,7 @@
 #import "KWCommonMethods.h"
 #import "KWTrackProducer.h"
 #import "BurnDefines.h"
+#import "KWBurnThemeObject.h"
 
 @implementation KWVideoController
 
@@ -358,6 +359,7 @@
 {
 	NSInteger succes;
 	NSDictionary *currentData = [tableData objectAtIndex:0];
+	NSError *tmpErr;
 	
 	if ([tableData count] > 0 && [[[currentData objectForKey:@"Name"] lowercaseString] isEqualTo:@"video_ts"])
 	{
@@ -376,14 +378,25 @@
 		NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
 		if ([standardDefaults boolForKey:@"KWUseTheme"] == YES)
 		{
-			NSBundle *themeBundle = [NSBundle bundleWithPath:[standardDefaults objectForKey:@"KWDVDThemePath"]];
-			NSDictionary *theme = [[NSArray arrayWithContentsOfFile:[themeBundle pathForResource:@"Theme" ofType:@"plist"]] objectAtIndex:[[standardDefaults objectForKey:@"KWDVDThemeFormat"] integerValue]];
+			KWBurnThemeObject *theme = [[KWBurnThemeObject alloc] initWithURL:[NSURL fileURLWithPath:[standardDefaults objectForKey:@"KWDVDThemePath"]] error:&tmpErr];
+			if (!theme) {
+				if (error) {
+					*error = tmpErr.localizedDescription;
+				}
+				return 1;
+			}
 			
-			succes = [DVDAuthorizer createDVDMenuFiles:path withTheme:theme withFileArray:tableData withSize:@(totalSize / 2) withName:[discName stringValue] errorString:error];
+			succes = [DVDAuthorizer createDVDMenuFiles:path withTheme:theme withFileArray:tableData withSize:@(totalSize / 2) withName:[discName stringValue] wideScreen: [[standardDefaults objectForKey:@"KWDVDThemeFormat"] integerValue] error:&tmpErr];
+			if (error) {
+				*error = tmpErr.localizedDescription;
+			}
 		}
 		else
 		{
-			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:@(totalSize / 2) errorString:error];
+			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:@(totalSize / 2) error:&tmpErr];
+			if (error) {
+				*error = tmpErr.localizedDescription;
+			}
 		}
 	
 		[DVDAuthorizer release];

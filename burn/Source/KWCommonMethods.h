@@ -112,6 +112,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray<NSString*> *)quicktimeTypes;
 //! Create a compilant DVD-Video or Audio folder
 + (NSInteger)createDVDFolderAtPath:(NSString *)path ofType:(NSInteger)type fromTableData:(id)tableData errorString:(NSString *__nullable*__nonnull)error;
+//! Create a compilant DVD-Video or Audio folder
++ (BOOL)createDVDFolderAtPath:(NSString *)path ofType:(NSInteger)type fromTableData:(id)tableData error:(NSError *__nullable*__nonnull)error;
 //! Log command with arguments for easier debugging
 + (void)logCommandIfNeeded:(NSTask *)command;
 //! Conveniant method to load a NSTask

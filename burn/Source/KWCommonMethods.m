@@ -1121,6 +1121,21 @@
 
 + (NSInteger)createDVDFolderAtPath:(NSString *)path ofType:(NSInteger)type fromTableData:(id)tableData errorString:(NSString **)error
 {
+	NSError *err = nil;
+	BOOL toRet = [self createDVDFolderAtPath:path ofType:type fromTableData:tableData error:&err];
+	if (error) {
+		*error = err.localizedDescription ?: @"Unknown error";
+	}
+	
+	if (toRet) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
++ (BOOL)createDVDFolderAtPath:(NSString *)path ofType:(NSInteger)type fromTableData:(id)tableData error:(NSError *__nullable*__nonnull)error;
+{
 	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 	if ([KWCommonMethods OSVersion] >= 0x1040)
 	{
@@ -1129,7 +1144,6 @@
 		NSInteger x, z = 0;
 		NSArray *files;
 		NSPredicate *trackPredicate;
-		NSError *tmpErr;
 
 		if (type == 0)
 		{
@@ -1147,19 +1161,16 @@
 	
 		NSFileManager *defaultManager = [NSFileManager defaultManager];
 	
-		if (![KWCommonMethods createDirectoryAtPath:path error:&tmpErr]) {
-			*error = [tmpErr localizedDescription];
-			return 1;
+		if (![KWCommonMethods createDirectoryAtPath:path error:error]) {
+			return NO;
 		}
 		
 		// create DVD folder
-		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"AUDIO_TS"] error:&tmpErr]) {
-			*error = [tmpErr localizedDescription];
-			return 1;
+		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"AUDIO_TS"] error:error]) {
+			return NO;
 		}
-		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"VIDEO_TS"] error:&tmpErr]) {
-			*error = [tmpErr localizedDescription];
-			return 1;
+		if (![KWCommonMethods createDirectoryAtPath:[path stringByAppendingPathComponent:@"VIDEO_TS"] error:error]) {
+			return NO;
 		}
 	
 		// folderName should be AUDIO_TS or VIDEO_TS depending on the type
@@ -1183,7 +1194,7 @@
 				{
 					// proper name... link or copy
 					NSString *dstPath = [[path stringByAppendingPathComponent:folderName] stringByAppendingPathComponent:fileName];
-					BOOL result = [KWCommonMethods createSymbolicLinkAtPath:dstPath withDestinationPath:filePath errorString:error];
+					BOOL result = [KWCommonMethods createSymbolicLinkAtPath:dstPath withDestinationPath:filePath error:error];
 					
 					if (result == NO)
 						succes = 1;
@@ -1196,11 +1207,11 @@
 		
 		if (z == 0)
 		{
-			*error = @"Missing files in the VIDEO_TS Folder";
+			*error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSURLErrorFileDoesNotExist userInfo:@{NSLocalizedFailureReasonErrorKey: @"Missing files in the VIDEO_TS Folder"}]; ;
 			succes = 1;
 		}
 		
-		return succes;
+		return !succes;
 	#if MAC_OS_X_VERSION_MAX_ALLOWED < 1050
 	}
 	else

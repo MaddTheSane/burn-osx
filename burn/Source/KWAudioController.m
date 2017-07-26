@@ -450,6 +450,17 @@
 //Create a track for burning
 - (id)myTrackWithBurner:(KWBurner *)burner errorString:(NSString **)error
 {
+	NSError *tmpErr = nil;
+	id toRet = [self myTrackWithBurner:burner error:&tmpErr];
+	if (error && tmpErr) {
+		*error = tmpErr.localizedDescription;
+	}
+	
+	return toRet;
+}
+
+- (id)myTrackWithBurner:(KWBurner *)burner error:(NSError **)error;
+{
 	NSInteger selrow = [tableViewPopup indexOfSelectedItem];
 	NSString *discTitle = [discName stringValue];
 	NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
@@ -466,7 +477,7 @@
 		{
 			[temporaryFiles addObject:outputFolder];
 	
-			NSInteger succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder errorString:error];
+			NSInteger succes = [self authorizeFolderAtPathIfNeededAtPath:outputFolder error:error];
 	
 			if (succes == 0)
 				return [[KWTrackProducer alloc] getTrackForFolder:outputFolder ofType:7 withDiscName:discTitle];
@@ -558,12 +569,24 @@
 
 - (NSInteger)authorizeFolderAtPathIfNeededAtPath:(NSString *)path errorString:(NSString **)error;
 {
+	NSError *tmpErr = nil;
+	BOOL toRet = [self authorizeFolderAtPathIfNeededAtPath:path error:&tmpErr];
+	if (error && tmpErr) {
+		*error = tmpErr.localizedDescription;
+	}
+	
+	return !toRet;
+
+}
+
+- (BOOL)authorizeFolderAtPathIfNeededAtPath:(NSString *)path error:(NSError **)error;
+{
 	NSInteger succes;
 	NSDictionary *currentData = [tableData objectAtIndex:0];
 	
 	if ([tableData count] > 0 && [[[currentData objectForKey:@"Name"] lowercaseString] isEqualTo:@"audio_ts"])
 	{
-		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:0 fromTableData:tableData errorString:error];
+		succes = [KWCommonMethods createDVDFolderAtPath:path ofType:0 fromTableData:tableData error:error];
 	}
 	else
 	{
@@ -590,7 +613,7 @@
 		[defaultCenter postNotificationName:@"KWStatusChanged" object:NSLocalizedString(@"Generating DVD folder",nil)];
 	
 		DVDAuthorizer = [[KWDVDAuthorizer alloc] init];
-		succes = [DVDAuthorizer createStandardDVDAudioFolderAtPath:[path retain] withFiles:files errorString:error];
+		succes = [DVDAuthorizer createStandardDVDAudioFolderAtPath:path withFiles:files error:error];
 		[DVDAuthorizer release];
 		DVDAuthorizer = nil;
 	}

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KWAltChapterImage</key>
+	<string>KWAltChapterImageWS.tiff</string>
+	<key>KWAltChapterSelectionImage</key>
+	<string>KWAltChapterSelectionImageWS.tiff</string>
+	<key>KWAltRootImage</key>
+	<string>KWAltRootImageWS.tiff</string>
+	<key>KWAltTitleSelectionImage</key>
+	<string>KWAltTitleSelectionImageWS.tiff</string>
+	<key>KWChapterButtonDisable</key>
+	<false/>
+	<key>KWChapterButtonFont</key>
+	<string>Monaco</string>
+	<key>KWChapterButtonFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWChapterButtonFontSize</key>
+	<real>36</real>
+	<key>KWChapterButtonImage</key>
+	<string>KWChapterButtonImageWS.tiff</string>
+	<key>KWChapterButtonMaskImage</key>
+	<string>KWChapterButtonMaskImageWS.tiff</string>
+	<key>KWChapterButtonMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWChapterButtonMaskRect</key>
+	<string>{{210, 140}, {300, 50}}</string>
+	<key>KWChapterButtonRect</key>
+	<string>{{210, 108}, {300, 80}}</string>
+	<key>KWChapterButtonString</key>
+	<string>Chapters</string>
+	<key>KWChapterOverlayImage</key>
+	<string>KWChapterOverlayImageWS.tiff</string>
+	<key>KWChapterSelectionDisable</key>
+	<false/>
+	<key>KWChapterSelectionFont</key>
+	<string>Monaco</string>
+	<key>KWChapterSelectionFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWChapterSelectionFontSize</key>
+	<real>24</real>
+	<key>KWChapterSelectionImage</key>
+	<string>KWChapterSelectionImageWS.tiff</string>
+	<key>KWChapterSelectionOverlayImage</key>
+	<string>KWChapterSelectionOverlayImageWS.tiff</string>
+	<key>KWChapterSelectionRect</key>
+	<string>{{50, 300}, {130, 50}}</string>
+	<key>KWChapterSelectionString</key>
+	<string>Chapters:</string>
+	<key>KWDVDNameDisableText</key>
+	<false/>
+	<key>KWDVDNameFont</key>
+	<string>Monaco</string>
+	<key>KWDVDNameFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWDVDNameFontSize</key>
+	<real>36</real>
+	<key>KWDVDNameRect</key>
+	<string>{{0, 260}, {720, 100}}</string>
+	<key>KWDefaultImage</key>
+	<string>KWDefaultImageWS.tiff</string>
+	<key>KWNextButtonDisable</key>
+	<false/>
+	<key>KWNextButtonFont</key>
+	<string>Monaco</string>
+	<key>KWNextButtonFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWNextButtonFontSize</key>
+	<real>18</real>
+	<key>KWNextButtonImage</key>
+	<string>KWNextButtonImageWS.tiff</string>
+	<key>KWNextButtonMaskImage</key>
+	<string>KWNextButtonMaskImageWS.tiff</string>
+	<key>KWNextButtonMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWNextButtonMaskRect</key>
+	<string>{{182, 50}, {122, 52}}</string>
+	<key>KWNextButtonRect</key>
+	<string>{{182, 39}, {120, 50}}</string>
+	<key>KWNextButtonString</key>
+	<string>Next &gt;</string>
+	<key>KWPreviousButtonDisable</key>
+	<false/>
+	<key>KWPreviousButtonFont</key>
+	<string>Monaco</string>
+	<key>KWPreviousButtonFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWPreviousButtonFontSize</key>
+	<real>18</real>
+	<key>KWPreviousButtonImage</key>
+	<string>KWPreviousButtonImageWS.tiff</string>
+	<key>KWPreviousButtonMaskImage</key>
+	<string>KWPreviousButtonMaskImageWS.tiff</string>
+	<key>KWPreviousButtonMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWPreviousButtonMaskRect</key>
+	<string>{{43, 50}, {122, 52}}</string>
+	<key>KWPreviousButtonRect</key>
+	<string>{{43, 39}, {120, 50}}</string>
+	<key>KWPreviousButtonString</key>
+	<string>&lt; Previous</string>
+	<key>KWRootOverlayImage</key>
+	<string>KWRootOverlayImageWS.tiff</string>
+	<key>KWScreenshotAtTime</key>
+	<integer>10</integer>
+	<key>KWSelectionImagesFont</key>
+	<string>Futura-CondensedExtraBold</string>
+	<key>KWSelectionImagesFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMDhAJm
+	ZgEBhg==
+	</data>
+	<key>KWSelectionImagesFontSize</key>
+	<integer>16</integer>
+	<key>KWSelectionImagesMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWSelectionImagesMaskRect</key>
+	<string>{{68, 186}, {164, 124}}</string>
+	<key>KWSelectionImagesMaskSeperationH</key>
+	<integer>180</integer>
+	<key>KWSelectionImagesMaskSeperationW</key>
+	<integer>210</integer>
+	<key>KWSelectionImagesOnAPage</key>
+	<integer>3</integer>
+	<key>KWSelectionImagesOnARow</key>
+	<integer>3</integer>
+	<key>KWSelectionImagesRect</key>
+	<string>{{70, 188}, {160, 120}}</string>
+	<key>KWSelectionImagesSeperationH</key>
+	<integer>180</integer>
+	<key>KWSelectionImagesSeperationW</key>
+	<integer>210</integer>
+	<key>KWSelectionImagesUseImage</key>
+	<string>KWSelectionImagesUseImageWS.tiff</string>
+	<key>KWSelectionMode</key>
+	<integer>2</integer>
+	<key>KWSelectionStringsFont</key>
+	<string>Monaco</string>
+	<key>KWSelectionStringsFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWSelectionStringsFontSize</key>
+	<real>24</real>
+	<key>KWSelectionStringsImage</key>
+	<string>KWSelectionStringsImageWS.tiff</string>
+	<key>KWSelectionStringsMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWSelectionStringsMaskRect</key>
+	<string>{{-1, -1}, {600, 40}}</string>
+	<key>KWSelectionStringsMaskSeperation</key>
+	<integer>50</integer>
+	<key>KWSelectionStringsOnAPage</key>
+	<integer>3</integer>
+	<key>KWSelectionStringsRect</key>
+	<string>{{-1, -1}, {720, 34}}</string>
+	<key>KWSelectionStringsSeperation</key>
+	<integer>50</integer>
+	<key>KWStartButtonDisable</key>
+	<false/>
+	<key>KWStartButtonFont</key>
+	<string>Monaco</string>
+	<key>KWStartButtonFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWStartButtonFontSize</key>
+	<real>36</real>
+	<key>KWStartButtonImage</key>
+	<string>KWStartButtonImageWS.tiff</string>
+	<key>KWStartButtonMaskImage</key>
+	<string>KWStartButtonMaskImageWS.tiff</string>
+	<key>KWStartButtonMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWStartButtonMaskRect</key>
+	<string>{{210, 210}, {300, 50}}</string>
+	<key>KWStartButtonRect</key>
+	<string>{{210, 172}, {300, 80}}</string>
+	<key>KWStartButtonString</key>
+	<string>Start</string>
+	<key>KWTitleButtonDisable</key>
+	<false/>
+	<key>KWTitleButtonFont</key>
+	<string>Monaco</string>
+	<key>KWTitleButtonFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWTitleButtonFontSize</key>
+	<real>36</real>
+	<key>KWTitleButtonImage</key>
+	<string>KWTitleButtonImageWS.tiff</string>
+	<key>KWTitleButtonMaskImage</key>
+	<string>KWTitleButtonMaskImageWS.tiff</string>
+	<key>KWTitleButtonMaskLineWidth</key>
+	<integer>2</integer>
+	<key>KWTitleButtonMaskRect</key>
+	<string>{{210, 140}, {300, 50}}</string>
+	<key>KWTitleButtonRect</key>
+	<string>{{210, 108}, {300, 80}}</string>
+	<key>KWTitleButtonString</key>
+	<string>Titles</string>
+	<key>KWTitleSelectionDisable</key>
+	<false/>
+	<key>KWTitleSelectionFont</key>
+	<string>Monaco</string>
+	<key>KWTitleSelectionFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWTitleSelectionFontSize</key>
+	<real>24</real>
+	<key>KWTitleSelectionImage</key>
+	<string>KWTitleSelectionImageWS.tiff</string>
+	<key>KWTitleSelectionOverlayImage</key>
+	<string>KWTitleSelectionOverlayImageWS.tiff</string>
+	<key>KWTitleSelectionRect</key>
+	<string>{{50, 300}, {120, 50}}</string>
+	<key>KWTitleSelectionString</key>
+	<string>Titles:</string>
+	<key>KWVideoNameDisableText</key>
+	<false/>
+	<key>KWVideoNameFont</key>
+	<string>Monaco</string>
+	<key>KWVideoNameFontColor</key>
+	<data>
+	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
+	ZmZmAAEAAYY=
+	</data>
+	<key>KWVideoNameFontSize</key>
+	<real>36</real>
+	<key>KWVideoNameRect</key>
+	<string>{{0, 260}, {720, 100}}</string>
+</dict>
+</plist>

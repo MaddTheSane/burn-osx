@@ -15,6 +15,7 @@
 		55CD19BB1EDA2CD10011321D /* libcdio.16.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19B81EDA2CB60011321D /* libcdio.16.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		55CD19BC1EDA2CD70011321D /* libiso9660.10.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19B91EDA2CB60011321D /* libiso9660.10.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		55CD19BD1EDA2CDA0011321D /* libpopt.0.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 55CD19BA1EDA2CB60011321D /* libpopt.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		55FB770F1F1D570000959AE1 /* KWBurnThemeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FB770E1F1D570000959AE1 /* KWBurnThemeObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		FE2FF27212F2DA5E0010AD5D /* NSNumber_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2FF26B12F2DA5E0010AD5D /* NSNumber_Extensions.m */; };
 		FE7C166E12DBCBDD00CFDA59 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; };
 		FE7C167B12DBCBFE00CFDA59 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = FE7C166C12DBCBDD00CFDA59 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -90,7 +91,7 @@
 		FEF8A86612D9D2BF00FE302C /* KWEraser.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF987850D97A86300BF78E3 /* KWEraser.m */; };
 		FEF8A86712D9D2BF00FE302C /* KWConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF9887D0D97AA9100BF78E3 /* KWConverter.m */; };
 		FEF8A86812D9D2BF00FE302C /* KWDiscScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF988AA0D97ADD700BF78E3 /* KWDiscScanner.m */; };
-		FEF8A86912D9D2BF00FE302C /* KWDVDAuthorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF988C10D97AEA900BF78E3 /* KWDVDAuthorizer.m */; };
+		FEF8A86912D9D2BF00FE302C /* KWDVDAuthorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF988C10D97AEA900BF78E3 /* KWDVDAuthorizer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		FEF8A86A12D9D2BF00FE302C /* KWProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF9892F0D97B1C500BF78E3 /* KWProgress.m */; };
 		FEF8A86B12D9D2BF00FE302C /* KWSVCDImager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF9896B0D97B30800BF78E3 /* KWSVCDImager.m */; };
 		FEF8A86C12D9D2BF00FE302C /* KWPantherCompatibleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2C01500E0653CF0094FD7D /* KWPantherCompatibleButton.m */; };
@@ -155,6 +156,8 @@
 		55CD19B81EDA2CB60011321D /* libcdio.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcdio.16.dylib; sourceTree = "<group>"; };
 		55CD19B91EDA2CB60011321D /* libiso9660.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libiso9660.10.dylib; sourceTree = "<group>"; };
 		55CD19BA1EDA2CB60011321D /* libpopt.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpopt.0.dylib; sourceTree = "<group>"; };
+		55FB770D1F1D570000959AE1 /* KWBurnThemeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWBurnThemeObject.h; path = ../MenuEdit/Source/KWBurnThemeObject.h; sourceTree = "<group>"; };
+		55FB770E1F1D570000959AE1 /* KWBurnThemeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KWBurnThemeObject.m; path = ../MenuEdit/Source/KWBurnThemeObject.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE033FFF0BA7FB6100622112 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KWRecorderInfo.xib; sourceTree = "<group>"; };
 		FE0340010BA7FB6E00622112 /* KWRecorderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KWRecorderInfo.h; path = Source/KWRecorderInfo.h; sourceTree = "<group>"; };
@@ -906,6 +909,8 @@
 		FEF988C40D97AEAE00BF78E3 /* KWDVDAuthorizer */ = {
 			isa = PBXGroup;
 			children = (
+				55FB770D1F1D570000959AE1 /* KWBurnThemeObject.h */,
+				55FB770E1F1D570000959AE1 /* KWBurnThemeObject.m */,
 				FEF988C00D97AEA900BF78E3 /* KWDVDAuthorizer.h */,
 				FEF988C10D97AEA900BF78E3 /* KWDVDAuthorizer.m */,
 			);
@@ -1200,6 +1205,7 @@
 				FEF8A86B12D9D2BF00FE302C /* KWSVCDImager.m in Sources */,
 				FEF8A86C12D9D2BF00FE302C /* KWPantherCompatibleButton.m in Sources */,
 				FEF8A86D12D9D2BF00FE302C /* KWToolbarKiller.m in Sources */,
+				55FB770F1F1D570000959AE1 /* KWBurnThemeObject.m in Sources */,
 				FEF8A86E12D9D2BF00FE302C /* KWDiscCreator.m in Sources */,
 				FEF8A86F12D9D2BF00FE302C /* KWTrackProducer.m in Sources */,
 				FEF8A87012D9D2BF00FE302C /* KWTabViewItem.m in Sources */,

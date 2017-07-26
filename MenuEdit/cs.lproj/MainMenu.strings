@@ -1,0 +1,153 @@
+
+/* Class = "NSMenuItem"; title = "Převést vše do popředí"; ObjectID = "5"; */
+"5.title" = "Převést vše do popředí";
+
+/* Class = "NSMenuItem"; title = "Okno"; ObjectID = "19"; */
+"19.title" = "Okno";
+
+/* Class = "NSMenuItem"; title = "Minimalizovat"; ObjectID = "23"; */
+"23.title" = "Minimalizovat";
+
+/* Class = "NSMenu"; title = "Okno"; ObjectID = "24"; */
+"24.title" = "Okno";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "MenuEdit"; ObjectID = "56"; */
+"56.title" = "MenuEdit";
+
+/* Class = "NSMenu"; title = "MenuEdit"; ObjectID = "57"; */
+"57.title" = "MenuEdit";
+
+/* Class = "NSMenuItem"; title = "Co je MenuEdit"; ObjectID = "58"; */
+"58.title" = "Co je MenuEdit";
+
+/* Class = "NSMenuItem"; title = "Otevřít…"; ObjectID = "72"; */
+"72.title" = "Otevřít…";
+
+/* Class = "NSMenuItem"; title = "Zavřít"; ObjectID = "73"; */
+"73.title" = "Zavřít";
+
+/* Class = "NSMenuItem"; title = "Uložit"; ObjectID = "75"; */
+"75.title" = "Uložit";
+
+/* Class = "NSMenuItem"; title = "Uložit jako…"; ObjectID = "80"; */
+"80.title" = "Uložit jako…";
+
+/* Class = "NSMenu"; title = "Soubor"; ObjectID = "81"; */
+"81.title" = "Soubor";
+
+/* Class = "NSMenuItem"; title = "Nový"; ObjectID = "82"; */
+"82.title" = "Nový";
+
+/* Class = "NSMenuItem"; title = "Soubor"; ObjectID = "83"; */
+"83.title" = "Soubor";
+
+/* Class = "NSMenuItem"; title = "Otevřít poslední položku"; ObjectID = "124"; */
+"124.title" = "Otevřít poslední položku";
+
+/* Class = "NSMenu"; title = "Otevřít poslední položku"; ObjectID = "125"; */
+"125.title" = "Otevřít poslední položku";
+
+/* Class = "NSMenuItem"; title = "Vyprázdnit nabídku"; ObjectID = "126"; */
+"126.title" = "Vyprázdnit nabídku";
+
+/* Class = "NSMenu"; title = "Služby"; ObjectID = "130"; */
+"130.title" = "Služby";
+
+/* Class = "NSMenuItem"; title = "Služby"; ObjectID = "131"; */
+"131.title" = "Služby";
+
+/* Class = "NSMenuItem"; title = "Skrýt MenuEdit"; ObjectID = "134"; */
+"134.title" = "Skrýt MenuEdit";
+
+/* Class = "NSMenuItem"; title = "Ukončit MenuEdit"; ObjectID = "136"; */
+"136.title" = "Ukončit MenuEdit";
+
+/* Class = "NSMenuItem"; title = "Skrýt Others"; ObjectID = "145"; */
+"145.title" = "Skrýt Others";
+
+/* Class = "NSMenuItem"; title = "Zobrazit vše"; ObjectID = "150"; */
+"150.title" = "Zobrazit vše";
+
+/* Class = "NSMenuItem"; title = "Hledat…"; ObjectID = "154"; */
+"154.title" = "Hledat…";
+
+/* Class = "NSMenuItem"; title = "Zobrazit výběr"; ObjectID = "155"; */
+"155.title" = "Zobrazit výběr";
+
+/* Class = "NSMenuItem"; title = "Kopírovat"; ObjectID = "157"; */
+"157.title" = "Kopírovat";
+
+/* Class = "NSMenuItem"; title = "Odvolat akci"; ObjectID = "158"; */
+"158.title" = "Odvolat akci";
+
+/* Class = "NSMenu"; title = "Hledat"; ObjectID = "159"; */
+"159.title" = "Hledat";
+
+/* Class = "NSMenuItem"; title = "Vyjmout"; ObjectID = "160"; */
+"160.title" = "Vyjmout";
+
+/* Class = "NSMenuItem"; title = "Hledat výběr"; ObjectID = "161"; */
+"161.title" = "Hledat výběr";
+
+/* Class = "NSMenuItem"; title = "Hledat předchozí"; ObjectID = "162"; */
+"162.title" = "Hledat předchozí";
+
+/* Class = "NSMenuItem"; title = "Úpravy"; ObjectID = "163"; */
+"163.title" = "Úpravy";
+
+/* Class = "NSMenuItem"; title = "Smazat"; ObjectID = "164"; */
+"164.title" = "Smazat";
+
+/* Class = "NSMenuItem"; title = "Hledat další"; ObjectID = "167"; */
+"167.title" = "Hledat další";
+
+/* Class = "NSMenuItem"; title = "Hledat"; ObjectID = "168"; */
+"168.title" = "Hledat";
+
+/* Class = "NSMenu"; title = "Úpravy"; ObjectID = "169"; */
+"169.title" = "Úpravy";
+
+/* Class = "NSMenuItem"; title = "Vložit"; ObjectID = "171"; */
+"171.title" = "Vložit";
+
+/* Class = "NSMenuItem"; title = "Vybrat vše"; ObjectID = "172"; */
+"172.title" = "Vybrat vše";
+
+/* Class = "NSMenuItem"; title = "Opakovat akci"; ObjectID = "173"; */
+"173.title" = "Opakovat akci";
+
+/* Class = "NSMenuItem"; title = "Pravopis a gramatika"; ObjectID = "184"; */
+"184.title" = "Pravopis a gramatika";
+
+/* Class = "NSMenu"; title = "Pravopis a gramatika"; ObjectID = "185"; */
+"185.title" = "Pravopis a gramatika";
+
+/* Class = "NSMenuItem"; title = "Zobrazit pravopis a gramatiku…"; ObjectID = "187"; */
+"187.title" = "Zobrazit pravopis a gramatiku…";
+
+/* Class = "NSMenuItem"; title = "Ověřit dokument"; ObjectID = "189"; */
+"189.title" = "Ověřit dokument";
+
+/* Class = "NSMenuItem"; title = "Ověřovat pravopis při psaní"; ObjectID = "191"; */
+"191.title" = "Ověřovat pravopis při psaní";
+
+/* Class = "NSMenuItem"; title = "Přepnout velikost"; ObjectID = "203"; */
+"203.title" = "Přepnout velikost";
+
+/* Class = "NSMenuItem"; title = "Vložit podle stylu"; ObjectID = "210"; */
+"210.title" = "Vložit podle stylu";
+
+/* Class = "NSMenuItem"; title = "Import…"; ObjectID = "98N-Hf-cbN"; */
+"98N-Hf-cbN.title" = "Import…";
+
+/* Class = "NSMenuItem"; title = "MenuEdit Help"; ObjectID = "2wm-TO-38K"; */
+"2wm-TO-38K.title" = "MenuEdit Help";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "aNS-dp-QaF"; */
+"aNS-dp-QaF.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "mlu-vj-Jti"; */
+"mlu-vj-Jti.title" = "Help";
