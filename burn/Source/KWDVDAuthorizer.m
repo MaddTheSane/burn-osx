@@ -1168,28 +1168,23 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	else
 		pageKey = KWSelectionImagesOnAPageKey;
 
-	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2)
-	{
-		x = [[theme objectForKey:@"KWSelectionImagesX"] integerValue];
-		y = [[theme objectForKey:@"KWSelectionImagesY"] integerValue];
-	}
-	else
-	{
-		if ([[theme objectForKey:@"KWSelectionStringsX"] integerValue] == -1)
+	if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
+		NSRect bRect = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen];
+		x = bRect.origin.x;
+		y = bRect.origin.y;
+	} else {
+		if ([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.x == -1)
 			x = 0;
 		else
-			x = [[theme objectForKey:@"KWSelectionStringsX"] integerValue];
+			x = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.x;
 	
-		if ([[theme objectForKey:@"KWSelectionStringsY"] integerValue] == -1)
-		{
+		if ([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.y == -1) {
 			if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"KWDVDThemeFormat"] integerValue] == 0)
 				y = 576 - (576 - [objects count] * [[theme propertyWithKey:KWSelectionStringsSeperationKey widescreen:wideScreen] integerValue]) / 2;
 			else
 				y = 384 - (384 - [objects count] * [[theme propertyWithKey:KWSelectionStringsSeperationKey widescreen:wideScreen] integerValue]) / 2;
-		}
-		else
-		{
-			y = [[theme objectForKey:@"KWSelectionStringsY"] integerValue];
+		} else {
+			y = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.y;
 		}
 	}
 	
@@ -1204,45 +1199,44 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	
 			if ([previewImage size].width / [previewImage size].height < 1)
 			{
-				height = [[theme objectForKey:@"KWSelectionImagesH"] integerValue];
-				width = [[theme objectForKey:@"KWSelectionImagesH"] integerValue] * ([previewImage size].width / [previewImage size].height);
+				height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height;
+				width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height * ([previewImage size].width / [previewImage size].height);
 			}
 			else
 			{
-				if ([[theme objectForKey:@"KWSelectionImagesW"] integerValue] / ([previewImage size].width / [previewImage size].height) <= [[theme objectForKey:@"KWSelectionImagesH"] integerValue])
+				if ([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width / ([previewImage size].width / [previewImage size].height) <= [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height)
 				{
-					width = [[theme objectForKey:@"KWSelectionImagesW"] integerValue];
-					height = [[theme objectForKey:@"KWSelectionImagesW"] integerValue] / ([previewImage size].width / [previewImage size].height);
+					width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width;
+					height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width / ([previewImage size].width / [previewImage size].height);
 				}
 				else
 				{
-					height = [[theme objectForKey:@"KWSelectionImagesH"] integerValue];
-					width = [[theme objectForKey:@"KWSelectionImagesH"] integerValue] * ([previewImage size].width / [previewImage size].height);
+					height = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height;
+					width = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height * ([previewImage size].width / [previewImage size].height);
 				}
 			}
 		
 			NSRect inputRect = NSMakeRect(0,0,[previewImage size].width,[previewImage size].height);
 			[newImage lockFocus];
-			[previewImage drawInRect:NSMakeRect(x + (([[theme objectForKey:@"KWSelectionImagesW"] integerValue] - width) / 2),y + (([[theme objectForKey:@"KWSelectionImagesH"] integerValue] - height) / 2),width,height) fromRect:inputRect operation:NSCompositeCopy fraction:1.0]; 
+			[previewImage drawInRect:NSMakeRect(x + (([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width - width) / 2),y + (([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height - height) / 2), width, height) fromRect:inputRect operation:NSCompositeCopy fraction:1.0];
 			[newImage unlockFocus];
 		}
 		
-		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 0)
-		{
+		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 0) {
 			NSString *name;
 		
-			if (titles)
+			if (titles) {
 				name = [[[[objects objectAtIndex:i] objectForKey:@"Path"] lastPathComponent] stringByDeletingPathExtension];
-			else
+			} else {
 				name = [[objects objectAtIndex:i] objectForKey:@"Title"];
+			}
 
-			[self drawString:name inRect:NSMakeRect(x,y-[[theme objectForKey:@"KWSelectionImagesH"] integerValue],[[theme objectForKey:@"KWSelectionImagesW"] integerValue],[[theme objectForKey:@"KWSelectionImagesH"] integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWSelectionImagesFont"] withSize:[[theme objectForKey:@"KWSelectionImagesFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWSelectionImagesFontColor"]] useAlignment:NSCenterTextAlignment];
-		}
-		else if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2)
-		{
+			NSRect rect = NSMakeRect(x, y - [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height, [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.width, [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].size.height);
+			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWSelectionImagesFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWSelectionImagesFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWSelectionImagesFontColor" widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+		} else if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] == 2) {
 			NSTextAlignment alignment;
 			
-			if ([[theme objectForKey:@"KWSelectionStringsX"] integerValue] == -1)
+			if ([theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.x == -1)
 				alignment = NSCenterTextAlignment;
 			else
 				alignment = NSLeftTextAlignment;
@@ -1253,7 +1247,8 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 			else
 				name = [[objects objectAtIndex:i] objectForKey:@"Title"];
 
-			[self drawString:name inRect:NSMakeRect(x,y,[[theme objectForKey:@"KWSelectionStringsW"] integerValue],[[theme objectForKey:@"KWSelectionStringsH"] integerValue]) onImage:newImage withFontName:[theme objectForKey:@"KWSelectionStringsFont"] withSize:[[theme objectForKey:@"KWSelectionStringsFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWSelectionStringsFontColor"]] useAlignment:alignment];
+			NSRect rect = (NSRect){{x,y}, [theme rectWithKey:KWSelectionStringsRectKey widescreen:wideScreen].size };
+			[self drawString:name inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWSelectionStringsFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWSelectionStringsFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWSelectionStringsFontColor" widescreen:wideScreen]] useAlignment:alignment];
 		}
 	
 		if ([[theme propertyWithKey:KWSelectionModeKey widescreen:wideScreen] integerValue] != 2) {
@@ -1261,7 +1256,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		
 			if (newRow == [[theme propertyWithKey:KWSelectionImagesOnARowKey widescreen:wideScreen] integerValue] - 1) {
 				y -= [[theme propertyWithKey:KWSelectionImagesSeperationHKey widescreen:wideScreen] integerValue];
-				x = [[theme objectForKey:@"KWSelectionImagesX"] integerValue];
+				x = [theme rectWithKey:KWSelectionImagesRectKey widescreen:wideScreen].origin.x;
 				newRow = 0;
 			} else {
 				newRow = newRow + 1;
@@ -1276,45 +1271,42 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 		NSImage *previousButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWPreviousButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
 		NSRect rect = [theme rectWithKey:KWPreviousButtonRectKey widescreen:wideScreen];
 
-		if (!previousButtonImage)
+		if (!previousButtonImage) {
 			[self drawString:[theme propertyWithKey:KWPreviousButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWPreviousButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWPreviousButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWPreviousButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
-		else
+		} else {
 			[self drawImage:previousButtonImage inRect:rect onImage:newImage];
+		}
 	}
 
-	if (![[theme propertyWithKey:KWNextButtonDisableKey widescreen:wideScreen] boolValue] && next)
-	{
+	if (![[theme propertyWithKey:KWNextButtonDisableKey widescreen:wideScreen] boolValue] && next) {
 		NSImage *nextButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWNextButtonImageKey widescreen:wideScreen error:NULL]] autorelease];
 		NSRect rect = [theme rectWithKey:KWNextButtonRectKey widescreen:wideScreen];
 
-		if (!nextButtonImage)
+		if (!nextButtonImage) {
 			[self drawString:[theme propertyWithKey:KWNextButtonStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWNextButtonFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWNextButtonFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWNextButtonFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
-		else
+		} else {
 			[self drawImage:nextButtonImage inRect:rect onImage:newImage];
-	}
-
-	if (!titles)
-	{
-		if (![[theme propertyWithKey:@"KWChapterSelectionDisable" widescreen:wideScreen] boolValue])
-		{
-			NSImage *chapterSelectionButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionImage"]] autorelease];
-			NSRect rect = [theme rectWithKey:KWChapterSelectionRectKey widescreen:wideScreen];
-
-			if (!chapterSelectionButtonImage)
-				[self drawString:[theme propertyWithKey:@"KWChapterSelectionString" widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:@"KWChapterSelectionFont" widescreen:wideScreen] withSize:[[theme propertyWithKey:@"KWChapterSelectionFontSize" widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:@"KWChapterSelectionFontColor" widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
-			else
-				[self drawImage:chapterSelectionButtonImage inRect:rect onImage:newImage];
 		}
 	}
-	else
-	{
-		if (![[theme propertyWithKey:@"KWTitleSelectionDisable" widescreen:wideScreen] boolValue])
-		{
-			NSImage *titleSelectionButtonImage = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionImage"]] autorelease];
+
+	if (!titles) {
+		if (![[theme propertyWithKey:KWChapterSelectionDisableKey widescreen:wideScreen] boolValue]) {
+			NSImage *chapterSelectionButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
+			NSRect rect = [theme rectWithKey:KWChapterSelectionRectKey widescreen:wideScreen];
+
+			if (!chapterSelectionButtonImage) {
+				[self drawString:[theme propertyWithKey:KWChapterSelectionStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWChapterSelectionFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWChapterSelectionFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWChapterSelectionFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
+			} else {
+				[self drawImage:chapterSelectionButtonImage inRect:rect onImage:newImage];
+			}
+		}
+	} else {
+		if (![[theme propertyWithKey:KWTitleSelectionDisableKey widescreen:wideScreen] boolValue]) {
+			NSImage *titleSelectionButtonImage = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionImageKey widescreen:wideScreen error:NULL]] autorelease];
 			NSRect rect = [theme rectWithKey:KWTitleSelectionRectKey widescreen:wideScreen];
 
 			if (!titleSelectionButtonImage)
-				[self drawString:[theme objectForKey:@"KWTitleSelectionString"] inRect:rect onImage:newImage withFontName:[theme objectForKey:@"KWTitleSelectionFont"] withSize:[[theme objectForKey:@"KWTitleSelectionFontSize"] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme objectForKey:@"KWTitleSelectionFontColor"]] useAlignment:NSCenterTextAlignment];
+				[self drawString:[theme propertyWithKey:KWTitleSelectionStringKey widescreen:wideScreen] inRect:rect onImage:newImage withFontName:[theme propertyWithKey:KWTitleSelectionFontKey widescreen:wideScreen] withSize:[[theme propertyWithKey:KWTitleSelectionFontSizeKey widescreen:wideScreen] integerValue] withColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[theme propertyWithKey:KWTitleSelectionFontColorKey widescreen:wideScreen]] useAlignment:NSCenterTextAlignment];
 			else
 				[self drawImage:titleSelectionButtonImage inRect:rect onImage:newImage];
 		}
@@ -1323,9 +1315,9 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSImage *overlay = nil;
 	
 	if (titles)
-		overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWTitleSelectionOverlayImage"]] autorelease];
+		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWTitleSelectionOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
 	else
-		overlay = [[[NSImage alloc] initWithData:[theme objectForKey:@"KWChapterSelectionOverlayImage"]] autorelease];
+		overlay = [[[NSImage alloc] initWithData:[theme resourceNamed:KWChapterSelectionOverlayImageKey widescreen:wideScreen error:NULL]] autorelease];
 
 	if (overlay)
 		[self drawImage:overlay inRect:NSMakeRect(0,0,[newImage size].width,[newImage size].height) onImage:newImage];
