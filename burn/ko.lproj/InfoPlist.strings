@@ -1,4 +1,4 @@
-﻿/* Basic info */
+/* Basic info */
 NSHumanReadableCopyright = "Kiwi Fruitware 2011";
 CFBundleName = "Burn";
 CFBundleDisplayName = "Burn";
@@ -8,4 +8,3 @@ CFBundleHelpBookName = "Burn Help";
 "Image document" = "Image document";
 "Burn document" = "Burn document";
 "Theme document" = "Theme document";
-

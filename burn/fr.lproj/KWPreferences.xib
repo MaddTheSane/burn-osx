@@ -503,7 +503,7 @@
                         <tabViewItem label="DVD" identifier="2" id="852">
                             <view key="view" id="853">
                                 <rect key="frame" x="10" y="33" width="374" height="361"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <popUpButton verticalHuggingPriority="750" tag="25" imageHugsTitle="YES" id="867">
                                         <rect key="frame" x="108" y="318" width="130" height="26"/>
@@ -691,7 +691,7 @@
                                     <button tag="101" imageHugsTitle="YES" id="1626">
                                         <rect key="frame" x="267" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="101" inset="2" id="1942">
+                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="101" imageScaling="proportionallyDown" inset="2" id="1942">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -702,7 +702,7 @@
                                     <button tag="100" imageHugsTitle="YES" id="1627">
                                         <rect key="frame" x="248" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="100" inset="2" id="1943">
+                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="100" imageScaling="proportionallyDown" inset="2" id="1943">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -1378,4 +1378,8 @@
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
 </document>

@@ -847,7 +847,7 @@ CA
                             <tabViewItem label="Vídeo" identifier="Video" id="408" customClass="KWTabViewItem">
                                 <view key="view" id="409">
                                     <rect key="frame" x="10" y="7" width="438" height="322"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton hidden="YES" verticalHuggingPriority="750" imageHugsTitle="YES" id="437">
                                             <rect key="frame" x="76" y="-2" width="43" height="26"/>
@@ -916,7 +916,7 @@ CA
                                         <button imageHugsTitle="YES" id="436" customClass="KWPantherCompatibleButton">
                                             <rect key="frame" x="44" y="0.0" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="871">
+                                            <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="871">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="label"/>
                                             </buttonCell>
@@ -928,7 +928,7 @@ CA
                                         <button imageHugsTitle="YES" id="434" customClass="KWPantherCompatibleButton">
                                             <rect key="frame" x="20" y="0.0" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="869">
+                                            <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="869">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="label"/>
                                             </buttonCell>
@@ -989,7 +989,7 @@ CA
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="ORX-RU-SI7">
                                                 <rect key="frame" x="1" y="0.0" width="431" height="237"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="Video TableView" headerView="919" id="428" customClass="KWTableView">
                                                         <rect key="frame" x="0.0" y="0.0" width="431" height="214"/>

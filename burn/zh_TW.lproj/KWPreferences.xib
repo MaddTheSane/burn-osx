@@ -691,7 +691,7 @@
                                     <button tag="101" imageHugsTitle="YES" id="1626">
                                         <rect key="frame" x="242" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="101" inset="2" id="1936">
+                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="101" imageScaling="proportionallyDown" inset="2" id="1936">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -702,7 +702,7 @@
                                     <button tag="100" imageHugsTitle="YES" id="1627">
                                         <rect key="frame" x="223" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="100" inset="2" id="1937">
+                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="100" imageScaling="proportionallyDown" inset="2" id="1937">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -1378,4 +1378,8 @@
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
 </document>

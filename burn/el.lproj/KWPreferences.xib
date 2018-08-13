@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Γενικά" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" frameAutosaveName="Preferences" animationBehavior="default" id="735" userLabel="prefWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -47,7 +47,7 @@
             <rect key="frame" x="0.0" y="0.0" width="440" height="156"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1733">
+                <textField verticalHuggingPriority="750" id="1733">
                     <rect key="frame" x="17" y="27" width="233" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Διαγραφή Προσωρινών στοιχείων:" id="1904">
@@ -61,7 +61,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" title="Στην έξοδο" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1731" id="1903">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1729">
                             <items>
                                 <menuItem title="Χειροκίνητα" id="1730"/>
@@ -86,7 +86,7 @@
                         <outlet property="nextKeyView" destination="1068" id="1716"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1480">
+                <textField verticalHuggingPriority="750" id="1480">
                     <rect key="frame" x="17" y="57" width="150" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Προσωρινός φάκελος:" id="1901">
@@ -100,7 +100,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1825" id="1900">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1477">
                             <items>
                                 <menuItem isSeparatorItem="YES" state="on" id="1825">
@@ -181,7 +181,7 @@
                         <outlet property="nextKeyView" destination="759" id="1715"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="760">
+                <textField verticalHuggingPriority="750" id="760">
                     <rect key="frame" x="17" y="20" width="386" height="31"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Απενεργοποιώντας αυτές τις επιλογές θα επιταχυνθεί το πρόγραμμα σε αργούς Η/Υ" id="1908">
@@ -206,7 +206,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" title="Mac (HFS+)" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="756" id="1906">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="754">
                             <items>
                                 <menuItem title="Mac (HFS+)" state="on" id="756"/>
@@ -221,7 +221,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1758"/>
                     </connections>
                 </popUpButton>
-                <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="752">
+                <textField verticalHuggingPriority="750" tag="99" id="752">
                     <rect key="frame" x="17" y="141" width="243" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Προκαθορισμένος τύπος δεδομένων:" id="1905">
@@ -246,7 +246,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1059">
+                                    <textField verticalHuggingPriority="750" id="1059">
                                         <rect key="frame" x="35" y="89" width="164" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Προκαθορισμένη μορφή:" id="1923">
@@ -260,7 +260,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="CD ήχου" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1063" id="1924">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1061">
                                                 <items>
                                                     <menuItem title="CD ήχου" state="on" id="1063"/>
@@ -281,7 +281,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="959">
+                                    <textField verticalHuggingPriority="750" id="959">
                                         <rect key="frame" x="71" y="70" width="60" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="διακενό:" id="1919">
@@ -290,7 +290,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="17" allowsCharacterPickerTouchBarItem="NO" id="960">
+                                    <textField verticalHuggingPriority="750" tag="17" id="960">
                                         <rect key="frame" x="136" y="85" width="55" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" tag="17" title="0" drawsBackground="YES" id="1920">
@@ -309,7 +309,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1764"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="961">
+                                    <textField verticalHuggingPriority="750" id="961">
                                         <rect key="frame" x="196" y="87" width="96" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Δευτερόλεπτα" id="1921">
@@ -337,7 +337,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="962">
+                                    <textField verticalHuggingPriority="750" id="962">
                                         <rect key="frame" x="17" y="92" width="91" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Audio bitrate:" id="1912">
@@ -346,7 +346,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="19" allowsCharacterPickerTouchBarItem="NO" id="963">
+                                    <textField verticalHuggingPriority="750" tag="19" id="963">
                                         <rect key="frame" x="112" y="90" width="56" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="19" title="128" drawsBackground="YES" id="1913">
@@ -365,7 +365,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1766"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="964">
+                                    <textField verticalHuggingPriority="750" id="964">
                                         <rect key="frame" x="17" y="64" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Mode:" id="1914">
@@ -379,7 +379,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Stereo" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="969" id="1915">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="967">
                                                 <items>
                                                     <menuItem title="Mono" id="970"/>
@@ -391,7 +391,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1767"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="971">
+                                    <textField verticalHuggingPriority="750" id="971">
                                         <rect key="frame" x="173" y="92" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1916">
@@ -441,9 +441,9 @@
                         <tabViewItem label="Γενικά" identifier="1" id="850">
                             <view key="view" id="851">
                                 <rect key="frame" x="10" y="33" width="374" height="361"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="858">
+                                    <textField verticalHuggingPriority="750" tag="99" id="858">
                                         <rect key="frame" x="17" y="295" width="164" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Προκαθορισμένη μορφή:" id="1925">
@@ -457,7 +457,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="VCD" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="864" id="1926">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="860">
                                                 <items>
                                                     <menuItem title="VCD" state="on" id="864"/>
@@ -476,7 +476,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="PAL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1694" id="1927">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1692">
                                                 <items>
                                                     <menuItem title="PAL" state="on" id="1694"/>
@@ -488,7 +488,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1770"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1695">
+                                    <textField verticalHuggingPriority="750" id="1695">
                                         <rect key="frame" x="17" y="323" width="60" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Περιοχή:" id="1928">
@@ -503,14 +503,14 @@
                         <tabViewItem label="DVD" identifier="2" id="852">
                             <view key="view" id="853">
                                 <rect key="frame" x="10" y="33" width="374" height="361"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <popUpButton verticalHuggingPriority="750" tag="25" imageHugsTitle="YES" id="867">
                                         <rect key="frame" x="181" y="318" width="130" height="26"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="MP2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="870" id="1929">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="868">
                                                 <items>
                                                     <menuItem title="MP2" state="on" id="870"/>
@@ -522,7 +522,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1772"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="872">
+                                    <textField verticalHuggingPriority="750" id="872">
                                         <rect key="frame" x="17" y="317" width="168" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ηχητική κωδικοποίηση:" id="1930">
@@ -542,7 +542,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1773"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="27" allowsCharacterPickerTouchBarItem="NO" id="875">
+                                    <textField verticalHuggingPriority="750" tag="27" id="875">
                                         <rect key="frame" x="144" y="287" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="27" title="6000" drawsBackground="YES" id="1932">
@@ -572,7 +572,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1775"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="29" allowsCharacterPickerTouchBarItem="NO" id="877">
+                                    <textField verticalHuggingPriority="750" tag="29" id="877">
                                         <rect key="frame" x="144" y="255" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="29" title="448" drawsBackground="YES" id="1934">
@@ -591,7 +591,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1776"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="878">
+                                    <textField verticalHuggingPriority="750" id="878">
                                         <rect key="frame" x="233" y="289" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1935">
@@ -600,7 +600,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="879">
+                                    <textField verticalHuggingPriority="750" id="879">
                                         <rect key="frame" x="233" y="257" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1936">
@@ -677,7 +677,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1624" id="1942">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1622">
                                                 <items>
                                                     <menuItem title="Default" state="on" id="1624"/>
@@ -691,7 +691,7 @@
                                     <button tag="101" imageHugsTitle="YES" id="1626">
                                         <rect key="frame" x="267" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="101" inset="2" id="1943">
+                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="101" imageScaling="proportionallyDown" inset="2" id="1943">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -702,7 +702,7 @@
                                     <button tag="100" imageHugsTitle="YES" id="1627">
                                         <rect key="frame" x="248" y="80" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" tag="100" inset="2" id="1944">
+                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" tag="100" imageScaling="proportionallyDown" inset="2" id="1944">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -710,7 +710,7 @@
                                             <action selector="deleteTheme:" target="-2" id="1808"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1628">
+                                    <textField verticalHuggingPriority="750" id="1628">
                                         <rect key="frame" x="18" y="82" width="58" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Θεμάτα:" id="1945">
@@ -719,7 +719,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1629">
+                                    <textField verticalHuggingPriority="750" id="1629">
                                         <rect key="frame" x="18" y="52" width="54" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Μορφή:" id="1946">
@@ -733,7 +733,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Κανονικό" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1632" id="1947">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1631">
                                                 <items>
                                                     <menuItem title="Κανονικό" state="on" id="1632"/>
@@ -780,7 +780,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="MP3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="882" id="1950">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="881">
                                                 <items>
                                                     <menuItem title="MP3" state="on" id="882"/>
@@ -792,7 +792,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1784"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="884">
+                                    <textField verticalHuggingPriority="750" id="884">
                                         <rect key="frame" x="17" y="322" width="166" height="19"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ηχητική κωδικοποίηση:" id="1951">
@@ -812,7 +812,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1785"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="39" allowsCharacterPickerTouchBarItem="NO" id="886">
+                                    <textField verticalHuggingPriority="750" tag="39" id="886">
                                         <rect key="frame" x="141" y="287" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="39" title="768" drawsBackground="YES" id="1953">
@@ -842,7 +842,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1787"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="41" allowsCharacterPickerTouchBarItem="NO" id="888">
+                                    <textField verticalHuggingPriority="750" tag="41" id="888">
                                         <rect key="frame" x="141" y="255" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="41" title="128" drawsBackground="YES" id="1955">
@@ -861,7 +861,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1788"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="889">
+                                    <textField verticalHuggingPriority="750" id="889">
                                         <rect key="frame" x="230" y="289" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1956">
@@ -870,7 +870,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="890">
+                                    <textField verticalHuggingPriority="750" id="890">
                                         <rect key="frame" x="230" y="257" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Kbit/s" id="1957">
@@ -890,7 +890,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1789"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="43" allowsCharacterPickerTouchBarItem="NO" id="893">
+                                    <textField verticalHuggingPriority="750" tag="43" id="893">
                                         <rect key="frame" x="100" y="223" width="52" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="43" title="320" drawsBackground="YES" id="1959">
@@ -920,7 +920,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1792"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="44" allowsCharacterPickerTouchBarItem="NO" id="896">
+                                    <textField verticalHuggingPriority="750" tag="44" id="896">
                                         <rect key="frame" x="169" y="223" width="52" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="44" title="240" drawsBackground="YES" id="1961">
@@ -939,7 +939,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1791"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="898">
+                                    <textField verticalHuggingPriority="750" id="898">
                                         <rect key="frame" x="226" y="225" width="42" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="pixels" id="1962">
@@ -948,7 +948,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="899">
+                                    <textField verticalHuggingPriority="750" id="899">
                                         <rect key="frame" x="155" y="225" width="12" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="x" id="1963">
@@ -957,7 +957,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="46" allowsCharacterPickerTouchBarItem="NO" id="938">
+                                    <textField verticalHuggingPriority="750" tag="46" id="938">
                                         <rect key="frame" x="78" y="191" width="47" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="46" title="25" drawsBackground="YES" id="1964">
@@ -1024,7 +1024,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1802"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1702">
+                <textField verticalHuggingPriority="750" id="1702">
                     <rect key="frame" x="297" y="122" width="42" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="pixels" id="1974">
@@ -1033,7 +1033,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" tag="50" allowsCharacterPickerTouchBarItem="NO" id="1700">
+                <textField verticalHuggingPriority="750" tag="50" id="1700">
                     <rect key="frame" x="257" y="120" width="35" height="22"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="50" title="0" drawsBackground="YES" id="1973">
@@ -1085,7 +1085,7 @@
                         <action selector="chooseFFMPEG:" target="-2" id="1824"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" tag="53" allowsCharacterPickerTouchBarItem="NO" id="1163">
+                <textField verticalHuggingPriority="750" tag="53" id="1163">
                     <rect key="frame" x="20" y="20" width="237" height="20"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="53" drawsBackground="YES" id="1969">
@@ -1097,7 +1097,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1800"/>
                     </connections>
                 </textField>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1160">
+                <textField verticalHuggingPriority="750" id="1160">
                     <rect key="frame" x="17" y="34" width="361" height="28"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Αυτό μπορεί να μην λειτουργεί, λόγω των διαφορών σύνταξης" id="1968">
@@ -1131,9 +1131,9 @@
                         <tabViewItem label="Γενικά" identifier="1" id="1525">
                             <view key="view" id="1526">
                                 <rect key="frame" x="10" y="33" width="374" height="186"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1539">
+                                    <textField verticalHuggingPriority="750" id="1539">
                                         <rect key="frame" x="17" y="152" width="66" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Εγγραφή:" id="1984">
@@ -1142,7 +1142,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1540">
+                                    <textField verticalHuggingPriority="750" id="1540">
                                         <rect key="frame" x="17" y="116" width="393" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1985">
@@ -1158,7 +1158,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1544" id="1986">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1542">
                                                 <items>
                                                     <menuItem title="Item1" state="on" id="1544"/>
@@ -1208,7 +1208,7 @@
                                             <action selector="setCompletionAction:" target="-2" id="1752"/>
                                         </connections>
                                     </matrix>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1850">
+                                    <textField verticalHuggingPriority="750" id="1850">
                                         <rect key="frame" x="17" y="91" width="340" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Μετά από την εγγραφή:" id="1988">
@@ -1236,7 +1236,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1754"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1552">
+                                    <textField verticalHuggingPriority="750" id="1552">
                                         <rect key="frame" x="17" y="82" width="184" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Προκαθορισμένο μέσο DVD:" id="1977">
@@ -1245,7 +1245,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1558">
+                                    <textField verticalHuggingPriority="750" id="1558">
                                         <rect key="frame" x="17" y="112" width="175" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Προκαθορισμένο μέσο CD:" id="1978">
@@ -1254,7 +1254,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1568">
+                                    <textField verticalHuggingPriority="750" id="1568">
                                         <rect key="frame" x="17" y="52" width="95" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Χωρίς δίσκο:" id="1979">
@@ -1268,7 +1268,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Χωρίς δίσκο" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1571" id="1980">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1570">
                                                 <items>
                                                     <menuItem title="Χωρίς δίσκο" state="on" id="1571"/>
@@ -1286,7 +1286,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="DVD R(W) (4,8 GB)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1860" id="1981">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1858">
                                                 <items>
                                                     <menuItem title="Μικρό (8 εκατοστών):" id="1863"/>
@@ -1307,7 +1307,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="700 MB (80 λεπτά)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1867" id="1982">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1866">
                                                 <items>
                                                     <menuItem title="Μικρό (8 εκατοστών):" id="1876"/>
@@ -1326,7 +1326,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1885"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1896">
+                                    <textField verticalHuggingPriority="750" id="1896">
                                         <rect key="frame" x="36" y="138" width="114" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="RW δίσκους" id="1983">
@@ -1369,7 +1369,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Τίτλος Μενού" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1851" id="1990">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="1660">
                                 <items>
                                     <menuItem title="Τίτλος Μενού" state="on" id="1851"/>
@@ -1387,4 +1387,8 @@
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
 </document>

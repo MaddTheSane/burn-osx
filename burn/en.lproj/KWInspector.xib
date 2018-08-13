@@ -4976,7 +4976,7 @@ Gw
                     <tabViewItems>
                         <tabViewItem label="General" identifier="1" id="1743">
                             <view key="view" id="1744">
-                                <rect key="frame" x="10" y="29" width="417" height="398"/>
+                                <rect key="frame" x="10" y="25" width="417" height="402"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" id="1745">
@@ -5288,7 +5288,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1775">
                                         <rect key="frame" x="360" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoRightTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2362">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoForwardTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2362">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5299,7 +5299,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1776">
                                         <rect key="frame" x="336" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoLeftTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2363">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSGoBackTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2363">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5597,8 +5597,8 @@ Gw
     <resources>
         <image name="Audio CD" width="32" height="32"/>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSGoLeftTemplate" width="9" height="12"/>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

@@ -70,7 +70,7 @@
                     <tabViewItems>
                         <tabViewItem label="HFS+" identifier="HFS+" id="44">
                             <view key="view" id="45">
-                                <rect key="frame" x="10" y="25" width="352" height="402"/>
+                                <rect key="frame" x="10" y="29" width="352" height="398"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button imageHugsTitle="YES" id="172">
@@ -2537,7 +2537,7 @@
                                                     <tabViewItem label="Permissions" identifier="3" id="732">
                                                         <view key="view" id="733">
                                                             <rect key="frame" x="0.0" y="0.0" width="423" height="463"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" id="749">
                                                                     <rect key="frame" x="73" y="427" width="27" height="14"/>
@@ -5028,7 +5028,7 @@ Gw
                         <tabViewItem label="Generale" identifier="1" id="1743">
                             <view key="view" id="1744">
                                 <rect key="frame" x="10" y="29" width="352" height="398"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" id="1745">
                                         <rect key="frame" x="17" y="361" width="97" height="17"/>
@@ -5307,7 +5307,7 @@ Gw
                         <tabViewItem label="Illustrazione" identifier="2" id="1741">
                             <view key="view" id="1742">
                                 <rect key="frame" x="10" y="25" width="352" height="402"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView id="1772">
                                         <rect key="frame" x="17" y="110" width="318" height="275"/>
@@ -5317,7 +5317,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1773">
                                         <rect key="frame" x="44" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2599">
+                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2599">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5328,7 +5328,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1774">
                                         <rect key="frame" x="20" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2600">
+                                        <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2600">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5339,7 +5339,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1775">
                                         <rect key="frame" x="307" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2601">
+                                        <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" image="NSGoForwardTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2601">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5350,7 +5350,7 @@ Gw
                                     <button imageHugsTitle="YES" id="1776">
                                         <rect key="frame" x="283" y="80" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2602">
+                                        <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" image="NSGoBackTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2602">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="label"/>
                                         </buttonCell>
@@ -5432,7 +5432,7 @@ Gw
                 <button imageHugsTitle="YES" id="1837">
                     <rect key="frame" x="20" y="20" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2631">
+                    <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2631">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="label"/>
                     </buttonCell>
@@ -5443,7 +5443,7 @@ Gw
                 <button imageHugsTitle="YES" id="1836">
                     <rect key="frame" x="44" y="20" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="2630">
+                    <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2630">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="label"/>
                     </buttonCell>
@@ -5465,7 +5465,7 @@ Gw
                     <autoresizingMask key="autoresizingMask"/>
                     <clipView key="contentView" id="P2f-za-ucB">
                         <rect key="frame" x="1" y="0.0" width="303" height="344"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" headerView="2744" id="1832">
                                 <rect key="frame" x="0.0" y="0.0" width="303" height="321"/>
@@ -5657,5 +5657,9 @@ Gw
     </objects>
     <resources>
         <image name="Audio CD" width="32" height="32"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>
