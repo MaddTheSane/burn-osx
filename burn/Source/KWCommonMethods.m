@@ -428,7 +428,7 @@
 					newPathExtension = [@"." stringByAppendingString:pathExtension];
 
 	
-				unsigned int fileLength = 31 - [newPathExtension length];
+				NSUInteger fileLength = 31 - [newPathExtension length];
 
 				baseName = [[baseName substringWithRange:NSMakeRange(0,fileLength)] stringByAppendingString:newPathExtension];
 			}

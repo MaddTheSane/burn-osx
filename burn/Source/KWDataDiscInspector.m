@@ -379,7 +379,7 @@ static NSArray* filesystemNameTagMappings = nil;
 		[udfVersion selectItemAtIndex:udfVersionNumber];
 	}
 	
-	NSString *identifier;
+	NSString *identifier=nil;
 	if (containsHFS)
 		identifier = @"HFS+";
 	else if (containsISO)

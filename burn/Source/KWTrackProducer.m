@@ -260,7 +260,7 @@
 		if (![scanner scanInteger:&f]) break;
 		
 		NSInteger startTime = (m * 60 + s) * 75 + f;
-		unsigned location = [scanner scanLocation];
+		NSUInteger location = [scanner scanLocation];
 		
 		if ([scanner skipPastString:@"INDEX 00"])
 		{
@@ -294,8 +294,8 @@
 		
 		DRTrack *track = [[[DRTrack alloc] initWithProducer:self] autorelease];
 		NSMutableDictionary *dict  = [NSMutableDictionary dictionary];
-		[dict setObject:[DRMSF msfWithFrames:length] forKey:DRTrackLengthKey];
-		[dict setObject:[DRMSF msfWithFrames:pregap] forKey:DRPreGapLengthKey];
+		[dict setObject:[DRMSF msfWithFrames:(UInt32)length] forKey:DRTrackLengthKey];
+		[dict setObject:[DRMSF msfWithFrames:(UInt32)pregap] forKey:DRPreGapLengthKey];
 		[dict setObject:[NSNumber numberWithInteger:blockSize] forKey:DRBlockSizeKey];
 		[dict setObject:[NSNumber numberWithInteger:blockType] forKey:DRBlockTypeKey];
 		[dict setObject:[NSNumber numberWithInteger:dataForm] forKey:DRDataFormKey];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Основные" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" frameAutosaveName="Preferences" animationBehavior="default" id="735" userLabel="prefWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -47,7 +47,7 @@
             <rect key="frame" x="0.0" y="0.0" width="420" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1733">
+                <textField verticalHuggingPriority="750" id="1733">
                     <rect key="frame" x="17" y="23" width="202" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Удалять временные элементы:" id="1897">
@@ -61,7 +61,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" title="Вручную" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1730" id="1896">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1729">
                             <items>
                                 <menuItem title="Вручную" state="on" id="1730"/>
@@ -77,7 +77,7 @@
                 <button tag="1" imageHugsTitle="YES" id="1688">
                     <rect key="frame" x="18" y="116" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Использовать звуковые эффекты" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="1" inset="2" id="1895">
+                    <buttonCell key="cell" type="check" title="Использовать звуковые эффекты" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="1" inset="2" id="1895">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -86,7 +86,7 @@
                         <outlet property="nextKeyView" destination="1068" id="1716"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1480">
+                <textField verticalHuggingPriority="750" id="1480">
                     <rect key="frame" x="17" y="53" width="121" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Временная папка:" id="1894">
@@ -100,7 +100,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1825" id="1893">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1477">
                             <items>
                                 <menuItem isSeparatorItem="YES" state="on" id="1825">
@@ -121,7 +121,7 @@
                 <button tag="3" imageHugsTitle="YES" id="1241">
                     <rect key="frame" x="18" y="76" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Запоминать последний выбор" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="3" inset="2" id="1892">
+                    <buttonCell key="cell" type="check" title="Запоминать последний выбор" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="3" inset="2" id="1892">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -132,7 +132,7 @@
                 <button tag="2" imageHugsTitle="YES" id="1068">
                     <rect key="frame" x="18" y="96" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Запоминать открытую закладку" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="2" inset="2" id="1891">
+                    <buttonCell key="cell" type="check" title="Запоминать открытую закладку" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="2" inset="2" id="1891">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -149,7 +149,7 @@
                 <button tag="12" imageHugsTitle="YES" id="1719">
                     <rect key="frame" x="18" y="97" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Показывать пакеты как папки" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="12" inset="2" id="1904">
+                    <buttonCell key="cell" type="check" title="Показывать пакеты как папки" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="12" inset="2" id="1904">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -161,7 +161,7 @@
                 <button tag="13" imageHugsTitle="YES" id="1718">
                     <rect key="frame" x="18" y="77" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Вычислять размер пакетов" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="13" inset="2" id="1903">
+                    <buttonCell key="cell" type="check" title="Вычислять размер пакетов" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="13" inset="2" id="1903">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -172,7 +172,7 @@
                 <button tag="14" imageHugsTitle="YES" id="1498">
                     <rect key="frame" x="18" y="57" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Вычислять размер папок" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="14" inset="2" id="1902">
+                    <buttonCell key="cell" type="check" title="Вычислять размер папок" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="14" inset="2" id="1902">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -181,7 +181,7 @@
                         <outlet property="nextKeyView" destination="759" id="1715"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="760">
+                <textField verticalHuggingPriority="750" id="760">
                     <rect key="frame" x="17" y="0.0" width="386" height="31"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Отключение ускорит работу на медленных компьютерах" id="1901">
@@ -193,7 +193,7 @@
                 <button tag="15" imageHugsTitle="YES" id="759">
                     <rect key="frame" x="18" y="37" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Вычислять общий размер" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="15" inset="2" id="1900">
+                    <buttonCell key="cell" type="check" title="Вычислять общий размер" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="15" inset="2" id="1900">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -206,7 +206,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <popUpButtonCell key="cell" type="push" title="Mac (HFS+)" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="756" id="1899">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="754">
                             <items>
                                 <menuItem title="Mac (HFS+)" state="on" id="756"/>
@@ -221,7 +221,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1758"/>
                     </connections>
                 </popUpButton>
-                <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="752">
+                <textField verticalHuggingPriority="750" tag="99" id="752">
                     <rect key="frame" x="17" y="121" width="154" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Формат по умолчанию:" id="1898">
@@ -246,7 +246,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1059">
+                                    <textField verticalHuggingPriority="750" id="1059">
                                         <rect key="frame" x="44" y="89" width="154" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Формат по умолчанию:" id="1916">
@@ -260,7 +260,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Аудио-CD" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1063" id="1917">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1061">
                                                 <items>
                                                     <menuItem title="Аудио-CD" state="on" id="1063"/>
@@ -281,7 +281,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="959">
+                                    <textField verticalHuggingPriority="750" id="959">
                                         <rect key="frame" x="94" y="87" width="52" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Pregap:" id="1912">
@@ -290,7 +290,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="17" allowsCharacterPickerTouchBarItem="NO" id="960">
+                                    <textField verticalHuggingPriority="750" tag="17" id="960">
                                         <rect key="frame" x="151" y="85" width="55" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" tag="17" title="0" drawsBackground="YES" id="1913">
@@ -309,7 +309,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1764"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="961">
+                                    <textField verticalHuggingPriority="750" id="961">
                                         <rect key="frame" x="211" y="87" width="52" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Секунд" id="1914">
@@ -321,7 +321,7 @@
                                     <button tag="18" imageHugsTitle="YES" id="1600">
                                         <rect key="frame" x="84" y="61" width="196" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Создавать диски CD-текст" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="18" inset="2" id="1915">
+                                        <buttonCell key="cell" type="check" title="Создавать диски CD-текст" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="18" inset="2" id="1915">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -337,7 +337,7 @@
                                 <rect key="frame" x="10" y="33" width="374" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="962">
+                                    <textField verticalHuggingPriority="750" id="962">
                                         <rect key="frame" x="17" y="92" width="104" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Битрейт аудио:" id="1905">
@@ -346,7 +346,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="19" allowsCharacterPickerTouchBarItem="NO" id="963">
+                                    <textField verticalHuggingPriority="750" tag="19" id="963">
                                         <rect key="frame" x="126" y="90" width="56" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="19" title="128" drawsBackground="YES" id="1906">
@@ -365,7 +365,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1766"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="964">
+                                    <textField verticalHuggingPriority="750" id="964">
                                         <rect key="frame" x="17" y="64" width="50" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Режим:" id="1907">
@@ -379,7 +379,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Стерео" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="969" id="1908">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="967">
                                                 <items>
                                                     <menuItem title="Моно" id="970"/>
@@ -391,7 +391,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1767"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="971">
+                                    <textField verticalHuggingPriority="750" id="971">
                                         <rect key="frame" x="187" y="92" width="43" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Кбит/с" id="1909">
@@ -403,7 +403,7 @@
                                     <button tag="21" imageHugsTitle="YES" id="1594">
                                         <rect key="frame" x="18" y="38" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Создавать папки для исполнителей" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="21" inset="2" id="1910">
+                                        <buttonCell key="cell" type="check" title="Создавать папки для исполнителей" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="21" inset="2" id="1910">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -414,7 +414,7 @@
                                     <button tag="22" imageHugsTitle="YES" id="1595">
                                         <rect key="frame" x="18" y="18" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Создавать папки для альбомов" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="22" inset="2" id="1911">
+                                        <buttonCell key="cell" type="check" title="Создавать папки для альбомов" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="22" inset="2" id="1911">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -441,9 +441,9 @@
                         <tabViewItem label="Основные" identifier="1" id="850">
                             <view key="view" id="851">
                                 <rect key="frame" x="10" y="33" width="374" height="361"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" tag="99" allowsCharacterPickerTouchBarItem="NO" id="858">
+                                    <textField verticalHuggingPriority="750" tag="99" id="858">
                                         <rect key="frame" x="17" y="295" width="154" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" tag="99" title="Формат по умолчанию:" id="1918">
@@ -457,7 +457,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="VCD" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="864" id="1919">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="860">
                                                 <items>
                                                     <menuItem title="VCD" state="on" id="864"/>
@@ -476,7 +476,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="PAL" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1694" id="1920">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1692">
                                                 <items>
                                                     <menuItem title="PAL" state="on" id="1694"/>
@@ -488,7 +488,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1770"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1695">
+                                    <textField verticalHuggingPriority="750" id="1695">
                                         <rect key="frame" x="17" y="323" width="54" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Регион:" id="1921">
@@ -503,14 +503,14 @@
                         <tabViewItem label="DVD" identifier="2" id="852">
                             <view key="view" id="853">
                                 <rect key="frame" x="10" y="33" width="374" height="361"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <popUpButton verticalHuggingPriority="750" tag="25" imageHugsTitle="YES" id="867">
                                         <rect key="frame" x="107" y="318" width="130" height="26"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="MP2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="870" id="1922">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="868">
                                                 <items>
                                                     <menuItem title="MP2" state="on" id="870"/>
@@ -522,7 +522,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1772"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="872">
+                                    <textField verticalHuggingPriority="750" id="872">
                                         <rect key="frame" x="17" y="324" width="88" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Аудиокодек:" id="1923">
@@ -534,7 +534,7 @@
                                     <button tag="26" imageHugsTitle="YES" id="873">
                                         <rect key="frame" x="18" y="288" width="118" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Битрейт видео" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="26" inset="2" id="1924">
+                                        <buttonCell key="cell" type="check" title="Битрейт видео" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="26" inset="2" id="1924">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -542,7 +542,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1773"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="27" allowsCharacterPickerTouchBarItem="NO" id="875">
+                                    <textField verticalHuggingPriority="750" tag="27" id="875">
                                         <rect key="frame" x="144" y="287" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="27" title="6000" drawsBackground="YES" id="1925">
@@ -564,7 +564,7 @@
                                     <button tag="28" imageHugsTitle="YES" id="876">
                                         <rect key="frame" x="18" y="256" width="118" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Битрейт аудио" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="28" inset="2" id="1926">
+                                        <buttonCell key="cell" type="check" title="Битрейт аудио" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="28" inset="2" id="1926">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -572,7 +572,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1775"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="29" allowsCharacterPickerTouchBarItem="NO" id="877">
+                                    <textField verticalHuggingPriority="750" tag="29" id="877">
                                         <rect key="frame" x="144" y="255" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="29" title="448" drawsBackground="YES" id="1927">
@@ -591,7 +591,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1776"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="878">
+                                    <textField verticalHuggingPriority="750" id="878">
                                         <rect key="frame" x="233" y="289" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Кбит/с" id="1928">
@@ -600,7 +600,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="879">
+                                    <textField verticalHuggingPriority="750" id="879">
                                         <rect key="frame" x="233" y="257" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Кбит/с" id="1929">
@@ -616,7 +616,7 @@
                                     <button tag="33" imageHugsTitle="YES" id="1230">
                                         <rect key="frame" x="18" y="157" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Форсировать remuxing для внешних потоков MPEG2" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="33" inset="2" id="1930">
+                                        <buttonCell key="cell" type="check" title="Форсировать remuxing для внешних потоков MPEG2" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="33" inset="2" id="1930">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -627,7 +627,7 @@
                                     <button tag="32" imageHugsTitle="YES" id="1236">
                                         <rect key="frame" x="18" y="177" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Мультиплексировать аудио и видео файлы" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="32" inset="2" id="1931">
+                                        <buttonCell key="cell" type="check" title="Мультиплексировать аудио и видео файлы" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="32" inset="2" id="1931">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -638,7 +638,7 @@
                                     <button tag="31" imageHugsTitle="YES" id="1266">
                                         <rect key="frame" x="18" y="197" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Форсировать кодирование MPEG2" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="31" inset="2" id="1932">
+                                        <buttonCell key="cell" type="check" title="Форсировать кодирование MPEG2" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="31" inset="2" id="1932">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -649,7 +649,7 @@
                                     <button tag="30" imageHugsTitle="YES" id="1491">
                                         <rect key="frame" x="18" y="228" width="326" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Принудительно 4:3" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="30" inset="2" id="1933">
+                                        <buttonCell key="cell" type="check" title="Принудительно 4:3" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="30" inset="2" id="1933">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -664,7 +664,7 @@
                                     <button tag="35" imageHugsTitle="YES" id="1620">
                                         <rect key="frame" x="18" y="106" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Использовать тему:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="35" inset="2" id="1934">
+                                        <buttonCell key="cell" type="check" title="Использовать тему:" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="35" inset="2" id="1934">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -677,7 +677,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Standard" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1624" id="1935">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1622">
                                                 <items>
                                                     <menuItem title="Standard" state="on" id="1624"/>
@@ -710,7 +710,7 @@
                                             <action selector="deleteTheme:" target="-2" id="1808"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1628">
+                                    <textField verticalHuggingPriority="750" id="1628">
                                         <rect key="frame" x="18" y="82" width="52" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Тема:" id="1938">
@@ -719,7 +719,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1629">
+                                    <textField verticalHuggingPriority="750" id="1629">
                                         <rect key="frame" x="18" y="52" width="57" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Формат:" id="1939">
@@ -733,7 +733,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Нормальный" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1632" id="1940">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1631">
                                                 <items>
                                                     <menuItem title="Нормальный" state="on" id="1632"/>
@@ -759,7 +759,7 @@
                                     <button tag="34" imageHugsTitle="YES" id="1725">
                                         <rect key="frame" x="18" y="137" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Циклически для дисков DVD-видео" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="34" inset="2" id="1942">
+                                        <buttonCell key="cell" type="check" title="Циклически для дисков DVD-видео" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="34" inset="2" id="1942">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -780,7 +780,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="MP3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="882" id="1943">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="881">
                                                 <items>
                                                     <menuItem title="MP3" state="on" id="882"/>
@@ -792,7 +792,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1784"/>
                                         </connections>
                                     </popUpButton>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="884">
+                                    <textField verticalHuggingPriority="750" id="884">
                                         <rect key="frame" x="17" y="324" width="86" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Аудиокодек:" id="1944">
@@ -804,7 +804,7 @@
                                     <button tag="38" imageHugsTitle="YES" id="885">
                                         <rect key="frame" x="18" y="288" width="118" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Битрейт видео" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="38" inset="2" id="1945">
+                                        <buttonCell key="cell" type="check" title="Битрейт видео" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="38" inset="2" id="1945">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -812,7 +812,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1785"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="39" allowsCharacterPickerTouchBarItem="NO" id="886">
+                                    <textField verticalHuggingPriority="750" tag="39" id="886">
                                         <rect key="frame" x="141" y="287" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="39" title="768" drawsBackground="YES" id="1946">
@@ -834,7 +834,7 @@
                                     <button tag="40" imageHugsTitle="YES" id="887">
                                         <rect key="frame" x="18" y="256" width="118" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Битрейт аудио" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="40" inset="2" id="1947">
+                                        <buttonCell key="cell" type="check" title="Битрейт аудио" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="40" inset="2" id="1947">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -842,7 +842,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1787"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="41" allowsCharacterPickerTouchBarItem="NO" id="888">
+                                    <textField verticalHuggingPriority="750" tag="41" id="888">
                                         <rect key="frame" x="141" y="255" width="84" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="41" title="128" drawsBackground="YES" id="1948">
@@ -861,7 +861,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1788"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="889">
+                                    <textField verticalHuggingPriority="750" id="889">
                                         <rect key="frame" x="230" y="289" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Кбит/с" id="1949">
@@ -870,7 +870,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="890">
+                                    <textField verticalHuggingPriority="750" id="890">
                                         <rect key="frame" x="230" y="257" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Кбит/с" id="1950">
@@ -882,7 +882,7 @@
                                     <button tag="42" imageHugsTitle="YES" id="892">
                                         <rect key="frame" x="18" y="224" width="68" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Размер" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="42" inset="2" id="1951">
+                                        <buttonCell key="cell" type="check" title="Размер" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="42" inset="2" id="1951">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -890,7 +890,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1789"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="43" allowsCharacterPickerTouchBarItem="NO" id="893">
+                                    <textField verticalHuggingPriority="750" tag="43" id="893">
                                         <rect key="frame" x="92" y="223" width="52" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="43" title="320" drawsBackground="YES" id="1952">
@@ -912,7 +912,7 @@
                                     <button tag="45" imageHugsTitle="YES" id="895">
                                         <rect key="frame" x="18" y="193" width="123" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Частота кадров" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="45" inset="2" id="1953">
+                                        <buttonCell key="cell" type="check" title="Частота кадров" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="45" inset="2" id="1953">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -920,7 +920,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1792"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" tag="44" allowsCharacterPickerTouchBarItem="NO" id="896">
+                                    <textField verticalHuggingPriority="750" tag="44" id="896">
                                         <rect key="frame" x="161" y="223" width="52" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="44" title="240" drawsBackground="YES" id="1954">
@@ -939,7 +939,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1791"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="898">
+                                    <textField verticalHuggingPriority="750" id="898">
                                         <rect key="frame" x="218" y="225" width="42" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="пикс." id="1955">
@@ -948,7 +948,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="899">
+                                    <textField verticalHuggingPriority="750" id="899">
                                         <rect key="frame" x="147" y="225" width="12" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="x" id="1956">
@@ -957,7 +957,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" tag="46" allowsCharacterPickerTouchBarItem="NO" id="938">
+                                    <textField verticalHuggingPriority="750" tag="46" id="938">
                                         <rect key="frame" x="147" y="191" width="47" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="46" title="25" drawsBackground="YES" id="1957">
@@ -979,7 +979,7 @@
                                     <button tag="47" imageHugsTitle="YES" id="1237">
                                         <rect key="frame" x="18" y="143" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Разрешить MSMPEG4 на дисках DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="47" inset="2" id="1958">
+                                        <buttonCell key="cell" type="check" title="Разрешить MSMPEG4 на дисках DivX" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="47" inset="2" id="1958">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -990,7 +990,7 @@
                                     <button tag="48" imageHugsTitle="YES" id="1238">
                                         <rect key="frame" x="18" y="123" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Форсировать кодирование DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="48" inset="2" id="1959">
+                                        <buttonCell key="cell" type="check" title="Форсировать кодирование DivX" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="48" inset="2" id="1959">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1016,7 +1016,7 @@
                 <button tag="54" imageHugsTitle="YES" id="1739">
                     <rect key="frame" x="18" y="102" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Принудительная рамка на видеодисках:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="54" inset="2" id="1968">
+                    <buttonCell key="cell" type="check" title="Принудительная рамка на видеодисках:" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="54" inset="2" id="1968">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1024,7 +1024,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1802"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1702">
+                <textField verticalHuggingPriority="750" id="1702">
                     <rect key="frame" x="350" y="122" width="42" height="17"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="пикс." id="1967">
@@ -1033,7 +1033,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" tag="50" allowsCharacterPickerTouchBarItem="NO" id="1700">
+                <textField verticalHuggingPriority="750" tag="50" id="1700">
                     <rect key="frame" x="310" y="120" width="35" height="22"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="50" title="0" drawsBackground="YES" id="1966">
@@ -1055,7 +1055,7 @@
                 <button tag="49" imageHugsTitle="YES" id="1699">
                     <rect key="frame" x="18" y="122" width="286" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Принудительная рамка на видеодисках:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="49" inset="2" id="1965">
+                    <buttonCell key="cell" type="check" title="Принудительная рамка на видеодисках:" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="49" inset="2" id="1965">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1066,7 +1066,7 @@
                 <button tag="51" imageHugsTitle="YES" id="1683">
                     <rect key="frame" x="18" y="82" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Протоколировать" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="51" inset="2" id="1964">
+                    <buttonCell key="cell" type="check" title="Протоколировать" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="51" inset="2" id="1964">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1085,7 +1085,7 @@
                         <action selector="chooseFFMPEG:" target="-2" id="1824"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" tag="53" allowsCharacterPickerTouchBarItem="NO" id="1163">
+                <textField verticalHuggingPriority="750" tag="53" id="1163">
                     <rect key="frame" x="20" y="20" width="237" height="20"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" tag="53" drawsBackground="YES" id="1962">
@@ -1097,7 +1097,7 @@
                         <action selector="setPreferenceOption:" target="-2" id="1800"/>
                     </connections>
                 </textField>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1160">
+                <textField verticalHuggingPriority="750" id="1160">
                     <rect key="frame" x="17" y="48" width="386" height="14"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Может не работать из-за различий синтаксиса" id="1961">
@@ -1109,7 +1109,7 @@
                 <button tag="52" imageHugsTitle="YES" id="1159">
                     <rect key="frame" x="18" y="61" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Особый ffmpeg" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="52" inset="2" id="1960">
+                    <buttonCell key="cell" type="check" title="Особый ffmpeg" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="52" inset="2" id="1960">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1131,9 +1131,9 @@
                         <tabViewItem label="Основные" identifier="1" id="1525">
                             <view key="view" id="1526">
                                 <rect key="frame" x="10" y="33" width="374" height="140"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1539">
+                                    <textField verticalHuggingPriority="750" id="1539">
                                         <rect key="frame" x="17" y="106" width="58" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Привод:" id="1976">
@@ -1142,7 +1142,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1540">
+                                    <textField verticalHuggingPriority="750" id="1540">
                                         <rect key="frame" x="17" y="84" width="340" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Использовать по умолчанию" id="1977">
@@ -1156,7 +1156,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1544" id="1978">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1542">
                                                 <items>
                                                     <menuItem title="Item1" state="on" id="1544"/>
@@ -1172,7 +1172,7 @@
                                     <button tag="6" imageHugsTitle="YES" id="1546">
                                         <rect key="frame" x="18" y="35" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Проверить записанные данные" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="6" inset="2" id="1979">
+                                        <buttonCell key="cell" type="check" title="Проверить записанные данные" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="6" inset="2" id="1979">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1186,19 +1186,19 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         <size key="cellSize" width="177" height="18"/>
                                         <size key="intercellSpacing" width="4" height="2"/>
-                                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="1983">
+                                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="1983">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <cells>
                                             <column>
-                                                <buttonCell type="radio" title="Извлечь диск" imagePosition="leading" alignment="left" state="on" inset="2" id="1549">
+                                                <buttonCell type="radio" title="Извлечь диск" imagePosition="left" alignment="left" state="on" inset="2" id="1549">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                             </column>
                                             <column>
-                                                <buttonCell type="radio" title="Монтировать на Столе" imagePosition="leading" alignment="left" inset="2" id="1548">
+                                                <buttonCell type="radio" title="Монтировать на Столе" imagePosition="left" alignment="left" inset="2" id="1548">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -1208,7 +1208,7 @@
                                             <action selector="setCompletionAction:" target="-2" id="1752"/>
                                         </connections>
                                     </matrix>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1850">
+                                    <textField verticalHuggingPriority="750" id="1850">
                                         <rect key="frame" x="17" y="59" width="340" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="После записи:" id="1980">
@@ -1228,7 +1228,7 @@
                                     <button tag="7" imageHugsTitle="YES" id="1551">
                                         <rect key="frame" x="18" y="109" width="345" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Показывать дополнительное пространство на RW" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="7" inset="2" id="1969">
+                                        <buttonCell key="cell" type="check" title="Показывать дополнительное пространство на RW" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="7" inset="2" id="1969">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1236,7 +1236,7 @@
                                             <action selector="setPreferenceOption:" target="-2" id="1754"/>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1552">
+                                    <textField verticalHuggingPriority="750" id="1552">
                                         <rect key="frame" x="17" y="55" width="146" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Стандарт для DVD:" id="1970">
@@ -1245,7 +1245,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1558">
+                                    <textField verticalHuggingPriority="750" id="1558">
                                         <rect key="frame" x="17" y="85" width="137" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Стандарт для CD:" id="1971">
@@ -1254,7 +1254,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="1568">
+                                    <textField verticalHuggingPriority="750" id="1568">
                                         <rect key="frame" x="17" y="25" width="132" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Если нет диска:" id="1972">
@@ -1268,7 +1268,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Нет диска" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1571" id="1973">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1570">
                                                 <items>
                                                     <menuItem title="Нет диска" state="on" id="1571"/>
@@ -1286,7 +1286,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="DVD R(W) (1,4 GB)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1864" id="1974">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1858">
                                                 <items>
                                                     <menuItem title="Мини (8 см):" id="1863"/>
@@ -1307,7 +1307,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="700 Мбайт (80 мин)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1867" id="1975">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="1866">
                                                 <items>
                                                     <menuItem title="Мини (8 см):" id="1876"/>
@@ -1360,7 +1360,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Меню названий" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1851" id="1982">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="1660">
                                 <items>
                                     <menuItem title="Меню названий" state="on" id="1851"/>

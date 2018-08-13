@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NSString *KWResourceKeys NS_STRING_ENUM;
-typedef KWResourceKeys KWRectKeys NS_STRING_ENUM;
-typedef KWResourceKeys KWDataKeys NS_STRING_ENUM;
+typedef NSString *KWResourceKeys NS_TYPED_ENUM;
+typedef KWResourceKeys KWRectKeys NS_TYPED_ENUM;
+typedef KWResourceKeys KWDataKeys NS_TYPED_ENUM;
 
 // keys
 extern KWResourceKeys const KWDVDNameDisableTextKey;

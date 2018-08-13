@@ -2626,7 +2626,7 @@ MP4FileHandle MP4ReadProvider( const char* fileName, uint32_t verbosity, const M
             return true;
         }
         catch( MP4Error* e ) {
-            ((MP4File*)srcFile)->GetVerbosity(), e->Print();
+            ((MP4File*)srcFile)->GetVerbosity(); e->Print();
             delete e;
         }
 
@@ -2659,7 +2659,7 @@ MP4FileHandle MP4ReadProvider( const char* fileName, uint32_t verbosity, const M
             return true;
         }
         catch( MP4Error* e ) {
-            ((MP4File*)srcFile)->GetVerbosity(), e->Print();
+            ((MP4File*)srcFile)->GetVerbosity(); e->Print();
             delete e;
         }
 

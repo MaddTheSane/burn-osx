@@ -96,8 +96,15 @@
 {
 	[sheet orderOut:self];
 
-	if (returnCode == NSOKButton)
-		[self checkFiles:[sheet filenames]];
+	if (returnCode == NSOKButton) {
+		NSArray *urlArray = [sheet URLs];
+		NSMutableArray *fileArray = [[NSMutableArray alloc] initWithCapacity:urlArray.count];
+		for (NSURL *aURL in urlArray) {
+			[fileArray addObject:aURL.path];
+		}
+		[self checkFiles:fileArray];
+		[fileArray release];
+	}
 }
 
 //Delete the selected row(s)
@@ -162,13 +169,12 @@
 	return ([knownProtectedFiles containsObject:[[path pathExtension] lowercaseString]] | [knownProtectedFiles containsObject:NSFileTypeForHFSTypeCode([[[[NSFileManager defaultManager] fileAttributesAtPath:path traverseLink:YES] objectForKey:NSFileHFSTypeCode] unsignedIntValue])]);
 }
 
-//Check if the file is folder or file, if it is folder scan it, when a file
-//if it is a correct file
+//! Check if the file is folder or file, if it is folder scan it, when a file
+//! if it is a correct file
 - (void)checkFilesInThread:(NSArray *)paths
 {
 	//Needed because we're in a new thread
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
+	@autoreleasepool {
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	NSString *firstFile = [paths objectAtIndex:0];
 	NSInteger numberOfPaths = [paths count];
@@ -300,8 +306,7 @@
 
 	[self performSelectorOnMainThread:@selector(showAlert) withObject:nil waitUntilDone:NO];
 
-	[pool release];
-	pool = nil;
+	}
 }
 
 /////////////////////////
@@ -963,7 +968,7 @@
 	}
 	
 	if ((NSString *)resolvedPath)
-		return (NSString *)resolvedPath;
+		return CFBridgingRelease(resolvedPath);
 	else
 		return inPath;
 }

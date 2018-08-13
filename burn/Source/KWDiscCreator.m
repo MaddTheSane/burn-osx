@@ -214,8 +214,9 @@
 	
 	if ([returnCode isEqualTo:@"KWSucces"])
 	{
+		NSString *unusedString = nil;
 		if ([[imagePath pathExtension] isEqualTo:@"cue"] && burner)
-			[KWCommonMethods writeString:[audioControllerOutlet cueStringWithBinFile:[[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"bin"]] toFile:imagePath errorString:nil];
+			[KWCommonMethods writeString:[audioControllerOutlet cueStringWithBinFile:[[[imagePath lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"bin"]] toFile:imagePath errorString:&unusedString];
 	
 		if ([[[mainTabView selectedTabViewItem] identifier] isEqualTo:@"Copy"])
 		{
@@ -371,7 +372,7 @@
 					NSInteger i;
 					for (i = 0; i < [[audioTracks children] count]; i ++)
 					{
-						[rootFolder addChild:[self newDRFSObject:[[audioTracks children] objectAtIndex:i]]];
+						[rootFolder addChild:[self newDRFSObject:[[(__kindof DRFSObject*)audioTracks children] objectAtIndex:i]]];
 					}
 				}
 				else
@@ -417,7 +418,7 @@
 					NSInteger i;
 					for (i = 0;i < [[videoTracks children] count]; i ++)
 					{
-						[rootFolder addChild:[self newDRFSObject:[[videoTracks children] objectAtIndex:i]]];
+						[rootFolder addChild:[self newDRFSObject:[[(__kindof DRFSObject*)videoTracks children] objectAtIndex:i]]];
 					}
 				}
 				else
@@ -685,7 +686,7 @@
 				[extensionHiddenArray addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[object sourcePath],[NSNumber numberWithBool:(finderFlags & 0x0010)],nil] forKeys:[NSArray arrayWithObjects:@"Path",@"Extension Hidden",nil]]];
 				
 				finderFlags = [[object propertyForKey:DRMacFinderFlags inFilesystem:DRHFSPlus mergeWithOtherFilesystems:NO] unsignedShortValue];
-				[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:(finderFlags & 0x0010)] forKey:NSFileExtensionHidden] atPath:[object sourcePath]];
+				[defaultManager changeFileAttributes:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:(finderFlags & 0x0010) != 0] forKey:NSFileExtensionHidden] atPath:[object sourcePath]];
 			}
 				
 			newObject = [DRFile fileWithPath:[object sourcePath]];

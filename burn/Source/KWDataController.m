@@ -208,8 +208,15 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 {
 	[panel orderOut:self];
 
-	if (returnCode == NSOKButton)
-		[self addFiles:[panel filenames] removeFiles:NO];
+	if (returnCode == NSOKButton) {
+		NSArray *urlArray = [panel URLs];
+		NSMutableArray *pathArray = [[NSMutableArray alloc] initWithCapacity:urlArray.count];
+		for (NSURL *aURL in urlArray) {
+			[pathArray addObject:aURL.path];
+		}
+		[self addFiles:pathArray removeFiles:NO];
+		[pathArray release];
+	}
 }
 
 - (void)addDroppedOnIconFiles:(NSArray *)paths

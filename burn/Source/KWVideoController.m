@@ -124,7 +124,7 @@
 	if (!unsavediMovieProject)
 	{
 	//Check if the file is allready the right file
-	BOOL checkFile;
+	BOOL checkFile = NO;
 
 		if (selrow == 0)
 		{
@@ -393,7 +393,7 @@
 		}
 		else
 		{
-			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:@(totalSize / 2) error:&tmpErr];
+			succes = [DVDAuthorizer createStandardDVDFolderAtPath:path withFileArray:tableData withSize:totalSize / 2 error:&tmpErr];
 			if (error) {
 				*error = tmpErr.localizedDescription;
 			}

@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NSString *KWDiscType NS_STRING_ENUM;
+typedef NSString *KWDiscType NS_TYPED_ENUM;
 
 
 extern NSString *const KWChangeBurnStatusNotification;

@@ -37,11 +37,11 @@
 + (NSXMLElement *)elementForTrack:(DRTrack *)track startingOffset:(uint64_t)offset size:(uint64_t *)retSize
 {
 	NSXMLElement *root = [NSXMLElement elementWithName:@"track"];
-	require(root, error);
+	__Require(root, error);
 	NSDictionary *props = [track properties];
-	require(props, error);
+	__Require(props, error);
 	NSNumber *blockType = [props objectForKey:DRBlockTypeKey];
-	require(blockType, error);
+	__Require(blockType, error);
 	NSXMLNode *tempNode = NULL;
 	
 	switch ([blockType intValue])
@@ -65,13 +65,13 @@
 	tempNode = NULL;
 	
 	NSNumber * blockSize=[props objectForKey:DRBlockSizeKey];
-	require(blockSize, error);
+	__Require(blockSize, error);
 	[root addAttribute:[NSXMLNode attributeWithName:@"block-size" stringValue:[NSString stringWithFormat:@"%d", [blockSize intValue]]]];
 	[root addAttribute:[NSXMLNode attributeWithName:@"start-offset" stringValue:[NSString stringWithFormat:@"%llu", offset]]];
 	
 	uint64_t size = [track estimateLength] * [blockSize unsignedLongLongValue];
 	[root addAttribute:[NSXMLNode attributeWithName:@"size" stringValue:[NSString stringWithFormat:@"%llu", size]]];
-	require(size, error);
+	__Require(size, error);
 	if (retSize)
 		*retSize=size;
 	
@@ -174,37 +174,37 @@ error:;
 
 +(NSXMLDocument*)LOXIXmlDocumentForFileAtPath:(NSString*)path{
 	NSFileHandle			*fh=NULL;
-	require(path, error);
+	__Require(path, error);
 	fh=[NSFileHandle fileHandleForReadingAtPath:path];
-	require(fh, error);
+	__Require(fh, error);
 	
 	[fh seekToEndOfFile];
 	[fh seekToFileOffset:[fh offsetInFile]-4];
 	
 	NSData					*tempData=[fh readDataOfLength:4];
-	require(tempData, error);
+	__Require(tempData, error);
 	char					*tempBytes=(char*)[tempData bytes];
-	require(tempBytes[0]=='L' && tempBytes[1]=='O' && tempBytes[2]=='X' && tempBytes[3]=='I', error);
+	__Require(tempBytes[0]=='L' && tempBytes[1]=='O' && tempBytes[2]=='X' && tempBytes[3]=='I', error);
 	
 	uint32_t				footerSize=0;
 	[fh seekToEndOfFile];
 	[fh seekToFileOffset:[fh offsetInFile]-4-sizeof(footerSize)];
 	
 	tempData=[fh readDataOfLength:sizeof(footerSize)];
-	require(tempData, error);
+	__Require(tempData, error);
 	
 	[tempData getBytes:&footerSize];
 	footerSize=OSSwapBigToHostInt32(footerSize);
-	require(footerSize, error);
+	__Require(footerSize, error);
 	
 	[fh seekToEndOfFile];
 	[fh seekToFileOffset:[fh offsetInFile]-4-sizeof(footerSize)-footerSize];
 	
 	tempData=[fh readDataOfLength:footerSize];
-	require(tempData, error);
+	__Require(tempData, error);
 	
 	NSXMLDocument			*doc=[[NSXMLDocument alloc] initWithData:tempData options:0 error:NULL];
-	require(doc, error);
+	__Require(doc, error);
 	[fh closeFile];
 	
 	return [doc autorelease];
@@ -220,7 +220,7 @@ error:
 	if (!a || ![a count])
 		return nil;
 	NSXMLElement			*root=[NSXMLElement elementWithName:@"cdtext"];
-	require(root, error);
+	__Require(root, error);
 	
 	for(DRCDTextBlock *block in a){
 		

@@ -119,7 +119,7 @@
 	}
 	else
 	{
-		NSString *unmountPath;
+		NSString *unmountPath = nil;
 		
 		if ([[mountButton title] isEqualTo:NSLocalizedString(@"Eject", nil)])
 			unmountPath = [currentInformation objectForKey:@"Mounted Path"];

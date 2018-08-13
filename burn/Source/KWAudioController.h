@@ -76,9 +76,9 @@
 //Get movie duration using NSMovie so it works in Panther too
 - (NSInteger)getMovieDuration:(NSString *)path;
 //Check if the disc can be combined
-- (BOOL)isCombinable;
+@property (readonly, getter=isCombinable) BOOL combinable;
 //Check if the disc is a Audio CD disc
-- (BOOL)isAudioCD;
+@property (readonly, getter=isAudioCD) BOOL audioCD;
 //Change the inspector when selecting volume label
 - (void)volumeLabelSelected:(NSNotification *)notif;
 //Get string which can be saved as cue file
@@ -86,7 +86,7 @@
 
 //External actions
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
-- (BOOL)hasCDText;
+@property (readonly) BOOL hasCDText;
 - (DRCDTextBlock *)myTextBlock;
 #endif
 - (NSMutableArray *)myTracks;

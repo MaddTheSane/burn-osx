@@ -268,7 +268,7 @@ NSErrorDomain const KWDVDAuthorizerErrorDomain = @"KWDVDAuthorizerErrorDomain";
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
 	NSString *themeFolderPath = [path stringByAppendingPathComponent:@"THEME_TS"];
 	NSString *dvdXMLPath = [themeFolderPath stringByAppendingPathComponent:@"dvdauthor.xml"];
-	progressSize = size;
+	progressSize = size.longLongValue;
 	wideScreen = ws;
 	
 	//Set value for our progress panel

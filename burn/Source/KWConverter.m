@@ -1189,7 +1189,7 @@
 
 + (BOOL)combineStreams:(NSString *)path atOutputPath:(NSString *)outputPath
 {
-	NSString *audioFile;
+	NSString *audioFile = nil;
 	
 	NSFileManager *defaultManager = [NSFileManager defaultManager];
 	NSString *pathWithOutExtension = [path stringByDeletingPathExtension];

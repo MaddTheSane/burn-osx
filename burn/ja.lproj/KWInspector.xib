@@ -70,7 +70,7 @@
                                     <button imageHugsTitle="YES" id="172">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="HFS+ファイルシステムに含める" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="2197">
+                                        <buttonCell key="cell" type="check" title="HFS+ファイルシステムに含める" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="2197">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -166,7 +166,7 @@
                                                                 <button tag="99" imageHugsTitle="YES" id="1942">
                                                                     <rect key="frame" x="75" y="266" width="88" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                    <buttonCell key="cell" type="check" title="拡張子を隠す" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="99" inset="2" id="2149">
+                                                                    <buttonCell key="cell" type="check" title="拡張子を隠す" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="99" inset="2" id="2149">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
@@ -320,61 +320,61 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="73" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2487">
+                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2487">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="89">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="89">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="3" inset="2" id="93">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="3" inset="2" id="93">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="6" inset="2" id="95">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="6" inset="2" id="95">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="9" inset="2" id="99">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                        </column>
-                                                                        <column>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="91">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="94">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="7" inset="2" id="96">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="88">
+                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="9" inset="2" id="99">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
                                                                         </column>
                                                                         <column>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2" inset="2" id="92">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="91">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="5" inset="2" id="97">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="94">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="98">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="7" inset="2" id="96">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="90">
+                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="88">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                        </column>
+                                                                        <column>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="92">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="5" inset="2" id="97">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="98">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="90">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -962,59 +962,59 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="112" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="Switch" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2488">
+                                                                    <buttonCell key="prototype" type="check" title="Switch" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2488">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="kIsOnDesk" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="457">
+                                                                            <buttonCell type="check" title="kIsOnDesk" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="457">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kColor" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="15" inset="2" id="456">
+                                                                            <buttonCell type="check" title="kColor" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="15" inset="2" id="456">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kIsShared" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="64" inset="2" id="459">
+                                                                            <buttonCell type="check" title="kIsShared" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="64" inset="2" id="459">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kHasNoINITs" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="128" inset="2" id="453">
+                                                                            <buttonCell type="check" title="kHasNoINITs" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="128" inset="2" id="453">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kHasBeenInited" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="256" inset="2" id="455">
+                                                                            <buttonCell type="check" title="kHasBeenInited" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="256" inset="2" id="455">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="切り換え" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" transparent="YES" inset="2" id="450">
+                                                                            <buttonCell type="check" title="切り換え" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" transparent="YES" inset="2" id="450">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
                                                                         </column>
                                                                         <column>
-                                                                            <buttonCell type="check" title="kHasCustomIcon" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1024" inset="2" id="460">
+                                                                            <buttonCell type="check" title="kHasCustomIcon" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1024" inset="2" id="460">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kIsStationery" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2048" inset="2" id="458">
+                                                                            <buttonCell type="check" title="kIsStationery" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2048" inset="2" id="458">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kNameLocked" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4096" inset="2" id="451">
+                                                                            <buttonCell type="check" title="kNameLocked" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4096" inset="2" id="451">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kHasBundle" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8192" inset="2" id="454">
+                                                                            <buttonCell type="check" title="kHasBundle" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8192" inset="2" id="454">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kIsInvisible" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="16384" inset="2" id="449">
+                                                                            <buttonCell type="check" title="kIsInvisible" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="16384" inset="2" id="449">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kIsAlias" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="32768" inset="2" id="452">
+                                                                            <buttonCell type="check" title="kIsAlias" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="32768" inset="2" id="452">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -1049,21 +1049,21 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="194" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="Switch" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2489">
+                                                                    <buttonCell key="prototype" type="check" title="Switch" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2489">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="kExtendedFlagsAreInvalid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="32768" inset="2" id="464">
+                                                                            <buttonCell type="check" title="kExtendedFlagsAreInvalid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="32768" inset="2" id="464">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kExtendedFlagHasCustomBadge" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="256" inset="2" id="465">
+                                                                            <buttonCell type="check" title="kExtendedFlagHasCustomBadge" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="256" inset="2" id="465">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="kExtendedFlagHasRoutingInfo" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="466">
+                                                                            <buttonCell type="check" title="kExtendedFlagHasRoutingInfo" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="466">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -1094,7 +1094,7 @@
                                     <button imageHugsTitle="YES" id="175">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="ISO 9660ファイルシステムに含める" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="2198">
+                                        <buttonCell key="cell" type="check" title="ISO 9660ファイルシステムに含める" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="2198">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -1462,61 +1462,61 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="73" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2491">
+                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2491">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="240">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="240">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="3" inset="2" id="231">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="3" inset="2" id="231">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="6" inset="2" id="234">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="6" inset="2" id="234">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="9" inset="2" id="237">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                        </column>
-                                                                        <column>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="229">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="232">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="7" inset="2" id="235">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="238">
+                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="9" inset="2" id="237">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
                                                                         </column>
                                                                         <column>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2" inset="2" id="230">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="229">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="5" inset="2" id="233">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="232">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="236">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="7" inset="2" id="235">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="239">
+                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="238">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                        </column>
+                                                                        <column>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="230">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="5" inset="2" id="233">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="236">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="239">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -1662,7 +1662,7 @@
                                                                 <button tag="12" imageHugsTitle="YES" id="243">
                                                                     <rect key="frame" x="17" y="393" width="121" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="12" inset="2" id="2220">
+                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="12" inset="2" id="2220">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
@@ -1696,7 +1696,7 @@
                                     <button imageHugsTitle="YES" id="269">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Jolietファイルシステムに含める" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="2233">
+                                        <buttonCell key="cell" type="check" title="Jolietファイルシステムに含める" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="2233">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -2002,61 +2002,61 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="73" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2492">
+                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2492">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="305">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="305">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="3" inset="2" id="308">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="3" inset="2" id="308">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="6" inset="2" id="299">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="6" inset="2" id="299">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="9" inset="2" id="302">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                        </column>
-                                                                        <column>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="306">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="309">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="7" inset="2" id="300">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="303">
+                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="9" inset="2" id="302">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
                                                                         </column>
                                                                         <column>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2" inset="2" id="307">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="306">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="5" inset="2" id="310">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="309">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="301">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="7" inset="2" id="300">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="304">
+                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="303">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                        </column>
+                                                                        <column>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="307">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="5" inset="2" id="310">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="301">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="304">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -2169,7 +2169,7 @@
                                                                 <button tag="12" imageHugsTitle="YES" id="284">
                                                                     <rect key="frame" x="9" y="393" width="121" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="12" inset="2" id="2235">
+                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="12" inset="2" id="2235">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
@@ -2236,7 +2236,7 @@
                                     <button imageHugsTitle="YES" id="805">
                                         <rect key="frame" x="19" y="372" width="380" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="UDFファイルシステムに含める" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="2288">
+                                        <buttonCell key="cell" type="check" title="UDFファイルシステムに含める" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="2288">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -2540,61 +2540,61 @@
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     <size key="cellSize" width="73" height="18"/>
                                                                     <size key="intercellSpacing" width="5" height="2"/>
-                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2494">
+                                                                    <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2494">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
                                                                     <cells>
                                                                         <column>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="739">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="739">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="3" inset="2" id="742">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="3" inset="2" id="742">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="6" inset="2" id="745">
+                                                                            <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="6" inset="2" id="745">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="9" inset="2" id="748">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                        </column>
-                                                                        <column>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="740">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="743">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="7" inset="2" id="746">
-                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                                <font key="font" metaFont="smallSystem"/>
-                                                                            </buttonCell>
-                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="738">
+                                                                            <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="9" inset="2" id="748">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
                                                                         </column>
                                                                         <column>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2" inset="2" id="741">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="740">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="5" inset="2" id="744">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="743">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="747">
+                                                                            <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="7" inset="2" id="746">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
-                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="737">
+                                                                            <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="738">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                        </column>
+                                                                        <column>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="741">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="5" inset="2" id="744">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="747">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" metaFont="smallSystem"/>
+                                                                            </buttonCell>
+                                                                            <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="737">
                                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                             </buttonCell>
@@ -2707,7 +2707,7 @@
                                                                 <button tag="11" imageHugsTitle="YES" id="797">
                                                                     <rect key="frame" x="17" y="429" width="121" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
-                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="2287">
+                                                                    <buttonCell key="cell" type="check" title="項目を見えなくする" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="2287">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                     </buttonCell>
@@ -3425,7 +3425,7 @@ Gw
                                                 <button tag="2" imageHugsTitle="YES" id="1253">
                                                     <rect key="frame" x="128" y="294" width="188" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <buttonCell key="cell" type="check" title="Rock Ridge拡張を含む" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" tag="2" inset="2" id="2436">
+                                                    <buttonCell key="cell" type="check" title="Rock Ridge拡張を含む" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" tag="2" inset="2" id="2436">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -3449,7 +3449,7 @@ Gw
                                                 <button tag="1" imageHugsTitle="YES" id="1274">
                                                     <rect key="frame" x="128" y="314" width="184" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <buttonCell key="cell" type="check" title="Macintosh拡張を含む" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" tag="1" inset="2" id="2438">
+                                                    <buttonCell key="cell" type="check" title="Macintosh拡張を含む" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" tag="1" inset="2" id="2438">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -4088,61 +4088,61 @@ Gw
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         <size key="cellSize" width="73" height="18"/>
                                         <size key="intercellSpacing" width="5" height="2"/>
-                                        <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="-1" inset="2" id="2497">
+                                        <buttonCell key="prototype" type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="-1" inset="2" id="2497">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
                                         <cells>
                                             <column>
-                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="1529">
+                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="1529">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="3" inset="2" id="1532">
+                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="3" inset="2" id="1532">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="6" inset="2" id="1535">
+                                                <buttonCell type="check" title="読み" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="6" inset="2" id="1535">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="9" inset="2" id="1538">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                </buttonCell>
-                                            </column>
-                                            <column>
-                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="1" inset="2" id="1530">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                </buttonCell>
-                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="4" inset="2" id="1533">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                </buttonCell>
-                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="7" inset="2" id="1536">
-                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                </buttonCell>
-                                                <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="1540">
+                                                <buttonCell type="check" title="setuid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="9" inset="2" id="1538">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
                                             </column>
                                             <column>
-                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="2" inset="2" id="1531">
+                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="1" inset="2" id="1530">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="5" inset="2" id="1534">
+                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="4" inset="2" id="1533">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="1537">
+                                                <buttonCell type="check" title="書き" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="7" inset="2" id="1536">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
-                                                <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="11" inset="2" id="1539">
+                                                <buttonCell type="check" title="setgid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="1540">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                            </column>
+                                            <column>
+                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="2" inset="2" id="1531">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="5" inset="2" id="1534">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                                <buttonCell type="check" title="実行" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="1537">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                                <buttonCell type="check" title="スティッキービット" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="11" inset="2" id="1539">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
@@ -4383,7 +4383,7 @@ Gw
                 <button tag="8" imageHugsTitle="YES" id="1483">
                     <rect key="frame" x="31" y="74" width="351" height="16"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="CDテキストに含めることも" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="8" inset="2" id="2322">
+                    <buttonCell key="cell" type="check" title="CDテキストに含めることも" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="8" inset="2" id="2322">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
@@ -4415,7 +4415,7 @@ Gw
                 <button tag="12" imageHugsTitle="YES" id="1479">
                     <rect key="frame" x="17" y="54" width="365" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="インデックス・ポイント" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="12" inset="2" id="2319">
+                    <buttonCell key="cell" type="check" title="インデックス・ポイント" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="12" inset="2" id="2319">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
@@ -4455,7 +4455,7 @@ Gw
                 <button tag="10" imageHugsTitle="YES" id="1476">
                     <rect key="frame" x="17" y="117" width="365" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="50/15µsのプリエンファシス" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" tag="10" inset="2" id="2316">
+                    <buttonCell key="cell" type="check" title="50/15µsのプリエンファシス" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" tag="10" inset="2" id="2316">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>

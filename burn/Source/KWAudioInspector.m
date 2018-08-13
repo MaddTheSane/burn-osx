@@ -48,7 +48,7 @@
 
 - (void)setCurrentField:(NSNotification *)notif
 {
-	NSWindow *window;
+	NSWindow *window=nil;
 
 	if (![[notif object] isEqualTo:window] && [[[notif object] contentView] isEqualTo:myView])
 	{

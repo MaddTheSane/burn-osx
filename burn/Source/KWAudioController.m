@@ -1447,13 +1447,13 @@
 			
 		if (pregap > 0)
 		{
-			NSString *time = [[DRMSF msfWithFrames:size] description];
+			NSString *time = [[DRMSF msfWithFrames:(UInt32)size] description];
 			cueFile = [NSString stringWithFormat:@"%@\n    INDEX 00 %@", cueFile, time];
 			size = size + pregap;
 		}
 		
 		NSInteger trackSize = [[trackProperties objectForKey:DRTrackLengthKey] integerValue];
-		NSString *time = [[DRMSF msfWithFrames:size] description];
+		NSString *time = [[DRMSF msfWithFrames:(UInt32)size] description];
 		cueFile = [NSString stringWithFormat:@"%@\n    INDEX 01 %@", cueFile, time];
 		size = size + trackSize;
 	}

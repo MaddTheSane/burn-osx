@@ -107,7 +107,7 @@
 
 //Outline actions
 - (void)reloadOutlineView;
-- (NSArray *)selectedDRFSObjects;
+//- (NSArray *)selectedDRFSObjects;
 - (void)setOutlineViewState:(NSNotification *)notif;
 - (IBAction)outlineViewAction:(id)sender;
 - (NSInteger)numberOfRows;

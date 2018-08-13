@@ -4,7 +4,7 @@
 #import <DiscRecording/DiscRecording.h>
 #import "KWCommonMethods.h"
 
-typedef NSString *KWPreferenceIdentifier NS_STRING_ENUM;
+typedef NSString *KWPreferenceIdentifier NS_TYPED_ENUM;
 
 extern KWPreferenceIdentifier const KWPreferenceIdentifierGeneral;
 extern KWPreferenceIdentifier const KWPreferenceIdentifierBurner;

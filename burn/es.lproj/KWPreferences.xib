@@ -77,7 +77,7 @@
                 <button tag="1" imageHugsTitle="YES" id="1688">
                     <rect key="frame" x="18" y="116" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Usar sonidos" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="1" inset="2" id="1895">
+                    <buttonCell key="cell" type="check" title="Usar sonidos" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="1" inset="2" id="1895">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -121,7 +121,7 @@
                 <button tag="3" imageHugsTitle="YES" id="1241">
                     <rect key="frame" x="18" y="76" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Recordar listas desplegables" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="3" inset="2" id="1892">
+                    <buttonCell key="cell" type="check" title="Recordar listas desplegables" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="3" inset="2" id="1892">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -132,7 +132,7 @@
                 <button tag="2" imageHugsTitle="YES" id="1068">
                     <rect key="frame" x="18" y="96" width="324" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Recordar última pestaña" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="2" inset="2" id="1891">
+                    <buttonCell key="cell" type="check" title="Recordar última pestaña" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="2" inset="2" id="1891">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -149,7 +149,7 @@
                 <button tag="12" imageHugsTitle="YES" id="1719">
                     <rect key="frame" x="18" y="117" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Paquetes como carpetas" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="12" inset="2" id="1904">
+                    <buttonCell key="cell" type="check" title="Paquetes como carpetas" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="12" inset="2" id="1904">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -161,7 +161,7 @@
                 <button tag="13" imageHugsTitle="YES" id="1718">
                     <rect key="frame" x="18" y="97" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Calcular tam. paquetes" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="13" inset="2" id="1903">
+                    <buttonCell key="cell" type="check" title="Calcular tam. paquetes" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="13" inset="2" id="1903">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -172,7 +172,7 @@
                 <button tag="14" imageHugsTitle="YES" id="1498">
                     <rect key="frame" x="18" y="77" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Calcular tam. carpetas" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="14" inset="2" id="1902">
+                    <buttonCell key="cell" type="check" title="Calcular tam. carpetas" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="14" inset="2" id="1902">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -195,7 +195,7 @@
                 <button tag="15" imageHugsTitle="YES" id="759">
                     <rect key="frame" x="18" y="57" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Calcular tam. total" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="15" inset="2" id="1900">
+                    <buttonCell key="cell" type="check" title="Calcular tam. total" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="15" inset="2" id="1900">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -323,7 +323,7 @@
                                     <button tag="18" imageHugsTitle="YES" id="1600">
                                         <rect key="frame" x="98" y="61" width="158" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Crear discos CD-Text" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="18" inset="2" id="1915">
+                                        <buttonCell key="cell" type="check" title="Crear discos CD-Text" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="18" inset="2" id="1915">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -405,7 +405,7 @@
                                     <button tag="21" imageHugsTitle="YES" id="1594">
                                         <rect key="frame" x="18" y="38" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Crear carpetas para artistas" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="21" inset="2" id="1910">
+                                        <buttonCell key="cell" type="check" title="Crear carpetas para artistas" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="21" inset="2" id="1910">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -416,7 +416,7 @@
                                     <button tag="22" imageHugsTitle="YES" id="1595">
                                         <rect key="frame" x="18" y="18" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Crear carpetas para álbumes" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="22" inset="2" id="1911">
+                                        <buttonCell key="cell" type="check" title="Crear carpetas para álbumes" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="22" inset="2" id="1911">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -536,7 +536,7 @@
                                     <button tag="26" imageHugsTitle="YES" id="873">
                                         <rect key="frame" x="18" y="288" width="101" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Bitrate vídeo" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="26" inset="2" id="1924">
+                                        <buttonCell key="cell" type="check" title="Bitrate vídeo" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="26" inset="2" id="1924">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -566,7 +566,7 @@
                                     <button tag="28" imageHugsTitle="YES" id="876">
                                         <rect key="frame" x="18" y="256" width="105" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Bitrate audio" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="28" inset="2" id="1926">
+                                        <buttonCell key="cell" type="check" title="Bitrate audio" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="28" inset="2" id="1926">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -618,7 +618,7 @@
                                     <button tag="33" imageHugsTitle="YES" id="1230">
                                         <rect key="frame" x="18" y="157" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Forzar &quot;remuxing&quot; MPEG2 externos" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="33" inset="2" id="1930">
+                                        <buttonCell key="cell" type="check" title="Forzar &quot;remuxing&quot; MPEG2 externos" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="33" inset="2" id="1930">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -629,7 +629,7 @@
                                     <button tag="32" imageHugsTitle="YES" id="1236">
                                         <rect key="frame" x="18" y="177" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Mezclar audio y vídeo separados" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="32" inset="2" id="1931">
+                                        <buttonCell key="cell" type="check" title="Mezclar audio y vídeo separados" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="32" inset="2" id="1931">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -640,7 +640,7 @@
                                     <button tag="31" imageHugsTitle="YES" id="1266">
                                         <rect key="frame" x="18" y="197" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Forzar cod. MPEG2" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="31" inset="2" id="1932">
+                                        <buttonCell key="cell" type="check" title="Forzar cod. MPEG2" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="31" inset="2" id="1932">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -651,7 +651,7 @@
                                     <button tag="30" imageHugsTitle="YES" id="1491">
                                         <rect key="frame" x="18" y="228" width="326" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Forzar 4:3" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="30" inset="2" id="1933">
+                                        <buttonCell key="cell" type="check" title="Forzar 4:3" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="30" inset="2" id="1933">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -666,7 +666,7 @@
                                     <button tag="35" imageHugsTitle="YES" id="1620">
                                         <rect key="frame" x="18" y="106" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Usar tema DVD:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="35" inset="2" id="1934">
+                                        <buttonCell key="cell" type="check" title="Usar tema DVD:" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="35" inset="2" id="1934">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -761,7 +761,7 @@
                                     <button tag="34" imageHugsTitle="YES" id="1725">
                                         <rect key="frame" x="18" y="137" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Discos DVD-Video en bucle" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="34" inset="2" id="1942">
+                                        <buttonCell key="cell" type="check" title="Discos DVD-Video en bucle" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="34" inset="2" id="1942">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -806,7 +806,7 @@
                                     <button tag="38" imageHugsTitle="YES" id="885">
                                         <rect key="frame" x="18" y="288" width="104" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Bitrate vídeo" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="38" inset="2" id="1945">
+                                        <buttonCell key="cell" type="check" title="Bitrate vídeo" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="38" inset="2" id="1945">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -836,7 +836,7 @@
                                     <button tag="40" imageHugsTitle="YES" id="887">
                                         <rect key="frame" x="18" y="256" width="105" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Bitrate audio" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="40" inset="2" id="1947">
+                                        <buttonCell key="cell" type="check" title="Bitrate audio" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="40" inset="2" id="1947">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -884,7 +884,7 @@
                                     <button tag="42" imageHugsTitle="YES" id="892">
                                         <rect key="frame" x="18" y="224" width="48" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Tam." bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="42" inset="2" id="1951">
+                                        <buttonCell key="cell" type="check" title="Tam." bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="42" inset="2" id="1951">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -914,7 +914,7 @@
                                     <button tag="45" imageHugsTitle="YES" id="895">
                                         <rect key="frame" x="18" y="193" width="44" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="FPS" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="45" inset="2" id="1953">
+                                        <buttonCell key="cell" type="check" title="FPS" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="45" inset="2" id="1953">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -981,7 +981,7 @@
                                     <button tag="47" imageHugsTitle="YES" id="1237">
                                         <rect key="frame" x="18" y="143" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Permitir MS MPEG4 en DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="47" inset="2" id="1958">
+                                        <buttonCell key="cell" type="check" title="Permitir MS MPEG4 en DivX" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="47" inset="2" id="1958">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -992,7 +992,7 @@
                                     <button tag="48" imageHugsTitle="YES" id="1238">
                                         <rect key="frame" x="18" y="123" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Forzar cod. DivX" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="48" inset="2" id="1959">
+                                        <buttonCell key="cell" type="check" title="Forzar cod. DivX" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="48" inset="2" id="1959">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1018,7 +1018,7 @@
                 <button tag="54" imageHugsTitle="YES" id="1739">
                     <rect key="frame" x="18" y="102" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Permitir tam. extra (precaución)" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="54" inset="2" id="1968">
+                    <buttonCell key="cell" type="check" title="Permitir tam. extra (precaución)" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="54" inset="2" id="1968">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1057,7 +1057,7 @@
                 <button tag="49" imageHugsTitle="YES" id="1699">
                     <rect key="frame" x="18" y="122" width="201" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Conservar bordes en discos:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="49" inset="2" id="1965">
+                    <buttonCell key="cell" type="check" title="Conservar bordes en discos:" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="49" inset="2" id="1965">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1068,7 +1068,7 @@
                 <button tag="51" imageHugsTitle="YES" id="1683">
                     <rect key="frame" x="18" y="82" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Activar registro LOG" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="51" inset="2" id="1964">
+                    <buttonCell key="cell" type="check" title="Activar registro LOG" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="51" inset="2" id="1964">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1111,7 +1111,7 @@
                 <button tag="52" imageHugsTitle="YES" id="1159">
                     <rect key="frame" x="18" y="61" width="384" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Personalizar ffmpeg" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="52" inset="2" id="1960">
+                    <buttonCell key="cell" type="check" title="Personalizar ffmpeg" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="52" inset="2" id="1960">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -1174,7 +1174,7 @@
                                     <button tag="6" imageHugsTitle="YES" id="1546">
                                         <rect key="frame" x="18" y="35" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Verificar datos" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="6" inset="2" id="1979">
+                                        <buttonCell key="cell" type="check" title="Verificar datos" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="6" inset="2" id="1979">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1188,19 +1188,19 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         <size key="cellSize" width="139" height="18"/>
                                         <size key="intercellSpacing" width="4" height="2"/>
-                                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="1983">
+                                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="1983">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <cells>
                                             <column>
-                                                <buttonCell type="radio" title="Expulsar disco" imagePosition="leading" alignment="left" state="on" inset="2" id="1549">
+                                                <buttonCell type="radio" title="Expulsar disco" imagePosition="left" alignment="left" state="on" inset="2" id="1549">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                             </column>
                                             <column>
-                                                <buttonCell type="radio" title="Montar en Escr." imagePosition="leading" alignment="left" inset="2" id="1548">
+                                                <buttonCell type="radio" title="Montar en Escr." imagePosition="left" alignment="left" inset="2" id="1548">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -1230,7 +1230,7 @@
                                     <button tag="7" imageHugsTitle="YES" id="1551">
                                         <rect key="frame" x="18" y="109" width="338" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="check" title="Espacio extra en medios RW" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="7" inset="2" id="1969">
+                                        <buttonCell key="cell" type="check" title="Espacio extra en medios RW" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="7" inset="2" id="1969">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
