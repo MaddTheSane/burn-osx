@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,20 +22,19 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="136" y="318" width="502" height="241"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="502" height="241"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="7">
-                        <rect key="frame" x="20" y="60" width="462" height="161"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                        <rect key="frame" x="20" y="61" width="462" height="160"/>
                         <clipView key="contentView" id="gKQ-7Z-7tW">
-                            <rect key="frame" x="1" y="0.0" width="460" height="160"/>
+                            <rect key="frame" x="1" y="0.0" width="460" height="159"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="46" id="8">
-                                    <rect key="frame" x="0.0" y="0.0" width="460" height="137"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="460" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -97,9 +96,8 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="14">
-                        <rect key="frame" x="391" y="12" width="97" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                        <rect key="frame" x="401" y="13" width="87" height="32"/>
                         <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="40">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -111,9 +109,8 @@ DQ
                             <action selector="chooseScan:" target="-2" id="32"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" imageHugsTitle="YES" id="16">
-                        <rect key="frame" x="294" y="12" width="97" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="16">
+                        <rect key="frame" x="314" y="13" width="87" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="42">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -125,13 +122,14 @@ Gw
                             <action selector="cancelScan:" target="-2" id="31"/>
                         </connections>
                     </button>
-                    <progressIndicator hidden="YES" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="bar" id="13">
-                        <rect key="frame" x="19" y="33" width="91" height="12"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <progressIndicator hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="13">
+                        <rect key="frame" x="20" y="34" width="91" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="91" id="sj4-PY-0e3"/>
+                        </constraints>
                     </progressIndicator>
-                    <textField hidden="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="15">
-                        <rect key="frame" x="17" y="20" width="305" height="11"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="15">
+                        <rect key="frame" x="18" y="21" width="94" height="11"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Scanning for disks..." id="41">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -139,6 +137,22 @@ Gw
                         </textFieldCell>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="16" firstAttribute="baseline" secondItem="14" secondAttribute="baseline" id="19j-wN-EBD"/>
+                    <constraint firstItem="7" firstAttribute="top" secondItem="6" secondAttribute="top" constant="20" symbolic="YES" id="26b-e4-6QP"/>
+                    <constraint firstAttribute="bottom" secondItem="14" secondAttribute="bottom" constant="20" symbolic="YES" id="3fi-P4-qHZ"/>
+                    <constraint firstItem="14" firstAttribute="leading" secondItem="16" secondAttribute="trailing" constant="12" symbolic="YES" id="9QO-is-qA2"/>
+                    <constraint firstItem="16" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="20" symbolic="YES" id="Ely-bM-B2z"/>
+                    <constraint firstItem="14" firstAttribute="width" secondItem="16" secondAttribute="width" id="KiN-vq-bSH"/>
+                    <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" constant="20" symbolic="YES" id="L84-kg-dHp"/>
+                    <constraint firstItem="13" firstAttribute="leading" secondItem="15" secondAttribute="leading" id="cdX-mC-QUl"/>
+                    <constraint firstItem="16" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="15" secondAttribute="trailing" constant="8" symbolic="YES" id="qm1-6c-Z1j"/>
+                    <constraint firstItem="13" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="qnq-p0-ryR"/>
+                    <constraint firstItem="7" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="20" symbolic="YES" id="rrM-2M-s2G"/>
+                    <constraint firstItem="13" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="15" id="tUm-BT-zgT"/>
+                    <constraint firstItem="15" firstAttribute="top" secondItem="13" secondAttribute="bottom" constant="2" id="wZ9-ro-gt0"/>
+                    <constraint firstItem="7" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" id="zr6-C1-nLq"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="37"/>
