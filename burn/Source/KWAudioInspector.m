@@ -300,7 +300,7 @@
 		return NO;
 	
 	// Check the length.
-	unsigned length = [data length];
+	NSUInteger length = [data length];
 	if (length > 12)
 		return NO;
 	if (length != 12)

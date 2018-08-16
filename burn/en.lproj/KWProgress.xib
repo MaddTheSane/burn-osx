@@ -21,7 +21,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Progress" animationBehavior="default" id="6" userLabel="progressSheet" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="25" y="557" width="482" height="143"/>
+            <rect key="contentRect" x="25" y="557" width="482" height="144"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="7">
                 <rect key="frame" x="0.0" y="0.0" width="482" height="144"/>
@@ -38,7 +38,7 @@
                         </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="32"/>
                     </imageView>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                         <rect key="frame" x="89" y="107" width="376" height="17"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Preparing to encode" id="33">
                             <font key="font" metaFont="system"/>
@@ -46,7 +46,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="11">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11">
                         <rect key="frame" x="89" y="61" width="376" height="14"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Checking file…" id="34">
                             <font key="font" metaFont="smallSystem"/>
