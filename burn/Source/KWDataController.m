@@ -1118,7 +1118,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 - (NSDictionary *)saveDictionaryForObject:(DRFSObject *)object
 {
 	NSMutableDictionary *subDict = [NSMutableDictionary dictionary];
-    NSString *fileSystem = ' ';
+    NSString *fileSystem = @" ";
 	
 	[subDict setObject:[object propertiesForFilesystem:DRHFSPlus mergeWithOtherFilesystems:NO] forKey:@"HFSProperties"];
 	[subDict setObject:[object propertiesForFilesystem:DRISO9660 mergeWithOtherFilesystems:NO] forKey:@"ISOProperties"];
@@ -1178,23 +1178,20 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	if ([KWCommonMethods OSVersion] >= 0x1040)
 		[object setSpecificName:[dict objectForKey:@"UDFSpecificName"] forFilesystem:@"DRUDF"];
 
-	DRFilesystemInclusionMask hfs;
+	DRFilesystemInclusionMask fs = 0;
 	if ([[dict objectForKey:@"HFSEnabled"] boolValue])
-		hfs = DRFilesystemInclusionMaskHFSPlus;
+		fs |= DRFilesystemInclusionMaskHFSPlus;
 	
-	DRFilesystemInclusionMask iso;
 	if ([[dict objectForKey:@"ISOEnabled"] boolValue])
-		iso = DRFilesystemInclusionMaskISO9660;
+		fs |= DRFilesystemInclusionMaskISO9660;
 	
-	DRFilesystemInclusionMask joliet;
 	if ([[dict objectForKey:@"JolietEnabled"] boolValue])
-		joliet = DRFilesystemInclusionMaskJoliet;
+		fs |= DRFilesystemInclusionMaskJoliet;
 	
-	DRFilesystemInclusionMask udf;
 	if ([[dict objectForKey:@"UDFEnabled"] boolValue])
-		udf = 1<<2;
+		fs |= DRFilesystemInclusionMaskUDF;
 	
-	[object setExplicitFilesystemMask:(hfs | iso | joliet | udf)];
+	[object setExplicitFilesystemMask:fs];
 
 	if ([dict objectForKey:@"Folder Icon"])
 		[(KWDRFolder *)object setFolderIcon:[[[NSImage alloc] initWithData:[dict objectForKey:@"Folder Icon"]] autorelease]];
@@ -1532,7 +1529,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
     }
 	else
 	{
-		NSMutableArray *paths;
+		NSMutableArray *paths = [NSMutableArray array];
 		if ([pboard availableTypeFromArray:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]] != nil) 
 		{
 			//Needed for 10.5 and lower (the Finder messes up orders)
@@ -1544,16 +1541,12 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 	
 			NSInteger i;
 			for (i = 0; i < [keys count]; i ++)
-			{
-				NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
+			@autoreleasepool {
 		
 				NSURL *url = [[NSURL alloc] initWithString:[[[[pboard propertyListForType:@"CorePasteboardFlavorType 0x6974756E"] objectForKey:@"Tracks"] objectForKey:[keys objectAtIndex:i]] objectForKey:@"Location"]];
 				[paths addObject:[url path]];
 				[url release];
 				url = nil;
-			
-				[subPool release];
-				subPool = nil;
 			}
 		}
 		
@@ -1563,9 +1556,7 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 		itemsToSelect = [NSMutableArray arrayWithArray:[outlineView allSelectedItems]];
 
 		while ((path = [iter nextObject]) != NULL)
-		{
-			NSAutoreleasePool *subPool = [[NSAutoreleasePool alloc] init];
-		
+		@autoreleasepool {
 			id nodeData = [FSNodeData nodeDataWithPath:path];
 			FSTreeNode*	newNode = [FSTreeNode treeNodeWithData:nodeData];
 		
@@ -1589,9 +1580,6 @@ static NSString*	EDBCurrentSelection							= @"EDBCurrentSelection";
 					[parent addChild:newNode];
 				}
 			}
-		
-			[subPool release];
-			subPool = nil;
 		}
 	}
 

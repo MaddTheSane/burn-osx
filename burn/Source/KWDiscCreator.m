@@ -356,7 +356,7 @@
 	DRFolder *rootFolder = [[[DRFolder alloc] initWithName:discName] autorelease];
 	[rootFolder setExplicitFilesystemMask:0];
 
-	if ([[burner types] containsObject:[NSNumber numberWithInteger:1]])
+	if ([[burner types] containsObject:@1])
 	{
 		id audioTracks = [audioControllerOutlet myTrackWithBurner:burner errorString:&errorString];
 		

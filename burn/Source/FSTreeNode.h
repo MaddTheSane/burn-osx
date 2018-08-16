@@ -72,12 +72,15 @@
 @end
 
 @interface FSFileNodeData : FSNodeData
+- (instancetype) initWithPath:(NSString*)path;
 @end
 
 @interface FSFolderNodeData : FSNodeData
 {
 	NSMutableArray *calculationFolders;
 }
+- (instancetype) initWithPath:(NSString*)path;
+- (instancetype) initWithName:(NSString*)name;
 @end
 
 @interface FSTreeNode : TreeNode
