@@ -77,7 +77,7 @@
 	}
 	else
 	{
-		[iconView setImage:[NSImage imageNamed:@"Multiple"]];
+		[iconView setImage:[NSImage imageNamed:NSImageNameMultipleDocuments]];
 		[nameField setStringValue:@"Multiple Selection"];
 		[timeField setStringValue:[NSString stringWithFormat:NSLocalizedString(@"%ld files", nil),[currentObjects count]]];
 	}

@@ -56,7 +56,7 @@
 	}
 	else
 	{
-		[iconView setImage:[NSImage imageNamed:@"Multiple"]];
+		[iconView setImage:[NSImage imageNamed:NSImageNameMultipleDocuments]];
 		[nameField setStringValue:@"Multiple Selection"];
 		[sizeField setStringValue:[NSString localizedStringWithFormat:@"%ld files", [currentObjects count]]];
 	}
